@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
-import cover from '../assets/cover.jpeg';
+import { useState } from 'react';
+import CoverBg from "../assets/cover.jpeg"
 
 const ReservationSection = ({ currentLang }) => {
   const [selectedDept, setSelectedDept] = useState('');
   const [selectedClinic, setSelectedClinic] = useState('');
 
-  // النصوص حسب اللغة
   const t = {
     en: {
       title: "Book Your Appointment",
       subtitle: "Choose the appropriate department and clinic",
+      tagline: "Elite doctors and advanced medical services at your service 24/7",
       deptLabel: "Medical Department",
       clinicLabel: "Specialized Clinic",
       selectDept: "Select Department",
@@ -24,6 +24,7 @@ const ReservationSection = ({ currentLang }) => {
     ar: {
       title: "احجز موعدك",
       subtitle: "اختر القسم والعيادة المناسبة",
+      tagline: "نخبة من الأطباء وخدمات طبية متطورة لخدمتك على مدار الساعة",
       deptLabel: "القسم الطبي",
       clinicLabel: "العيادة المتخصصة",
       selectDept: "اختر القسم",
@@ -162,7 +163,7 @@ const ReservationSection = ({ currentLang }) => {
     }
   ];
 
-  const selectedDepartment = departments.find(dept => 
+  const selectedDepartment = departments.find(dept =>
     (lang === 'ar' ? dept.nameAr : dept.nameEn) === selectedDept
   );
 
@@ -184,219 +185,175 @@ const ReservationSection = ({ currentLang }) => {
   };
 
   return (
-    <div className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden py-20">
+    <div className="relative min-h-screen flex items-center justify-center overflow-hidden py-20">
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${cover})`, backgroundAttachment: 'fixed' }}
+        style={{
+          backgroundImage: `url(${CoverBg})`,
+          backgroundAttachment: 'fixed'
+        }}
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-slate-900/80 via-slate-800/75 to-slate-900/80" />
+      <div className="absolute inset-0 bg-gradient-to-b from-slate-900/50 via-slate-800/40 to-slate-900/50" />
 
-      <div className="relative z-10 w-full max-w-md mx-auto px-4">
-        <div className="bg-white rounded-2xl shadow-2xl p-7 border border-gray-100">
-          <div className="text-center mb-6">
-            <h2 className="text-2xl font-bold text-gray-800">{texts.title}</h2>
-            <p className="text-gray-500 mt-1.5 text-sm">{texts.subtitle}</p>
-          </div>
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4">
+        <div className="text-center mb-12">
+          <p className="text-white text-xl md:text-2xl font-medium">
+            {texts.tagline}
+          </p>
+        </div>
 
-          <div className="space-y-4">
-            <div>
-              <label 
-                className="block text-sm font-medium text-gray-700 mb-1.5"
-                style={{ textAlign: lang === 'ar' ? 'right' : 'left' }}
-              >
-                {texts.deptLabel}
-              </label>
-              <select
-                value={selectedDept}
-                onChange={handleDeptChange}
-                className={`w-full px-4 py-3 text-sm border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white transition-all hover:border-gray-300 ${
-                  lang === 'ar' ? 'text-right' : 'text-left'
-                }`}
-              >
-                <option value="">{texts.selectDept}</option>
-                {departments.map((dept) => (
-                  <option 
-                    key={dept.id} 
-                    value={lang === 'ar' ? dept.nameAr : dept.nameEn}
+        <div className="flex flex-col-reverse md:flex-row items-center justify-between gap-12">
+          <div className="w-full md:w-[420px] md:order-1">
+            <div className="bg-white rounded-2xl shadow-2xl p-7 border border-gray-100">
+              <div className="text-center mb-6">
+                <h2 className="text-2xl font-bold text-gray-800">{texts.title}</h2>
+                <p className="text-gray-500 mt-1.5 text-sm">{texts.subtitle}</p>
+              </div>
+
+              <div className="space-y-4">
+                <div>
+                  <label
+                    className="block text-sm font-medium text-gray-700 mb-1.5"
+                    style={{ textAlign: lang === 'ar' ? 'right' : 'left' }}
                   >
-                    {lang === 'ar' ? dept.nameAr : dept.nameEn}
-                  </option>
-                ))}
-              </select>
-            </div>
+                    {texts.deptLabel}
+                  </label>
+                  <select
+                    value={selectedDept}
+                    onChange={handleDeptChange}
+                    className={`w-full px-4 py-3 text-sm border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white transition-all hover:border-gray-300 ${
+                      lang === 'ar' ? 'text-right' : 'text-left'
+                    }`}
+                  >
+                    <option value="">{texts.selectDept}</option>
+                    {departments.map((dept) => (
+                      <option
+                        key={dept.id}
+                        value={lang === 'ar' ? dept.nameAr : dept.nameEn}
+                      >
+                        {lang === 'ar' ? dept.nameAr : dept.nameEn}
+                      </option>
+                    ))}
+                  </select>
+                </div>
 
-            {selectedDepartment && (
-              <div className="animate-fadeIn">
-                <label 
-                  className="block text-sm font-medium text-gray-700 mb-1.5"
-                  style={{ textAlign: lang === 'ar' ? 'right' : 'left' }}
-                >
-                  {texts.clinicLabel}
-                </label>
-                <select
-                  value={selectedClinic}
-                  onChange={handleClinicChange}
-                  className={`w-full px-4 py-3 text-sm border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white transition-all hover:border-gray-300 ${
-                    lang === 'ar' ? 'text-right' : 'text-left'
+                {selectedDepartment && (
+                  <div className="animate-fadeIn">
+                    <label
+                      className="block text-sm font-medium text-gray-700 mb-1.5"
+                      style={{ textAlign: lang === 'ar' ? 'right' : 'left' }}
+                    >
+                      {texts.clinicLabel}
+                    </label>
+                    <select
+                      value={selectedClinic}
+                      onChange={handleClinicChange}
+                      className={`w-full px-4 py-3 text-sm border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white transition-all hover:border-gray-300 ${
+                        lang === 'ar' ? 'text-right' : 'text-left'
+                      }`}
+                    >
+                      <option value="">{texts.selectClinic}</option>
+                      {selectedDepartment[`clinics${lang === 'ar' ? 'Ar' : 'En'}`].map((clinic, index) => (
+                        <option key={index} value={clinic}>
+                          {clinic}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                )}
+
+                <button
+                  onClick={handleBooking}
+                  disabled={!selectedClinic}
+                  className={`w-full py-3.5 rounded-xl text-base font-semibold transition-all duration-300 mt-2 ${
+                    selectedClinic
+                      ? 'bg-blue-600 hover:bg-blue-700 text-white shadow-lg hover:shadow-xl active:scale-[0.98]'
+                      : 'bg-gray-100 text-gray-400 cursor-not-allowed'
                   }`}
                 >
-                  <option value="">{texts.selectClinic}</option>
-                  {selectedDepartment[`clinics${lang === 'ar' ? 'Ar' : 'En'}`].map((clinic, index) => (
-                    <option key={index} value={clinic}>
-                      {clinic}
-                    </option>
-                  ))}
-                </select>
+                  {texts.bookNow}
+                </button>
               </div>
-            )}
-
-            <button
-              onClick={handleBooking}
-              disabled={!selectedClinic}
-              className={`w-full py-3.5 rounded-xl text-base font-semibold transition-all duration-300 mt-2 ${
-                selectedClinic
-                  ? 'bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white shadow-lg hover:shadow-xl active:scale-[0.98]'
-                  : 'bg-gray-100 text-gray-400 cursor-not-allowed'
-              }`}
-            >
-              {texts.bookNow}
-            </button>
+            </div>
           </div>
-        </div>
-      </div>
 
-{/* الجزء الزخرفي (الدائرة والصور) */}
-<div className="relative z-10 w-full max-w-lg mx-auto mt-20 px-4">
-  <div className="relative w-80 h-80 mx-auto">
-    <svg className="w-full h-full" viewBox="0 0 320 320" fill="none">
+          {/* الجزء الخاص بالدائرة والصور - استبدله بالكود ده */}
+<div className="w-full md:w-auto md:order-2 flex justify-center">
+  <div className="relative w-[300px] h-[300px] sm:w-[340px] sm:h-[340px] md:w-[480px] md:h-[480px] lg:w-[520px] lg:h-[520px] mx-auto">
+    <svg 
+      className="w-full h-full" 
+      viewBox="0 0 500 500" 
+      fill="none"
+      preserveAspectRatio="xMidYMid meet"
+    >
       <defs>
         <path
           id="circlePath"
-          d="M 160, 160 m -120, 0 a 120,120 0 1,1 240,0 a 120,120 0 1,1 -240,0"
+          d="M 250, 250 m -180, 0 a 180,180 0 1,1 360,0 a 180,180 0 1,1 -360,0"
           fill="none"
           stroke="#e2e8f0"
-          strokeWidth="5"
-          opacity="0.75"
+          strokeWidth="4"
+          opacity="0.6"
         />
       </defs>
-      
-      {/* المسار الدائري */}
+
       <use href="#circlePath" />
 
-      {/* أيقونة الأسعاف المتحركة - مرفوعة لفوق مع العجلات على الخط */}
-      <g>
+      {/* الدائرة الحمراء المتحركة */}
+      <g className="red-pulse">
         <animateMotion
-          dur="10s" 
+          dur="25s"
           repeatCount="indefinite"
           rotate="auto"
         >
           <mpath href="#circlePath" />
         </animateMotion>
+        <circle cx="0" cy="0" r="28" fill="#ef4444" opacity="0.95" />
+        <circle cx="0" cy="0" r="18" fill="#dc2626" opacity="0.9" />
+        <circle cx="0" cy="0" r="10" fill="#ffffff" opacity="0.3" />
+      </g>
 
-        {/* SVG Ambulance - محسن ومرفوع */}
-        <g transform="translate(-21 -26) scale(0.98)">
-          {/* جسم الأسعاف - أبيض */}
-          <rect 
-            x="10" y="14" 
-            width="48" height="29" 
-            rx="6" 
-            fill="#f8fafc" 
-            stroke="#1e2937" 
-            strokeWidth="3"
-          />
-          
-          {/* شريط أحمر علوي */}
-          <rect 
-            x="10" y="15" 
-            width="48" height="7" 
-            rx="3" 
-            fill="#ef4444" 
-          />
-          
-          {/* نافذة السائق */}
-          <rect 
-            x="15" y="19" 
-            width="13" height="12" 
-            rx="1.5" 
-            fill="#bae6fd" 
-            stroke="#1e2937" 
-            strokeWidth="2"
-          />
-          
-          {/* علامة الصليب الأحمر */}
-          <rect 
-            x="32" y="20" 
-            width="11" height="18" 
-            rx="1" 
-            fill="#ffffff" 
-            stroke="#1e2937" 
-            strokeWidth="1.5"
-          />
-          <rect 
-            x="34.5" y="23.5" 
-            width="6" height="12" 
-            fill="#ef4444" 
-          />
-          <rect 
-            x="32" y="28.5" 
-            width="11" height="2" 
-            fill="#ef4444" 
-          />
+      {/* الصور الثلاثة */}
+      <g className="image-float">
+        <foreignObject x="185" y="12" width="125" height="125">
+          <div className="w-full h-full rounded-full overflow-hidden border-4 border-white shadow-2xl bg-white">
+            <img
+              src="https://images.pexels.com/photos/4173239/pexels-photo-4173239.jpeg?auto=compress&cs=tinysrgb&w=600"
+              alt="Doctor"
+              className="w-full h-full object-cover"
+            />
+          </div>
+        </foreignObject>
+      </g>
 
-          {/* العجلات - مرفوعة بحيث تكون على الخط */}
-          <circle 
-            cx="20" cy="42" 
-            r="7" 
-            fill="#1e2937" 
-          />
-          <circle 
-            cx="20" cy="42" 
-            r="3.5" 
-            fill="#f1f5f9" 
-          />
-          
-          <circle 
-            cx="48" cy="42" 
-            r="7" 
-            fill="#1e2937" 
-          />
-          <circle 
-            cx="48" cy="42" 
-            r="3.5" 
-            fill="#f1f5f9" 
-          />
+      <g className="image-float" style={{ animationDelay: '0.5s' }}>
+        <foreignObject x="345" y="245" width="125" height="125">
+          <div className="w-full h-full rounded-full overflow-hidden border-4 border-white shadow-2xl bg-white">
+            <img
+              src="https://images.pexels.com/photos/7089401/pexels-photo-7089401.jpeg?auto=compress&cs=tinysrgb&w=600"
+              alt="Medical Facility"
+              className="w-full h-full object-cover"
+            />
+          </div>
+        </foreignObject>
+      </g>
 
-          {/* ضوء أزرق صغير */}
-          <rect 
-            x="38" y="11" 
-            width="7" height="4" 
-            rx="1" 
-            fill="#3b82f6" 
-          />
-        </g>
+      <g className="image-float" style={{ animationDelay: '1s' }}>
+        <foreignObject x="35" y="245" width="125" height="125">
+          <div className="w-full h-full rounded-full overflow-hidden border-4 border-white shadow-2xl bg-white">
+            <img
+              src="https://images.pexels.com/photos/7659564/pexels-photo-7659564.jpeg?auto=compress&cs=tinysrgb&w=600"
+              alt="Patient Care"
+              className="w-full h-full object-cover"
+            />
+          </div>
+        </foreignObject>
       </g>
     </svg>
-
-    {/* الصور الثابتة (الثلاث دواير) */}
-    <div className="absolute top-[50px] left-1/2 -translate-x-1/2 -translate-y-12">
-      <div className="w-24 h-24 rounded-full overflow-hidden border-4 border-white shadow-2xl bg-white transform hover:scale-105 transition-transform">
-        <img src="https://images.pexels.com/photos/4225880/pexels-photo-4225880.jpeg?auto=compress&cs=tinysrgb&w=200" alt="Surgery" className="w-full h-full object-cover" />
-      </div>
-    </div>
-
-    <div className="absolute bottom-[60px] right-4 translate-y-10">
-      <div className="w-24 h-24 rounded-full overflow-hidden border-4 border-white shadow-2xl bg-white transform hover:scale-105 transition-transform">
-        <img src="https://images.pexels.com/photos/6812524/pexels-photo-6812524.jpeg?auto=compress&cs=tinysrgb&w=200" alt="Endoscopy" className="w-full h-full object-cover" />
-      </div>
-    </div>
-
-    <div className="absolute bottom-[60px] left-4 translate-y-10">
-      <div className="w-24 h-24 rounded-full overflow-hidden border-4 border-white shadow-2xl bg-white transform hover:scale-105 transition-transform">
-        <img src={cover} alt="Ambulance" className="w-full h-full object-cover" />
-      </div>
-    </div>
   </div>
 </div>
+        </div>
+      </div>
 
       <style>{`
         @keyframes fadeIn {
@@ -405,6 +362,28 @@ const ReservationSection = ({ currentLang }) => {
         }
         .animate-fadeIn {
           animation: fadeIn 0.3s ease-out;
+        }
+        @keyframes float {
+          0%, 100% {
+            transform: translateY(0px);
+          }
+          50% {
+            transform: translateY(-8px);
+          }
+        }
+        .image-float {
+          animation: float 3s ease-in-out infinite;
+        }
+        @keyframes pulse-red {
+          0%, 100% {
+            transform: scale(1);
+          }
+          50% {
+            transform: scale(1.1);
+          }
+        }
+        .red-pulse circle:first-child {
+          animation: pulse-red 2s ease-in-out infinite;
         }
       `}</style>
     </div>

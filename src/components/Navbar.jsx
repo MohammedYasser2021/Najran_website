@@ -14,16 +14,16 @@ const Navbar = ({ currentLang, changeLanguage }) => {
 
   const shareUrl = window.location.href;
   const shareText = currentLang === 'ar' 
-    ? "رعاية بآفاق متجددة - اكتشف معنا" 
-    : "Care with Renewed Horizons - Discover with us";
+    ? "رعاية طبية متكاملة بمعايير عالمية في نجران - اكتشف معنا" 
+    : "Comprehensive Medical Care with Global Standards in Najran - Discover with us";
 
   const tagline = currentLang === 'ar' 
-    ? 'رعاية بآفاق متجددة' 
-    : 'Care with Renewed Horizons';
+    ? 'رعاية طبية متكاملة بمعايير عالمية في نجران' 
+    : 'Comprehensive Medical Care with Global Standards in Najran';
 
   return (
     <>
-      <nav className="bg-white shadow-lg border-b border-gray-100 py-4 md:py-5 font-['Cairo']">
+      <nav className="bg-white shadow-lg border-b border-gray-100 py-4 md:py-6 font-['Cairo']">
         <div className="max-w-7xl mx-auto px-4 md:px-6">
 
           {/* Desktop & Tablet */}
@@ -32,12 +32,12 @@ const Navbar = ({ currentLang, changeLanguage }) => {
               <img 
                 src={logo} 
                 alt="Logo" 
-                className="h-20 w-auto object-contain" 
+                className="h-24 w-auto object-contain drop-shadow-md" 
               />
             </div>
 
             <div className="flex-1 text-center px-8">
-              <p className="text-2xl font-bold tracking-wide" style={{ color: '#2c4c9a' }}>
+              <p className="text-2xl font-bold tracking-wide text-[#be5b5d]">
                 {tagline}
               </p>
             </div>
@@ -45,30 +45,30 @@ const Navbar = ({ currentLang, changeLanguage }) => {
             <div className="flex items-center gap-8">
               {/* تواصل */}
               <a href="/contact" className="flex flex-col items-center group">
-                <div className="w-12 h-12 flex items-center justify-center rounded-full bg-[#1389bf] group-hover:bg-[#0f6a96] transition-all duration-300">
+                <div className="w-12 h-12 flex items-center justify-center rounded-full bg-[#1e9dd4] group-hover:bg-[#1786b5] transition-all duration-300 shadow-md">
                   <FaPhoneAlt className="text-2xl text-white" />
                 </div>
-                <span className="text-xs font-semibold mt-2 text-gray-700">
+                <span className="text-sm font-bold mt-2 text-[#1e9dd4]">
                   {currentLang === 'ar' ? 'تواصل' : 'Contact'}
                 </span>
               </a>
 
               {/* شارك */}
               <button onClick={toggleShare} className="flex flex-col items-center group">
-                <div className="w-12 h-12 flex items-center justify-center rounded-full bg-[#1389bf] group-hover:bg-[#0f6a96] transition-all duration-300">
+                <div className="w-12 h-12 flex items-center justify-center rounded-full bg-[#1e9dd4] group-hover:bg-[#1786b5] transition-all duration-300 shadow-md">
                   <FaShareAlt className="text-2xl text-white" />
                 </div>
-                <span className="text-xs font-semibold mt-2 text-gray-700">
+                <span className="text-sm font-bold mt-2 text-[#1e9dd4]">
                   {currentLang === 'ar' ? 'شارك' : 'Share'}
                 </span>
               </button>
 
               {/* اللغة */}
               <button onClick={toggleLang} className="flex flex-col items-center group">
-                <div className="w-12 h-12 flex items-center justify-center rounded-full bg-[#1389bf] group-hover:bg-[#0f6a96] transition-all duration-300">
+                <div className="w-12 h-12 flex items-center justify-center rounded-full bg-[#1e9dd4] group-hover:bg-[#1786b5] transition-all duration-300 shadow-md">
                   <FaGlobe className="text-2xl text-white" />
                 </div>
-                <span className="text-xs font-semibold mt-2 text-gray-700">
+                <span className="text-sm font-bold mt-2 text-[#1e9dd4]">
                   {currentLang === 'ar' ? 'English' : 'عربي'}
                 </span>
               </button>
@@ -76,13 +76,13 @@ const Navbar = ({ currentLang, changeLanguage }) => {
           </div>
 
           {/* Mobile Version */}
-          <div className="md:hidden flex flex-col items-center py-2">
+          <div className="md:hidden flex flex-col items-center py-3">
             <img 
               src={logo} 
               alt="Logo" 
-              className="h-14 w-auto object-contain mb-2" 
+              className="h-20 w-auto object-contain mb-3 drop-shadow-md" 
             />
-            <p className="text-xl font-bold tracking-wide text-center" style={{ color: '#2c4c9a' }}>
+            <p className="text-2xl font-bold tracking-wide text-center text-[#be5b5d] px-4">
               {tagline}
             </p>
           </div>
@@ -111,8 +111,8 @@ const Navbar = ({ currentLang, changeLanguage }) => {
 
             <p className="text-gray-600 text-center mb-8 text-sm leading-relaxed">
               {currentLang === 'ar' 
-                ? 'شارك تجربة الرعاية الصحية المتميزة مع أحبابك' 
-                : 'Share the outstanding healthcare experience with your loved ones'}
+                ? 'شارك تجربة الرعاية الطبية المتميزة مع أحبابك' 
+                : 'Share the outstanding medical care experience with your loved ones'}
             </p>
 
             <div className="grid grid-cols-3 gap-8">
@@ -152,7 +152,7 @@ const Navbar = ({ currentLang, changeLanguage }) => {
             onClick={e => e.stopPropagation()}
           >
             <div className="text-center">
-              <FaGlobe className="text-5xl text-[#1389bf] mx-auto mb-4" />
+              <FaGlobe className="text-5xl text-[#1e9dd4] mx-auto mb-4" />
               <h3 className="text-xl font-semibold text-gray-800 mb-1">
                 {currentLang === 'ar' ? 'تغيير لغة الموقع' : 'Change Site Language'}
               </h3>
@@ -164,13 +164,13 @@ const Navbar = ({ currentLang, changeLanguage }) => {
             <div className="space-y-3">
               <button 
                 onClick={() => changeLanguage('ar')}
-                className={`w-full py-4 rounded-2xl font-medium text-base transition-all ${currentLang === 'ar' ? 'bg-[#1389bf] text-white' : 'border-2 border-[#1389bf] text-[#1389bf] hover:bg-[#1389bf] hover:text-white'}`}
+                className={`w-full py-4 rounded-2xl font-medium text-base transition-all ${currentLang === 'ar' ? 'bg-[#1e9dd4] text-white' : 'border-2 border-[#1e9dd4] text-[#1e9dd4] hover:bg-[#1e9dd4] hover:text-white'}`}
               >
                 العربية
               </button>
               <button 
                 onClick={() => changeLanguage('en')}
-                className={`w-full py-4 rounded-2xl font-medium text-base transition-all ${currentLang === 'en' ? 'bg-[#1389bf] text-white' : 'border-2 border-[#1389bf] text-[#1389bf] hover:bg-[#1389bf] hover:text-white'}`}
+                className={`w-full py-4 rounded-2xl font-medium text-base transition-all ${currentLang === 'en' ? 'bg-[#1e9dd4] text-white' : 'border-2 border-[#1e9dd4] text-[#1e9dd4] hover:bg-[#1e9dd4] hover:text-white'}`}
               >
                 English
               </button>

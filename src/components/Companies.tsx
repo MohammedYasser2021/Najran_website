@@ -29,7 +29,6 @@ interface CompaniesProps {
 }
 
 const images = [Img1, Img2, Img3, Img4, Img5, Img6, Img7, Img8, Img9, Img10, Img11, Img13];
-const VISIBLE = 3;
 const INTERVAL = 3000;
 
 const Companies: React.FC<CompaniesProps> = ({ currentLang }) => {
@@ -37,31 +36,45 @@ const Companies: React.FC<CompaniesProps> = ({ currentLang }) => {
   const title    = isAr ? 'شركات التأمين' : 'Insurance Companies';
   const subtitle = isAr ? 'شركاؤنا المعتمدون في التأمين الطبي' : 'Our Approved Medical Insurance Partners';
 
+  // responsive visible count
+  const getVisible = () => {
+    if (typeof window === 'undefined') return 3;
+    if (window.innerWidth < 480) return 1;
+    if (window.innerWidth < 768) return 2;
+    return 3;
+  };
+
+  const [visible, setVisible] = useState(getVisible);
   const [startIndex, setStartIndex] = useState(0);
   const [animState, setAnimState] = useState<'visible' | 'exit' | 'enter'>('visible');
 
+  // update on resize
+  useEffect(() => {
+    const onResize = () => setVisible(getVisible());
+    window.addEventListener('resize', onResize);
+    return () => window.removeEventListener('resize', onResize);
+  }, []);
+
+  // auto advance
   useEffect(() => {
     const timer = setInterval(() => {
-      // 1. fade + slide out
       setAnimState('exit');
       setTimeout(() => {
-        // 2. advance index
-        setStartIndex(prev => (prev + VISIBLE) % images.length);
+        setStartIndex(prev => (prev + visible) % images.length);
         setAnimState('enter');
-        // 3. fade + slide in
         setTimeout(() => setAnimState('visible'), 50);
       }, 400);
     }, INTERVAL);
     return () => clearInterval(timer);
-  }, []);
+  }, [visible]);
 
-  const visible = Array.from({ length: VISIBLE }, (_, i) => images[(startIndex + i) % images.length]);
+  const shownImages = Array.from({ length: visible }, (_, i) => images[(startIndex + i) % images.length]);
 
   const cardStyle = (i: number): React.CSSProperties => {
     const base: React.CSSProperties = {
       flex: '1',
       minWidth: 0,
-      height: '160px',
+      height: '180px',
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
@@ -75,15 +88,13 @@ const Companies: React.FC<CompaniesProps> = ({ currentLang }) => {
       transition: 'opacity 0.45s ease, transform 0.45s ease',
       transitionDelay: `${i * 80}ms`,
     };
-
-    if (animState === 'exit') {
-      return { ...base, opacity: 0, transform: 'translateY(-20px) scale(0.96)' };
-    }
-    if (animState === 'enter') {
-      return { ...base, opacity: 0, transform: 'translateY(20px) scale(0.96)' };
-    }
+    if (animState === 'exit') return { ...base, opacity: 0, transform: 'translateY(-20px) scale(0.96)' };
+    if (animState === 'enter') return { ...base, opacity: 0, transform: 'translateY(20px) scale(0.96)' };
     return { ...base, opacity: 1, transform: 'translateY(0) scale(1)' };
   };
+
+  const totalGroups = Math.ceil(images.length / visible);
+  const activeGroup = Math.floor(startIndex / visible);
 
   return (
     <section
@@ -108,11 +119,7 @@ const Companies: React.FC<CompaniesProps> = ({ currentLang }) => {
           }}>
             {title}
           </h2>
-          <p style={{
-            fontSize: '15px',
-            color: '#6b7280',
-            margin: '0 0 16px',
-          }}>
+          <p style={{ fontSize: '15px', color: '#6b7280', margin: '0 0 16px' }}>
             {subtitle}
           </p>
 
@@ -152,23 +159,19 @@ const Companies: React.FC<CompaniesProps> = ({ currentLang }) => {
         {/* Cards */}
         <div style={{
           display: 'flex',
-          gap: '32px',
+          gap: '24px',
           alignItems: 'stretch',
           justifyContent: 'center',
           maxWidth: '900px',
           margin: '0 auto',
         }}>
-          {visible.map((src, i) => (
+          {shownImages.map((src, i) => (
             <div key={`${startIndex}-${i}`} style={cardStyle(i)}>
               <img
                 src={src}
                 alt={`insurance-${i}`}
                 draggable={false}
-                style={{
-                  maxWidth: '100%',
-                  maxHeight: '90px',
-                  objectFit: 'contain',
-                }}
+                style={{ maxWidth: '100%', maxHeight: '90px', objectFit: 'contain' }}
               />
               <div style={{
                 width: '32px',
@@ -188,19 +191,16 @@ const Companies: React.FC<CompaniesProps> = ({ currentLang }) => {
           gap: '10px',
           marginTop: '36px',
         }}>
-          {Array.from({ length: Math.ceil(images.length / VISIBLE) }).map((_, i) => {
-            const active = Math.floor(startIndex / VISIBLE) === i;
-            return (
-              <div key={i} style={{
-                width: active ? '32px' : '10px',
-                height: '10px',
-                borderRadius: '5px',
-                background: active ? '#1787b6' : 'rgba(23,135,182,0.2)',
-                boxShadow: active ? '0 0 8px rgba(23,135,182,0.5)' : 'none',
-                transition: 'all 0.4s ease',
-              }} />
-            );
-          })}
+          {Array.from({ length: totalGroups }).map((_, i) => (
+            <div key={i} style={{
+              width: activeGroup === i ? '32px' : '10px',
+              height: '10px',
+              borderRadius: '5px',
+              background: activeGroup === i ? '#1787b6' : 'rgba(23,135,182,0.2)',
+              boxShadow: activeGroup === i ? '0 0 8px rgba(23,135,182,0.5)' : 'none',
+              transition: 'all 0.4s ease',
+            }} />
+          ))}
         </div>
 
       </div>

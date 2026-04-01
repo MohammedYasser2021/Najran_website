@@ -262,7 +262,7 @@ const MainNavbar = ({ currentLang, changeLanguage }: MainNavbarProps) => {
             </a>
             <a href="#" className={`flex items-center gap-3 text-gray-300 hover:text-white transition-colors ${isArabic ? 'flex-row-reverse text-right' : ''}`}>
               <MapPin size={18} className="text-[#1389bf] flex-shrink-0" />
-              <span className="text-sm">{isArabic ? 'القاهرة، مصر' : 'Cairo, Egypt'}</span>
+              <span className="text-sm">{isArabic ? 'نجران ،السعودية' : 'Najran, KSA'}</span>
             </a>
             <a href="tel:920002159" className={`flex items-center gap-3 text-gray-300 hover:text-white transition-colors ${isArabic ? 'flex-row-reverse text-right' : ''}`}>
               <Smartphone size={18} className="text-[#1389bf] flex-shrink-0" />

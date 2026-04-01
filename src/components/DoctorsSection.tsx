@@ -81,6 +81,10 @@ import img36 from '../assets/doctors/36.jpg';
 import img37 from '../assets/doctors/37.jpg';
 // @ts-ignore
 import img38 from '../assets/doctors/38.jpg';
+// @ts-ignore
+import img39 from '../assets/doctors/39.jpeg';
+// @ts-ignore
+import img40 from '../assets/doctors/40.jpeg';
 
 const doctorImages = [
   { id: 1, src: img1 },
@@ -121,6 +125,8 @@ const doctorImages = [
   { id: 36, src: img36 },
   { id: 37, src: img37 },
   { id: 38, src: img38 },
+  { id: 39, src: img39 },
+  { id: 40, src: img40 },
 ];
 
 const content = {

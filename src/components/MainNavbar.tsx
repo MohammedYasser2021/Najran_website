@@ -19,7 +19,6 @@ const MainNavbar = ({ currentLang, changeLanguage }: MainNavbarProps) => {
 
   const isArabic = currentLang === 'ar';
 
-  /* ── Hover + Click handlers ── */
   const handleDeptEnter = () => {
     if (hideTimer.current) clearTimeout(hideTimer.current);
     setDeptMenuOpen(true);
@@ -31,7 +30,6 @@ const MainNavbar = ({ currentLang, changeLanguage }: MainNavbarProps) => {
 
   const handleDeptClick = () => setDeptMenuOpen(prev => !prev);
 
-  /* Close on outside click */
   useEffect(() => {
     const handleOutside = (e: MouseEvent) => {
       if (deptRef.current && !deptRef.current.contains(e.target as Node)) {
@@ -51,8 +49,6 @@ const MainNavbar = ({ currentLang, changeLanguage }: MainNavbarProps) => {
     { key: 'depts',    label: isArabic ? 'الأقسام'                 : 'Departments',     href: null, hasDeptDropdown: true },
     { key: 'doctors',  label: isArabic ? 'الأطباء'                 : 'Doctors',         href: '/doctors' },
     { key: 'blog',     label: isArabic ? 'المدونة والأخبار'         : 'Blog & News',     href: '/news' },
-    { key: 'training', label: isArabic ? 'التدريب والتعليم المهني'  : 'Training',        href: '/training' },
-    { key: 'rights',   label: isArabic ? 'حقوق المرضى'             : 'Patient Rights',  href: '/patient-rights' },
     { key: 'articles', label: isArabic ? 'المقالات'                : 'Articles',        href: '/articles' },
     { key: 'contact',  label: isArabic ? 'اتصل بنا'                : 'Contact Us',      href: '/contact' },
   ];
@@ -113,144 +109,113 @@ const MainNavbar = ({ currentLang, changeLanguage }: MainNavbarProps) => {
                           />
                         </button>
 
-                        {/* ── Beautiful Scrollable Dropdown ── */}
-                        {deptMenuOpen && (
-                          <div
-                            style={{
-                              position: 'absolute',
-                              top: 'calc(100% + 4px)',
-                              [isArabic ? 'right' : 'left']: '0',
-                              width: '340px',
-                              background: '#fff',
-                              borderRadius: '18px',
-                              boxShadow: '0 20px 60px rgba(23,135,182,0.18), 0 4px 16px rgba(0,0,0,0.08)',
-                              border: '1px solid #e3eff7',
-                              zIndex: 50,
-                              overflow: 'hidden',
-                            }}
-                          >
-                            {/* Header */}
-                            <div style={{
-                              background: 'linear-gradient(135deg, #0d2137 0%, #1787b6 100%)',
-                              padding: '14px 18px',
-                              display: 'flex',
-                              alignItems: 'center',
-                              gap: '10px',
-                            }}>
-                              <div style={{
-                                width: '30px', height: '30px', borderRadius: '8px',
-                                background: 'rgba(255,255,255,0.15)',
-                                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                                flexShrink: 0,
-                              }}>
-                                <Grid size={15} color="#fff" />
-                              </div>
-                              <span style={{ fontWeight: '800', fontSize: '13px', color: '#fff', flex: 1 }}>
-                                {isArabic ? 'الأقسام الطبية' : 'Medical Departments'}
-                              </span>
-                              <span style={{
-                                background: 'rgba(255,255,255,0.2)',
-                                color: '#fff',
-                                fontSize: '11px', fontWeight: '700',
-                                padding: '2px 9px', borderRadius: '50px',
-                              }}>
-                                {departments.length}
-                              </span>
-                            </div>
+                        {/* ── Dropdown ── */}
+{/* ── Dropdown ── */}
+{deptMenuOpen && (
+  <div
+    style={{
+      position: 'absolute',
+      top: 'calc(100% + 8px)',
+      // تعديل خاص بالعربي: يمين أكثر
+      [isArabic ? 'right' : 'left']: isArabic ? '-60px' : '0',   
+      width: '320px',
+      background: '#fff',
+      borderRadius: '16px',
+      boxShadow: '0 12px 40px rgba(38,157,204,0.15), 0 2px 12px rgba(0,0,0,0.06)',
+      border: '1px solid #d6edf7',
+      zIndex: 50,
+      overflow: 'hidden',
+      animation: 'dropFade 0.18s ease',
+    }}
+  >
+    {/* Header */}
+    <div style={{
+      background: '#269dcc',
+      padding: '12px 16px',
+      display: 'flex',
+      alignItems: 'center',
+      gap: '10px',
+    }}>
+      <div style={{
+        width: '28px', height: '28px', borderRadius: '8px',
+        background: 'rgba(255,255,255,0.18)',
+        display: 'flex', alignItems: 'center', justifyContent: 'center',
+        flexShrink: 0,
+      }}>
+        <Grid size={14} color="#fff" />
+      </div>
+      <span style={{ fontWeight: '700', fontSize: '13px', color: '#fff', flex: 1 }}>
+        {isArabic ? 'الأقسام الطبية و المراكز' : 'Medical Departments'}
+      </span>
+      <span style={{
+        background: 'rgba(255,255,255,0.22)',
+        color: '#fff',
+        fontSize: '11px', fontWeight: '700',
+        padding: '2px 9px', borderRadius: '50px',
+      }}>
+        {departments.length}
+      </span>
+    </div>
 
-                            {/* Scrollable list — shows ~10 items, scroll for the rest */}
-                            <div style={{
-                              maxHeight: '360px',
-                              overflowY: 'auto',
-                              padding: '8px',
-                              scrollbarWidth: 'thin',
-                              scrollbarColor: '#c5dff0 transparent',
-                            }}>
-                              {departments.map((dept, idx) => (
-                                <a
-                                  key={dept.slug}
-                                  href={`/department/${dept.slug}`}
-                                  title={isArabic ? dept.nameAr : dept.nameEn}
-                                  onClick={() => setDeptMenuOpen(false)}
-                                  style={{
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    gap: '10px',
-                                    padding: '10px 12px',
-                                    borderRadius: '10px',
-                                    textDecoration: 'none',
-                                    color: '#2d3748',
-                                    fontSize: '13px',
-                                    fontWeight: '600',
-                                    transition: 'all 0.15s',
-                                    marginBottom: '2px',
-                                  }}
-                                  onMouseEnter={e => {
-                                    const el = e.currentTarget as HTMLElement;
-                                    el.style.background = '#f0f8fd';
-                                    el.style.color = '#1787b6';
-                                    el.style.paddingRight = isArabic ? '16px' : '12px';
-                                    el.style.paddingLeft  = isArabic ? '12px' : '16px';
-                                  }}
-                                  onMouseLeave={e => {
-                                    const el = e.currentTarget as HTMLElement;
-                                    el.style.background = 'transparent';
-                                    el.style.color = '#2d3748';
-                                    el.style.paddingRight = '12px';
-                                    el.style.paddingLeft  = '12px';
-                                  }}
-                                >
-                                  {/* Numbered badge */}
-                                  <span style={{
-                                    minWidth: '24px', height: '24px',
-                                    borderRadius: '6px',
-                                    background: '#e8f4fb',
-                                    color: '#1787b6',
-                                    display: 'flex', alignItems: 'center', justifyContent: 'center',
-                                    fontSize: '10px', fontWeight: '800',
-                                    flexShrink: 0,
-                                  }}>
-                                    {idx + 1}
-                                  </span>
-                                  {/* Name */}
-                                  <span style={{
-                                    flex: 1,
-                                    overflow: 'hidden',
-                                    textOverflow: 'ellipsis',
-                                    whiteSpace: 'nowrap',
-                                  }}>
-                                    {isArabic ? dept.nameAr : dept.nameEn}
-                                  </span>
-                                  {/* Arrow */}
-                                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
-                                    stroke="#c0d8e8" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"
-                                    style={{ flexShrink: 0, transform: isArabic ? 'rotate(180deg)' : 'none' }}>
-                                    <polyline points="9 18 15 12 9 6"/>
-                                  </svg>
-                                </a>
-                              ))}
-                            </div>
-
-                            {/* Footer hint */}
-                            <div style={{
-                              borderTop: '1px solid #e3eff7',
-                              padding: '10px 16px',
-                              display: 'flex',
-                              alignItems: 'center',
-                              justifyContent: 'center',
-                              gap: '6px',
-                              background: '#fafcfe',
-                            }}>
-                              <svg width="13" height="13" viewBox="0 0 24 24" fill="none"
-                                stroke="#1787b6" strokeWidth="2.5" strokeLinecap="round">
-                                <path d="M12 5v14M5 12l7 7 7-7"/>
-                              </svg>
-                              <span style={{ fontSize: '11px', color: '#6b9bbd', fontWeight: '600' }}>
-                                {isArabic ? 'مرر للأسفل لرؤية المزيد' : 'Scroll to see more'}
-                              </span>
-                            </div>
-                          </div>
-                        )}
+    {/* Departments List */}
+    <div style={{
+      maxHeight: '260px',
+      overflowY: 'auto',
+      padding: '8px',
+      display: 'flex',
+      flexDirection: 'column',
+      gap: '2px',
+      scrollbarWidth: 'thin',
+      scrollbarColor: '#c5dff0 transparent',
+    }}>
+      {departments.map((dept, idx) => (
+        <a
+          key={dept.slug}
+          href={`/department/${dept.slug}`}
+          title={isArabic ? dept.nameAr : dept.nameEn}
+          onClick={() => setDeptMenuOpen(false)}
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '8px',
+            padding: '10px 12px',
+            borderRadius: '8px',
+            textDecoration: 'none',
+            color: '#2d3748',
+            fontSize: '13px',
+            fontWeight: '600',
+            transition: 'all 0.13s',
+          }}
+          onMouseEnter={e => {
+            const el = e.currentTarget as HTMLElement;
+            el.style.background = '#e8f6fc';
+            el.style.color = '#1787b6';
+          }}
+          onMouseLeave={e => {
+            const el = e.currentTarget as HTMLElement;
+            el.style.background = 'transparent';
+            el.style.color = '#2d3748';
+          }}
+        >
+          <span style={{
+            minWidth: '22px', height: '22px',
+            borderRadius: '6px',
+            background: '#e0f2fb',
+            color: '#1787b6',
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            fontSize: '10px', fontWeight: '800',
+            flexShrink: 0,
+          }}>
+            {idx + 1}
+          </span>
+          <span style={{ flex: 1 }}>
+            {isArabic ? dept.nameAr : dept.nameEn}
+          </span>
+        </a>
+      ))}
+    </div>
+  </div>
+)}
                       </>
                     ) : (
                       <a
@@ -274,7 +239,7 @@ const MainNavbar = ({ currentLang, changeLanguage }: MainNavbarProps) => {
                   <Menu size={26} />
                 </button>
                 <a href="tel:+966920002159" className="flex items-center gap-2 text-white text-sm font-medium" dir="ltr">
-                  <Phone size={18} /> +966 920002159
+                  <Phone size={18} /> 920002159
                 </a>
               </>
             ) : (
@@ -314,7 +279,6 @@ const MainNavbar = ({ currentLang, changeLanguage }: MainNavbarProps) => {
             </button>
           </div>
 
-          {/* Static links */}
           <ul className="space-y-0.5 mb-2">
             {menuItems.filter(i => !i.hasDeptDropdown).map(item => (
               <li key={item.key}>
@@ -329,7 +293,6 @@ const MainNavbar = ({ currentLang, changeLanguage }: MainNavbarProps) => {
             ))}
           </ul>
 
-          {/* Departments accordion in sidebar */}
           <div className="mb-2">
             <button
               onClick={() => setOpenDropdown(openDropdown === 'depts' ? null : 'depts')}
@@ -347,10 +310,10 @@ const MainNavbar = ({ currentLang, changeLanguage }: MainNavbarProps) => {
                   <li key={dept.slug}>
                     <a
                       href={`/department/${dept.slug}`}
-                      className={`flex items-center gap-2 py-2 px-3 hover:bg-gray-800 rounded-lg text-xs text-gray-300 hover:text-white`}
+                      className="flex items-center gap-2 py-2 px-3 hover:bg-gray-800 rounded-lg text-xs text-gray-300 hover:text-white"
                       onClick={() => setIsSidebarOpen(false)}
                     >
-                      <span style={{ width: '5px', height: '5px', borderRadius: '50%', background: '#1787b6', flexShrink: 0 }} />
+                      <span style={{ width: '5px', height: '5px', borderRadius: '50%', background: '#269dcc', flexShrink: 0 }} />
                       {isArabic ? dept.nameAr : dept.nameEn}
                     </a>
                   </li>
@@ -359,7 +322,6 @@ const MainNavbar = ({ currentLang, changeLanguage }: MainNavbarProps) => {
             </div>
           </div>
 
-          {/* Search */}
           <div className="my-5">
             <div className="relative">
               <input
@@ -374,38 +336,36 @@ const MainNavbar = ({ currentLang, changeLanguage }: MainNavbarProps) => {
             </div>
           </div>
 
-          {/* Contact Info */}
           <div className="space-y-3 mb-6 border-t border-gray-700 pt-4">
             <a href="mailto:info@najransh.sa" className={`flex items-center gap-3 text-gray-300 hover:text-white ${isArabic ? 'flex-row-reverse text-right' : ''}`}>
-              <Mail size={17} className="text-[#1389bf] flex-shrink-0" />
+              <Mail size={17} className="text-[#269dcc] flex-shrink-0" />
               <span className="text-sm">info@najransh.sa</span>
             </a>
             <a href="#" className={`flex items-center gap-3 text-gray-300 hover:text-white ${isArabic ? 'flex-row-reverse text-right' : ''}`}>
-              <MapPin size={17} className="text-[#1389bf] flex-shrink-0" />
+              <MapPin size={17} className="text-[#269dcc] flex-shrink-0" />
               <span className="text-sm">{isArabic ? 'شارع الملك سعود، نجران، السعودية' : 'King Saud Street, Najran, Saudi Arabia'}</span>
             </a>
             <a href="tel:+966920002159" className={`flex items-center gap-3 text-gray-300 hover:text-white ${isArabic ? 'flex-row-reverse text-right' : ''}`}>
-              <Smartphone size={17} className="text-[#1389bf] flex-shrink-0" />
+              <Smartphone size={17} className="text-[#269dcc] flex-shrink-0" />
               <span className="text-sm" dir="ltr">+966 920002159</span>
             </a>
             <a href="tel:+966175227888" className={`flex items-center gap-3 text-gray-300 hover:text-white ${isArabic ? 'flex-row-reverse text-right' : ''}`}>
-              <Smartphone size={17} className="text-[#1389bf] flex-shrink-0" />
+              <Smartphone size={17} className="text-[#269dcc] flex-shrink-0" />
               <span className="text-sm" dir="ltr">+966 175227888</span>
             </a>
           </div>
 
-          {/* Action buttons */}
           <div className="border-t border-gray-700 pt-4">
             <div className="flex items-center justify-center gap-3">
-              <a href="/contact" className="flex items-center justify-center w-12 h-12 rounded-full bg-[#1389bf] hover:bg-[#0f6a96]">
+              <a href="/contact" className="flex items-center justify-center w-12 h-12 rounded-full bg-[#269dcc] hover:bg-[#1a85b0]">
                 <Phone size={18} />
               </a>
               <button onClick={() => { setIsShareOpen(true); setIsSidebarOpen(false); }}
-                className="flex items-center justify-center w-12 h-12 rounded-full bg-[#1389bf] hover:bg-[#0f6a96]">
+                className="flex items-center justify-center w-12 h-12 rounded-full bg-[#269dcc] hover:bg-[#1a85b0]">
                 <Share2 size={18} />
               </button>
               <button onClick={() => { setIsLangOpen(true); setIsSidebarOpen(false); }}
-                className="flex items-center justify-center w-12 h-12 rounded-full bg-[#1389bf] hover:bg-[#0f6a96]">
+                className="flex items-center justify-center w-12 h-12 rounded-full bg-[#269dcc] hover:bg-[#1a85b0]">
                 <Globe size={18} />
               </button>
             </div>
@@ -447,7 +407,7 @@ const MainNavbar = ({ currentLang, changeLanguage }: MainNavbarProps) => {
         <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50" onClick={() => setIsLangOpen(false)}>
           <div className="bg-white rounded-2xl p-7 w-full max-w-sm mx-4 shadow-2xl" onClick={e => e.stopPropagation()} style={{ fontFamily: "'Tajawal','Cairo',sans-serif" }}>
             <div className="text-center">
-              <Globe className="text-[#1389bf] mx-auto mb-3" size={44} />
+              <Globe className="text-[#269dcc] mx-auto mb-3" size={44} />
               <h3 className="text-lg font-semibold text-gray-800 mb-1">{isArabic ? 'تغيير لغة الموقع' : 'Change Site Language'}</h3>
               <p className="text-gray-500 text-sm mb-6">{isArabic ? 'اختر اللغة المفضلة' : 'Choose your preferred language'}</p>
             </div>
@@ -455,7 +415,7 @@ const MainNavbar = ({ currentLang, changeLanguage }: MainNavbarProps) => {
               {['ar', 'en'].map(l => (
                 <button key={l}
                   onClick={() => { changeLanguage(l); setIsLangOpen(false); }}
-                  className={`w-full py-3.5 rounded-xl font-medium text-base transition-all ${currentLang === l ? 'bg-[#1389bf] text-white' : 'border-2 border-[#1389bf] text-[#1389bf] hover:bg-[#1389bf] hover:text-white'}`}
+                  className={`w-full py-3.5 rounded-xl font-medium text-base transition-all ${currentLang === l ? 'bg-[#269dcc] text-white' : 'border-2 border-[#269dcc] text-[#269dcc] hover:bg-[#269dcc] hover:text-white'}`}
                 >
                   {l === 'ar' ? 'العربية' : 'English'}
                 </button>
@@ -467,9 +427,10 @@ const MainNavbar = ({ currentLang, changeLanguage }: MainNavbarProps) => {
 
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap');
-        @keyframes slideUp { from { transform:translateY(20px); opacity:0; } to { transform:translateY(0); opacity:1; } }
-        details summary::-webkit-details-marker { display: none; }
-        details[open] summary span:last-child { transform: rotate(45deg); }
+        @keyframes dropFade {
+          from { opacity: 0; transform: translateY(-6px); }
+          to   { opacity: 1; transform: translateY(0); }
+        }
       `}</style>
     </>
   );

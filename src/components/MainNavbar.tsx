@@ -305,7 +305,7 @@ const MainNavbar = ({ currentLang, changeLanguage }: MainNavbarProps) => {
             ) : (
               <>
                 <a href="tel:+966920002159" className="flex items-center gap-2 text-white text-sm font-medium" dir="ltr">
-                  <Phone size={18} /> +966 920002159
+                  <Phone size={18} /> 920002159
                 </a>
                 <LangSwitcher />
                 <button onClick={() => setIsSidebarOpen(true)} className="text-white hover:text-gray-200">

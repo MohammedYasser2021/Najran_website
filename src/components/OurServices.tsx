@@ -11,17 +11,20 @@ const content = {
     description: 'تحرص إدارة المستشفى على تقديم أفضل البروتوكولات العلمية العلاجية من خلال توفير الكوادر الطبية المؤهلة مدعمة بأفضل التجهيزات الطبية التي ننفرد بها في منطقة نجران.',
     services: [
       {
-        image: 'https://images.unsplash.com/photo-1516574187841-cb9cc2ca948b?w=800&h=600&fit=crop',
+        // صورة جديدة أفضل لعيادات الأماكن النائية والمصانع
+        image: 'https://tse4.mm.bing.net/th/id/OIP.jFTgv_r7s6jQ9bvcUoVqgwHaEo?rs=1&pid=ImgDetMain&o=7&rm=3',
         title: 'عيادات الأماكن النائية والمصانع',
         content: 'أفضل خدمات الرعاية الصحية التي تستحقها، نهج فريد للتوظيف العادل مدعومًا بأفضل وأرقى أنواع التدريب والتطوير المهني المستمر لضمان التميز والنمو. تم اعتماد المستشفى كأول مستشفى خارج المنطقة الشرقية في الحصول على اعتماد جونز هوبكنز أرامكو للرعاية الصحية. لا يقتصر مفهومنا على تقديم الإسعافات الأولية والرعاية السريرية العامة فحسب، بل يشمل أيضًا تكوين بيئة صحية آمنة والعقلية والجسدية لأي فرد.',
       },
       {
-        image: 'https://ak.picdn.net/shutterstock/videos/1051617745/thumb/1.jpg?ip=x480',
+        // صورة جديدة احترافية لمركز جراحات السمنة
+        image: 'https://www.ayfaclinic.com/wp-content/uploads/2023/05/Things-To-Know-About-Weight-Loss-Surgeries.png',
         title: 'مركز جراحات السمنة',
         content: 'المركز الوحيد المعتمد لجراحات السمنة المفرطة في منطقة نجران. يضم نخبة من أفضل الجراحين:\n• د. سعيد السريعي — استشاري الجراحة العامة وجراحات السمنة بالمنظار\n• د. عبدالرحمن العمري — استشاري الجراحة العامة وجراحات السمنة بالمنظار وجراحات الثدي\n\nيضم الوحدات التالية: وحدة التغذية، وحدة جراحات السمنة المفرطة بالمنظار، وحدة الدعم السلوكي المعرفي لعلاج آثار ومضاعفات السمنة.',
       },
       {
-        image: 'https://images.unsplash.com/photo-1559757175-3d2b2c2c0c0e?w=800&h=600&fit=crop',
+        // صورة الريزيوم (محتفظ بها لأنك قلت إنها كويسة)
+        image: 'https://images.unsplash.com/photo-1551076805-e1869033e561?w=800&h=600&fit=crop',
         title: 'تقنية الريزيوم',
         content: 'نتميز بأننا المستشفى الوحيد بمنطقة نجران الذي يعالج تضخم البروستاتا بالتبخير، حيث قمنا بتوفير جهاز ريزيوم — أحد أفضل تقنيات علاج تضخم البروستاتا الحميد بالتبخير وبدون جراحة وبدون ألم. نحن المستشفى الخاص الوحيد الذي يطبق هذه التقنية في المنطقة بواسطة نخبة من الاستشاريين في جراحة المسالك البولية. كما يضم المركز خدمات طبية متكاملة لأمراض وجراحات المسالك البولية وأمراض وجراحات الذكورة.',
       },
@@ -33,17 +36,17 @@ const content = {
     description: 'Hospital management is committed to providing the best scientific treatment protocols through qualified medical staff supported by the finest medical equipment unique to the Najran region.',
     services: [
       {
-        image: 'https://images.unsplash.com/photo-1516574187841-cb9cc2ca948b?w=800&h=600&fit=crop',
+        image: 'https://tse4.mm.bing.net/th/id/OIP.jFTgv_r7s6jQ9bvcUoVqgwHaEo?rs=1&pid=ImgDetMain&o=7&rm=3',
         title: 'Remote Area & Industrial Clinics',
         content: 'The best healthcare services you deserve — a unique approach to fair employment supported by the finest continuous professional training and development. The hospital is accredited as the first hospital outside the Eastern Province to receive Johns Hopkins Aramco Healthcare accreditation. Our concept extends beyond first aid and general clinical care to include building a safe, healthy environment — mentally and physically — for every individual.',
       },
       {
-        image: 'https://ak.picdn.net/shutterstock/videos/1051617745/thumb/1.jpg?ip=x480',
+        image: 'https://www.ayfaclinic.com/wp-content/uploads/2023/05/Things-To-Know-About-Weight-Loss-Surgeries.png',
         title: 'Obesity Surgery Center',
         content: 'The only accredited center for morbid obesity surgery in the Najran region. It includes an elite group of surgeons:\n• Dr. Saeed Al-Surayi — Consultant in General & Laparoscopic Obesity Surgery\n• Dr. Abdulrahman Al-Omari — Consultant in General, Laparoscopic Obesity & Breast Surgery\n\nUnits include: Nutrition Unit, Laparoscopic Obesity Surgery Unit, and Cognitive Behavioral Support Unit for obesity complications.',
       },
       {
-        image: 'https://images.unsplash.com/photo-1559757175-3d2b2c2c0c0e?w=800&h=600&fit=crop',
+        image: 'https://images.unsplash.com/photo-1551076805-e1869033e561?w=800&h=600&fit=crop',
         title: 'Rezum Technology',
         content: 'We are the only hospital in the Najran region treating prostate enlargement with steam therapy using the Rezum device — one of the best technologies for treating benign prostatic hyperplasia without surgery or pain. We are the only private hospital applying this technique in the region through a team of urology consultants. The center also offers comprehensive medical services for urological and male reproductive conditions.',
       },
@@ -242,7 +245,6 @@ const OurServices: React.FC<OurServicesProps> = ({ currentLang }) => {
               {active.title}
             </h3>
 
-            {/* Accent Line تحت العنوان */}
             <div style={{
               width: '48px',
               height: '4px',

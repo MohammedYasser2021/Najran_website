@@ -15,6 +15,10 @@ import AboutPage from './components/AboutPage';
 import DepartmentPage from './components/DepartmentPage';
 import FloatingActions from './components/FloatingActions';
 import DoctorsPage from './components/DoctorsPage';
+import PatientsRights from './components/PatientsRights';
+import ContactUsSection from './components/ContactUsSection.Tsx';
+import CompanyInf from './components/CompanyInf';
+import Footer from './components/Footer';
 
 const CYCLE_DURATION = 2.4;
 const CYCLES = 2;
@@ -34,7 +38,33 @@ const HomePage = ({ currentLang, changeLanguage }) => (
       <OurServices currentLang={currentLang} />
       <OurPrizes currentLang={currentLang} />
       <Companies currentLang={currentLang} />
+      <PatientsRights currentLang={currentLang} />
+      <ContactUsSection currentLang={currentLang} />
     </main>
+  </>
+);
+
+const AboutPageWrapper = ({ currentLang, changeLanguage }) => (
+  <>
+    <Navbar currentLang={currentLang} changeLanguage={changeLanguage} />
+    <MainNavbar currentLang={currentLang} changeLanguage={changeLanguage} />
+    <AboutPage currentLang={currentLang} changeLanguage={changeLanguage} />
+  </>
+);
+
+const DepartmentPageWrapper = ({ currentLang, changeLanguage }) => (
+  <>
+    <Navbar currentLang={currentLang} changeLanguage={changeLanguage} />
+    <MainNavbar currentLang={currentLang} changeLanguage={changeLanguage} />
+    <DepartmentPage currentLang={currentLang} changeLanguage={changeLanguage} />
+  </>
+);
+
+const DoctorsPageWrapper = ({ currentLang, changeLanguage }) => (
+  <>
+    <Navbar currentLang={currentLang} changeLanguage={changeLanguage} />
+    <MainNavbar currentLang={currentLang} changeLanguage={changeLanguage} />
+    <DoctorsPage currentLang={currentLang} changeLanguage={changeLanguage} />
   </>
 );
 
@@ -65,7 +95,7 @@ const App = () => {
 
   return (
     <Router>
-      <div className="font-['Cairo'] min-h-screen">
+      <div className="font-['Cairo'] min-h-screen flex flex-col">
         {isLoading && (
           <div
             className="fixed inset-0 z-50 bg-white flex items-center justify-center"
@@ -74,16 +104,25 @@ const App = () => {
             <CustomLoading />
           </div>
         )}
-          {!isLoading && (
-    <FloatingActions currentLang={currentLang} changeLanguage={changeLanguage} />
-  )}
-        <div style={{ transition: `opacity ${FADE_MS}ms ease`, opacity: isFading ? 1 : 0 }}>
-          <Routes>
-            <Route path="/"                     element={<HomePage       currentLang={currentLang} changeLanguage={changeLanguage} />} />
-            <Route path="/about"                element={<AboutPage      currentLang={currentLang} changeLanguage={changeLanguage} />} />
-            <Route path="/department/:slug"     element={<DepartmentPage currentLang={currentLang} changeLanguage={changeLanguage} />} />
-            <Route path="/doctors"     element={<DoctorsPage currentLang={currentLang} changeLanguage={changeLanguage} />} />
-          </Routes>
+
+        {!isLoading && (
+          <FloatingActions currentLang={currentLang} changeLanguage={changeLanguage} />
+        )}
+
+        <div className="flex flex-col flex-1" style={{ transition: `opacity ${FADE_MS}ms ease`, opacity: isFading ? 1 : 0 }}>
+          {/* Page content */}
+          <div className="flex-1">
+            <Routes>
+              <Route path="/"                 element={<HomePage             currentLang={currentLang} changeLanguage={changeLanguage} />} />
+              <Route path="/about"            element={<AboutPageWrapper     currentLang={currentLang} changeLanguage={changeLanguage} />} />
+              <Route path="/department/:slug" element={<DepartmentPageWrapper currentLang={currentLang} changeLanguage={changeLanguage} />} />
+              <Route path="/doctors"          element={<DoctorsPageWrapper   currentLang={currentLang} changeLanguage={changeLanguage} />} />
+            </Routes>
+          </div>
+
+          {/* ✅ CompanyInf & Footer appear on ALL pages */}
+          <CompanyInf currentLang={currentLang} />
+          <Footer currentLang={currentLang} />
         </div>
       </div>
     </Router>

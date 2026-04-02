@@ -113,8 +113,6 @@ const AboutPage = ({ currentLang, changeLanguage }) => {
       dir={isAr ? 'rtl' : 'ltr'}
       style={{ fontFamily: "'Cairo', 'Tajawal', sans-serif" }}
     >
-      <Navbar currentLang={currentLang} changeLanguage={changeLanguage} />
-      <MainNavbar currentLang={currentLang} changeLanguage={changeLanguage} />
 
       {/* ===== Hero Cover ===== */}
       <div style={{ position: 'relative', width: '100%', height: 'clamp(260px, 45vw, 520px)', overflow: 'hidden' }}>

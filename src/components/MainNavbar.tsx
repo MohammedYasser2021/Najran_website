@@ -43,6 +43,11 @@ const MainNavbar = ({ currentLang, changeLanguage }: MainNavbarProps) => {
     };
   }, []);
 
+  // أغلق الـ sidebar تلقائياً عند تغيير اللغة
+useEffect(() => {
+  setIsSidebarOpen(false);
+}, [currentLang]);
+
   const menuItems = [
     { key: 'home',     label: isArabic ? 'الصفحة الرئيسية'        : 'Home',            href: '/' },
     { key: 'about',    label: isArabic ? 'من نحن'                  : 'About Us',        href: '/about' },
@@ -260,14 +265,15 @@ const MainNavbar = ({ currentLang, changeLanguage }: MainNavbarProps) => {
       {/* ── Sidebar Overlay ── */}
       {isSidebarOpen && (
         <div
-          className="fixed inset-0 bg-black/70 z-50 md:hidden"
+          className="fixed inset-0 bg-black/70 z-[998] md:hidden"
           onClick={() => setIsSidebarOpen(false)}
         />
       )}
 
       {/* ── Sidebar ── */}
       <div
-        className={`fixed top-0 ${isArabic ? 'left-0' : 'right-0'} h-full w-80 bg-[#1a1a1a] text-white z-50 transform transition-transform duration-300 md:hidden overflow-y-auto
+        key={`sidebar-${currentLang}`}
+        className={`fixed top-0 ${isArabic ? 'left-0' : 'right-0'} h-full w-80 bg-[#1a1a1a] text-white z-[999] transform transition-transform duration-300 md:hidden overflow-y-auto
           ${isSidebarOpen ? 'translate-x-0' : isArabic ? '-translate-x-full' : 'translate-x-full'}`}
         style={{ fontFamily: "'Tajawal','Cairo',sans-serif" }}
       >

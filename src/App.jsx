@@ -16,7 +16,7 @@ import DepartmentPage from './components/DepartmentPage';
 import FloatingActions from './components/FloatingActions';
 import DoctorsPage from './components/DoctorsPage';
 import PatientsRights from './components/PatientsRights';
-import ContactUsSection from './components/ContactUsSection.Tsx';
+import ContactUsSection from './components/ContactUsSectionn';
 import CompanyInf from './components/CompanyInf';
 import Footer from './components/Footer';
 

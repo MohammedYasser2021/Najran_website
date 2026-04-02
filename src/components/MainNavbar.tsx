@@ -1,5 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { Search, ChevronDown, Menu, X, Phone, Mail, MapPin, Smartphone, Share2, Globe, Grid } from 'lucide-react';
+import SaudiFlag from 'country-flag-icons/react/3x2/SA';
+import UKFlag    from 'country-flag-icons/react/3x2/GB';
 import { departments } from './departmentsData';
 
 interface MainNavbarProps {
@@ -12,7 +14,6 @@ const MainNavbar = ({ currentLang, changeLanguage }: MainNavbarProps) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [openDropdown, setOpenDropdown]   = useState<string | null>(null);
   const [isShareOpen, setIsShareOpen]     = useState(false);
-  const [isLangOpen, setIsLangOpen]       = useState(false);
   const [deptMenuOpen, setDeptMenuOpen]   = useState(false);
   const deptRef  = useRef<HTMLLIElement>(null);
   const hideTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -43,25 +44,79 @@ const MainNavbar = ({ currentLang, changeLanguage }: MainNavbarProps) => {
     };
   }, []);
 
-  // أغلق الـ sidebar تلقائياً عند تغيير اللغة
-useEffect(() => {
-  setIsSidebarOpen(false);
-}, [currentLang]);
+  useEffect(() => {
+    setIsSidebarOpen(false);
+  }, [currentLang]);
 
   const menuItems = [
-    { key: 'home',     label: isArabic ? 'الصفحة الرئيسية'        : 'Home',            href: '/' },
-    { key: 'about',    label: isArabic ? 'من نحن'                  : 'About Us',        href: '/about' },
-    { key: 'depts',    label: isArabic ? 'الأقسام'                 : 'Departments',     href: null, hasDeptDropdown: true },
-    { key: 'doctors',  label: isArabic ? 'الأطباء'                 : 'Doctors',         href: '/doctors' },
-    { key: 'blog',     label: isArabic ? 'المدونة والأخبار'         : 'Blog & News',     href: '/news' },
-    { key: 'articles', label: isArabic ? 'المقالات'                : 'Articles',        href: '/articles' },
-    { key: 'contact',  label: isArabic ? 'اتصل بنا'                : 'Contact Us',      href: '/contact' },
+    { key: 'home',     label: isArabic ? 'الصفحة الرئيسية' : 'Home',          href: '/' },
+    { key: 'about',    label: isArabic ? 'من نحن'           : 'About Us',      href: '/about' },
+    { key: 'depts',    label: isArabic ? 'الأقسام'          : 'Departments',   href: null, hasDeptDropdown: true },
+    { key: 'doctors',  label: isArabic ? 'الأطباء'          : 'Doctors',       href: '/doctors' },
+    { key: 'blog',     label: isArabic ? 'المدونة والأخبار' : 'Blog & News',   href: '/news' },
+    { key: 'articles', label: isArabic ? 'المقالات'         : 'Articles',      href: '/articles' },
+    { key: 'contact',  label: isArabic ? 'اتصل بنا'         : 'Contact Us',    href: '/contact' },
   ];
 
   const shareUrl  = typeof window !== 'undefined' ? window.location.href : '';
   const shareText = isArabic
     ? 'رعاية بآفاق متجددة - اكتشف معنا'
     : 'Care with Renewed Horizons - Discover with us';
+
+  /* ── Flag switcher (flags only, no text) ─────────────────────── */
+  const LangSwitcher = () => (
+    <div style={{
+      display: 'flex',
+      alignItems: 'center',
+      background: 'rgba(255,255,255,0.15)',
+      borderRadius: '50px',
+      padding: '3px',
+      gap: '2px',
+      border: '1px solid rgba(255,255,255,0.25)',
+    }}>
+      {/* Arabic / Saudi flag */}
+      <button
+        onClick={() => currentLang !== 'ar' && changeLanguage('ar')}
+        title="العربية"
+        style={{
+          width: '32px', height: '32px',
+          borderRadius: '50%',
+          border: 'none',
+          cursor: 'pointer',
+          padding: '0',
+          overflow: 'hidden',
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+          background: currentLang === 'ar' ? 'rgba(255,255,255,0.9)' : 'transparent',
+          boxShadow: currentLang === 'ar' ? '0 2px 8px rgba(0,0,0,0.15)' : 'none',
+          transition: 'all 0.2s ease',
+          flexShrink: 0,
+        }}
+      >
+        <SaudiFlag style={{ width: '22px', borderRadius: '2px' }} />
+      </button>
+
+      {/* English / UK flag */}
+      <button
+        onClick={() => currentLang !== 'en' && changeLanguage('en')}
+        title="English"
+        style={{
+          width: '32px', height: '32px',
+          borderRadius: '50%',
+          border: 'none',
+          cursor: 'pointer',
+          padding: '0',
+          overflow: 'hidden',
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+          background: currentLang === 'en' ? 'rgba(255,255,255,0.9)' : 'transparent',
+          boxShadow: currentLang === 'en' ? '0 2px 8px rgba(0,0,0,0.15)' : 'none',
+          transition: 'all 0.2s ease',
+          flexShrink: 0,
+        }}
+      >
+        <UKFlag style={{ width: '22px', borderRadius: '2px' }} />
+      </button>
+    </div>
+  );
 
   return (
     <>
@@ -72,11 +127,11 @@ useEffect(() => {
         <div className="max-w-7xl mx-auto px-4 md:px-6">
 
           {/* ── Desktop ── */}
-          <div className="hidden md:flex items-center flex-wrap lg:justify-start justify-center">
+          <div className="hidden md:flex items-center flex-wrap lg:justify-start justify-center gap-3">
 
             {/* Search */}
             <div className={isArabic ? 'order-1' : 'order-3'}>
-              <div className="relative w-64">
+              <div className="relative w-56">
                 <input
                   type="text"
                   value={searchValue}
@@ -91,7 +146,7 @@ useEffect(() => {
             </div>
 
             {/* Nav links */}
-            <div className={`flex-1 px-4 ${isArabic ? 'order-3' : 'order-1'}`}>
+            <div className={`flex-1 px-2 ${isArabic ? 'order-3' : 'order-1'}`}>
               <ul className={`flex items-center gap-0.5 text-[12.5px] font-semibold flex-wrap ${isArabic ? 'justify-end' : 'justify-start'}`}>
                 {menuItems.map(item => (
                   <li
@@ -114,113 +169,105 @@ useEffect(() => {
                           />
                         </button>
 
-                        {/* ── Dropdown ── */}
-{/* ── Dropdown ── */}
-{deptMenuOpen && (
-  <div
-    style={{
-      position: 'absolute',
-      top: 'calc(100% + 8px)',
-      // تعديل خاص بالعربي: يمين أكثر
-      [isArabic ? 'right' : 'left']: isArabic ? '-60px' : '0',   
-      width: '320px',
-      background: '#fff',
-      borderRadius: '16px',
-      boxShadow: '0 12px 40px rgba(38,157,204,0.15), 0 2px 12px rgba(0,0,0,0.06)',
-      border: '1px solid #d6edf7',
-      zIndex: 50,
-      overflow: 'hidden',
-      animation: 'dropFade 0.18s ease',
-    }}
-  >
-    {/* Header */}
-    <div style={{
-      background: '#269dcc',
-      padding: '12px 16px',
-      display: 'flex',
-      alignItems: 'center',
-      gap: '10px',
-    }}>
-      <div style={{
-        width: '28px', height: '28px', borderRadius: '8px',
-        background: 'rgba(255,255,255,0.18)',
-        display: 'flex', alignItems: 'center', justifyContent: 'center',
-        flexShrink: 0,
-      }}>
-        <Grid size={14} color="#fff" />
-      </div>
-      <span style={{ fontWeight: '700', fontSize: '13px', color: '#fff', flex: 1 }}>
-        {isArabic ? 'الأقسام الطبية و المراكز' : 'Medical Departments'}
-      </span>
-      <span style={{
-        background: 'rgba(255,255,255,0.22)',
-        color: '#fff',
-        fontSize: '11px', fontWeight: '700',
-        padding: '2px 9px', borderRadius: '50px',
-      }}>
-        {departments.length}
-      </span>
-    </div>
+                        {deptMenuOpen && (
+                          <div
+                            style={{
+                              position: 'absolute',
+                              top: 'calc(100% + 8px)',
+                              [isArabic ? 'right' : 'left']: isArabic ? '-60px' : '0',
+                              width: '320px',
+                              background: '#fff',
+                              borderRadius: '16px',
+                              boxShadow: '0 12px 40px rgba(38,157,204,0.15), 0 2px 12px rgba(0,0,0,0.06)',
+                              border: '1px solid #d6edf7',
+                              zIndex: 50,
+                              overflow: 'hidden',
+                              animation: 'dropFade 0.18s ease',
+                            }}
+                          >
+                            <div style={{
+                              background: '#269dcc',
+                              padding: '12px 16px',
+                              display: 'flex',
+                              alignItems: 'center',
+                              gap: '10px',
+                            }}>
+                              <div style={{
+                                width: '28px', height: '28px', borderRadius: '8px',
+                                background: 'rgba(255,255,255,0.18)',
+                                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                                flexShrink: 0,
+                              }}>
+                                <Grid size={14} color="#fff" />
+                              </div>
+                              <span style={{ fontWeight: '700', fontSize: '13px', color: '#fff', flex: 1 }}>
+                                {isArabic ? 'الأقسام الطبية و المراكز' : 'Medical Departments'}
+                              </span>
+                              <span style={{
+                                background: 'rgba(255,255,255,0.22)',
+                                color: '#fff',
+                                fontSize: '11px', fontWeight: '700',
+                                padding: '2px 9px', borderRadius: '50px',
+                              }}>
+                                {departments.length}
+                              </span>
+                            </div>
 
-    {/* Departments List */}
-    <div style={{
-      maxHeight: '260px',
-      overflowY: 'auto',
-      padding: '8px',
-      display: 'flex',
-      flexDirection: 'column',
-      gap: '2px',
-      scrollbarWidth: 'thin',
-      scrollbarColor: '#c5dff0 transparent',
-    }}>
-      {departments.map((dept, idx) => (
-        <a
-          key={dept.slug}
-          href={`/department/${dept.slug}`}
-          title={isArabic ? dept.nameAr : dept.nameEn}
-          onClick={() => setDeptMenuOpen(false)}
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: '8px',
-            padding: '10px 12px',
-            borderRadius: '8px',
-            textDecoration: 'none',
-            color: '#2d3748',
-            fontSize: '13px',
-            fontWeight: '600',
-            transition: 'all 0.13s',
-          }}
-          onMouseEnter={e => {
-            const el = e.currentTarget as HTMLElement;
-            el.style.background = '#e8f6fc';
-            el.style.color = '#1787b6';
-          }}
-          onMouseLeave={e => {
-            const el = e.currentTarget as HTMLElement;
-            el.style.background = 'transparent';
-            el.style.color = '#2d3748';
-          }}
-        >
-          <span style={{
-            minWidth: '22px', height: '22px',
-            borderRadius: '6px',
-            background: '#e0f2fb',
-            color: '#1787b6',
-            display: 'flex', alignItems: 'center', justifyContent: 'center',
-            fontSize: '10px', fontWeight: '800',
-            flexShrink: 0,
-          }}>
-            {idx + 1}
-          </span>
-          <span style={{ flex: 1 }}>
-            {isArabic ? dept.nameAr : dept.nameEn}
-          </span>
-        </a>
-      ))}
-    </div>
-  </div>
-)}
+                            <div style={{
+                              maxHeight: '260px',
+                              overflowY: 'auto',
+                              padding: '8px',
+                              display: 'flex',
+                              flexDirection: 'column',
+                              gap: '2px',
+                              scrollbarWidth: 'thin',
+                              scrollbarColor: '#c5dff0 transparent',
+                            }}>
+                              {departments.map((dept, idx) => (
+                                <a
+                                  key={dept.slug}
+                                  href={`/department/${dept.slug}`}
+                                  onClick={() => setDeptMenuOpen(false)}
+                                  style={{
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    gap: '8px',
+                                    padding: '10px 12px',
+                                    borderRadius: '8px',
+                                    textDecoration: 'none',
+                                    color: '#2d3748',
+                                    fontSize: '13px',
+                                    fontWeight: '600',
+                                    transition: 'all 0.13s',
+                                  }}
+                                  onMouseEnter={e => {
+                                    (e.currentTarget as HTMLElement).style.background = '#e8f6fc';
+                                    (e.currentTarget as HTMLElement).style.color = '#1787b6';
+                                  }}
+                                  onMouseLeave={e => {
+                                    (e.currentTarget as HTMLElement).style.background = 'transparent';
+                                    (e.currentTarget as HTMLElement).style.color = '#2d3748';
+                                  }}
+                                >
+                                  <span style={{
+                                    minWidth: '22px', height: '22px',
+                                    borderRadius: '6px',
+                                    background: '#e0f2fb',
+                                    color: '#1787b6',
+                                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                                    fontSize: '10px', fontWeight: '800',
+                                    flexShrink: 0,
+                                  }}>
+                                    {idx + 1}
+                                  </span>
+                                  <span style={{ flex: 1 }}>
+                                    {isArabic ? dept.nameAr : dept.nameEn}
+                                  </span>
+                                </a>
+                              ))}
+                            </div>
+                          </div>
+                        )}
                       </>
                     ) : (
                       <a
@@ -234,6 +281,12 @@ useEffect(() => {
                 ))}
               </ul>
             </div>
+
+            {/* ── Flag Switcher (desktop) ── */}
+            <div className={isArabic ? 'order-2' : 'order-4'}>
+              <LangSwitcher />
+            </div>
+
           </div>
 
           {/* ── Mobile ── */}
@@ -243,6 +296,8 @@ useEffect(() => {
                 <button onClick={() => setIsSidebarOpen(true)} className="text-white hover:text-gray-200">
                   <Menu size={26} />
                 </button>
+                {/* Flag switcher on mobile bar */}
+                <LangSwitcher />
                 <a href="tel:+966920002159" className="flex items-center gap-2 text-white text-sm font-medium" dir="ltr">
                   <Phone size={18} /> 920002159
                 </a>
@@ -252,6 +307,7 @@ useEffect(() => {
                 <a href="tel:+966920002159" className="flex items-center gap-2 text-white text-sm font-medium" dir="ltr">
                   <Phone size={18} /> +966 920002159
                 </a>
+                <LangSwitcher />
                 <button onClick={() => setIsSidebarOpen(true)} className="text-white hover:text-gray-200">
                   <Menu size={26} />
                 </button>
@@ -366,13 +422,11 @@ useEffect(() => {
               <a href="/contact" className="flex items-center justify-center w-12 h-12 rounded-full bg-[#269dcc] hover:bg-[#1a85b0]">
                 <Phone size={18} />
               </a>
-              <button onClick={() => { setIsShareOpen(true); setIsSidebarOpen(false); }}
-                className="flex items-center justify-center w-12 h-12 rounded-full bg-[#269dcc] hover:bg-[#1a85b0]">
+              <button
+                onClick={() => { setIsShareOpen(true); setIsSidebarOpen(false); }}
+                className="flex items-center justify-center w-12 h-12 rounded-full bg-[#269dcc] hover:bg-[#1a85b0]"
+              >
                 <Share2 size={18} />
-              </button>
-              <button onClick={() => { setIsLangOpen(true); setIsSidebarOpen(false); }}
-                className="flex items-center justify-center w-12 h-12 rounded-full bg-[#269dcc] hover:bg-[#1a85b0]">
-                <Globe size={18} />
               </button>
             </div>
           </div>
@@ -392,9 +446,9 @@ useEffect(() => {
             </p>
             <div className="grid grid-cols-3 gap-6">
               {[
-                { href: `https://wa.me/?text=${encodeURIComponent(shareText+' '+shareUrl)}`, bg: '#25D366', icon: 'W', label: isArabic ? 'واتساب' : 'WhatsApp' },
-                { href: `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareUrl)}`, bg: '#000', icon: '𝕏', label: isArabic ? 'تويتر' : 'Twitter' },
-                { href: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`, bg: '#1877F2', icon: 'f', label: isArabic ? 'فيسبوك' : 'Facebook' },
+                { href: `https://wa.me/966920002159`, bg: '#25D366', icon: 'W', label: isArabic ? 'واتساب' : 'WhatsApp' },
+                { href: `https://x.com/SNH_Najran`, bg: '#000', icon: '𝕏', label: isArabic ? 'تويتر' : 'Twitter' },
+                { href: `https://www.facebook.com/SNH.Najran?rdid=bOIUwmGG52ka9cqM&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F18ZTYzWRdm%2F#`, bg: '#1877F2', icon: 'f', label: isArabic ? 'فيسبوك' : 'Facebook' },
               ].map(s => (
                 <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" className="flex flex-col items-center group">
                   <div className="w-14 h-14 flex items-center justify-center rounded-xl text-white text-2xl font-bold shadow-md group-hover:scale-110 transition-transform" style={{ background: s.bg }}>
@@ -402,29 +456,6 @@ useEffect(() => {
                   </div>
                   <span className="text-xs font-medium mt-2.5 text-gray-700">{s.label}</span>
                 </a>
-              ))}
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* ── Language Popup ── */}
-      {isLangOpen && (
-        <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50" onClick={() => setIsLangOpen(false)}>
-          <div className="bg-white rounded-2xl p-7 w-full max-w-sm mx-4 shadow-2xl" onClick={e => e.stopPropagation()} style={{ fontFamily: "'Tajawal','Cairo',sans-serif" }}>
-            <div className="text-center">
-              <Globe className="text-[#269dcc] mx-auto mb-3" size={44} />
-              <h3 className="text-lg font-semibold text-gray-800 mb-1">{isArabic ? 'تغيير لغة الموقع' : 'Change Site Language'}</h3>
-              <p className="text-gray-500 text-sm mb-6">{isArabic ? 'اختر اللغة المفضلة' : 'Choose your preferred language'}</p>
-            </div>
-            <div className="space-y-3">
-              {['ar', 'en'].map(l => (
-                <button key={l}
-                  onClick={() => { changeLanguage(l); setIsLangOpen(false); }}
-                  className={`w-full py-3.5 rounded-xl font-medium text-base transition-all ${currentLang === l ? 'bg-[#269dcc] text-white' : 'border-2 border-[#269dcc] text-[#269dcc] hover:bg-[#269dcc] hover:text-white'}`}
-                >
-                  {l === 'ar' ? 'العربية' : 'English'}
-                </button>
               ))}
             </div>
           </div>

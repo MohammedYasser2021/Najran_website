@@ -1,6 +1,17 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { departments } from './departmentsData';
+import { doctors, departments as deptDoctors } from './doctorData';
+
+// ── helper: get all doctors belonging to a department id ─────────────────────
+function getDoctorsForDept(doctorDeptId) {
+  if (!doctorDeptId) return [];
+  const dept = deptDoctors.find(d => d.id === doctorDeptId);
+  if (!dept) return [];
+  const ids = new Set();
+  dept.clinics.forEach(c => c.doctorIds.forEach(id => ids.add(id)));
+  return [...ids].map(id => doctors.find(d => d.id === id)).filter(Boolean);
+}
 
 const DepartmentPage = ({ currentLang, changeLanguage }) => {
   const { slug } = useParams();
@@ -39,11 +50,12 @@ const DepartmentPage = ({ currentLang, changeLanguage }) => {
     );
   }
 
-  const name    = isAr ? dept.nameAr    : dept.nameEn;
-  const desc    = isAr ? dept.descriptionAr : dept.descriptionEn;
-  const units   = isAr ? dept.unitsAr   : dept.unitsEn;
-  const services = isAr ? dept.servicesAr : dept.servicesEn;
-  const subDepts = dept.subDepartments;
+  const name      = isAr ? dept.nameAr      : dept.nameEn;
+  const desc      = isAr ? dept.descriptionAr : dept.descriptionEn;
+  const units     = isAr ? dept.unitsAr     : dept.unitsEn;
+  const services  = isAr ? dept.servicesAr  : dept.servicesEn;
+  const subDepts  = dept.subDepartments;
+  const deptDocs  = getDoctorsForDept(dept.doctorDeptId);
 
   return (
     <div
@@ -57,6 +69,10 @@ const DepartmentPage = ({ currentLang, changeLanguage }) => {
           src={dept.image}
           alt={name}
           style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center' }}
+          onError={e => {
+            // fallback gradient if image fails
+            e.target.style.display = 'none';
+          }}
         />
         <div style={{
           position: 'absolute', inset: 0,
@@ -130,7 +146,6 @@ const DepartmentPage = ({ currentLang, changeLanguage }) => {
           transform: visible ? 'translateY(0)' : 'translateY(20px)',
           transition: 'all 0.6s ease 0.15s'
         }}>
-          {/* ECG accent line */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '14px', marginBottom: '24px' }}>
             <div style={{ width: '5px', height: '36px', borderRadius: '3px', background: 'linear-gradient(180deg,#1787b6,#0f5f8a)', flexShrink: 0 }} />
             <h2 style={{ margin: 0, fontSize: 'clamp(18px, 2.5vw, 26px)', fontWeight: '800', color: '#0d2137' }}>
@@ -146,9 +161,10 @@ const DepartmentPage = ({ currentLang, changeLanguage }) => {
           </p>
         </div>
 
+        {/* Units + Services grid */}
         <div style={{
           display: 'grid',
-          gridTemplateColumns: (services || subDepts) ? 'repeat(auto-fit, minmax(280px, 1fr))' : '1fr',
+          gridTemplateColumns: (services && services.length > 0) ? 'repeat(auto-fit, minmax(280px, 1fr))' : '1fr',
           gap: '28px',
           marginBottom: '40px'
         }}>
@@ -193,10 +209,7 @@ const DepartmentPage = ({ currentLang, changeLanguage }) => {
                     }}>
                       {i + 1}
                     </span>
-                    <span style={{
-                      color: '#2d3748', fontSize: 'clamp(13px, 1.5vw, 14.5px)',
-                      lineHeight: '1.6', fontWeight: '500'
-                    }}>
+                    <span style={{ color: '#2d3748', fontSize: 'clamp(13px, 1.5vw, 14.5px)', lineHeight: '1.6', fontWeight: '500' }}>
                       {unit}
                     </span>
                   </li>
@@ -257,7 +270,7 @@ const DepartmentPage = ({ currentLang, changeLanguage }) => {
 
         {/* Sub-Departments (for complex centers) */}
         {subDepts && subDepts.length > 0 && (
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', marginBottom: '40px' }}>
             <h3 style={{
               margin: '0 0 8px',
               fontSize: 'clamp(18px, 2.5vw, 24px)',
@@ -279,8 +292,7 @@ const DepartmentPage = ({ currentLang, changeLanguage }) => {
                 }}
               >
                 <summary style={{
-                  padding: '18px 24px',
-                  cursor: 'pointer',
+                  padding: '18px 24px', cursor: 'pointer',
                   fontWeight: '700', fontSize: 'clamp(14px, 1.8vw, 16px)',
                   color: '#0d2137', listStyle: 'none',
                   display: 'flex', alignItems: 'center', justifyContent: 'space-between',
@@ -295,11 +307,9 @@ const DepartmentPage = ({ currentLang, changeLanguage }) => {
                   }}>＋</span>
                 </summary>
                 <div style={{
-                  padding: '0 24px 22px',
-                  color: '#374151',
+                  padding: '0 24px 22px', color: '#374151',
                   fontSize: 'clamp(13.5px, 1.6vw, 15px)',
-                  lineHeight: '2',
-                  whiteSpace: 'pre-line',
+                  lineHeight: '2', whiteSpace: 'pre-line',
                   textAlign: isAr ? 'right' : 'left',
                   borderTop: '1px solid #f0f8fd'
                 }}>
@@ -309,6 +319,41 @@ const DepartmentPage = ({ currentLang, changeLanguage }) => {
                 </div>
               </details>
             ))}
+          </div>
+        )}
+
+        {/* ===== Doctors Section ===== */}
+        {deptDocs.length > 0 && (
+          <div style={{
+            opacity: visible ? 1 : 0,
+            transform: visible ? 'translateY(0)' : 'translateY(20px)',
+            transition: 'all 0.6s ease 0.4s'
+          }}>
+            {/* Section Header */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '14px', marginBottom: '28px' }}>
+              <div style={{ width: '5px', height: '36px', borderRadius: '3px', background: 'linear-gradient(180deg,#1787b6,#0f5f8a)', flexShrink: 0 }} />
+              <h2 style={{ margin: 0, fontSize: 'clamp(18px, 2.5vw, 26px)', fontWeight: '800', color: '#0d2137' }}>
+                {isAr ? 'أطباء المركز' : 'Center Physicians'}
+              </h2>
+            </div>
+
+            {/* Doctors Grid */}
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fill, minmax(220px, 1fr))',
+              gap: '20px',
+              marginBottom: '16px'
+            }}>
+              {deptDocs.map((doc, idx) => (
+                <DoctorCard
+                  key={doc.id}
+                  doc={doc}
+                  isAr={isAr}
+                  idx={idx}
+                  visible={visible}
+                />
+              ))}
+            </div>
           </div>
         )}
 
@@ -323,13 +368,201 @@ const DepartmentPage = ({ currentLang, changeLanguage }) => {
               cursor: 'pointer', transition: 'all 0.25s',
               fontFamily: "'Cairo','Tajawal',sans-serif"
             }}
-            onMouseEnter={e => { e.target.style.background = '#1787b6'; e.target.style.color = '#fff'; }}
-            onMouseLeave={e => { e.target.style.background = 'transparent'; e.target.style.color = '#1787b6'; }}
+            onMouseEnter={e => { e.currentTarget.style.background = '#1787b6'; e.currentTarget.style.color = '#fff'; }}
+            onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = '#1787b6'; }}
           >
             {isAr ? '← العودة' : '← Back'}
           </button>
         </div>
 
+      </div>
+    </div>
+  );
+};
+
+// ── Doctor Card Component ────────────────────────────────────────────────────
+const DoctorCard = ({ doc, isAr, idx, visible }) => {
+  const [imgError, setImgError] = useState(false);
+  const name     = isAr ? doc.nameAr     : doc.nameEn;
+  const specialty = isAr ? doc.specialtyAr : doc.specialtyEn;
+  const details  = isAr ? doc.detailsAr  : doc.detailsEn;
+
+  // build image path — adjust base path to match your project's assets
+  const imgSrc = imgError
+    ? null
+    : `/src/assets/doctors/${doc.imgFile}`;
+
+  const initials = name
+    .split(' ')
+    .slice(0, 2)
+    .map(w => w[0])
+    .join('');
+
+  return (
+    <div style={{
+      background: '#fff',
+      borderRadius: '18px',
+      border: '1px solid #e3eff7',
+      boxShadow: '0 4px 20px rgba(23,135,182,0.07)',
+      overflow: 'hidden',
+      display: 'flex',
+      flexDirection: 'column',
+      opacity: visible ? 1 : 0,
+      transform: visible ? 'translateY(0)' : 'translateY(20px)',
+      transition: `all 0.5s ease ${0.1 + idx * 0.06}s`,
+    }}>
+
+      {/* Doctor Photo */}
+      <div style={{
+        position: 'relative',
+        height: '200px',
+        background: 'linear-gradient(135deg, #e8f4fb 0%, #c8e6f5 100%)',
+        overflow: 'hidden',
+        flexShrink: 0
+      }}>
+        {imgSrc && !imgError ? (
+          <img
+            src={imgSrc}
+            alt={name}
+            onError={() => setImgError(true)}
+            style={{
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+              objectPosition: 'top center'
+            }}
+          />
+        ) : (
+          /* Fallback avatar with initials */
+          <div style={{
+            width: '100%', height: '100%',
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            background: 'linear-gradient(135deg, #0d2137 0%, #1787b6 100%)'
+          }}>
+            <span style={{
+              fontSize: '42px',
+              fontWeight: '800',
+              color: 'rgba(255,255,255,0.85)',
+              fontFamily: "'Cairo','Tajawal',sans-serif",
+              letterSpacing: '2px'
+            }}>
+              {initials}
+            </span>
+          </div>
+        )}
+
+        {/* Blue gradient overlay at bottom of photo */}
+        <div style={{
+          position: 'absolute',
+          bottom: 0, left: 0, right: 0,
+          height: '60px',
+          background: 'linear-gradient(to top, rgba(13,33,55,0.6), transparent)'
+        }} />
+      </div>
+
+      {/* Doctor Info */}
+      <div style={{ padding: '16px 18px 20px', flex: 1, display: 'flex', flexDirection: 'column', gap: '10px' }}>
+        <div>
+          <h4 style={{
+            margin: '0 0 4px',
+            fontSize: '15px',
+            fontWeight: '800',
+            color: '#0d2137',
+            textAlign: isAr ? 'right' : 'left',
+            lineHeight: '1.4'
+          }}>
+            {name}
+          </h4>
+          <p style={{
+            margin: 0,
+            fontSize: '12.5px',
+            color: '#1787b6',
+            fontWeight: '600',
+            textAlign: isAr ? 'right' : 'left',
+            lineHeight: '1.5'
+          }}>
+            {specialty}
+          </p>
+        </div>
+
+        {/* Specialty details */}
+        {details && details.length > 0 && (
+          <ul style={{
+            margin: 0, padding: 0,
+            listStyle: 'none',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '5px',
+            borderTop: '1px solid #e8f4fb',
+            paddingTop: '10px'
+          }}>
+            {details.slice(0, 3).map((d, i) => (
+              <li key={i} style={{
+                display: 'flex',
+                alignItems: 'flex-start',
+                gap: '7px',
+                textAlign: isAr ? 'right' : 'left'
+              }}>
+                <span style={{
+                  minWidth: '6px', height: '6px',
+                  borderRadius: '50%',
+                  background: '#1787b6',
+                  flexShrink: 0,
+                  marginTop: '5px'
+                }} />
+                <span style={{
+                  fontSize: '12px',
+                  color: '#4b5563',
+                  lineHeight: '1.55',
+                  fontWeight: '400'
+                }}>
+                  {d}
+                </span>
+              </li>
+            ))}
+            {details.length > 3 && (
+              <li style={{
+                fontSize: '11.5px',
+                color: '#1787b6',
+                fontWeight: '600',
+                textAlign: isAr ? 'right' : 'left',
+                paddingTop: '2px'
+              }}>
+                {isAr ? `+ ${details.length - 3} خدمات أخرى` : `+ ${details.length - 3} more`}
+              </li>
+            )}
+          </ul>
+        )}
+
+        {/* WhatsApp Book Button */}
+        <a
+          href={`https://wa.me/966920002159`}
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            marginTop: 'auto',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: '7px',
+            padding: '9px 14px',
+            borderRadius: '50px',
+            background: 'linear-gradient(135deg, #0d2137, #1787b6)',
+            color: '#fff',
+            fontSize: '12.5px',
+            fontWeight: '700',
+            textDecoration: 'none',
+            transition: 'opacity 0.2s',
+            fontFamily: "'Cairo','Tajawal',sans-serif"
+          }}
+          onMouseEnter={e => e.currentTarget.style.opacity = '0.88'}
+          onMouseLeave={e => e.currentTarget.style.opacity = '1'}
+        >
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="#fff">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
+          {isAr ? 'حجز موعد' : 'Book Appointment'}
+        </a>
       </div>
     </div>
   );

@@ -116,21 +116,21 @@ const Navbar = ({ currentLang, changeLanguage }) => {
             </p>
 
             <div className="grid grid-cols-3 gap-8">
-              <a href={`https://wa.me/?text=${encodeURIComponent(shareText + " " + shareUrl)}`} target="_blank" rel="noopener noreferrer" className="flex flex-col items-center group">
+              <a href={`https://wa.me/966920002159`} target="_blank" rel="noopener noreferrer" className="flex flex-col items-center group">
                 <div className="w-16 h-16 flex items-center justify-center rounded-2xl bg-[#25D366] text-white text-4xl shadow-md group-hover:scale-110 transition-transform duration-300">
                   <FaWhatsapp />
                 </div>
                 <span className="text-xs font-medium mt-3 text-gray-700">واتساب</span>
               </a>
 
-              <a href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareUrl)}`} target="_blank" rel="noopener noreferrer" className="flex flex-col items-center group">
+              <a href={`https://x.com/SNH_Najran`} target="_blank" rel="noopener noreferrer" className="flex flex-col items-center group">
                 <div className="w-16 h-16 flex items-center justify-center rounded-2xl bg-black text-white text-4xl shadow-md group-hover:scale-110 transition-transform duration-300">
                   𝕏
                 </div>
                 <span className="text-xs font-medium mt-3 text-gray-700">تويتر</span>
               </a>
 
-              <a href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`} target="_blank" rel="noopener noreferrer" className="flex flex-col items-center group">
+              <a href={`https://www.facebook.com/share/18ZTYzWRdm/`} target="_blank" rel="noopener noreferrer" className="flex flex-col items-center group">
                 <div className="w-16 h-16 flex items-center justify-center rounded-2xl bg-[#1877F2] text-white text-4xl shadow-md group-hover:scale-110 transition-transform duration-300">
                   f
                 </div>

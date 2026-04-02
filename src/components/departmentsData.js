@@ -1,9 +1,16 @@
+// doctorData helpers — import from doctorData.ts in your project
+// Here we re-export the doctor mapping inline for convenience
+// Make sure to import { doctors, departments as deptDoctors } from './doctorData'
+// and use getDoctorsForDept() below in DepartmentPage
+
 export const departments = [
   {
     slug: "intensive-care",
     nameAr: "مركز العناية المركزة",
     nameEn: "Intensive Care Center",
-    image: "https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?w=1200&h=600&fit=crop",
+    // ICU monitors and medical equipment
+    image: "https://prathimahospitals.com/wp-content/uploads/2021/01/New-Project-14-min-1024x576.jpg",
+    doctorDeptId: 1,
     descriptionAr: "يتم من خلاله رعاية وتشخيص وعلاج المرضى الذين يعانون من أمراض حادة ويستخدم هذا المركز مجموعة من أنظمة المراقبة الحيوية المتطورة والعلاجات الداعمة للأعضاء والعديد من العلاجات المتكاملة الأخرى. ويتبع المركز فريق من الأطباء الاستشاريين وطاقم تمريض وأخصائي علاج تنفسي وصيادلة وأخصائيين تغذية سريرية وأخصائيين علاج طبيعي ووظيفي.",
     descriptionEn: "The center provides care, diagnosis and treatment for patients suffering from acute illnesses, using advanced vital monitoring systems, organ support treatments and many other integrated therapies. The center is staffed by a team of consultant physicians, nursing staff, respiratory therapists, pharmacists, clinical nutrition specialists, and physical and occupational therapists.",
     unitsAr: [
@@ -21,7 +28,9 @@ export const departments = [
     slug: "internal-medicine",
     nameAr: "مركز الطب الباطني",
     nameEn: "Internal Medicine Center",
-    image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=1200&h=600&fit=crop",
+    // Doctor examining patient / stethoscope
+    image: "https://www.ekolhospitals.com/assets/upload/internal-diasese_7468-1842_7439-1842.jpg",
+    doctorDeptId: 4,
     descriptionAr: "يلتزم مركز الطب الباطني بتوفير أعلى مستوى من جودة الرعاية الصحية والتي تتراوح من الرعاية الأولية إلى الرعاية المتخصصة والدقيقة للبالغين وكبار السن ذوي الأمراض الحادة والأمراض المزمنة. من خلال نخبة استشاريين ومتخصصين وطاقماً طبياً على أعلى مستوى مدعَّمين بتكنولوجيا متقدمة لتقديم أفضل النصائح والخدمات التشخيصية والعلاج في جميع تخصصات طب الباطنة مثل الغدد الصماء وأمراض الجهاز الهضمي وأمراض الدم والقلب والأعصاب والصدرية.",
     descriptionEn: "The Internal Medicine Center is committed to providing the highest level of healthcare quality, ranging from primary to specialized and subspecialty care for adults and elderly patients with acute and chronic diseases. Through elite consultants, specialists, and a top-tier medical team supported by advanced technology to provide the best advice, diagnostic services and treatment in all internal medicine subspecialties such as endocrinology, gastroenterology, hematology, cardiology, neurology and pulmonology.",
     unitsAr: [
@@ -49,7 +58,9 @@ export const departments = [
     slug: "gastroenterology",
     nameAr: "مركز الجهاز الهضمي والكبد والمناظير",
     nameEn: "Gastroenterology, Hepatology & Endoscopy Center",
-    image: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=1200&h=600&fit=crop",
+    // Endoscopy / GI procedure
+    image: "https://images.unsplash.com/photo-1530497610245-94d3c16cda28?w=1200&h=600&fit=crop",
+    doctorDeptId: 5,
     descriptionAr: "يوفر المركز خدمات متكاملة لتشخيص وعلاج أمراض الجهاز الهضمي والكبد باستخدام أحدث تقنيات المناظير التشخيصية والعلاجية على يد نخبة من استشاريي الجهاز الهضمي.",
     descriptionEn: "The center provides integrated services for the diagnosis and treatment of gastrointestinal and liver diseases using the latest diagnostic and therapeutic endoscopy techniques by elite gastroenterology consultants.",
     unitsAr: [
@@ -65,7 +76,9 @@ export const departments = [
     slug: "obesity-surgery",
     nameAr: "مركز علاج وجراحات السمنة",
     nameEn: "Obesity Treatment & Surgery Center",
-    image: "https://images.unsplash.com/photo-1551190822-a9333d879b1f?w=1200&h=600&fit=crop",
+    // Laparoscopic surgery tools / bariatric
+    image: "https://tse3.mm.bing.net/th/id/OIP._3aw_I5hqQw53YZhVc_riQHaEe?w=1440&h=870&rs=1&pid=ImgDetMain&o=7&rm=3",
+    doctorDeptId: 6,
     descriptionAr: "يعد مركزنا هو المركز الوحيد المعتمد من وزارة الصحة لإجراء جراحات السمنة في نجران ويضم المركز نخبة من الجراحين الاستشاريين في جراحات السمنة المفرطة والجراحة العامة بالمنظار.",
     descriptionEn: "Our center is the only one accredited by the Ministry of Health to perform bariatric surgery in Najran, with elite consultant surgeons specializing in morbid obesity surgery and general laparoscopic surgery.",
     unitsAr: [
@@ -97,7 +110,9 @@ export const departments = [
     slug: "general-surgery",
     nameAr: "مركز الجراحة العامة وجراحة المناظير",
     nameEn: "General Surgery & Laparoscopy Center",
-    image: "https://images.unsplash.com/photo-1579684453423-f84349ef60b0?w=1200&h=600&fit=crop",
+    // Surgeons in operating room
+    image: "https://images.unsplash.com/photo-1551601651-2a8555f1a136?w=1200&h=600&fit=crop",
+    doctorDeptId: 7,
     descriptionAr: "يتوفر بالمركز العديد من الجراحين الاستشاريين من الرجال والنساء وتم توفير أحدث تقنيات ومناظير الجراحة العامة لعمليات اليوم الواحد مع أطقم الرعاية التمريضية المدربة والتنويم بأنواعه التي تضاهي الخدمة الفندقية لرعاية متميزة للمرضى المنومين والمرافقين.",
     descriptionEn: "The center has many male and female consultant surgeons, with the latest general surgery and laparoscopy techniques for day surgeries, trained nursing care teams, and hotel-standard inpatient services for excellent patient and companion care.",
     unitsAr: [
@@ -119,7 +134,9 @@ export const departments = [
     slug: "womens-health",
     nameAr: "مركز صحة المرأة",
     nameEn: "Women's Health Center",
-    image: "https://images.unsplash.com/photo-1666214280577-5d8a53ba9c6c?w=1200&h=600&fit=crop",
+    // Women's health / maternity
+    image: "https://static.sayidaty.net/2023-05/252804.jpg",
+    doctorDeptId: 8,
     descriptionAr: "يضم مركز صحة المرأة في مستشفى تخصصي نجران العديد من الاستشاريات الجراحات والأخصائيات في مجال أمراض وجراحات النساء والولادة وتخصصاتها الدقيقة حيث يتوفر لهم العديد من أحدث أجهزة التشخيص والعلاج وغرف العمليات المتطورة وكذلك وحدة خاصة بطوارئ النساء والولادة.",
     descriptionEn: "The Women's Health Center at Najran Specialist Hospital includes many female consultant surgeons and specialists in obstetrics, gynecology, and subspecialties, with the latest diagnostic and treatment devices, advanced operating rooms, and a dedicated women's emergency and maternity unit.",
     unitsAr: [
@@ -165,7 +182,9 @@ export const departments = [
     slug: "urology",
     nameAr: "مركز أمراض وجراحات المسالك البولية",
     nameEn: "Urology Diseases & Surgery Center",
-    image: "https://images.unsplash.com/photo-1614935151651-0bea6508db6b?w=1200&h=600&fit=crop",
+    // Urology / kidney anatomy model
+    image: "https://saudiarabia.st/saudi-arabia/2025-01-07/%D9%85%D9%85%D9%8A%D8%B2%D8%A7%D8%AA-%D9%88%D8%B9%D9%8A%D9%88%D8%A8-%D8%AA%D8%AE%D8%B5%D8%B5-%D8%AC%D8%B1%D8%A7%D8%AD%D8%A9-%D8%A7%D9%84%D9%85%D8%B3%D8%A7%D9%84%D9%83-%D8%A7%D9%84%D8%A8%D9%88%D9%84%D9%8A%D8%A9/%D9%85%D9%85%D9%8A%D8%B2%D8%A7%D8%AA-%D9%88%D8%B9%D9%8A%D9%88%D8%A8-%D8%AA%D8%AE%D8%B5%D8%B5-%D8%AC%D8%B1%D8%A7%D8%AD%D8%A9-%D8%A7%D9%84%D9%85%D8%B3%D8%A7%D9%84%D9%83-%D8%A7%D9%84%D8%A8%D9%88%D9%84%D9%8A%D8%A9.webp",
+    doctorDeptId: 9,
     descriptionAr: "يضم هذا المركز عدداً من الجراحين الاستشاريين في مجال أمراض وجراحات المسالك البولية وهم يتميزون بخبرات طويلة في هذا المجال كما وفرت المستشفى أحدث أجهزة العلاج مثل جهاز الريزيوم لعلاج تضخم البروستاتا بالتبخير وهو الأول من نوعه في نجران ويتميز الجهاز بأنه يعالج حالاته خلال ١٠ دقائق فقط وبدون جراحة أو ألم.",
     descriptionEn: "The center includes several consultant surgeons in urology diseases and surgery with extensive experience. The hospital has provided the latest treatment devices such as the Rezum device for steam treatment of prostate enlargement — the first of its kind in Najran, treating cases in only 10 minutes with no surgery or pain.",
     unitsAr: [
@@ -199,7 +218,9 @@ export const departments = [
     slug: "ent",
     nameAr: "مركز الأنف والأذن والحنجرة",
     nameEn: "Ear, Nose & Throat (ENT) Center",
-    image: "https://images.unsplash.com/photo-1631217873436-e23d6d545f11?w=1200&h=600&fit=crop",
+    // ENT doctor examining patient ear/throat
+    image: "https://tse4.mm.bing.net/th/id/OIP.zlaldFy7EWMdt8ErCkIg8gHaE7?rs=1&pid=ImgDetMain&o=7&rm=3",
+    doctorDeptId: 10,
     descriptionAr: "يضم هذا المركز عدداً كبيراً من الجراحين الاستشاريين في مجال تشخيص وعلاج أمراض وجراحات الأنف والأذن والحنجرة وهم يتميزون بسمعة طيبة في منطقة نجران كما يمتلك المركز العديد من أحدث التجهيزات التي تساعد في دقة التشخيص والعلاج.",
     descriptionEn: "The center includes many consultant surgeons in ENT diseases and surgeries with an excellent reputation in the Najran region, and the latest equipment for accurate diagnosis and treatment.",
     unitsAr: [
@@ -247,7 +268,9 @@ export const departments = [
     slug: "ophthalmology",
     nameAr: "مركز طب وجراحة العيون",
     nameEn: "Ophthalmology & Eye Surgery Center",
-    image: "https://images.unsplash.com/photo-1577401239170-897942555fb3?w=1200&h=600&fit=crop",
+    // Eye exam / slit lamp
+    image: "https://static2.feelgoodcontacts.net/images/ech/img/entropian-eye-causes-symptoms-treatments.webp",
+    doctorDeptId: 11,
     descriptionAr: "يتوافر بالمركز منظومة متكاملة لتقديم الرعاية الصحية لكافة المراجعين من الأطفال والكبار في تخصص أمراض وجراحات العيون. يشمل فحوصات تشخيص ومتابعة أمراض العيون بأحدث الأجهزة.",
     descriptionEn: "The center provides an integrated healthcare system for all patients — children and adults — in the specialty of eye diseases and surgery, including diagnosis and follow-up examinations with the latest devices.",
     unitsAr: [
@@ -287,7 +310,9 @@ export const departments = [
     slug: "interventional-radiology",
     nameAr: "مركز الأشعة التداخلية",
     nameEn: "Interventional Radiology Center",
-    image: "https://images.unsplash.com/photo-1666214280391-8ff5bd3d3b4e?w=1200&h=600&fit=crop",
+    // Radiology / angiography suite
+    image: "https://images.unsplash.com/photo-1638202993928-7267aad84c31?w=1200&h=600&fit=crop",
+    doctorDeptId: 12,
     descriptionAr: "أصبحت الأشعة التداخلية تخصصاً مستقلاً تم فصله عن تخصص علم الأشعة وهي مجموعة من التقنيات التي تستخدم الصورة الإشعاعية (الأشعة السينية أو الموجات فوق الصوتية) في تشخيص وعلاج الكثير من الأمراض والحالات الحرجة بدون جراحة.",
     descriptionEn: "Interventional radiology has become an independent specialty, using imaging (X-ray or ultrasound) to diagnose and treat many diseases and critical conditions — without surgery.",
     unitsAr: [
@@ -323,7 +348,9 @@ export const departments = [
     slug: "psychiatry",
     nameAr: "مركز الطب النفسي والإدمان",
     nameEn: "Psychiatry & Addiction Center",
-    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1200&h=600&fit=crop",
+    // Mental health / therapy session
+    image: "https://tse2.mm.bing.net/th/id/OIP.gfovH-czeZshW--i5RZ8OgHaED?rs=1&pid=ImgDetMain&o=7&rm=3",
+    doctorDeptId: 13,
     descriptionAr: "يتميز المركز بأنه الوحيد الذي يوفر العلاج للاضطرابات النفسية وفي نفس الوقت تقديم الاستشارات الحياتية والزوجية ومشاكل الطفولة والمراهقة وكذلك كبار السن. بالإضافة إلى علاج مشاكل الإدمان لمن تتوفر لديه الرغبة الحقيقية للتخلص من هذه الآفة.",
     descriptionEn: "The center is unique in providing treatment for psychological disorders while also offering life, marital, childhood, adolescent, and elderly counseling, in addition to treating addiction for those with a genuine desire to recover.",
     unitsAr: [
@@ -365,7 +392,9 @@ export const departments = [
     slug: "pediatrics",
     nameAr: "مركز طب الأطفال المتخصص",
     nameEn: "Specialized Pediatric Center",
-    image: "https://images.unsplash.com/photo-1581595219315-a187dd40c322?w=1200&h=600&fit=crop",
+    // Pediatrician with child / kids healthcare
+    image: "https://tse1.mm.bing.net/th/id/OIP.M0fJ5kBA3ysjOr4dl5dYbwHaE7?rs=1&pid=ImgDetMain&o=7&rm=3",
+    doctorDeptId: 14,
     descriptionAr: "المستشفى الوحيد الذي يضم مركزاً لطب الأطفال المتخصص ويضم أكثر من ٨ تخصصات طبية لأمراض الأطفال، مع أحدث التجهيزات الطبية لرعاية الأطفال منذ الولادة.",
     descriptionEn: "The only hospital featuring a dedicated pediatric specialty center with more than 8 pediatric subspecialties and the latest medical equipment for child care from birth.",
     unitsAr: [
@@ -387,7 +416,9 @@ export const departments = [
     slug: "dental",
     nameAr: "مركز طب وجراحة الأسنان المتخصص (دنت سمايل)",
     nameEn: "Specialized Dental Center (Dent Smile)",
-    image: "https://images.unsplash.com/photo-1609840114035-3c981b782dfe?w=1200&h=600&fit=crop",
+    // Dental chair / dentist at work
+    image: "https://tse2.mm.bing.net/th/id/OIP.pvvaQP3CK6J_D8AwM_qWlwHaE8?w=1650&h=1102&rs=1&pid=ImgDetMain&o=7&rm=3",
+    doctorDeptId: 15,
     descriptionAr: "يضم المركز نخبة من أفضل الاستشاريين والأخصائيين في جميع مجالات طب الأسنان.",
     descriptionEn: "The center includes an elite group of the best consultants and specialists in all fields of dentistry.",
     unitsAr: [
@@ -411,7 +442,9 @@ export const departments = [
     slug: "dermatology",
     nameAr: "مركز الجلدية والجراحات التجميلية والليزر",
     nameEn: "Dermatology, Cosmetic Surgery & Laser Center",
+    // Dermatology / skin treatment laser
     image: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=1200&h=600&fit=crop",
+    doctorDeptId: 16,
     descriptionAr: "يتميز مركز الجلدية والجراحات التجميلية وجراحة تحسين التشوهات بوجود الكوادر المميزة وكذلك الأجهزة الحديثة التي ينفرد بها مستشفى تخصصي نجران في المنطقة مما يسهم في تقديم خدمات مميزة في مجال التجميل بشكل أفضل ويوفر معاناة السفر وتوفير الوقت والمال مع الحصول على أفضل النتائج.",
     descriptionEn: "The Dermatology, Cosmetic Surgery & Deformity Correction Center features distinguished staff and modern devices unique to Najran Specialist Hospital in the region, providing exceptional cosmetic services while saving patients the trouble of travel, time and money.",
     unitsAr: [
@@ -447,7 +480,9 @@ export const departments = [
     slug: "orthopedics",
     nameAr: "مركز أمراض وجراحات العظام والمفاصل",
     nameEn: "Orthopedics & Joint Surgery Center",
-    image: "https://images.unsplash.com/photo-1559757175-3d2b2c2c0c0e?w=1200&h=600&fit=crop",
+    // X-ray of bones / orthopedic surgery
+    image: "https://images.unsplash.com/photo-1612277795421-9bc7706a4a34?w=1200&h=600&fit=crop",
+    doctorDeptId: 17,
     descriptionAr: "يضم مركز جراحات العظام عدداً كبيراً من الجراحين الاستشاريين في مجال أمراض وجراحات العظام وهم يتميزون بخبرات طويلة في هذا المجال ولهم مساهمات وإنجازات علمية تم نشرها في المؤتمرات العالمية. كما يتم اتباع بروتوكولات جراحية فريدة من نوعها داخل منطقة نجران وبعض التقنيات الحديثة التي تنفرد بها المستشفى مثل تقنية (ريجينيرا) لعلاج خشونة المفاصل.",
     descriptionEn: "The Orthopedic Surgery Center includes many consultant surgeons in orthopedic diseases and surgeries with extensive experience and scientific contributions published at international conferences. Unique surgical protocols are followed in the Najran region, including modern techniques exclusive to the hospital such as the Regenera technique for joint arthritis treatment.",
     unitsAr: [
@@ -465,12 +500,14 @@ export const departments = [
       "Physical & Occupational Therapy Unit"
     ]
   },
-  // ===== الأقسام المضافة الجديدة =====
+  // ===== Support & Admin Departments =====
   {
     slug: "emergency",
     nameAr: "قسم الطوارئ",
     nameEn: "Emergency Department",
-    image: "https://images.unsplash.com/photo-1587745416684-47953f16f02f?w=1200&h=600&fit=crop",
+    // ER entrance / emergency team
+    image: "https://images.unsplash.com/photo-1516574187841-cb9cc2ca948b?w=1200&h=600&fit=crop",
+    doctorDeptId: null,
     descriptionAr: "يعد قسم الطوارئ في مستشفى تخصصي نجران من أهم الأقسام الطبية التي تهتم في رعاية المرضى واستقبالهم لتوفير الخدمات الطبية والإسعافات اللازمة إذ يتوفر في القسم أفضل الأطباء والممرضين الذين جرى تدريبهم في مجال طب الحالات الطارئة والإسعافات الأولية وإنقاذ الحياة على مدار الساعة.",
     descriptionEn: "The Emergency Department at Najran Specialist Hospital is one of the most important medical departments, caring for and receiving patients to provide necessary medical services and first aid. The department is staffed by the best trained doctors and nurses in emergency medicine, first aid, and life-saving around the clock.",
     unitsAr: [
@@ -490,7 +527,9 @@ export const departments = [
     slug: "diagnostic-radiology",
     nameAr: "قسم الأشعة التشخيصية",
     nameEn: "Diagnostic Radiology Department",
-    image: "https://images.unsplash.com/photo-1516069677018-378515003435?w=1200&h=600&fit=crop",
+    // MRI machine / CT scanner
+    image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=1200&h=600&fit=crop&sat=-50",
+    doctorDeptId: null,
     descriptionAr: "يضم القسم أحدث أجهزة الأشعة التشخيصية المتعارف عليها ويشرف عليه نخبة من الاستشاريين والأخصائيين والفنيين ويتبع القسم سياسة تعاون دقيقة مع قسم الطوارئ في حالات الحوادث والكسور وغيرها من الحالات الطارئة.",
     descriptionEn: "The department includes the latest diagnostic radiology equipment, supervised by a team of consultants, specialists, and technicians. It follows a precise cooperation policy with the Emergency Department for accidents, fractures, and other urgent cases.",
     unitsAr: [
@@ -514,7 +553,9 @@ export const departments = [
     slug: "laboratory",
     nameAr: "قسم المختبر",
     nameEn: "Laboratory Department",
-    image: "https://images.unsplash.com/photo-1532094349884-543559563dc9?w=1200&h=600&fit=crop",
+    // Lab technician / blood samples / microscope
+    image: "https://nu.edu.om/medicine/assets/uploads/sites/3/2022/05/ChemistryLab-1-1920x1080.jpg",
+    doctorDeptId: null,
     descriptionAr: "يعد قسم المختبر من أهم الأقسام المساندة لأغلب التخصصات والمراكز الطبية في المستشفى مما يمنحه الأهمية القصوى بجميع وحداته حيث أنه جزء أساسي من البروتوكول الطبي المستخدم لدقة التشخيص ووضع الخطة العلاجية المناسبة لكل حالة بواسطة الطبيب المعالج.",
     descriptionEn: "The Laboratory Department is one of the most important supporting departments for most specialties and medical centers in the hospital. It is an essential part of the medical protocol used for accurate diagnosis and treatment planning.",
     unitsAr: [
@@ -542,7 +583,9 @@ export const departments = [
     slug: "pharmacy",
     nameAr: "قسم الصيدلية",
     nameEn: "Pharmacy Department",
-    image: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=1200&h=600&fit=crop",
+    // Pharmacist / medications
+    image: "https://images.unsplash.com/photo-1471864190281-a93a3070b6de?w=1200&h=600&fit=crop",
+    doctorDeptId: null,
     descriptionAr: "تقدم الصيدلية الداخلية بجميع أقسامها خدمات للمرضى المنومين في مختلف أقسام المستشفى على مدى 24 ساعة طوال أيام الأسبوع. وتشمل الخدمات توفير جميع الأدوية للمرضى المنومين وذلك لتأمين الاستخدام السليم والآمن للأدوية. كما تقدم الصيدلية البرامج التعليمية بشكل مستمر لفريق العمل الطبي والتمريضي.",
     descriptionEn: "The inpatient pharmacy provides services to admitted patients in all hospital departments 24/7, covering all medications to ensure proper and safe drug use. The pharmacy also continuously provides educational programs for medical and nursing staff.",
     unitsAr: [
@@ -560,7 +603,9 @@ export const departments = [
     slug: "sterilization",
     nameAr: "قسم التعقيم المركزي",
     nameEn: "Central Sterilization Department",
-    image: "https://images.unsplash.com/photo-1603398938378-e54eab446dde?w=1200&h=600&fit=crop",
+    // Sterilization / autoclave / surgical instruments
+    image: "https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?w=1200&h=600&fit=crop&hue=200",
+    doctorDeptId: null,
     descriptionAr: "هدفنا الأساسي في قسم التعقيم المركزي هو حماية جميع المرضى بضمان جودة عالية من خلال تطبيق أعلى مستويات التعقيم لجميع المستلزمات الطبية تماشياً مع سياسة مكافحة العدوى المتبعة في المستشفى طبقاً لأدق معايير الجودة المعتمدة في نظام المركز السعودي لاعتماد المنشآت الصحية (سباهي).",
     descriptionEn: "Our primary goal in the Central Sterilization Department is to protect all patients by ensuring high quality through applying the highest sterilization standards to all medical supplies, in line with the hospital's infection control policy according to CBAHI standards.",
     unitsAr: [
@@ -578,7 +623,9 @@ export const departments = [
     slug: "social-service",
     nameAr: "قسم الخدمة الاجتماعية",
     nameEn: "Social Service Department",
-    image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=1200&h=600&fit=crop",
+    // Social worker / counseling session
+    image: "https://images.unsplash.com/photo-1491013516836-7db643ee125a?w=1200&h=600&fit=crop",
+    doctorDeptId: null,
     descriptionAr: "يقوم القسم بدراسة وتحليل التجارب والممارسات للحالات الواردة للمستشفى وإعداد التوصيات والمقترحات بتبني أفضل الأساليب والممارسات الحديثة المناسبة لكل حالة بما يتناسب مع ظروفها الخاصة.",
     descriptionEn: "The department studies and analyzes cases received by the hospital and prepares recommendations for best practices suited to each case's specific circumstances.",
     unitsAr: [],
@@ -602,7 +649,9 @@ export const departments = [
     slug: "kitchen-laundry",
     nameAr: "قسم المطبخ والمغسلة",
     nameEn: "Kitchen & Laundry Department",
+    // Hospital kitchen / food service
     image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1200&h=600&fit=crop",
+    doctorDeptId: null,
     descriptionAr: "يخضع قسم المطعم بالكامل إلى إشراف قسم التغذية العلاجية بالمستشفى وتم وضع سياسة داخلية مع إجراءات مكتوبة ومعتمدة تحدد بالتفصيل مهام ومسئوليات جميع العاملين بالقسم. يتم الإشراف على إعداد وتقديم الوجبات المقننة للمرضى حسب حالتهم الصحية، كما تعمل الكافيتيريا 24 ساعة لتقديم أي مشروبات أو احتياجات غذائية سريعة للزائرين. وتقوم المغسلة بتلبية احتياجات أقسام التمريض والتنويم وتطبيق بروتوكولات مكافحة العدوى كاملة.",
     descriptionEn: "The restaurant is fully supervised by the hospital's therapeutic nutrition department, with written and approved internal policies detailing all staff responsibilities. Regulated meals are prepared and served to patients according to their health condition, and the cafeteria operates 24 hours for visitors. The laundry serves nursing and inpatient departments with full infection control protocols.",
     unitsAr: [
@@ -620,7 +669,9 @@ export const departments = [
     slug: "labor-examination",
     nameAr: "مركز فحص العمالة",
     nameEn: "Labor Examination Center",
+    // Medical check / health certificate
     image: "https://images.unsplash.com/photo-1576669801775-ff43c5ab079d?w=1200&h=600&fit=crop",
+    doctorDeptId: null,
     descriptionAr: "يأتي مركز فحص العمالة في مستشفى تخصصي نجران ليكمل منظومتنا في تكامل تقديم الخدمات الطبية لأهالي منطقة نجران سواء الشركات أو المؤسسات العاملة في استقدام العمالة الأجنبية أو الأفراد في منازلهم.",
     descriptionEn: "The Labor Examination Center at Najran Specialist Hospital completes our integrated medical services for the Najran community, serving companies, institutions, and individuals.",
     unitsAr: [],
@@ -650,7 +701,9 @@ export const departments = [
     slug: "home-healthcare",
     nameAr: "مركز الرعاية الصحية المنزلية",
     nameEn: "Home Healthcare Center",
+    // Nurse visiting patient at home
     image: "https://images.unsplash.com/photo-1584515933487-779824d29309?w=1200&h=600&fit=crop",
+    doctorDeptId: null,
     descriptionAr: "يقوم فريق الرعاية الصحية المنزلية بالمستشفى بتقديم رعاية آمنة في منزل المريض مع وجود عائلته، مع توفر فريق طبي كامل وخدمة تواصل مستمرة على الرقم الموحد 920002159.",
     descriptionEn: "The hospital's home healthcare team provides safe care in the patient's home with their family, with a complete medical team and continuous communication service via the unified number 920002159.",
     unitsAr: [],
@@ -678,7 +731,9 @@ export const departments = [
     slug: "toxicology",
     nameAr: "مركز فحص السموم والمخدرات",
     nameEn: "Toxins & Drugs Examination Center",
-    image: "https://images.unsplash.com/photo-1614308457932-e36e0394e1aa?w=1200&h=600&fit=crop",
+    // Lab / toxicology testing
+    image: "https://static.vecteezy.com/system/resources/thumbnails/014/030/740/original/hand-with-syringe-a-lot-of-pills-spread-out-video.jpg",
+    doctorDeptId: null,
     descriptionAr: "يعد مركز فحص السموم والمخدرات بمستشفى تخصصي نجران المركز الوحيد المعتمد من وزارة الصحة في منطقة نجران للكشف عن السموم باستخدام نظام (أوتار) وهو أحدث الأنظمة الآلية للكشف عن العينات بشكل إلكتروني.",
     descriptionEn: "The Toxins and Drugs Examination Center at Najran Specialist Hospital is the only center accredited by the Ministry of Health in the Najran region to detect toxins using the (OTHAR) system — the latest automated electronic detection system.",
     unitsAr: [],
@@ -702,7 +757,9 @@ export const departments = [
     slug: "work-injuries",
     nameAr: "مركز إصابات العمل",
     nameEn: "Work Injuries Center",
-    image: "https://images.unsplash.com/photo-1581093806997-124204d9fa9d?w=1200&h=600&fit=crop",
+    // Worker injury / occupational health
+    image: "https://tse3.mm.bing.net/th/id/OIP.TC6fUJ70moAdWPNQG1jDJQHaEK?w=2560&h=1440&rs=1&pid=ImgDetMain&o=7&rm=3",
+    doctorDeptId: null,
     descriptionAr: "يتوفر بالمستشفى مركز خاص لاستقبال إصابات العمل ومساعدة المصاب بإبلاغ مكتب المؤسسة العامة للتأمينات والقيام بكافة إجراءات التشخيص وبروتوكولات العلاج والتقارير الطبية الدقيقة.",
     descriptionEn: "The hospital has a dedicated center for receiving work injuries, helping the injured notify GOSI and completing all diagnosis, treatment protocols and accurate medical reports.",
     unitsAr: [],
@@ -732,7 +789,9 @@ export const departments = [
     slug: "remote-clinics",
     nameAr: "عيادات الأماكن النائية والمصانع",
     nameEn: "Remote Area & Factory Clinics",
+    // Field clinic / remote medical camp
     image: "https://images.unsplash.com/photo-1504439468489-c8920d796a29?w=1200&h=600&fit=crop",
+    doctorDeptId: null,
     descriptionAr: "حرصاً من المستشفى على خدمة الأهداف التنموية للقطاعات الصناعية المختلفة وخاصة في أماكن تبعد عن المستشفيات، فقد قامت المستشفى بتوفير مركز وإدارة مستقلة لتقديم الخدمات الطبية الطارئة والعلاجية بشكل ثابت ومستمر في تلك الأماكن سواء للشركات أو المصانع أو مواقع التعدين.",
     descriptionEn: "In support of the industrial sector's developmental goals — especially in remote areas far from hospitals — the hospital established an independent center to provide consistent emergency and therapeutic medical services to companies, factories, and mining sites.",
     unitsAr: [
@@ -750,7 +809,9 @@ export const departments = [
     slug: "inpatient-wards",
     nameAr: "أجنحة التنويم والإقامة",
     nameEn: "Inpatient & Accommodation Wards",
+    // Comfortable hospital room / suite
     image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=1200&h=600&fit=crop",
+    doctorDeptId: null,
     descriptionAr: "تتنوع أجنحة التنويم والإقامة في مستشفى تخصصي نجران بين العادية والمتميزة وأيضاً الملكية ويتوفر لكل منها ما يميزها من توفر سبل الراحة للمرضى ومرافقيهم. كما تتميز أجنحة التنويم لدينا بتوفير بيئة مماثلة لمنزل المراجع وذلك لمنحه مزيداً من الراحة النفسية أثناء تلقي العلاج.",
     descriptionEn: "Inpatient wards at Najran Specialist Hospital range from standard to premium and royal suites, each offering comfort amenities for patients and companions. Our wards provide a home-like environment to give patients greater psychological comfort during treatment.",
     unitsAr: [

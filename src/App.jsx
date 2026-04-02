@@ -19,6 +19,9 @@ import PatientsRights from './components/PatientsRights';
 import ContactUsSection from './components/ContactUsSectionn';
 import CompanyInf from './components/CompanyInf';
 import Footer from './components/Footer';
+import ClinicDoctorsPage from './components/ClinicDoctorsPage';
+import ArticlesPage from './components/ArticlesPagee';
+import ContactPage from './components/ContactPage';
 
 const CYCLE_DURATION = 2.4;
 const CYCLES = 2;
@@ -117,6 +120,36 @@ const App = () => {
               <Route path="/about"            element={<AboutPageWrapper     currentLang={currentLang} changeLanguage={changeLanguage} />} />
               <Route path="/department/:slug" element={<DepartmentPageWrapper currentLang={currentLang} changeLanguage={changeLanguage} />} />
               <Route path="/doctors"          element={<DoctorsPageWrapper   currentLang={currentLang} changeLanguage={changeLanguage} />} />
+              <Route
+  path="/clinic-doctors"
+  element={
+    <>
+      <Navbar currentLang={currentLang} changeLanguage={changeLanguage} />
+      <MainNavbar currentLang={currentLang} changeLanguage={changeLanguage} />
+      <ClinicDoctorsPage currentLang={currentLang} />
+    </>
+  }
+/>
+<Route 
+    path="/articles" 
+    element={
+      <>
+        <Navbar currentLang={currentLang} changeLanguage={changeLanguage} />
+        <MainNavbar currentLang={currentLang} changeLanguage={changeLanguage} />
+        <ArticlesPage currentLang={currentLang} />
+      </>
+    } 
+  />
+  <Route 
+  path="/contact" 
+  element={
+    <>
+      <Navbar currentLang={currentLang} changeLanguage={changeLanguage} />
+      <MainNavbar currentLang={currentLang} changeLanguage={changeLanguage} />
+      <ContactPage currentLang={currentLang} />
+    </>
+  } 
+/>
             </Routes>
           </div>
 

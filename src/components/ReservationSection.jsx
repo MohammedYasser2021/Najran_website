@@ -1,9 +1,11 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import CoverBg from "../assets/cover.jpeg"
 
 const ReservationSection = ({ currentLang }) => {
   const [selectedDept, setSelectedDept] = useState('');
   const [selectedClinic, setSelectedClinic] = useState('');
+  const navigate = useNavigate();
 
   const t = {
     en: {
@@ -15,10 +17,6 @@ const ReservationSection = ({ currentLang }) => {
       selectDept: "Select Department",
       selectClinic: "Select Clinic",
       bookNow: "Book Now",
-      alertTitle: "Selected:",
-      alertDept: "Department",
-      alertClinic: "Clinic/Unit",
-      alertRedirect: "Redirecting to doctor booking...",
       pleaseSelect: "Please select a department and clinic first"
     },
     ar: {
@@ -30,10 +28,6 @@ const ReservationSection = ({ currentLang }) => {
       selectDept: "اختر القسم",
       selectClinic: "اختر العيادة",
       bookNow: "احجز الآن",
-      alertTitle: "تم اختيار:",
-      alertDept: "القسم",
-      alertClinic: "الوحدة/العيادة",
-      alertRedirect: "جاري الانتقال إلى حجز الطبيب...",
       pleaseSelect: "يرجى اختيار القسم والعيادة أولاً"
     }
   };
@@ -176,12 +170,18 @@ const ReservationSection = ({ currentLang }) => {
     setSelectedClinic(e.target.value);
   };
 
+  // ── Navigate to ClinicDoctorsPage passing dept & clinic names ──────────────
   const handleBooking = () => {
     if (!selectedDept || !selectedClinic) {
       alert(texts.pleaseSelect);
       return;
     }
-    alert(`${texts.alertTitle}\n${texts.alertDept}: ${selectedDept}\n${texts.alertClinic}: ${selectedClinic}\n\n${texts.alertRedirect}`);
+    navigate('/clinic-doctors', {
+      state: {
+        deptName: selectedDept,
+        clinicName: selectedClinic,
+      }
+    });
   };
 
   return (
@@ -277,81 +277,58 @@ const ReservationSection = ({ currentLang }) => {
             </div>
           </div>
 
-          {/* الجزء الخاص بالدائرة والصور - استبدله بالكود ده */}
-<div className="w-full md:w-auto md:order-2 flex justify-center">
-  <div className="relative w-[300px] h-[300px] sm:w-[340px] sm:h-[340px] md:w-[480px] md:h-[480px] lg:w-[520px] lg:h-[520px] mx-auto">
-    <svg 
-      className="w-full h-full" 
-      viewBox="0 0 500 500" 
-      fill="none"
-      preserveAspectRatio="xMidYMid meet"
-    >
-      <defs>
-        <path
-          id="circlePath"
-          d="M 250, 250 m -180, 0 a 180,180 0 1,1 360,0 a 180,180 0 1,1 -360,0"
-          fill="none"
-          stroke="#e2e8f0"
-          strokeWidth="4"
-          opacity="0.6"
-        />
-      </defs>
-
-      <use href="#circlePath" />
-
-      {/* الدائرة الحمراء المتحركة */}
-      <g className="red-pulse">
-        <animateMotion
-          dur="25s"
-          repeatCount="indefinite"
-          rotate="auto"
-        >
-          <mpath href="#circlePath" />
-        </animateMotion>
-        <circle cx="0" cy="0" r="28" fill="#ef4444" opacity="0.95" />
-        <circle cx="0" cy="0" r="18" fill="#dc2626" opacity="0.9" />
-        <circle cx="0" cy="0" r="10" fill="#ffffff" opacity="0.3" />
-      </g>
-
-      {/* الصور الثلاثة */}
-      <g className="image-float">
-        <foreignObject x="185" y="12" width="125" height="125">
-          <div className="w-full h-full rounded-full overflow-hidden border-4 border-white shadow-2xl bg-white">
-            <img
-              src="https://images.pexels.com/photos/4173239/pexels-photo-4173239.jpeg?auto=compress&cs=tinysrgb&w=600"
-              alt="Doctor"
-              className="w-full h-full object-cover"
-            />
+          {/* الدائرة والصور */}
+          <div className="w-full md:w-auto md:order-2 flex justify-center">
+            <div className="relative w-[300px] h-[300px] sm:w-[340px] sm:h-[340px] md:w-[480px] md:h-[480px] lg:w-[520px] lg:h-[520px] mx-auto">
+              <svg
+                className="w-full h-full"
+                viewBox="0 0 500 500"
+                fill="none"
+                preserveAspectRatio="xMidYMid meet"
+              >
+                <defs>
+                  <path
+                    id="circlePath"
+                    d="M 250, 250 m -180, 0 a 180,180 0 1,1 360,0 a 180,180 0 1,1 -360,0"
+                    fill="none"
+                    stroke="#e2e8f0"
+                    strokeWidth="4"
+                    opacity="0.6"
+                  />
+                </defs>
+                <use href="#circlePath" />
+                <g className="red-pulse">
+                  <animateMotion dur="25s" repeatCount="indefinite" rotate="auto">
+                    <mpath href="#circlePath" />
+                  </animateMotion>
+                  <circle cx="0" cy="0" r="28" fill="#ef4444" opacity="0.95" />
+                  <circle cx="0" cy="0" r="18" fill="#dc2626" opacity="0.9" />
+                  <circle cx="0" cy="0" r="10" fill="#ffffff" opacity="0.3" />
+                </g>
+                <g className="image-float">
+                  <foreignObject x="185" y="12" width="125" height="125">
+                    <div className="w-full h-full rounded-full overflow-hidden border-4 border-white shadow-2xl bg-white">
+                      <img src="https://images.pexels.com/photos/4173239/pexels-photo-4173239.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Doctor" className="w-full h-full object-cover" />
+                    </div>
+                  </foreignObject>
+                </g>
+                <g className="image-float" style={{ animationDelay: '0.5s' }}>
+                  <foreignObject x="345" y="245" width="125" height="125">
+                    <div className="w-full h-full rounded-full overflow-hidden border-4 border-white shadow-2xl bg-white">
+                      <img src="https://images.pexels.com/photos/7089401/pexels-photo-7089401.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Medical Facility" className="w-full h-full object-cover" />
+                    </div>
+                  </foreignObject>
+                </g>
+                <g className="image-float" style={{ animationDelay: '1s' }}>
+                  <foreignObject x="35" y="245" width="125" height="125">
+                    <div className="w-full h-full rounded-full overflow-hidden border-4 border-white shadow-2xl bg-white">
+                      <img src="https://images.pexels.com/photos/7659564/pexels-photo-7659564.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Patient Care" className="w-full h-full object-cover" />
+                    </div>
+                  </foreignObject>
+                </g>
+              </svg>
+            </div>
           </div>
-        </foreignObject>
-      </g>
-
-      <g className="image-float" style={{ animationDelay: '0.5s' }}>
-        <foreignObject x="345" y="245" width="125" height="125">
-          <div className="w-full h-full rounded-full overflow-hidden border-4 border-white shadow-2xl bg-white">
-            <img
-              src="https://images.pexels.com/photos/7089401/pexels-photo-7089401.jpeg?auto=compress&cs=tinysrgb&w=600"
-              alt="Medical Facility"
-              className="w-full h-full object-cover"
-            />
-          </div>
-        </foreignObject>
-      </g>
-
-      <g className="image-float" style={{ animationDelay: '1s' }}>
-        <foreignObject x="35" y="245" width="125" height="125">
-          <div className="w-full h-full rounded-full overflow-hidden border-4 border-white shadow-2xl bg-white">
-            <img
-              src="https://images.pexels.com/photos/7659564/pexels-photo-7659564.jpeg?auto=compress&cs=tinysrgb&w=600"
-              alt="Patient Care"
-              className="w-full h-full object-cover"
-            />
-          </div>
-        </foreignObject>
-      </g>
-    </svg>
-  </div>
-</div>
         </div>
       </div>
 
@@ -360,31 +337,17 @@ const ReservationSection = ({ currentLang }) => {
           from { opacity: 0; transform: translateY(-10px); }
           to { opacity: 1; transform: translateY(0); }
         }
-        .animate-fadeIn {
-          animation: fadeIn 0.3s ease-out;
-        }
+        .animate-fadeIn { animation: fadeIn 0.3s ease-out; }
         @keyframes float {
-          0%, 100% {
-            transform: translateY(0px);
-          }
-          50% {
-            transform: translateY(-8px);
-          }
+          0%, 100% { transform: translateY(0px); }
+          50% { transform: translateY(-8px); }
         }
-        .image-float {
-          animation: float 3s ease-in-out infinite;
-        }
+        .image-float { animation: float 3s ease-in-out infinite; }
         @keyframes pulse-red {
-          0%, 100% {
-            transform: scale(1);
-          }
-          50% {
-            transform: scale(1.1);
-          }
+          0%, 100% { transform: scale(1); }
+          50% { transform: scale(1.1); }
         }
-        .red-pulse circle:first-child {
-          animation: pulse-red 2s ease-in-out infinite;
-        }
+        .red-pulse circle:first-child { animation: pulse-red 2s ease-in-out infinite; }
       `}</style>
     </div>
   );

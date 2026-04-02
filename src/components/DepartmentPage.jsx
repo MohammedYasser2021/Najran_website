@@ -1,7 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import Navbar from './Navbar';
-import MainNavbar from './MainNavbar';
 import { departments } from './departmentsData';
 
 const DepartmentPage = ({ currentLang, changeLanguage }) => {
@@ -22,8 +20,6 @@ const DepartmentPage = ({ currentLang, changeLanguage }) => {
   if (!dept) {
     return (
       <div dir={isAr ? 'rtl' : 'ltr'} style={{ fontFamily: "'Cairo','Tajawal',sans-serif" }}>
-        <Navbar currentLang={currentLang} changeLanguage={changeLanguage} />
-        <MainNavbar currentLang={currentLang} changeLanguage={changeLanguage} />
         <div style={{ textAlign: 'center', padding: '120px 24px', color: '#0d2137' }}>
           <h2 style={{ fontSize: '28px', fontWeight: '800' }}>
             {isAr ? 'القسم غير موجود' : 'Department not found'}
@@ -54,8 +50,6 @@ const DepartmentPage = ({ currentLang, changeLanguage }) => {
       dir={isAr ? 'rtl' : 'ltr'}
       style={{ fontFamily: "'Cairo','Tajawal',sans-serif", background: '#f8fbfd', minHeight: '100vh' }}
     >
-      <Navbar currentLang={currentLang} changeLanguage={changeLanguage} />
-      <MainNavbar currentLang={currentLang} changeLanguage={changeLanguage} />
 
       {/* ===== Hero ===== */}
       <div ref={heroRef} style={{ position: 'relative', width: '100%', height: 'clamp(280px, 42vw, 500px)', overflow: 'hidden' }}>

@@ -137,7 +137,7 @@ const CompanyInf: React.FC<CompanyInfProps> = ({ currentLang }) => {
                 <img 
                   src={GooglePlay} 
                   alt="Get it on Google Play" 
-                  className="h-14 w-auto border border-gray-300 rounded-2xl shadow-sm 
+                  className="h-[56px] w-auto rounded-[10px] shadow-sm 
                              group-hover:shadow-md group-hover:border-[#1787b6] 
                              transition-all duration-300"
                 />
@@ -153,7 +153,7 @@ const CompanyInf: React.FC<CompanyInfProps> = ({ currentLang }) => {
                 <img 
                   src={AppleStore} 
                   alt="Download on the App Store" 
-                  className="h-14 w-auto border border-gray-300 rounded-2xl shadow-sm 
+                  className="h-14 rounded-[10px] w-[189.11px]  shadow-sm 
                              group-hover:shadow-md group-hover:border-[#1787b6] 
                              transition-all duration-300"
                 />

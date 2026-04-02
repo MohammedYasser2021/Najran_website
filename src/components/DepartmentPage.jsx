@@ -388,9 +388,7 @@ const DoctorCard = ({ doc, isAr, idx, visible }) => {
   const details  = isAr ? doc.detailsAr  : doc.detailsEn;
 
   // build image path — adjust base path to match your project's assets
-  const imgSrc = imgError
-    ? null
-    : `/src/assets/doctors/${doc.imgFile}`;
+  const imgSrc = imgError ? null : new URL(`../assets/doctors/${doc.imgFile}`, import.meta.url).href;
 
   const initials = name
     .split(' ')

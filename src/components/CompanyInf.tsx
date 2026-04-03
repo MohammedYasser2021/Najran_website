@@ -23,20 +23,12 @@ const CompanyInf: React.FC<CompanyInfProps> = ({ currentLang }) => {
               alt="Najran Specialized Hospital Logo" 
               className="h-20 mb-6"
             />
-            
-            <p className="text-gray-700 leading-relaxed text-[15.5px] mb-6">
-              {isAr 
-                ? 'المستشفى مرخص من وزارة الصحة بسعة 100 سرير، ويشمل أكثر من 25 تخصصًا طبيًا ويعمل فيه أكثر من 40 استشاريًا واختصاصيًا في جميع التخصصات الطبية العامة والدقيقة.'
-                : 'The hospital is licensed by the Ministry of Health with a capacity of 100 beds. It includes more than 25 medical specialties and employs over 40 consultants and specialists in all general and precise medical fields.'
-              }
-            </p>
-
-            <p className="text-gray-600 leading-relaxed text-[15px]">
-              {isAr 
-                ? 'نحرص على تقديم رعاية صحية متكاملة بأعلى معايير الجودة والسلامة، مع الالتزام بالتميز والشفافية في خدمة مجتمع نجران والمناطق المجاورة.'
-                : 'We are committed to providing comprehensive healthcare with the highest standards of quality and safety, while adhering to excellence and transparency in serving the community of Najran and the surrounding areas.'
-              }
-            </p>
+            <p className="text-gray-700 leading-relaxed text-[15.5px]">
+  {isAr 
+    ? 'شركاؤك في الصحة — كوادر متخصصة، ورعاية لا تتوقف.'
+    : 'Your partners in health — specialized teams, and care that never stops.'
+  }
+</p>
           </div>
 
           {/* 2. Contact Us */}

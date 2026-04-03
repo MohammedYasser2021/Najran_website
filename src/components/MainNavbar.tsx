@@ -299,13 +299,13 @@ const MainNavbar = ({ currentLang, changeLanguage }: MainNavbarProps) => {
                 {/* Flag switcher on mobile bar */}
                 <LangSwitcher />
                 <a href="tel:+966920002159" className="flex items-center gap-2 text-white text-sm font-medium" dir="ltr">
-                  <Phone size={18} /> 920002159
+                  <Phone size={18} /> <span className='mt-1'>920002159</span>
                 </a>
               </>
             ) : (
               <>
                 <a href="tel:+966920002159" className="flex items-center gap-2 text-white text-sm font-medium" dir="ltr">
-                  <Phone size={18} /> 920002159
+                  <Phone size={18} /> <span className='mt-1'>920002159</span>
                 </a>
                 <LangSwitcher />
                 <button onClick={() => setIsSidebarOpen(true)} className="text-white hover:text-gray-200">

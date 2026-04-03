@@ -37,7 +37,7 @@ const Navbar = ({ currentLang, changeLanguage }) => {
             </div>
 
             <div className="flex-1 text-center px-8">
-              <p className="text-2xl font-bold tracking-wide text-[#be5b5d]">
+              <p className="text-2xl font-bold tracking-[0.15em] uppercase text-[#1787b6]">
                 {tagline}
               </p>
             </div>
@@ -82,7 +82,7 @@ const Navbar = ({ currentLang, changeLanguage }) => {
               alt="Logo" 
               className="h-20 w-auto object-contain mb-3 drop-shadow-md" 
             />
-            <p className="text-2xl font-bold tracking-wide text-center text-[#be5b5d] px-4">
+            <p className="text-2xl font-bold tracking-[0.15em] uppercase text-center text-[#1787b6] px-4">
               {tagline}
             </p>
           </div>

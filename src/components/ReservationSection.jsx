@@ -197,9 +197,17 @@ const ReservationSection = ({ currentLang }) => {
 
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4">
         <div className="text-center mb-12">
-          <p className="text-white text-xl md:text-2xl font-medium">
-            {texts.tagline}
-          </p>
+<p className="inline-block text-white text-xl md:text-2xl font-medium px-8 py-3 rounded-full"
+  style={{
+    background: 'linear-gradient(135deg, rgba(23,135,182,0.35), rgba(13,33,55,0.5))',
+    border: '1px solid rgba(255,255,255,0.2)',
+    backdropFilter: 'blur(12px)',
+    letterSpacing: '0.04em',
+    textShadow: '0 1px 8px rgba(0,0,0,0.3)'
+  }}
+>
+  {texts.tagline}
+</p>
         </div>
 
         <div className="flex flex-col-reverse md:flex-row items-center justify-between gap-12">

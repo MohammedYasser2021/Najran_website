@@ -22,6 +22,7 @@ import Footer from './components/Footer';
 import ClinicDoctorsPage from './components/ClinicDoctorsPage';
 import ArticlesPage from './components/ArticlesPagee';
 import ContactPage from './components/ContactPage';
+import NewsPage from './components/NewsPage';
 
 const CYCLE_DURATION = 2.4;
 const CYCLES = 2;
@@ -147,6 +148,16 @@ const App = () => {
       <Navbar currentLang={currentLang} changeLanguage={changeLanguage} />
       <MainNavbar currentLang={currentLang} changeLanguage={changeLanguage} />
       <ContactPage currentLang={currentLang} />
+    </>
+  } 
+/>
+  <Route 
+  path="/news" 
+  element={
+    <>
+      <Navbar currentLang={currentLang} changeLanguage={changeLanguage} />
+      <MainNavbar currentLang={currentLang} changeLanguage={changeLanguage} />
+      <NewsPage currentLang={currentLang} />
     </>
   } 
 />

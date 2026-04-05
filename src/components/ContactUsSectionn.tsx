@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Phone, Mail, MapPin, Clock, UserCheck, ExternalLink } from 'lucide-react';
+// @ts-ignore
 import CoverBg from '../assets/cover.jpeg';
 
 

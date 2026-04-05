@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Navbar from './Navbar';
 import MainNavbar from './MainNavbar';
-import CoverBg from "../assets/cover.jpeg"
-
+import CoverBg from "../assets/cover.jpeg";
+import SNH from "../assets/snh.jpg";
 
 const achievements = {
   ar: [
@@ -114,7 +114,7 @@ const AboutPage = ({ currentLang, changeLanguage }) => {
       style={{ fontFamily: "'Cairo', 'Tajawal', sans-serif" }}
     >
 
-      {/* ===== Hero Cover ===== */}
+      {/* Hero Cover */}
       <div style={{ position: 'relative', width: '100%', height: 'clamp(260px, 45vw, 520px)', overflow: 'hidden' }}>
         <img
           src={CoverBg}
@@ -142,9 +142,9 @@ const AboutPage = ({ currentLang, changeLanguage }) => {
           </h1>
           <p style={{
             color: 'rgba(255,255,255,0.88)',
-            fontSize: 'clamp(14px, 2vw, 20px)',
+            fontSize: 'clamp(17px, 2vw, 25px)',
             marginTop: '14px',
-            fontWeight: '500',
+            fontWeight: '600',
             textShadow: '0 1px 8px rgba(0,0,0,0.35)',
           }}>
             {isAr
@@ -154,11 +154,27 @@ const AboutPage = ({ currentLang, changeLanguage }) => {
         </div>
       </div>
 
-      {/* ===== Achievements ===== */}
+      {/* Achievements */}
       <section style={{ padding: 'clamp(52px, 7vw, 100px) 0', background: '#f8fbfd' }}>
         <div className="container mx-auto px-4 max-w-5xl">
 
           <div style={{ textAlign: 'center', marginBottom: '52px' }}>
+
+            {/* صورة SNH فوق العنوان */}
+            <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '32px' }}>
+   <img
+  src={SNH}
+  alt={isAr ? 'مستشفى تخصصي نجران' : 'Najran Specialist Hospital'}
+style={{
+  width: 'clamp(400px, 95vw, 900px)',
+  height: 'auto',
+  objectFit: 'contain',
+  filter: 'drop-shadow(0 4px 18px rgba(23,135,182,0.18))',
+  borderRadius: '16px',
+}}
+/>
+            </div>
+
             <span style={{
               display: 'inline-block',
               background: '#e8f4fb',
@@ -182,7 +198,6 @@ const AboutPage = ({ currentLang, changeLanguage }) => {
               {isAr ? 'نفخر بما حققناه' : 'We Are Proud of What We Have Achieved'}
             </h2>
 
-            {/* نبض ECG بدل الخط */}
             <ECGPulse />
           </div>
 
@@ -234,7 +249,7 @@ const AboutPage = ({ currentLang, changeLanguage }) => {
         </div>
       </section>
 
-      {/* ===== Stats Bar ===== */}
+      {/* Stats Bar */}
       <section style={{
         background: 'linear-gradient(135deg, #0d2137 0%, #1787b6 100%)',
         padding: 'clamp(36px, 5vw, 64px) 0',
@@ -247,10 +262,10 @@ const AboutPage = ({ currentLang, changeLanguage }) => {
             textAlign: 'center',
           }}>
             {[
-              { num: '+100',  label: isAr ? 'سرير طبي'         : 'Medical Beds'      },
-              { num: '+52',   label: isAr ? 'وحدة طبية'        : 'Medical Units'     },
-              { num: '+60',   label: isAr ? 'طبيب استشاري'     : 'Consultants'       },
-              { num: '13800', label: isAr ? 'م² مساحة البناء'  : 'm² Building Area'  },
+              { num: '+100',  label: isAr ? 'سرير طبي'        : 'Medical Beds'     },
+              { num: '+52',   label: isAr ? 'وحدة طبية'       : 'Medical Units'    },
+              { num: '+60',   label: isAr ? 'طبيب استشاري'    : 'Consultants'      },
+              { num: '13800', label: isAr ? 'م² مساحة البناء' : 'm² Building Area' },
             ].map((stat, i) => (
               <div key={i}>
                 <div style={{ fontSize: 'clamp(28px, 4vw, 42px)', fontWeight: '800', color: '#fff', lineHeight: 1.1 }}>

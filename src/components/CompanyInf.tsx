@@ -1,7 +1,10 @@
 import React from 'react';
 import { MapPin, Mail, Phone } from 'lucide-react';
+// @ts-ignore
 import Logo from "../assets/logo.png"
+// @ts-ignore
 import GooglePlay from "../assets/googleplay.png"
+// @ts-ignore
 import AppleStore from "../assets/applestore.png"
 
 interface CompanyInfProps {

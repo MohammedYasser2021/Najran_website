@@ -30,7 +30,7 @@ const DepartmentPage = ({ currentLang, changeLanguage }) => {
 
   if (!dept) {
     return (
-      <div dir={isAr ? 'rtl' : 'ltr'} style={{ fontFamily: "'Cairo','Tajawal',sans-serif" }}>
+      <div dir={isAr ? 'rtl' : 'ltr'} style={{ fontFamily: "'Tajawal', 'Cairo', sans-serif" }}>
         <div style={{ textAlign: 'center', padding: '120px 24px', color: '#0d2137' }}>
           <h2 style={{ fontSize: '28px', fontWeight: '800' }}>
             {isAr ? 'القسم غير موجود' : 'Department not found'}
@@ -60,7 +60,7 @@ const DepartmentPage = ({ currentLang, changeLanguage }) => {
   return (
     <div
       dir={isAr ? 'rtl' : 'ltr'}
-      style={{ fontFamily: "'Cairo','Tajawal',sans-serif", background: '#f8fbfd', minHeight: '100vh' }}
+      style={{ fontFamily: "'Tajawal','Cairo',sans-serif", background: '#f8fbfd', minHeight: '100vh' }}
     >
 
       {/* ===== Hero ===== */}
@@ -366,7 +366,7 @@ const DepartmentPage = ({ currentLang, changeLanguage }) => {
               border: '2px solid #1787b6', background: 'transparent',
               color: '#1787b6', fontSize: '15px', fontWeight: '700',
               cursor: 'pointer', transition: 'all 0.25s',
-              fontFamily: "'Cairo','Tajawal',sans-serif"
+              fontFamily: "'Tajawal','Cairo',sans-serif"
             }}
             onMouseEnter={e => { e.currentTarget.style.background = '#1787b6'; e.currentTarget.style.color = '#fff'; }}
             onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = '#1787b6'; }}
@@ -441,7 +441,7 @@ const DoctorCard = ({ doc, isAr, idx, visible }) => {
               fontSize: '42px',
               fontWeight: '800',
               color: 'rgba(255,255,255,0.85)',
-              fontFamily: "'Cairo','Tajawal',sans-serif",
+              fontFamily: "'Tajawal', 'Cairo',sans-serif",
               letterSpacing: '2px'
             }}>
               {initials}
@@ -551,7 +551,7 @@ const DoctorCard = ({ doc, isAr, idx, visible }) => {
             fontWeight: '700',
             textDecoration: 'none',
             transition: 'opacity 0.2s',
-            fontFamily: "'Cairo','Tajawal',sans-serif"
+            fontFamily: "'Tajawal', 'Cairo',sans-serif"
           }}
           onMouseEnter={e => e.currentTarget.style.opacity = '0.88'}
           onMouseLeave={e => e.currentTarget.style.opacity = '1'}

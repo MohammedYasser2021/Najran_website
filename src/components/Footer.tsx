@@ -1,11 +1,11 @@
 import React from 'react';
+// @ts-ignore
 import SNH from '../assets/snh.jpg';
 
 interface FooterProps {
   currentLang: string;
 }
 
-// ── Branded SVG Icons ──────────────────────────────────────────────
 const YoutubeIcon = () => (
   <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5 sm:w-6 sm:h-6">
     <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
@@ -54,77 +54,56 @@ const WhatsAppIcon = () => (
   </svg>
 );
 
-// ─────────────────────────────────────────────────────────────────────
-
 const Footer: React.FC<FooterProps> = ({ currentLang }) => {
   const isAr = currentLang === 'ar';
   const year = new Date().getFullYear();
 
-  const fullNameAr = 'مستشفى نجران التخصصي';
+  const fullNameAr = 'مستشفى تخصصي نجران';
   const fullNameEn = 'Najran Specialized Hospital';
 
-  const copyrightText = isAr
-    ? `جميع الحقوق محفوظة © ${year} ${fullNameAr}`
-    : `Copyright © ${year} ${fullNameEn}`;
+ const copyrightText = isAr
+  ? `جميع الحقوق محفوظة © ${year} ${fullNameAr}`
+  : `Copyright © ${year} ${fullNameEn}`;
 
   const socials = [
-    { Icon: WhatsAppIcon,  url: 'https://wa.me/966920002159',                                         label: 'WhatsApp'    },
-    { Icon: YoutubeIcon,   url: 'https://youtube.com/@snh_najrann',                                   label: 'YouTube'     },
-    { Icon: LinkedinIcon,  url: 'https://www.linkedin.com/company/snh_najran/?originalSubdomain=sa',  label: 'LinkedIn'    },
-    { Icon: FacebookIcon,  url: 'https://www.facebook.com/share/18ZTYzWRdm/',                         label: 'Facebook'    },
-    { Icon: InstagramIcon, url: 'https://www.instagram.com/snh_najran',                               label: 'Instagram'   },
-    { Icon: XIcon,         url: 'https://x.com/SNH_Najran',                                           label: 'X (Twitter)' },
-    { Icon: SnapchatIcon,  url: 'https://www.snapchat.com/add/snh_najran',                            label: 'Snapchat'    },
-    { Icon: TiktokIcon,    url: 'https://www.tiktok.com/@snh_najran',                                 label: 'TikTok'      },
+    { Icon: WhatsAppIcon,  url: 'https://wa.me/966920002159',                                        label: 'WhatsApp'    },
+    { Icon: YoutubeIcon,   url: 'https://youtube.com/@snh_najrann',                                  label: 'YouTube'     },
+    { Icon: LinkedinIcon,  url: 'https://www.linkedin.com/company/snh_najran/?originalSubdomain=sa', label: 'LinkedIn'    },
+    { Icon: FacebookIcon,  url: 'https://www.facebook.com/share/18ZTYzWRdm/',                        label: 'Facebook'    },
+    { Icon: InstagramIcon, url: 'https://www.instagram.com/snh_najran',                              label: 'Instagram'   },
+    { Icon: XIcon,         url: 'https://x.com/SNH_Najran',                                          label: 'X (Twitter)' },
+    { Icon: SnapchatIcon,  url: 'https://www.snapchat.com/add/snh_najran',                           label: 'Snapchat'    },
+    { Icon: TiktokIcon,    url: 'https://www.tiktok.com/@snh_najran',                                label: 'TikTok'      },
   ];
 
-  const nameSection = (
-    <div className={`w-full flex items-center justify-center ${isAr ? 'lg:justify-end' : 'lg:justify-start'}`}>
-      <h2 className="text-xl sm:text-2xl font-bold text-[#1787b6] tracking-tight leading-snug text-center lg:text-start">
-        {isAr ? fullNameAr : fullNameEn}
-      </h2>
-    </div>
-  );
-
-  const socialSection = (
-    <div className="flex flex-wrap justify-center lg:justify-end gap-4 sm:gap-5">
-      {socials.map(({ Icon, url, label }, index) => (
-        <a
-          key={index}
-          href={url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-gray-500 hover:text-[#1787b6] transition-colors duration-300"
-          aria-label={label}
-        >
-          <Icon />
-        </a>
-      ))}
-    </div>
-  );
-
   return (
-    <footer className="bg-[#f8fafc] border-t border-gray-200">
+    <footer className="bg-[#f8fafc] border-t border-gray-200" dir={isAr ? 'rtl' : 'ltr'}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
 
-        {/* Mobile layout */}
-        <div className="flex flex-col items-center gap-8 lg:hidden">
-          <div className="flex flex-col items-center text-center">
-            <img
-              src={SNH}
-              alt={isAr ? 'شعار مستشفى نجران التخصصي' : 'Najran Specialized Hospital Logo'}
-              className="h-20 sm:h-24 w-auto object-contain mb-4 drop-shadow-sm"
-            />
-            <p className="text-xs sm:text-sm text-gray-500">{copyrightText}</p>
-          </div>
+        {/* الصورة في النص */}
+        <div className="flex justify-center mb-8">
+          <img
+            src={SNH}
+            alt={isAr ? 'شعار مستشفى تخصصي نجران' : 'Najran Specialized Hospital Logo'}
+            className="w-[80vw] max-w-[680px] h-auto object-contain drop-shadow-sm rounded-[12px]"
+          />
+        </div>
 
-          <div className="text-center">
-            <h2 className="text-lg sm:text-xl font-bold text-[#1787b6] tracking-tight">
-              {isAr ? fullNameAr : fullNameEn}
-            </h2>
-          </div>
+        {/* الصف التحتاني: اسم - copyright - سوشيال */}
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 flex-wrap">
 
-          <div className="flex flex-wrap justify-center gap-4">
+          {/* يمين - اسم المستشفى */}
+          <h2 className="text-base sm:text-lg font-bold text-[#1787b6]">
+            {isAr ? fullNameAr : fullNameEn}
+          </h2>
+
+          {/* وسط - copyright */}
+          <p className="text-xs sm:text-sm text-gray-500">
+            {copyrightText}
+          </p>
+
+          {/* شمال - سوشيال ميديا */}
+          <div className="flex flex-wrap justify-center gap-3 sm:gap-4">
             {socials.map(({ Icon, url, label }, index) => (
               <a
                 key={index}
@@ -138,26 +117,7 @@ const Footer: React.FC<FooterProps> = ({ currentLang }) => {
               </a>
             ))}
           </div>
-        </div>
 
-        {/* Desktop layout */}
-        <div className="hidden lg:grid lg:grid-cols-3 lg:items-center lg:gap-8">
-          <div className="flex items-center justify-start">
-            {isAr ? socialSection : nameSection}
-          </div>
-
-          <div className="flex flex-col items-center text-center">
-            <img
-              src={SNH}
-              alt={isAr ? 'شعار مستشفى نجران التخصصي' : 'Najran Specialized Hospital Logo'}
-              className="h-24 xl:h-28 w-auto object-contain mb-5 drop-shadow-sm"
-            />
-            <p className="text-sm text-gray-500">{copyrightText}</p>
-          </div>
-
-          <div className="flex items-center justify-end">
-            {isAr ? nameSection : socialSection}
-          </div>
         </div>
       </div>
     </footer>

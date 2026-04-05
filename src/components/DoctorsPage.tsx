@@ -342,12 +342,12 @@ const DoctorsPage = ({ currentLang, changeLanguage }: DoctorsPageProps) => {
   }, [isAr]);
 
   return (
-    <div dir={isAr ? 'rtl' : 'ltr'} style={{ fontFamily: "'Cairo','Tajawal',sans-serif", minHeight: '100vh', background: '#f0f5f9' }}>
+    <div dir={isAr ? 'rtl' : 'ltr'} style={{ fontFamily: "'Tajawal', 'Cairo', sans-serif", minHeight: '100vh', background: '#f0f5f9' }}>
 
       {/* ── Hero ── */}
       <div style={{ position: 'relative', width: '100%', height: 'clamp(260px,38vw,460px)', overflow: 'hidden' }}>
-        <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=1600&q=80&auto=format&fit=crop" alt="medical background"
-          style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center' }} />
+        <img src="https://static.vecteezy.com/system/resources/previews/065/703/890/large_2x/four-doctors-standing-together-in-white-lab-coats-free-photo.jpeg"
+  style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top' }} />
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(135deg,rgba(10,22,40,0.88) 0%,rgba(13,33,55,0.82) 50%,rgba(7,35,60,0.90) 100%)' }} />
         <div style={{ position: 'absolute', inset: 0, backgroundImage: 'linear-gradient(rgba(38,157,204,0.06) 1px,transparent 1px),linear-gradient(90deg,rgba(38,157,204,0.06) 1px,transparent 1px)', backgroundSize: '48px 48px' }} />
         <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%,-50%)', width: '600px', height: '600px', background: 'radial-gradient(circle,rgba(38,157,204,0.15) 0%,transparent 65%)', pointerEvents: 'none' }} />
@@ -369,7 +369,7 @@ const DoctorsPage = ({ currentLang, changeLanguage }: DoctorsPageProps) => {
           </p>
           <ECGPulse />
           <div style={{ display: 'flex', gap: 'clamp(20px,4vw,48px)', marginTop: '24px' }}>
-            {[{ num: doctors.length, labelAr: 'طبيب متخصص', labelEn: 'Specialists' }, { num: '24/7', labelAr: 'خدمة متواصلة', labelEn: 'Service' }, { num: '15+', labelAr: 'تخصص طبي', labelEn: 'Specialties' }].map((s, i) => (
+            {[{ num: '60+', labelAr: 'طبيب متخصص', labelEn: 'Specialists' }, { num: '24/7', labelAr: 'خدمة متواصلة', labelEn: 'Service' }, { num: '30+', labelAr: 'تخصص طبي', labelEn: 'Specialties' }].map((s, i) => (
               <div key={i} style={{ textAlign: 'center' }}>
                 <div style={{ color: '#7dd4f0', fontSize: 'clamp(20px,3vw,32px)', fontWeight: '800', lineHeight: 1 }}>{s.num}</div>
                 <div style={{ color: 'rgba(255,255,255,0.5)', fontSize: '12px', marginTop: '4px' }}>{isAr ? s.labelAr : s.labelEn}</div>

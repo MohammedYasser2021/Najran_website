@@ -64,7 +64,7 @@ const DoctorsByDepartmentPage = ({ currentLang }: DoctorsByDepartmentPageProps) 
   }, [isAr]);
 
   return (
-    <div dir={isAr ? 'rtl' : 'ltr'} style={{ fontFamily: "'Cairo','Tajawal',sans-serif", minHeight: '100vh', background: '#f8fcff' }}>
+    <div dir={isAr ? 'rtl' : 'ltr'} style={{ fontFamily: "'Tajawal', 'Cairo', sans-serif", minHeight: '100vh', background: '#f8fcff' }}>
       <div style={{
         background: 'linear-gradient(135deg, #1787b6 0%, #269dcc 100%)',
         padding: '48px 24px',

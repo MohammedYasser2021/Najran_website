@@ -44,6 +44,7 @@ const TiktokIcon = () => (
   </svg>
 );
 
+// @ts-ignore
 import MainHospital from '../assets/mainhospital.jpeg';   // ← غيّر الاسم لو الصورة مختلفة
 
 interface ContactPageProps {

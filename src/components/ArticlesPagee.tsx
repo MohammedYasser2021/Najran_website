@@ -1,5 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { X } from 'lucide-react';
+// @ts-ignore
+import MainHospital from '../assets/mainhospital.jpeg';
 
 interface ArticlesPageProps {
   currentLang: string;
@@ -194,121 +196,178 @@ We believe that technology should never replace the human touch — but it shoul
   };
 
   return (
-    <section ref={sectionRef} className="py-20 bg-gradient-to-br from-gray-50 to-white">
-      <div className="max-w-7xl mx-auto px-4">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4">
-            {isAr ? 'المقالات والمدونة' : 'Articles & Blog'}
+    <div ref={sectionRef} dir={isAr ? 'rtl' : 'ltr'} style={{ fontFamily: "'Cairo','Tajawal',sans-serif" }}>
+
+      {/* ── Hero ── */}
+      <div
+        style={{
+          position: 'relative',
+          width: '100%',
+          height: 'clamp(260px, 45vw, 520px)',
+          overflow: 'hidden',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+      >
+        {/* Background image */}
+        <img
+          src={MainHospital}
+          alt="Najran Specialist Hospital"
+          style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }}
+        />
+        {/* Dark overlay */}
+        <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.62) 60%, rgba(0,0,0,0.82) 100%)' }} />
+
+        {/* Centered content */}
+        <div style={{ position: 'relative', zIndex: 1, textAlign: 'center', padding: '0 24px', maxWidth: '720px' }}>
+          <h1
+            style={{
+              color: '#fff',
+              fontSize: 'clamp(32px, 5.5vw, 60px)',
+              fontWeight: '800',
+              margin: '0 0 10px',
+              lineHeight: 1.2,
+              textShadow: '0 2px 20px rgba(0,0,0,0.5)',
+            }}
+          >
+            {isAr ? 'المقالات' : 'Articles'}
           </h1>
-          <p className="text-gray-600 max-w-2xl mx-auto text-lg">
-            {isAr 
+
+          <p
+            style={{
+              color: 'rgba(255,255,255,0.85)',
+              fontSize: 'clamp(14px, 2vw, 20px)',
+              margin: '0 0 28px',
+              fontWeight: '500',
+            }}
+          >
+            {isAr
               ? 'نشارك معكم أحدث المعارف والتجارب والرؤى الطبية'
-              : 'We share with you the latest knowledge, experiences, and medical insights'
-            }
+              : 'We share with you the latest knowledge, experiences, and medical insights'}
           </p>
 
-          {/* نبض ECG */}
-          <div className="flex justify-center mt-10">
-            <svg
-              viewBox="0 0 300 60"
-              width="320"
-              height="60"
-              xmlns="http://www.w3.org/2000/svg"
-              className={`transition-opacity duration-700 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
-            >
-              <defs>
-                <filter id="glow">
-                  <feGaussianBlur stdDeviation="2" result="coloredBlur" />
-                  <feMerge>
-                    <feMergeNode in="coloredBlur" />
-                    <feMergeNode in="SourceGraphic" />
-                  </feMerge>
-                </filter>
-                <mask id="revealMask">
-                  <rect x="0" y="0" width="300" height="60" fill="white">
-                    <animate attributeName="x" from="-300" to="300" dur="2.8s" repeatCount="indefinite" />
-                  </rect>
-                </mask>
-              </defs>
 
-              <path
-                d="M 0,30 L 105,30 L 112,30 L 117,22 L 122,30 L 128,30 L 133,10 L 141,50 L 150,5 L 158,50 L 165,30 L 170,30 L 175,22 L 180,30 L 300,30"
-                fill="none"
-                stroke="#1787b6"
-                strokeWidth="2.8"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                filter="url(#glow)"
-                mask="url(#revealMask)"
-              />
-
-              <line x1="0" y1="30" x2="300" y2="30" stroke="#1787b6" strokeWidth="0.6" strokeOpacity="0.15" />
-
-              <circle r="4" fill="#1787b6" filter="url(#glow)">
-                <animateMotion
-                  dur="2.8s"
-                  repeatCount="indefinite"
-                  path="M 0,30 L 105,30 L 112,30 L 117,22 L 122,30 L 128,30 L 133,10 L 141,50 L 150,5 L 158,50 L 165,30 L 170,30 L 175,22 L 180,30 L 300,30"
-                />
-              </circle>
-            </svg>
-          </div>
-        </div>
-
-        {/* Articles Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {articles.map((article) => (
-            <div
-              key={article.id}
-              className="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 group"
-            >
-              <div className="relative h-64 overflow-hidden">
-                <img
-                  src={article.image}
-                  alt={isAr ? article.titleAr : article.titleEn}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
-              </div>
-
-              <div className="p-7">
-                <h3 className="text-xl font-bold text-gray-800 mb-4 leading-tight min-h-[56px]">
-                  {isAr ? article.titleAr : article.titleEn}
-                </h3>
-
-                <p className="text-gray-600 leading-relaxed text-[15.2px] line-clamp-5">
-                  {(isAr ? article.contentAr : article.contentEn).substring(0, 280)}...
-                </p>
-
-                <button 
-                  onClick={() => openArticle(article)}
-                  className="mt-6 text-[#1787b6] font-semibold flex items-center gap-2 hover:gap-3 transition-all group-hover:translate-x-1"
-                >
-                  {isAr ? 'اقرأ المزيد' : 'Read More'}
-                  <span className="text-lg">→</span>
-                </button>
-              </div>
-            </div>
-          ))}
         </div>
       </div>
 
-      {/* Full Article Modal */}
+      {/* ── Articles Grid ── */}
+      <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
+        <div className="max-w-7xl mx-auto px-4">
+
+          {/* Section Header */}
+          <div style={{ textAlign: 'center', marginBottom: '52px' }}>
+            <span style={{
+              display: 'inline-block',
+              background: '#e8f4fb',
+              color: '#1787b6',
+              fontSize: '13px',
+              fontWeight: '700',
+              padding: '6px 22px',
+              borderRadius: '50px',
+              marginBottom: '16px',
+              letterSpacing: '0.5px',
+            }}>
+              {isAr ? 'مقالاتنا الطبية' : 'Our Medical Articles'}
+            </span>
+
+            <h2 style={{
+              fontSize: 'clamp(24px, 4vw, 38px)',
+              fontWeight: '800',
+              color: '#0d2137',
+              margin: '0',
+            }}>
+              {isAr ? 'نشارك معكم أحدث الرؤى الطبية' : 'We Share the Latest Medical Insights'}
+            </h2>
+
+            <div style={{ display: 'flex', justifyContent: 'center', margin: '16px 0 0' }}>
+              <svg viewBox="0 0 300 60" width="300" height="60" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <filter id="glow-art-sec">
+                    <feGaussianBlur stdDeviation="2" result="coloredBlur" />
+                    <feMerge>
+                      <feMergeNode in="coloredBlur" />
+                      <feMergeNode in="SourceGraphic" />
+                    </feMerge>
+                  </filter>
+                  <mask id="reveal-art-sec">
+                    <rect x="0" y="0" width="300" height="60" fill="white">
+                      <animate attributeName="x" from="-300" to="300" dur="2.8s" repeatCount="indefinite" />
+                    </rect>
+                  </mask>
+                </defs>
+                <line x1="0" y1="30" x2="300" y2="30" stroke="#1787b6" strokeWidth="0.5" strokeOpacity="0.25" />
+                <path
+                  d="M 0,30 L 105,30 L 112,30 L 117,22 L 122,30 L 128,30 L 133,10 L 141,50 L 150,5 L 158,50 L 165,30 L 170,30 L 175,22 L 180,30 L 300,30"
+                  fill="none" stroke="#1787b6" strokeWidth="2.5"
+                  strokeLinecap="round" strokeLinejoin="round"
+                  filter="url(#glow-art-sec)" mask="url(#reveal-art-sec)"
+                />
+                <circle r="4" fill="#1787b6" filter="url(#glow-art-sec)">
+                  <animateMotion dur="2.8s" repeatCount="indefinite"
+                    path="M 0,30 L 105,30 L 112,30 L 117,22 L 122,30 L 128,30 L 133,10 L 141,50 L 150,5 L 158,50 L 165,30 L 170,30 L 175,22 L 180,30 L 300,30"
+                  />
+                </circle>
+              </svg>
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {articles.map((article) => (
+              <div
+                key={article.id}
+                className="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 group"
+              >
+                <div className="relative h-64 overflow-hidden">
+                  <img
+                    src={article.image}
+                    alt={isAr ? article.titleAr : article.titleEn}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+                </div>
+
+                <div className="p-7">
+                  <h3 className="text-xl font-bold text-gray-800 mb-4 leading-tight min-h-[56px]">
+                    {isAr ? article.titleAr : article.titleEn}
+                  </h3>
+
+                  <p className="text-gray-600 leading-relaxed text-[15.2px] line-clamp-5">
+                    {(isAr ? article.contentAr : article.contentEn).substring(0, 280)}...
+                  </p>
+
+                  <button
+                    onClick={() => openArticle(article)}
+                    className="mt-6 text-[#1787b6] font-semibold flex items-center gap-2 hover:gap-3 transition-all group-hover:translate-x-1"
+                  >
+                    {isAr ? 'اقرأ المزيد' : 'Read More'}
+                    <span className="text-lg">{isAr ? '←' : '→'}</span>
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Full Article Modal ── */}
       {selectedArticle && (
-        <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4" onClick={closeArticle}>
-          <div 
+        <div
+          className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4"
+          onClick={closeArticle}
+        >
+          <div
             className="bg-white rounded-3xl max-w-4xl w-full max-h-[92vh] overflow-hidden shadow-2xl"
             onClick={e => e.stopPropagation()}
           >
             <div className="relative h-80">
-              <img 
-                src={selectedArticle.image} 
-                alt={isAr ? selectedArticle.titleAr : selectedArticle.titleEn} 
-                className="w-full h-full object-cover" 
+              <img
+                src={selectedArticle.image}
+                alt={isAr ? selectedArticle.titleAr : selectedArticle.titleEn}
+                className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
-              <button 
+              <button
                 onClick={closeArticle}
                 className="absolute top-6 right-6 bg-white/90 hover:bg-white p-3 rounded-full transition-colors"
               >
@@ -320,7 +379,7 @@ We believe that technology should never replace the human touch — but it shoul
               <h2 className="text-3xl font-bold text-gray-900 mb-8 leading-tight">
                 {isAr ? selectedArticle.titleAr : selectedArticle.titleEn}
               </h2>
-              
+
               <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed whitespace-pre-line">
                 {isAr ? selectedArticle.contentAr : selectedArticle.contentEn}
               </div>
@@ -328,7 +387,7 @@ We believe that technology should never replace the human touch — but it shoul
           </div>
         </div>
       )}
-    </section>
+    </div>
   );
 };
 

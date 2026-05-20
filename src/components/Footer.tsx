@@ -82,11 +82,12 @@ const Footer: React.FC<FooterProps> = ({ currentLang }) => {
 
         {/* الصورة في النص */}
         <div className="flex justify-center mb-8">
-          <img
-            src={SNH}
-            alt={isAr ? 'شعار مستشفى تخصصي نجران' : 'Najran Specialized Hospital Logo'}
-            className="w-[80vw] max-w-[680px] h-auto object-contain drop-shadow-sm rounded-[12px]"
-          />
+ <img
+  src={SNH}
+  alt={isAr ? 'شعار مستشفى تخصصي نجران' : 'Najran Specialized Hospital Logo'}
+  className="w-full max-w-[1019px] h-auto object-contain drop-shadow-sm rounded-[12px]"
+  style={{ minWidth: '280px' }}
+/>
         </div>
 
         {/* الصف التحتاني: اسم - copyright - سوشيال */}

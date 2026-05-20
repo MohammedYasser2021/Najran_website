@@ -1,4 +1,10 @@
 import React, { useState, useRef, useEffect } from 'react';
+// @ts-ignore
+import ValImage from "../assets/val.png"
+// @ts-ignore
+import SightImage from "../assets/sight.png"
+// @ts-ignore
+import MesImage from "../assets/mes.png"
 
 interface OurGoalProps {
   currentLang: string;
@@ -37,19 +43,19 @@ const OurGoal: React.FC<OurGoalProps> = ({ currentLang }) => {
         {
           label: 'رسالتنا',
           icon: '✦',
-          image: 'https://images.pexels.com/photos/3376790/pexels-photo-3376790.jpeg?auto=compress&cs=tinysrgb&w=800',
+          image: MesImage,
           text: 'نهدف إلى تعزيز جودة الحياة في المجتمع من خلال خدمات رعاية صحية استثنائية، تقدم بالتزام تام بالتميز والرعاية.',
         },
         {
           label: 'رؤيتنا',
           icon: '◈',
-          image: 'https://images.pexels.com/photos/4021775/pexels-photo-4021775.jpeg?auto=compress&cs=tinysrgb&w=800',
+          image: SightImage,
           text: 'أن نكون الخيار الأول في المنطقة للرعاية الصحية التخصصية، بتقديم أعلى مستويات الخدمة الطبية لنغنيهم عن السفر خارج المنطقة وتجاوز توقعات المرضى بمزيج من التكنولوجيا المتقدمة والرعاية المتخصصة.',
         },
         {
           label: 'قيمنا',
           icon: '◆',
-          image: 'https://images.pexels.com/photos/4386466/pexels-photo-4386466.jpeg?auto=compress&cs=tinysrgb&w=800',
+          image: ValImage,
           text: '– احترام قيم المجتمع وسرية المرضى.\n– تقديم رعاية متعاطفة تلبي احتياجات المرضى.\n– الحفاظ على مستويات عالية من الاحترافية والنزاهة في جميع التفاعلات.\n– تحقيق تعافي شامل للمرضى – جسديًا وروحيًا ونفسيًا.\n– الريادة في تقديم رعاية صحية متميزة لمرضانا وأسرهم.',
         },
       ],

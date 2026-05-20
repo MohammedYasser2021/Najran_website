@@ -53,7 +53,7 @@ const MainNavbar = ({ currentLang, changeLanguage }: MainNavbarProps) => {
     { key: 'about',    label: isArabic ? 'من نحن'           : 'About Us',      href: '/about' },
     { key: 'depts',    label: isArabic ? 'الأقسام'          : 'Departments',   href: null, hasDeptDropdown: true },
     { key: 'doctors',  label: isArabic ? 'الأطباء'          : 'Doctors',       href: '/doctors' },
-    { key: 'blog',     label: isArabic ? 'المدونة والأخبار' : 'Blog & News',   href: '/news' },
+    { key: 'blog',     label: isArabic ? 'المركز الإعلاني' : 'Media Center',   href: '/news' },
     { key: 'articles', label: isArabic ? 'المقالات'         : 'Articles',      href: '/articles' },
     { key: 'contact',  label: isArabic ? 'اتصل بنا'         : 'Contact Us',    href: '/contact' },
   ];

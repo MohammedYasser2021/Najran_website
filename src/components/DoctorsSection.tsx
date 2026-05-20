@@ -1,126 +1,95 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
+import { doctors } from './doctorData';
 
 interface DoctorsProps {
   currentLang: string;
 }
 
 
+
 // @ts-ignore
-import img1 from '../assets/doctors/1.jpg';
+import img2 from '../assets/doctors/2.png';
 // @ts-ignore
-import img2 from '../assets/doctors/2.jpg';
+import img4 from '../assets/doctors/4.png';
 // @ts-ignore
-import img3 from '../assets/doctors/3.jpg';
+import img5 from '../assets/doctors/5.png';
 // @ts-ignore
-import img4 from '../assets/doctors/4.jpg';
+import img6 from '../assets/doctors/6.png';
 // @ts-ignore
-import img5 from '../assets/doctors/5.jpg';
+import img7 from '../assets/doctors/7.png';
 // @ts-ignore
-import img6 from '../assets/doctors/6.jpg';
+import img8 from '../assets/doctors/8.png';
 // @ts-ignore
-import img7 from '../assets/doctors/7.jpg';
+import img9 from '../assets/doctors/9.png';
 // @ts-ignore
-import img8 from '../assets/doctors/8.jpg';
+import img12 from '../assets/doctors/12.png';
 // @ts-ignore
-import img9 from '../assets/doctors/9.jpg';
+import img13 from '../assets/doctors/13.png';
 // @ts-ignore
-import img10 from '../assets/doctors/10.jpg';
+import img15 from '../assets/doctors/15.png';
 // @ts-ignore
-import img11 from '../assets/doctors/11.jpg';
+import img18 from '../assets/doctors/18.png';
 // @ts-ignore
-import img12 from '../assets/doctors/12.jpg';
+import img19 from '../assets/doctors/19.png';
 // @ts-ignore
-import img13 from '../assets/doctors/13.jpg';
+import img21 from '../assets/doctors/21.png';
 // @ts-ignore
-import img14 from '../assets/doctors/14.jpg';
+import img22 from '../assets/doctors/22.png';
 // @ts-ignore
-import img15 from '../assets/doctors/15.jpg';
+import img23 from '../assets/doctors/23.png';
 // @ts-ignore
-import img16 from '../assets/doctors/16.jpg';
+import img24 from '../assets/doctors/24.png';
 // @ts-ignore
-import img17 from '../assets/doctors/17.jpg';
+import img26 from '../assets/doctors/26.png';
 // @ts-ignore
-import img18 from '../assets/doctors/18.jpg';
+import img27 from '../assets/doctors/27.png';
 // @ts-ignore
-import img19 from '../assets/doctors/19.jpg';
+import img28 from '../assets/doctors/28.png';
 // @ts-ignore
-import img20 from '../assets/doctors/20.jpg';
+import img29 from '../assets/doctors/29.png';
 // @ts-ignore
-import img21 from '../assets/doctors/21.jpg';
+import img30 from '../assets/doctors/30.png';
 // @ts-ignore
-import img22 from '../assets/doctors/22.jpg';
+import img31 from '../assets/doctors/31.png';
 // @ts-ignore
-import img23 from '../assets/doctors/23.jpg';
+import img33 from '../assets/doctors/33.png';
 // @ts-ignore
-import img24 from '../assets/doctors/24.jpg';
+import img35 from '../assets/doctors/35.png';
 // @ts-ignore
-import img25 from '../assets/doctors/25.jpg';
+import img36 from '../assets/doctors/36.png';
 // @ts-ignore
-import img26 from '../assets/doctors/26.jpg';
+import img37 from '../assets/doctors/37.png';
 // @ts-ignore
-import img27 from '../assets/doctors/27.jpg';
+import img38 from '../assets/doctors/38.png';
 // @ts-ignore
-import img28 from '../assets/doctors/28.jpg';
+import img39 from '../assets/doctors/39.png';
 // @ts-ignore
-import img29 from '../assets/doctors/29.jpg';
-// @ts-ignore
-import img30 from '../assets/doctors/30.jpg';
-// @ts-ignore
-import img31 from '../assets/doctors/31.jpg';
-// @ts-ignore
-import img32 from '../assets/doctors/32.jpg';
-// @ts-ignore
-import img33 from '../assets/doctors/33.jpg';
-// @ts-ignore
-import img34 from '../assets/doctors/34.jpg';
-// @ts-ignore
-import img35 from '../assets/doctors/35.jpg';
-// @ts-ignore
-import img36 from '../assets/doctors/36.jpg';
-// @ts-ignore
-import img37 from '../assets/doctors/37.jpg';
-// @ts-ignore
-import img38 from '../assets/doctors/38.jpg';
-// @ts-ignore
-import img39 from '../assets/doctors/39.jpeg';
-// @ts-ignore
-import img40 from '../assets/doctors/40.jpeg';
+import img40 from '../assets/doctors/40.png';
 
 const doctorImages = [
-  { id: 1, src: img1 },
   { id: 2, src: img2 },
-  { id: 3, src: img3 },
   { id: 4, src: img4 },
   { id: 5, src: img5 },
   { id: 6, src: img6 },
   { id: 7, src: img7 },
   { id: 8, src: img8 },
   { id: 9, src: img9 },
-  { id: 10, src: img10 },
-  { id: 11, src: img11 },
   { id: 12, src: img12 },
   { id: 13, src: img13 },
-  { id: 14, src: img14 },
   { id: 15, src: img15 },
-  { id: 16, src: img16 },
-  { id: 17, src: img17 },
   { id: 18, src: img18 },
   { id: 19, src: img19 },
-  { id: 20, src: img20 },
   { id: 21, src: img21 },
   { id: 22, src: img22 },
   { id: 23, src: img23 },
   { id: 24, src: img24 },
-  { id: 25, src: img25 },
   { id: 26, src: img26 },
   { id: 27, src: img27 },
   { id: 28, src: img28 },
   { id: 29, src: img29 },
   { id: 30, src: img30 },
   { id: 31, src: img31 },
-  { id: 32, src: img32 },
   { id: 33, src: img33 },
-  { id: 34, src: img34 },
   { id: 35, src: img35 },
   { id: 36, src: img36 },
   { id: 37, src: img37 },
@@ -410,21 +379,39 @@ const Doctors: React.FC<DoctorsProps> = ({ currentLang }) => {
 
                   </div>
 
-                  {/* Info */}
-                  <div style={{
-                    padding: '16px',
-                    textAlign: isAr ? 'right' : 'left',
-                    direction: isAr ? 'rtl' : 'ltr',
-                  }}>
-<p style={{
-                      color: 'rgba(255,255,255,0.4)',
-                      fontSize: '12px',
-                      margin: 0,
-                      textAlign: isAr ? 'right' : 'left',
-                    }}>
-                      #{doctor.id}
-                    </p>
-                  </div>
+{/* Info */}
+<div style={{
+  padding: '16px',
+  textAlign: isAr ? 'right' : 'left',
+  direction: isAr ? 'rtl' : 'ltr',
+}}>
+  {(() => {
+    const data = doctors.find(d => d.id === doctor.id);
+    return data ? (
+      <>
+        <p style={{
+          color: '#ffffff',
+          fontSize: '14px',
+          fontWeight: '700',
+          margin: '0 0 4px 0',
+          lineHeight: 1.3,
+        }}>
+          {isAr
+            ? `د. ${data.nameAr}`
+            : `Dr. ${data.nameEn}`}
+        </p>
+        <p style={{
+          color: '#1787b6',
+          fontSize: '12px',
+          margin: 0,
+          lineHeight: 1.4,
+        }}>
+          {isAr ? data.specialtyAr : data.specialtyEn}
+        </p>
+      </>
+    ) : null;
+  })()}
+</div>
                 </div>
               </div>
             );

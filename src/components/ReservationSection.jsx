@@ -11,7 +11,7 @@ const ReservationSection = ({ currentLang }) => {
     en: {
       title: "Book Your Appointment",
       subtitle: "Choose the appropriate department and clinic",
-      tagline: "Elite doctors and advanced medical services at your service 24/7",
+      tagline: "Elite doctors and advanced medical services 24/7",
       deptLabel: "Medical Department",
       clinicLabel: "Specialized Clinic",
       selectDept: "Select Department",

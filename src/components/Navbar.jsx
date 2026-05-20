@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import { FaPhoneAlt, FaShareAlt, FaGlobe } from 'react-icons/fa';
 import { FiX } from 'react-icons/fi';
 import { FaWhatsapp } from 'react-icons/fa';
+// أولاً: أضف الـ imports في أعلى الملف (نفس الـ icons الموجودة في Footer)
+import { FaYoutube, FaLinkedinIn, FaFacebookF, FaInstagram, FaTiktok, FaSnapchatGhost } from 'react-icons/fa';
+import { FaXTwitter } from 'react-icons/fa6';
 import logo from '../assets/logo.png';
 import "../App.css"
 
@@ -18,62 +21,89 @@ const Navbar = ({ currentLang, changeLanguage }) => {
     : "Comprehensive Medical Care with Global Standards in Najran - Discover with us";
 
   const tagline = currentLang === 'ar' 
-    ? 'رعاية طبية متكاملة بمعايير عالمية في نجران' 
-    : 'Comprehensive Medical Care with Global Standards in Najran';
+    ? 'رعاية طبية متكاملة بمعايير عالمية ' 
+    : 'Comprehensive Medical Care with Global Standards';
 
   return (
     <>
       <nav className="bg-white shadow-lg border-b border-gray-100 py-4 md:py-6">
         <div className="max-w-7xl mx-auto px-4 md:px-6">
 
-          {/* Desktop & Tablet */}
-          <div className="hidden md:flex items-center justify-between">
-            <div className="flex-shrink-0">
-              <img 
-                src={logo} 
-                alt="Logo" 
-                className="h-24 w-auto object-contain drop-shadow-md" 
-              />
-            </div>
+{/* Desktop & Tablet */}
+<div className="hidden md:flex items-center justify-between gap-2">
+  
+  {/* اللوجو */}
+  <div className="flex-shrink-0">
+    <img 
+      src={logo} 
+      alt="Logo" 
+      className="h-16 lg:h-24 w-auto object-contain drop-shadow-md" 
+    />
+  </div>
 
-            <div className="flex-1 text-center px-8">
-              <p className="text-2xl font-bold tracking-normal uppercase text-[#1787b6]">
-                {tagline}
-              </p>
-            </div>
+  {/* الوسط */}
+  <div className="flex-1 text-center px-2 lg:px-8 min-w-0">
+    <p className="text-base lg:text-2xl font-bold tracking-normal uppercase text-[#1787b6] leading-tight">
+      {tagline}
+    </p>
+    <div className="flex items-center justify-center gap-1 lg:gap-3 mt-2 flex-wrap">
+      {[
+        { href: 'https://wa.me/966920002159',                                        icon: <FaWhatsapp />,      color: '#25D366' },
+        { href: 'https://youtube.com/@snh_najrann',                                  icon: <FaYoutube />,       color: '#FF0000' },
+        { href: 'https://www.linkedin.com/company/snh_najran/?originalSubdomain=sa', icon: <FaLinkedinIn />,    color: '#0A66C2' },
+        { href: 'https://www.facebook.com/share/18ZTYzWRdm/',                        icon: <FaFacebookF />,     color: '#1877F2' },
+        { href: 'https://www.instagram.com/snh_najran',                              icon: <FaInstagram />,     color: '#E1306C' },
+        { href: 'https://x.com/SNH_Najran',                                          icon: <FaXTwitter />,      color: '#000000' },
+        { href: 'https://www.snapchat.com/add/snh_najran',                           icon: <FaSnapchatGhost />, color: '#FFFC00' },
+        { href: 'https://www.tiktok.com/@snh_najran',                                icon: <FaTiktok />,        color: '#000000' },
+      ].map(({ href, icon, color }, i) => (
+        
+          <a
+          key={i}
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-7 h-7 lg:w-8 lg:h-8 flex items-center justify-center rounded-full text-white text-xs lg:text-sm transition-transform duration-300 hover:scale-110"
+          style={{ backgroundColor: color }}
+        >
+          {icon}
+        </a>
+      ))}
+    </div>
+  </div>
 
-            <div className="flex items-center gap-8">
-              {/* تواصل */}
-              <a href="/contact" className="flex flex-col items-center group">
-                <div className="w-12 h-12 flex items-center justify-center rounded-full bg-[#1e9dd4] group-hover:bg-[#1786b5] transition-all duration-300 shadow-md">
-                  <FaPhoneAlt className="text-2xl text-white" />
-                </div>
-                <span className="text-sm font-bold mt-2 text-[#1e9dd4]">
-                  {currentLang === 'ar' ? 'تواصل' : 'Contact'}
-                </span>
-              </a>
+  {/* الأزرار الثلاثة */}
+  <div className="flex items-center gap-3 lg:gap-8 flex-shrink-0">
+    
+    <a href="/contact" className="flex flex-col items-center group">
+      <div className="w-9 h-9 lg:w-12 lg:h-12 flex items-center justify-center rounded-full bg-[#1e9dd4] group-hover:bg-[#1786b5] transition-all duration-300 shadow-md">
+        <FaPhoneAlt className="text-lg lg:text-2xl text-white" />
+      </div>
+      <span className="text-xs lg:text-sm font-bold mt-1 lg:mt-2 text-[#1e9dd4]">
+        {currentLang === 'ar' ? 'تواصل' : 'Contact'}
+      </span>
+    </a>
 
-              {/* شارك */}
-              <button onClick={toggleShare} className="flex flex-col items-center group">
-                <div className="w-12 h-12 flex items-center justify-center rounded-full bg-[#1e9dd4] group-hover:bg-[#1786b5] transition-all duration-300 shadow-md">
-                  <FaShareAlt className="text-2xl text-white" />
-                </div>
-                <span className="text-sm font-bold mt-2 text-[#1e9dd4]">
-                  {currentLang === 'ar' ? 'شارك' : 'Share'}
-                </span>
-              </button>
+    <button onClick={toggleShare} className="flex flex-col items-center group">
+      <div className="w-9 h-9 lg:w-12 lg:h-12 flex items-center justify-center rounded-full bg-[#1e9dd4] group-hover:bg-[#1786b5] transition-all duration-300 shadow-md">
+        <FaShareAlt className="text-lg lg:text-2xl text-white" />
+      </div>
+      <span className="text-xs lg:text-sm font-bold mt-1 lg:mt-2 text-[#1e9dd4]">
+        {currentLang === 'ar' ? 'شارك' : 'Share'}
+      </span>
+    </button>
 
-              {/* اللغة */}
-              <button onClick={toggleLang} className="flex flex-col items-center group">
-                <div className="w-12 h-12 flex items-center justify-center rounded-full bg-[#1e9dd4] group-hover:bg-[#1786b5] transition-all duration-300 shadow-md">
-                  <FaGlobe className="text-2xl text-white" />
-                </div>
-                <span className="text-sm font-bold mt-2 text-[#1e9dd4]">
-                  {currentLang === 'ar' ? 'English' : 'عربي'}
-                </span>
-              </button>
-            </div>
-          </div>
+    <button onClick={toggleLang} className="flex flex-col items-center group">
+      <div className="w-9 h-9 lg:w-12 lg:h-12 flex items-center justify-center rounded-full bg-[#1e9dd4] group-hover:bg-[#1786b5] transition-all duration-300 shadow-md">
+        <FaGlobe className="text-lg lg:text-2xl text-white" />
+      </div>
+      <span className="text-xs lg:text-sm font-bold mt-1 lg:mt-2 text-[#1e9dd4]">
+        {currentLang === 'ar' ? 'English' : 'عربي'}
+      </span>
+    </button>
+
+  </div>
+</div>
 
           {/* Mobile Version */}
           <div className="md:hidden flex flex-col items-center py-3">
@@ -82,9 +112,34 @@ const Navbar = ({ currentLang, changeLanguage }) => {
               alt="Logo" 
               className="h-20 w-auto object-contain mb-3 drop-shadow-md" 
             />
-            <p className="text-2xl font-bold  uppercase text-center text-[#1787b6] px-4">
+            <p className="text-[16px] sm:text-xl font-bold  uppercase text-center text-[#1787b6] px-4">
               {tagline}
             </p>
+            {/* Social Media Links - Mobile */}
+<div className="flex items-center justify-center gap-2 mt-3 flex-wrap">
+  {[
+    { href: 'https://wa.me/966920002159',                                        icon: <FaWhatsapp />,       color: '#25D366' },
+    { href: 'https://youtube.com/@snh_najrann',                                  icon: <FaYoutube />,        color: '#FF0000' },
+    { href: 'https://www.linkedin.com/company/snh_najran/?originalSubdomain=sa', icon: <FaLinkedinIn />,     color: '#0A66C2' },
+    { href: 'https://www.facebook.com/share/18ZTYzWRdm/',                        icon: <FaFacebookF />,      color: '#1877F2' },
+    { href: 'https://www.instagram.com/snh_najran',                              icon: <FaInstagram />,      color: '#E1306C' },
+    { href: 'https://x.com/SNH_Najran',                                          icon: <FaXTwitter />,       color: '#000000' },
+    { href: 'https://www.snapchat.com/add/snh_najran',                           icon: <FaSnapchatGhost />,  color: '#FFFC00' },
+    { href: 'https://www.tiktok.com/@snh_najran',                                icon: <FaTiktok />,         color: '#000000' },
+  ].map(({ href, icon, color }, i) => (
+    
+     <a 
+      key={i}
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="w-7 h-7 flex items-center justify-center rounded-full text-white text-xs transition-transform duration-300 hover:scale-110"
+      style={{ backgroundColor: color }}
+    >
+      {icon}
+    </a>
+  ))}
+</div>
           </div>
 
         </div>

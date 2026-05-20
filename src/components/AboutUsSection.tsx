@@ -1,4 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
+// @ts-ignore
+import AboutImg from "../assets/about.jpeg"
 
 interface AboutUsSectionProps {
   currentLang: string;
@@ -216,7 +218,7 @@ We thank God for the accreditations we have achieved that confirm the quality of
           <div className="lg:w-1/2">
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
               <img
-                src="https://images.pexels.com/photos/236380/pexels-photo-236380.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                src={AboutImg}
                 alt="Hospital"
                 className="w-full h-[500px] object-cover"
               />

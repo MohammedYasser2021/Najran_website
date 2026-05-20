@@ -128,7 +128,7 @@ const CompanyInf: React.FC<CompanyInfProps> = ({ currentLang }) => {
 <div className="flex flex-col gap-5">
   
   {/* Google Play */}
-  <div className="flex items-center gap-3 flex-wrap">
+  <div className="flex items-center gap-3 sm:flex-nowrap flex-wrap">
     <a 
       href="https://play.google.com/store/apps/details?id=dataocean.venus.najaran&hl=en_US"
       target="_blank"
@@ -151,7 +151,7 @@ const CompanyInf: React.FC<CompanyInfProps> = ({ currentLang }) => {
   </div>
 
   {/* Apple Store */}
-  <div className="flex items-center gap-3 flex-wrap">
+  <div className="flex items-center gap-3 sm:flex-nowrap flex-wrap">
     <a 
       href="https://apps.apple.com/us/app/specialized-najran-hospital/id6737556244"
       target="_blank"

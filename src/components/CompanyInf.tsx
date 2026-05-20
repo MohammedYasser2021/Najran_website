@@ -6,6 +6,10 @@ import Logo from "../assets/logo.png"
 import GooglePlay from "../assets/googleplay.png"
 // @ts-ignore
 import AppleStore from "../assets/applestore.png"
+// @ts-ignore
+import GooglePlayQR from "../assets/play_qr.jpg"
+// @ts-ignore
+import IOSQR from "../assets/ios_qr.jpg"
 
 interface CompanyInfProps {
   currentLang: string;
@@ -121,39 +125,55 @@ const CompanyInf: React.FC<CompanyInfProps> = ({ currentLang }) => {
                 : 'Get our services easily through our smart hospital app'}
             </p>
 
-            <div className="flex flex-col gap-5">
-              {/* Google Play */}
-              <a 
-                href="https://play.google.com/store/apps/details?id=dataocean.venus.najaran&hl=en_US"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block group"
-              >
-                <img 
-                  src={GooglePlay} 
-                  alt="Get it on Google Play" 
-                  className="h-[56px] w-auto rounded-[10px] shadow-sm 
-                             group-hover:shadow-md group-hover:border-[#1787b6] 
-                             transition-all duration-300"
-                />
-              </a>
+<div className="flex flex-col gap-5">
+  
+  {/* Google Play */}
+  <div className="flex items-center gap-3 flex-wrap">
+    <a 
+      href="https://play.google.com/store/apps/details?id=dataocean.venus.najaran&hl=en_US"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="block group"
+    >
+      <img 
+        src={GooglePlay} 
+        alt="Get it on Google Play" 
+        className="h-[56px] w-auto rounded-[10px] shadow-sm 
+                   group-hover:shadow-md group-hover:border-[#1787b6] 
+                   transition-all duration-300"
+      />
+    </a>
+ <img 
+  src={GooglePlayQR} 
+  alt="Google Play QR Code" 
+  className="sm:h-[100px] h-[85px] sm:w-[100px] w-[85px] rounded-[8px] shadow-sm object-cover"
+/>
+  </div>
 
-              {/* Apple Store */}
-              <a 
-                href="https://apps.apple.com/us/app/specialized-najran-hospital/id6737556244"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block group"
-              >
-                <img 
-                  src={AppleStore} 
-                  alt="Download on the App Store" 
-                  className="h-14 rounded-[10px] w-[189.11px]  shadow-sm 
-                             group-hover:shadow-md group-hover:border-[#1787b6] 
-                             transition-all duration-300"
-                />
-              </a>
-            </div>
+  {/* Apple Store */}
+  <div className="flex items-center gap-3 flex-wrap">
+    <a 
+      href="https://apps.apple.com/us/app/specialized-najran-hospital/id6737556244"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="block group"
+    >
+      <img 
+        src={AppleStore} 
+        alt="Download on the App Store" 
+        className="h-14 rounded-[10px] w-[189.11px] shadow-sm 
+                   group-hover:shadow-md group-hover:border-[#1787b6] 
+                   transition-all duration-300"
+      />
+    </a>
+ <img 
+  src={IOSQR} 
+  alt="iOS QR Code" 
+  className="sm:h-[100px] h-[85px] sm:w-[100px] w-[85px] rounded-[8px] shadow-sm object-cover"
+/>
+  </div>
+
+</div>
           </div>
 
         </div>

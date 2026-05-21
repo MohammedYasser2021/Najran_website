@@ -88,13 +88,13 @@ import img42 from '../assets/doctors/42.PNG';
 // @ts-ignore
 import img43 from '../assets/doctors/43.PNG';
 // @ts-ignore
-import img44 from '../assets/doctors/44.PNG';
+import img44 from '../assets/doctors/44.png';
 // @ts-ignore
-import img45 from '../assets/doctors/45.PNG';
+import img45 from '../assets/doctors/45.png';
 // @ts-ignore
-import img46 from '../assets/doctors/46.PNG';
+import img46 from '../assets/doctors/46.png';
 // @ts-ignore
-import img47 from '../assets/doctors/47.PNG';
+import img47 from '../assets/doctors/47.png';
 
 // ─── Inline doctor data (مرتبطة بـ doctorData.ts) ───────────────────────────
 const WHATSAPP_NUMBER = '920002159';

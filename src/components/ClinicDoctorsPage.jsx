@@ -50,7 +50,7 @@ import img23 from '../assets/doctors/23.png';
 // @ts-ignore
 import img24 from '../assets/doctors/24.png';
 // @ts-ignore
-import img25 from '../assets/doctors/25.PNG';
+import img25 from '../assets/doctors/25.png';
 // @ts-ignore
 import img26 from '../assets/doctors/26.png';
 // @ts-ignore

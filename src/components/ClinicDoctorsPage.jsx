@@ -32,9 +32,9 @@ import img14 from '../assets/doctors/14.png';
 // @ts-ignore
 import img15 from '../assets/doctors/15.png';
 // @ts-ignore
-import img16 from '../assets/doctors/16.png';
+import img16 from '../assets/doctors/16.PNG';
 // @ts-ignore
-import img17 from '../assets/doctors/17.png';
+import img17 from '../assets/doctors/17.PNG';
 // @ts-ignore
 import img18 from '../assets/doctors/18.png';
 // @ts-ignore

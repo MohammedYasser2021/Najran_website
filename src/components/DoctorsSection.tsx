@@ -5,7 +5,6 @@ interface DoctorsProps {
   currentLang: string;
 }
 
-
 // @ts-ignore
 import img1 from '../assets/doctors/1.png';
 // @ts-ignore
@@ -37,9 +36,9 @@ import img14 from '../assets/doctors/14.png';
 // @ts-ignore
 import img15 from '../assets/doctors/15.png';
 // @ts-ignore
-import img16 from '../assets/doctors/16.png';
+import img16 from '../assets/doctors/16.PNG';
 // @ts-ignore
-import img17 from '../assets/doctors/17.png';
+import img17 from '../assets/doctors/17.PNG';
 // @ts-ignore
 import img18 from '../assets/doctors/18.png';
 // @ts-ignore
@@ -87,11 +86,11 @@ import img39 from '../assets/doctors/39.png';
 // @ts-ignore
 import img40 from '../assets/doctors/40.png';
 // @ts-ignore
-import img41 from '../assets/doctors/41.png';
+import img41 from '../assets/doctors/41.PNG';
 // @ts-ignore
-import img42 from '../assets/doctors/42.png';
+import img42 from '../assets/doctors/42.PNG';
 // @ts-ignore
-import img43 from '../assets/doctors/43.png';
+import img43 from '../assets/doctors/43.PNG';
 // @ts-ignore
 import img44 from '../assets/doctors/44.png';
 // @ts-ignore

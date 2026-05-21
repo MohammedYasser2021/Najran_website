@@ -40,7 +40,7 @@ import img18 from '../assets/doctors/18.png';
 // @ts-ignore
 import img19 from '../assets/doctors/19.png';
 // @ts-ignore
-import img20 from '../assets/doctors/20.PNG';
+import img20 from '../assets/doctors/20.png';
 // @ts-ignore
 import img21 from '../assets/doctors/21.png';
 // @ts-ignore

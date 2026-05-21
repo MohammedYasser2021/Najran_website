@@ -32,7 +32,7 @@ import img14 from '../assets/doctors/14.png';
 // @ts-ignore
 import img15 from '../assets/doctors/15.png';
 // @ts-ignore
-import img16 from '../assets/doctors/16.png';
+import img16 from '../assets/doctors/16.PNG';
 // @ts-ignore
 import img17 from '../assets/doctors/17.png';
 // @ts-ignore
@@ -256,7 +256,6 @@ const doctorsData = [
   { id: 15, src: img15, nameAr: 'دينا حسين', nameEn: 'Dina Hussein', specialtyAr: 'وحدة طب الأسرة', specialtyEn: 'Family Medicine Unit', detailsAr: ['علاج الأمراض الشائعة الحادة والمزمنة','المتابعة الدورية للأمراض المزمنة','رعاية المسنين والرعاية الصحية المنزلية'], detailsEn: ['Acute & Chronic Common Diseases','Periodic Follow-Up for Chronic Conditions (Hypertension, Diabetes)','Elderly Care & Home Healthcare'] },
   {
   id: 16, src: img16,
-
   nameAr: 'عبد الله صالح اليامي',
   nameEn: 'Abdullah Saleh Al-Yami',
 

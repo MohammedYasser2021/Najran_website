@@ -2,11 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 // @ts-ignore
-import img1 from '../assets/doctors/1.png';
+import img1 from '../assets/doctors/1.PNG';
 // @ts-ignore
 import img2 from '../assets/doctors/2.png';
 // @ts-ignore
-import img3 from '../assets/doctors/3.png';
+import img3 from '../assets/doctors/3.PNG';
 // @ts-ignore
 import img4 from '../assets/doctors/4.png';
 // @ts-ignore
@@ -20,9 +20,9 @@ import img8 from '../assets/doctors/8.png';
 // @ts-ignore
 import img9 from '../assets/doctors/9.png';
 // @ts-ignore
-import img10 from '../assets/doctors/10.png';
+import img10 from '../assets/doctors/10.PNG';
 // @ts-ignore
-import img11 from '../assets/doctors/11.png';
+import img11 from '../assets/doctors/11.PNG';
 // @ts-ignore
 import img12 from '../assets/doctors/12.png';
 // @ts-ignore
@@ -40,7 +40,7 @@ import img18 from '../assets/doctors/18.png';
 // @ts-ignore
 import img19 from '../assets/doctors/19.png';
 // @ts-ignore
-import img20 from '../assets/doctors/20.png';
+import img20 from '../assets/doctors/20.PNG';
 // @ts-ignore
 import img21 from '../assets/doctors/21.png';
 // @ts-ignore
@@ -50,7 +50,7 @@ import img23 from '../assets/doctors/23.png';
 // @ts-ignore
 import img24 from '../assets/doctors/24.png';
 // @ts-ignore
-import img25 from '../assets/doctors/25.png';
+import img25 from '../assets/doctors/25.PNG';
 // @ts-ignore
 import img26 from '../assets/doctors/26.png';
 // @ts-ignore
@@ -64,11 +64,11 @@ import img30 from '../assets/doctors/30.png';
 // @ts-ignore
 import img31 from '../assets/doctors/31.png';
 // @ts-ignore
-import img32 from '../assets/doctors/32.png';
+import img32 from '../assets/doctors/32.PNG';
 // @ts-ignore
 import img33 from '../assets/doctors/33.png';
 // @ts-ignore
-import img34 from '../assets/doctors/34.png';
+import img34 from '../assets/doctors/34.PNG';
 // @ts-ignore
 import img35 from '../assets/doctors/35.png';
 // @ts-ignore
@@ -82,19 +82,19 @@ import img39 from '../assets/doctors/39.png';
 // @ts-ignore
 import img40 from '../assets/doctors/40.png';
 // @ts-ignore
-import img41 from '../assets/doctors/41.png';
+import img41 from '../assets/doctors/41.PNG';
 // @ts-ignore
-import img42 from '../assets/doctors/42.png';
+import img42 from '../assets/doctors/42.PNG';
 // @ts-ignore
-import img43 from '../assets/doctors/43.png';
+import img43 from '../assets/doctors/43.PNG';
 // @ts-ignore
-import img44 from '../assets/doctors/44.png';
+import img44 from '../assets/doctors/44.PNG';
 // @ts-ignore
-import img45 from '../assets/doctors/45.png';
+import img45 from '../assets/doctors/45.PNG';
 // @ts-ignore
-import img46 from '../assets/doctors/46.png';
+import img46 from '../assets/doctors/46.PNG';
 // @ts-ignore
-import img47 from '../assets/doctors/47.png';
+import img47 from '../assets/doctors/47.PNG';
 
 // ─── Inline doctor data (مرتبطة بـ doctorData.ts) ───────────────────────────
 const WHATSAPP_NUMBER = '920002159';

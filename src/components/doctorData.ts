@@ -37,7 +37,7 @@ export interface Department {
 // ── All doctors ────────────────────────────────────────────────────────────
 export const doctors: Doctor[] = [
 {
-  id: 1, imgFile: '1.PNG',
+  id: 1, imgFile: '1.png',
   nameAr: 'آمنــــه الطيـــــــب',
   nameEn: 'Amnah Al-Tayeb',
 
@@ -72,7 +72,7 @@ export const doctors: Doctor[] = [
     detailsEn: ['Upper GI Endoscopy (Oesophagus, Stomach & Duodenum)','Colonoscopy & Large Intestine Examination','Diagnosis & Treatment of H. Pylori (Stomach Bacteria)','Peptic Ulcers & Gastro-Oesophageal Reflux Disease','Liver Diseases & Hepatic Fibrosis','Pancreatic & Biliary Tract Diseases','Inflammatory Bowel Disease (Crohn\'s & Colitis)'],
   },
   {
-  id: 3, imgFile: '3.PNG',
+  id: 3, imgFile: '3.png',
 
   nameAr: 'محمد المغربي',
   nameEn: 'Mohammed Al-Maghribi',
@@ -143,7 +143,7 @@ export const doctors: Doctor[] = [
     detailsEn: ['General & Regional Anaesthesia for All Surgical Procedures','Acute & Chronic Post-operative Pain Management','Epidural Anaesthesia for Painless Labour','Cardiac, Thoracic & Vascular Surgery Anaesthesia','Recovery Room & Intensive Care Patient Management','Pre-operative Assessment & Anaesthesia Protocol Planning'],
   },
   {
-  id: 10, imgFile: '10.PNG',
+  id: 10, imgFile: '10.png',
 
   nameAr: 'شيماء سيد',
   nameEn: 'Shaimaa Sayed',
@@ -172,7 +172,7 @@ export const doctors: Doctor[] = [
   ],
 },
 {
-  id: 11, imgFile: '11.PNG',
+  id: 11, imgFile: '11.png',
 
   nameAr: 'محمد حبوس',
   nameEn: 'Muhammad Habous',
@@ -215,7 +215,7 @@ export const doctors: Doctor[] = [
     detailsEn: ['Brucellosis & Fever of Unknown Origin','Upper & Lower Respiratory Infections','Urinary Tract Infections'],
   },
 {
-  id: 14, imgFile: '14.PNG',
+  id: 14, imgFile: '14.png',
 
   nameAr: 'أحمد آل حيدر',
   nameEn: 'Ahmed Al Haider',
@@ -251,7 +251,7 @@ export const doctors: Doctor[] = [
     detailsEn: ['Acute & Chronic Common Diseases','Periodic Follow-Up for Chronic Conditions (Hypertension, Diabetes)','Elderly Care & Home Healthcare'],
   },
 {
-  id: 16, imgFile: '16.PNG',
+  id: 16, imgFile: '16.png',
 
   nameAr: 'عبد الله صالح اليامي',
   nameEn: 'Abdullah Saleh Al-Yami',
@@ -280,7 +280,7 @@ export const doctors: Doctor[] = [
   ],
 },
 {
-  id: 17, imgFile: '17.PNG',
+  id: 17, imgFile: '17.png',
 
   nameAr: 'عارف الحمادي',
   nameEn: 'Arif Al Hammadi',
@@ -323,7 +323,7 @@ export const doctors: Doctor[] = [
     detailsEn: ['Early Diagnosis of Diabetes','All Types of Endocrine Disorders','Chronic Internal Diseases (Diabetes, Hypertension, GI)'],
   },
     {
-  id: 20, imgFile: '20.PNG',
+  id: 20, imgFile: '20.png',
 
   nameAr: 'مجاهد الوعلاني',
   nameEn: "Mujahid Al-Wa'lani",
@@ -380,7 +380,7 @@ export const doctors: Doctor[] = [
     detailsEn: ['General Paediatric Diagnosis & Treatment','Paediatric Chest Diseases','Acute & Chronic Upper & Lower Respiratory Infections'],
   },
 {
-  id: 25, imgFile: '25.PNG',
+  id: 25, imgFile: '25.png',
 
   nameAr: 'صالح متعب آل كردم',
   nameEn: 'Saleh Miteb Al Kardam',
@@ -451,7 +451,7 @@ export const doctors: Doctor[] = [
     detailsEn: ['Treatment of Simple & Complex Cases','Early Treatment of Jaw Deformities','Pre-Implant Orthodontics for Seniors','Surgical Orthodontics at All Levels','Clear Aligners (Invisalign)'],
   },
 {
-  id: 32, imgFile: '32.PNG',
+  id: 32, imgFile: '32.png',
 
   nameAr: 'علي آل مسعد',
   nameEn: 'Ali Al Massad',
@@ -487,7 +487,7 @@ export const doctors: Doctor[] = [
     detailsEn: ['Treatment of Acute Pulmonary Embolism','Pulmonary Arterial Hypertension','Diagnosis & Treatment of Pulmonary Fibrosis','Pulmonary Function Testing'],
   },
     {
-    id: 34, imgFile: '34.PNG',
+    id: 34, imgFile: '34.png',
     nameAr: 'خالد الشمراني', nameEn: 'Khaled Al-Shamrani',
     specialtyAr: 'استشاري طب أسنان الأطفال وذوي الاحتياجات الخاصة', specialtyEn: 'Consultant in pediatric dentistry',
     detailsAr: ['علاج الجلطات الرئوية الحادة','علاج ارتفاع ضغط الشريان الرئوي','علاج وتشخيص أمراض التليف الرئوي','قياس وظائف التنفس'],
@@ -536,7 +536,7 @@ export const doctors: Doctor[] = [
     detailsEn: ['Liver Disease Diagnosis (Cirrhosis & Hepatitis Viruses)','Pancreatic Disease Diagnosis & Treatment','Upper GI Endoscopy (Oesophagus, Stomach & H. Pylori)','Colonoscopy & Intestinal Disease Diagnosis','Gastro-Oesophageal Reflux & Peptic Ulcer Treatment'],
   },
 {
-  id: 41, imgFile: '41.PNG',
+  id: 41, imgFile: '41.png',
   nameAr: 'محمد مهدي آل سليمان', nameEn: 'Mohammed Mahdi Al-Sulaiman',
   specialtyAr: 'استشاري أمراض الصدر', specialtyEn: 'Consultant Pulmonologist',
   detailsAr: [
@@ -555,7 +555,7 @@ export const doctors: Doctor[] = [
   ],
 },
 {
-  id: 42, imgFile: '42.PNG',
+  id: 42, imgFile: '42.png',
   nameAr: 'على الهاجري', nameEn: 'Ali Al-Hajri',
   specialtyAr: 'استشاري الطب الباطني والغدد الصماء', specialtyEn: 'Consultant Internist & Endocrinologist',
   detailsAr: [
@@ -574,7 +574,7 @@ export const doctors: Doctor[] = [
   ],
 },
 {
-  id: 43, imgFile: '43.PNG',
+  id: 43, imgFile: '43.png',
   nameAr: 'رشا العطعوط', nameEn: 'Rasha Al-Atout',
   specialtyAr: 'اخصائي اول في الجراحة العامة', specialtyEn: 'Senior Specialist in General Surgery',
   detailsAr: [
@@ -593,7 +593,7 @@ export const doctors: Doctor[] = [
   ],
 },
 {
-  id: 44, imgFile: '44.PNG',
+  id: 44, imgFile: '44.png',
   nameAr: 'محمد كانون', nameEn: 'Mohammed Kanoun',
   specialtyAr: 'استشاري جراحات العظام والمفاصل', specialtyEn: 'Consultant Orthopedic & Joint Surgeon',
   detailsAr: [
@@ -612,7 +612,7 @@ export const doctors: Doctor[] = [
   ],
 },
 {
-  id: 45, imgFile: '45.PNG',
+  id: 45, imgFile: '45.png',
   nameAr: 'ماجد خليفة', nameEn: 'Majed Khalifa',
   specialtyAr: 'أخصائي أمراض القلب', specialtyEn: 'Specialist in Cardiology',
   detailsAr: [
@@ -631,7 +631,7 @@ export const doctors: Doctor[] = [
   ],
 },
 {
-  id: 46, imgFile: '46.PNG',
+  id: 46, imgFile: '46.png',
   nameAr: 'محمد طربوش', nameEn: 'Mohammed Tarboush',
   specialtyAr: 'أخصائي طب الأطفال وحديثي الولادة', specialtyEn: 'Specialist in Pediatrics & Neonatology',
   detailsAr: [
@@ -650,7 +650,7 @@ export const doctors: Doctor[] = [
   ],
 },
 {
-  id: 47, imgFile: '47.PNG',
+  id: 47, imgFile: '47.png',
   nameAr: 'فاريما مالك', nameEn: 'Farima Malik',
   specialtyAr: 'طبيبة أسنان عام', specialtyEn: 'General Dentist',
   detailsAr: [

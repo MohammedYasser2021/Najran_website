@@ -3,11 +3,11 @@ import Navbar from './Navbar';
 import MainNavbar from './MainNavbar';
 
 // @ts-ignore
-import img1 from '../assets/doctors/1.PNG';
+import img1 from '../assets/doctors/1.png';
 // @ts-ignore
 import img2 from '../assets/doctors/2.png';
 // @ts-ignore
-import img3 from '../assets/doctors/3.PNG';
+import img3 from '../assets/doctors/3.png';
 // @ts-ignore
 import img4 from '../assets/doctors/4.png';
 // @ts-ignore
@@ -21,27 +21,27 @@ import img8 from '../assets/doctors/8.png';
 // @ts-ignore
 import img9 from '../assets/doctors/9.png';
 // @ts-ignore
-import img10 from '../assets/doctors/10.PNG';
+import img10 from '../assets/doctors/10.png';
 // @ts-ignore
-import img11 from '../assets/doctors/11.PNG';
+import img11 from '../assets/doctors/11.png';
 // @ts-ignore
 import img12 from '../assets/doctors/12.png';
 // @ts-ignore
 import img13 from '../assets/doctors/13.png';
 // @ts-ignore
-import img14 from '../assets/doctors/14.PNG';
+import img14 from '../assets/doctors/14.png';
 // @ts-ignore
 import img15 from '../assets/doctors/15.png';
 // @ts-ignore
-import img16 from '../assets/doctors/16.PNG';
+import img16 from '../assets/doctors/16.png';
 // @ts-ignore
-import img17 from '../assets/doctors/17.PNG';
+import img17 from '../assets/doctors/17.png';
 // @ts-ignore
 import img18 from '../assets/doctors/18.png';
 // @ts-ignore
 import img19 from '../assets/doctors/19.png';
 // @ts-ignore
-import img20 from '../assets/doctors/20.PNG';
+import img20 from '../assets/doctors/20.png';
 // @ts-ignore
 import img21 from '../assets/doctors/21.png';
 // @ts-ignore
@@ -51,7 +51,7 @@ import img23 from '../assets/doctors/23.png';
 // @ts-ignore
 import img24 from '../assets/doctors/24.png';
 // @ts-ignore
-import img25 from '../assets/doctors/25.PNG';
+import img25 from '../assets/doctors/25.png';
 // @ts-ignore
 import img26 from '../assets/doctors/26.png';
 // @ts-ignore
@@ -65,11 +65,11 @@ import img30 from '../assets/doctors/30.png';
 // @ts-ignore
 import img31 from '../assets/doctors/31.png';
 // @ts-ignore
-import img32 from '../assets/doctors/32.PNG';
+import img32 from '../assets/doctors/32.png';
 // @ts-ignore
 import img33 from '../assets/doctors/33.png';
 // @ts-ignore
-import img34 from '../assets/doctors/34.PNG';
+import img34 from '../assets/doctors/34.png';
 // @ts-ignore
 import img35 from '../assets/doctors/35.png';
 // @ts-ignore
@@ -83,19 +83,19 @@ import img39 from '../assets/doctors/39.png';
 // @ts-ignore
 import img40 from '../assets/doctors/40.png';
 // @ts-ignore
-import img41 from '../assets/doctors/41.PNG';
+import img41 from '../assets/doctors/41.png';
 // @ts-ignore
-import img42 from '../assets/doctors/42.PNG';
+import img42 from '../assets/doctors/42.png';
 // @ts-ignore
-import img43 from '../assets/doctors/43.PNG';
+import img43 from '../assets/doctors/43.png';
 // @ts-ignore
-import img44 from '../assets/doctors/44.PNG';
+import img44 from '../assets/doctors/44.png';
 // @ts-ignore
-import img45 from '../assets/doctors/45.PNG';
+import img45 from '../assets/doctors/45.png';
 // @ts-ignore
-import img46 from '../assets/doctors/46.PNG';
+import img46 from '../assets/doctors/46.png';
 // @ts-ignore
-import img47 from '../assets/doctors/47.PNG';
+import img47 from '../assets/doctors/47.png';
 
 interface Doctor {
   id: number;

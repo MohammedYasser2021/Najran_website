@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 // @ts-ignore
-import img1 from '../assets/doctors/1.PNG';
+import img1 from '../assets/doctors/1.png';
 // @ts-ignore
 import img2 from '../assets/doctors/2.png';
 // @ts-ignore

@@ -6,7 +6,7 @@ import img1 from '../assets/doctors/1.png';
 // @ts-ignore
 import img2 from '../assets/doctors/2.png';
 // @ts-ignore
-import img3 from '../assets/doctors/3.PNG';
+import img3 from '../assets/doctors/3.png';
 // @ts-ignore
 import img4 from '../assets/doctors/4.png';
 // @ts-ignore

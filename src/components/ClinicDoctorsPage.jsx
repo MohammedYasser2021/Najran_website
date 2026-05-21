@@ -20,9 +20,9 @@ import img8 from '../assets/doctors/8.png';
 // @ts-ignore
 import img9 from '../assets/doctors/9.png';
 // @ts-ignore
-import img10 from '../assets/doctors/10.PNG';
+import img10 from '../assets/doctors/10.png';
 // @ts-ignore
-import img11 from '../assets/doctors/11.PNG';
+import img11 from '../assets/doctors/11.png';
 // @ts-ignore
 import img12 from '../assets/doctors/12.png';
 // @ts-ignore

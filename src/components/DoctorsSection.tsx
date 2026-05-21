@@ -6,9 +6,12 @@ interface DoctorsProps {
 }
 
 
-
+// @ts-ignore
+import img1 from '../assets/doctors/1.PNG';
 // @ts-ignore
 import img2 from '../assets/doctors/2.png';
+// @ts-ignore
+import img3 from '../assets/doctors/3.PNG';
 // @ts-ignore
 import img4 from '../assets/doctors/4.png';
 // @ts-ignore
@@ -22,15 +25,27 @@ import img8 from '../assets/doctors/8.png';
 // @ts-ignore
 import img9 from '../assets/doctors/9.png';
 // @ts-ignore
+import img10 from '../assets/doctors/10.PNG';
+// @ts-ignore
+import img11 from '../assets/doctors/11.PNG';
+// @ts-ignore
 import img12 from '../assets/doctors/12.png';
 // @ts-ignore
 import img13 from '../assets/doctors/13.png';
 // @ts-ignore
+import img14 from '../assets/doctors/14.PNG';
+// @ts-ignore
 import img15 from '../assets/doctors/15.png';
+// @ts-ignore
+import img16 from '../assets/doctors/16.PNG';
+// @ts-ignore
+import img17 from '../assets/doctors/17.PNG';
 // @ts-ignore
 import img18 from '../assets/doctors/18.png';
 // @ts-ignore
 import img19 from '../assets/doctors/19.png';
+// @ts-ignore
+import img20 from '../assets/doctors/20.PNG';
 // @ts-ignore
 import img21 from '../assets/doctors/21.png';
 // @ts-ignore
@@ -39,6 +54,8 @@ import img22 from '../assets/doctors/22.png';
 import img23 from '../assets/doctors/23.png';
 // @ts-ignore
 import img24 from '../assets/doctors/24.png';
+// @ts-ignore
+import img25 from '../assets/doctors/25.PNG';
 // @ts-ignore
 import img26 from '../assets/doctors/26.png';
 // @ts-ignore
@@ -52,7 +69,11 @@ import img30 from '../assets/doctors/30.png';
 // @ts-ignore
 import img31 from '../assets/doctors/31.png';
 // @ts-ignore
+import img32 from '../assets/doctors/32.PNG';
+// @ts-ignore
 import img33 from '../assets/doctors/33.png';
+// @ts-ignore
+import img34 from '../assets/doctors/34.PNG';
 // @ts-ignore
 import img35 from '../assets/doctors/35.png';
 // @ts-ignore
@@ -65,37 +86,69 @@ import img38 from '../assets/doctors/38.png';
 import img39 from '../assets/doctors/39.png';
 // @ts-ignore
 import img40 from '../assets/doctors/40.png';
+// @ts-ignore
+import img41 from '../assets/doctors/41.PNG';
+// @ts-ignore
+import img42 from '../assets/doctors/42.PNG';
+// @ts-ignore
+import img43 from '../assets/doctors/43.PNG';
+// @ts-ignore
+import img44 from '../assets/doctors/44.PNG';
+// @ts-ignore
+import img45 from '../assets/doctors/45.PNG';
+// @ts-ignore
+import img46 from '../assets/doctors/46.PNG';
+// @ts-ignore
+import img47 from '../assets/doctors/47.PNG';
 
 const doctorImages = [
+  { id: 1, src: img1 },
   { id: 2, src: img2 },
+  { id: 3, src: img3 },
   { id: 4, src: img4 },
   { id: 5, src: img5 },
   { id: 6, src: img6 },
   { id: 7, src: img7 },
   { id: 8, src: img8 },
   { id: 9, src: img9 },
+  { id: 10, src: img10 },
+  { id: 11, src: img11 },
   { id: 12, src: img12 },
   { id: 13, src: img13 },
+  { id: 14, src: img14 },
   { id: 15, src: img15 },
+  { id: 16, src: img16 },
+  { id: 17, src: img17 },
   { id: 18, src: img18 },
   { id: 19, src: img19 },
+  { id: 20, src: img20 },
   { id: 21, src: img21 },
   { id: 22, src: img22 },
   { id: 23, src: img23 },
   { id: 24, src: img24 },
+  { id: 25, src: img25 },
   { id: 26, src: img26 },
   { id: 27, src: img27 },
   { id: 28, src: img28 },
   { id: 29, src: img29 },
   { id: 30, src: img30 },
   { id: 31, src: img31 },
+  { id: 32, src: img32 },
   { id: 33, src: img33 },
+  { id: 34, src: img34 },
   { id: 35, src: img35 },
   { id: 36, src: img36 },
   { id: 37, src: img37 },
   { id: 38, src: img38 },
   { id: 39, src: img39 },
   { id: 40, src: img40 },
+  { id: 41, src: img41 },
+  { id: 42, src: img42 },
+  { id: 43, src: img43 },
+  { id: 44, src: img44 },
+  { id: 45, src: img45 },
+  { id: 46, src: img46 },
+  { id: 47, src: img47 },
 ];
 
 const content = {

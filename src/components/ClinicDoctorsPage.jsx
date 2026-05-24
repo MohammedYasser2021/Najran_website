@@ -28,13 +28,11 @@ import img12 from '../assets/doctors/12.png';
 // @ts-ignore
 import img13 from '../assets/doctors/13.png';
 // @ts-ignore
-import img14 from '../assets/doctors/14.png';
-// @ts-ignore
 import img15 from '../assets/doctors/15.png';
 // @ts-ignore
 import img16 from '../assets/doctors/16.PNG';
 // @ts-ignore
-import img17 from '../assets/doctors/17.PNG';
+import img17 from '../assets/doctors/17.jpeg';
 // @ts-ignore
 import img18 from '../assets/doctors/18.png';
 // @ts-ignore
@@ -49,8 +47,6 @@ import img22 from '../assets/doctors/22.png';
 import img23 from '../assets/doctors/23.png';
 // @ts-ignore
 import img24 from '../assets/doctors/24.png';
-// @ts-ignore
-import img25 from '../assets/doctors/25.png';
 // @ts-ignore
 import img26 from '../assets/doctors/26.png';
 // @ts-ignore
@@ -224,35 +220,6 @@ const doctorsData = [
 },
   { id: 12, src: img12, nameAr: 'علي قناص', nameEn: 'Ali Qannas', specialtyAr: 'جراحات الأنف والأذن والحنجرة', specialtyEn: 'ENT Surgery', detailsAr: ['أورام الغدة الدرقية وجار الدرقية','أورام الغدة النكافية والغدة اللعابية','أورام الرأس والرقبة المجهرية المتقدمة','تعديل الحاجز الأنفي والقرنيات'], detailsEn: ['Thyroid & Parathyroid Tumours','Parotid & Salivary Gland Tumours','Advanced Microscopic Head & Neck Tumours','Nasal Septum & Turbinate Correction'] },
   { id: 13, src: img13, nameAr: 'علي ظافر آل سويدان', nameEn: 'Ali Zafer Al-Suwaidan', specialtyAr: 'الباطنية والأمراض المعدية', specialtyEn: 'Internal Medicine & Infectious Diseases', detailsAr: ['الحمى المالطية والحمى مجهولة السبب','الالتهابات التنفسية العلوية والسفلية','التهابات المسالك البولية'], detailsEn: ['Brucellosis & Fever of Unknown Origin','Upper & Lower Respiratory Infections','Urinary Tract Infections'] },
-  {
-  id: 14, src: img14,
-
-  nameAr: 'أحمد آل حيدر',
-  nameEn: 'Ahmed Al Haider',
-
-  specialtyAr: 'استشاري العناية المركزة',
-  specialtyEn: 'Intensive Care Consultant',
-
-  detailsAr: [
-    'متابعة الحالات الحرجة والطارئة بالعناية المركزة',
-    'إدارة أجهزة التنفس الصناعي للحالات الحرجة',
-    'علاج ومتابعة حالات الصدمة وتسمم الدم',
-    'رعاية مرضى ما بعد العمليات الجراحية الكبرى',
-    'متابعة حالات الفشل التنفسي والقلب الحاد',
-    'التعامل مع الحالات الحرجة متعددة التخصصات',
-    'المراقبة الدقيقة للوظائف الحيوية ودعم الأعضاء'
-  ],
-
-  detailsEn: [
-    'Critical & Emergency Care Management',
-    'Mechanical Ventilation for Critical Patients',
-    'Shock & Sepsis Treatment and Monitoring',
-    'Post-operative Intensive Care Follow-up',
-    'Acute Respiratory & Cardiac Failure Management',
-    'Multidisciplinary Critical Case Handling',
-    'Advanced Vital Functions & Organ Support Monitoring'
-  ],
-},
   { id: 15, src: img15, nameAr: 'دينا حسين', nameEn: 'Dina Hussein', specialtyAr: 'وحدة طب الأسرة', specialtyEn: 'Family Medicine Unit', detailsAr: ['علاج الأمراض الشائعة الحادة والمزمنة','المتابعة الدورية للأمراض المزمنة','رعاية المسنين والرعاية الصحية المنزلية'], detailsEn: ['Acute & Chronic Common Diseases','Periodic Follow-Up for Chronic Conditions (Hypertension, Diabetes)','Elderly Care & Home Healthcare'] },
   {
   id: 16, src: img16,
@@ -283,32 +250,33 @@ const doctorsData = [
   ],
 },
 {
-  id: 17, src: img17,
+  id: 17,
+  src: img17,
 
-  nameAr: 'عارف الحمادي',
-  nameEn: 'Arif Al Hammadi',
+  nameAr: 'أمل عبدالسلام',
+  nameEn: 'Aml Abd-Elsalam',
 
-  specialtyAr: 'استشاري طب الأطفال',
-  specialtyEn: 'Pediatric Consultant',
+  specialtyAr: 'أخصائي أول المخ والأعصاب',
+  specialtyEn: 'Senior Neurology Specialist',
 
   detailsAr: [
-    'متابعة صحة الأطفال وحديثي الولادة',
-    'تشخيص وعلاج أمراض الجهاز التنفسي للأطفال',
-    'متابعة النمو والتطور والتغذية للأطفال',
-    'علاج الحمى والالتهابات والأمراض الشائعة',
-    'متابعة الحساسية والربو عند الأطفال',
-    'تقديم برامج التطعيمات الوقائية',
-    'رعاية الأطفال في مختلف المراحل العمرية'
+    'تشخيص وعلاج أمراض المخ والأعصاب',
+    'متابعة حالات الصداع والصداع النصفي',
+    'تشخيص وعلاج التشنجات والصرع',
+    'متابعة حالات ضعف وتنميل الأعصاب',
+    'تشخيص وعلاج اضطرابات الحركة والاتزان',
+    'متابعة حالات الجلطات العصبية ومضاعفاتها',
+    'علاج آلام الأعصاب الطرفية والعضلات'
   ],
 
   detailsEn: [
-    'Newborn & Child Health Follow-up',
-    'Pediatric Respiratory Diseases Treatment',
-    'Child Growth, Development & Nutrition Monitoring',
-    'Fever, Infections & Common Childhood Illnesses Care',
-    'Pediatric Allergy & Asthma Management',
-    'Preventive Vaccination Programs',
-    'Comprehensive Care for All Pediatric Age Groups'
+    'Diagnosis & Treatment of Neurological Disorders',
+    'Migraine & Headache Management',
+    'Epilepsy & Seizure Disorders Treatment',
+    'Peripheral Neuropathy & Nerve Weakness Follow-up',
+    'Movement & Balance Disorders Care',
+    'Stroke & Neurological Complications Follow-up',
+    'Peripheral Nerve & Muscle Pain Management'
   ],
 },
   { id: 18, src: img18, nameAr: 'ايمان زين العابدين', nameEn: 'Iman Zain Al-Abidin', specialtyAr: 'وحدة صحة المرأة', specialtyEn: "Women's Health Unit", detailsAr: ['متابعة الحمل الحرج وعالي الخطورة','إجراء الولادة الطبيعية والولادة بدون ألم','عمليات ترميم وتجميل المهبل','تصليح سقوط المثانة أو سقوط المستقيم'], detailsEn: ['High-Risk Pregnancy Follow-Up','Normal Delivery & Painless Labour','Vaginal Reconstruction & Rejuvenation','Bladder & Rectal Prolapse Repair'] },
@@ -346,35 +314,6 @@ const doctorsData = [
   { id: 22, src: img22, nameAr: 'محمد السباعي', nameEn: "Mohammed Al-Suba'i", specialtyAr: 'رعاية مركزة حديثي الولادة', specialtyEn: 'Neonatal Intensive Care', detailsAr: ['جميع حالات حديثي الولادة والخدج','حالات المواليد ناقصي النمو','مواليد الحمل عالي الخطورة'], detailsEn: ['All Neonatal & Premature Cases','Growth-Restricted Newborns','High-Risk Pregnancy Newborns'] },
   { id: 23, src: img23, nameAr: 'محمد آل سوار', nameEn: 'Mohammed Al-Sawwar', specialtyAr: 'الجراحة العامة', specialtyEn: 'General Surgery', detailsAr: ['عمليات أورام الجهاز الهضمي','عمليات أورام الرحم والمبيض','عمليات إصلاح الفتق بأنواعه','عمليات البواسير والناسور'], detailsEn: ['GI Tumour Surgery','Uterine & Ovarian Tumour Surgery','All Types of Hernia Repair','Haemorrhoid & Fistula Surgery'] },
   { id: 24, src: img24, nameAr: 'محمد الزهراني', nameEn: 'Mohammed Al-Zahrani', specialtyAr: 'مركز طب الأطفال المتخصص', specialtyEn: 'Paediatric Specialty Centre', detailsAr: ['كشف وتشخيص ومعالجة الحالات العامة لدى الأطفال','كشف وتشخيص ومعالجة الأمراض الصدرية','التهابات الجهاز التنفسي العلوية والسفلية الحادة والمزمنة'], detailsEn: ['General Paediatric Diagnosis & Treatment','Paediatric Chest Diseases','Acute & Chronic Upper & Lower Respiratory Infections'] },
-  {
-  id: 25, src: img25,
-
-  nameAr: 'صالح متعب آل كردم',
-  nameEn: 'Saleh Miteb Al Kardam',
-
-  specialtyAr: 'إستشاري جراحة العظام للأطفال',
-  specialtyEn: 'Pediatric Orthopedic Consultant',
-
-  detailsAr: [
-    'تشخيص وعلاج تشوهات العظام لدى الأطفال',
-    'متابعة مشاكل النمو وتقوس الساقين والقدم المسطحة',
-    'علاج الكسور وإصابات العظام للأطفال',
-    'تشخيص وعلاج خلع الورك الولادي',
-    'متابعة اضطرابات العمود الفقري والجنف',
-    'علاج مشاكل المفاصل والحركة لدى الأطفال',
-    'الجراحات التصحيحية لعظام الأطفال'
-  ],
-
-  detailsEn: [
-    'Diagnosis & Treatment of Pediatric Bone Deformities',
-    'Growth Disorders, Bow Legs & Flat Feet Management',
-    'Pediatric Fractures & Bone Injuries Treatment',
-    'Congenital Hip Dislocation Management',
-    'Spinal Disorders & Scoliosis Follow-up',
-    'Pediatric Joint & Mobility Problems Care',
-    'Corrective Pediatric Orthopedic Surgeries'
-  ],
-},
   { id: 26, src: img26, nameAr: 'محمد حنيف', nameEn: 'Mohammed Hanif', specialtyAr: 'مركز طب الأطفال المتخصص', specialtyEn: 'Paediatric Specialty Centre', detailsAr: ['أمراض السكري ومضاعفاته لدى الأطفال','السمنة المفرطة واضطرابات الدهون','قصر القامة وضعف النمو'], detailsEn: ['Paediatric Diabetes & Complications','Morbid Obesity & Lipid Disorders','Short Stature & Growth Failure'] },
   { id: 27, src: img27, nameAr: 'ناصر آل ابالطحين', nameEn: 'Nasser Al-Abalathin', specialtyAr: 'الأشعة التداخلية', specialtyEn: 'Interventional Radiology', detailsAr: ['آلام الظهر وعرق النساء بالحقن','آلام الرقبة والذراعين وآلام الأبهر','آلام المفاصل بالحقن والتردد الحراري والبلازما'], detailsEn: ['Back Pain & Sciatica Injections','Neck, Arm & Aortic Pain','Joint Pain (Knee & Shoulder) via Injections, Radiofrequency & PRP'] },
   { id: 28, src: img28, nameAr: 'أميمة محجوب', nameEn: 'Umaima Mahjoub', specialtyAr: 'العناية المركزة للأطفال', specialtyEn: 'Pediatric Intensive Care', detailsAr: ['معالجة الحالات الحرجة للأطفال','حالات الالتهابات الصدرية الشديدة وهجمات الربو','علاج حالات الصدمة بأنواعها'], detailsEn: ['Management of Critical Pediatric Cases','Severe Chest Infections & Asthma Attacks','Treatment of All Types of Shock (Septic, Neurogenic, Cardiogenic, Anaphylactic)'] },
@@ -411,12 +350,35 @@ const doctorsData = [
   ],
 },
   { id: 33, src: img33, nameAr: 'سالي سليمان', nameEn: 'Sally Suleiman', specialtyAr: 'الأمراض الصدرية والحساسية', specialtyEn: 'Pulmonology & Allergy', detailsAr: ['علاج الجلطات الرئوية الحادة','علاج ارتفاع ضغط الشريان الرئوي','علاج وتشخيص أمراض التليف الرئوي','قياس وظائف التنفس'], detailsEn: ['Treatment of Acute Pulmonary Embolism','Pulmonary Arterial Hypertension','Diagnosis & Treatment of Pulmonary Fibrosis','Pulmonary Function Testing'] },
-     {
-    id: 34, src: img34,
-    nameAr: 'خالد الشمراني', nameEn: 'Khaled Al-Shamrani',
-    specialtyAr: 'استشاري طب أسنان الأطفال وذوي الاحتياجات الخاصة', specialtyEn: 'Consultant in pediatric dentistry',
-    detailsAr: ['علاج الجلطات الرئوية الحادة','علاج ارتفاع ضغط الشريان الرئوي','علاج وتشخيص أمراض التليف الرئوي','قياس وظائف التنفس'],
-    detailsEn: ['Treatment of Acute Pulmonary Embolism','Pulmonary Arterial Hypertension','Diagnosis & Treatment of Pulmonary Fibrosis','Pulmonary Function Testing'],
+  {
+    id: 34,
+    src: img34,
+  
+    nameAr: 'مروة مصطفى',
+    nameEn: 'Marwa Mustafa',
+  
+    specialtyAr: 'أخصائي طب الأطفال',
+    specialtyEn: 'Specialist in Pediatrics',
+  
+    detailsAr: [
+      'متابعة صحة الأطفال وحديثي الولادة',
+      'تشخيص وعلاج الأمراض الشائعة عند الأطفال',
+      'متابعة النمو والتطور والتغذية للأطفال',
+      'علاج الحمى والالتهابات والنزلات المعوية',
+      'متابعة الحساسية والربو عند الأطفال',
+      'تقديم برامج التطعيمات الوقائية',
+      'رعاية الأطفال في مختلف المراحل العمرية'
+    ],
+  
+    detailsEn: [
+      'Newborn & Child Health Follow-up',
+      'Diagnosis & Treatment of Common Pediatric Diseases',
+      'Child Growth, Development & Nutrition Monitoring',
+      'Fever, Infections & Gastroenteritis Management',
+      'Pediatric Allergy & Asthma Care',
+      'Preventive Vaccination Programs',
+      'Comprehensive Care for All Pediatric Age Groups'
+    ],
   },
   { id: 35, src: img35, nameAr: 'شهرزاد بن خوجة', nameEn: 'Shahrazad Ben Khoja', specialtyAr: 'قسم التخدير', specialtyEn: 'Anaesthesiology', detailsAr: ['أخصائي أول تخدير','تخدير عام وموضعي','إدارة الألم الحاد والمزمن','تخدير الجراحات المعقدة والحرجة','تخدير جراحات السمنة وتجميل الجسم'], detailsEn: ['Senior Anaesthesia Specialist','General & Regional Anaesthesia','Acute & Chronic Pain Management','Complex & High-Risk Surgical Anaesthesia','Bariatric & Body Contouring Anaesthesia'] },
   { id: 36, src: img36, nameAr: 'سوزان الحداد', nameEn: 'Suzan Al-Haddad', specialtyAr: 'وحدة صحة المرأة', specialtyEn: "Women's Health Unit", detailsAr: ['متابعة الحمل الحرج','إجراء الولادة الطبيعية والولادة بدون ألم','عمليات ترميم وتجميل المهبل','تصليح سقوط المثانة أو سقوط المستقيم'], detailsEn: ['High-Risk Pregnancy Follow-Up','Normal Delivery & Painless Labour','Vaginal Reconstruction & Rejuvenation','Bladder & Rectal Prolapse Repair'] },
@@ -562,9 +524,9 @@ const doctorsData = [
 // ─── Department → Clinic → DoctorIds map ────────────────────────────────────
 const departmentsData = [
   { id: 1, nameAr: 'مركز العناية المركزة', nameEn: 'Intensive Care Center', clinics: [
-    { nameAr: 'وحدة العناية المركزة للكبار', nameEn: 'Adult Intensive Care Unit', doctorIds: [9, 14, 35] },
-    { nameAr: 'وحدة العناية المركزة للأطفال', nameEn: 'Pediatric Intensive Care Unit', doctorIds: [14, 28, 46] },
-    { nameAr: 'وحدة العناية المركزة لحديثي الولادة', nameEn: 'Neonatal Intensive Care Unit', doctorIds: [14, 22, 46] },
+    { nameAr: 'وحدة العناية المركزة للكبار', nameEn: 'Adult Intensive Care Unit', doctorIds: [9, 35] },
+    { nameAr: 'وحدة العناية المركزة للأطفال', nameEn: 'Pediatric Intensive Care Unit', doctorIds: [ 28, 46] },
+    { nameAr: 'وحدة العناية المركزة لحديثي الولادة', nameEn: 'Neonatal Intensive Care Unit', doctorIds: [ 22, 46] },
   ]},
   { id: 4, nameAr: 'مركز الطب الباطني', nameEn: 'Internal Medicine Center', clinics: [
     { nameAr: 'وحدة أمراض القلب', nameEn: 'Cardiology Unit', doctorIds: [37, 42, 45] },
@@ -615,7 +577,7 @@ const departmentsData = [
     { nameAr: 'وحدة علاج المفاصل والعمود الفقري والعظام بدون جراحة', nameEn: 'Joints, Spine & Bones Treatment without Surgery', doctorIds: [27] },
   ]},
   { id: 13, nameAr: 'مركز الطب النفسي', nameEn: 'Psychiatry Center', clinics: [
-    { nameAr: 'وحدة علاج إدمان المخدرات', nameEn: 'Drug Addiction Treatment Unit', doctorIds: [1] },
+    { nameAr: 'وحدة علاج إدمان المخدرات', nameEn: 'Drug Addiction Treatment Unit', doctorIds: [1, 17] },
     { nameAr: 'وحدة العلاج السلوكي المعرفي', nameEn: 'Cognitive Behavioral Therapy Unit', doctorIds: [1] },
   ]},
   { id: 14, nameAr: 'مركز طب الأطفال المتخصص', nameEn: 'Specialized Pediatric Center', clinics: [
@@ -623,7 +585,7 @@ const departmentsData = [
     { nameAr: 'وحدة الأمراض الصدرية للأطفال', nameEn: 'Pediatric Chest Diseases Unit', doctorIds: [24, 34, 46] },
     { nameAr: 'وحدة مناظير الجهاز الهضمي للأطفال', nameEn: 'Pediatric Gastrointestinal Endoscopy Unit', doctorIds: [20, 38, 46] },
     { nameAr: 'وحدة السكري والغدد الصماء ونمو الأطفال', nameEn: 'Pediatric Diabetes, Endocrinology & Growth Unit', doctorIds: [26, 46] },
-    { nameAr: 'وحدة أمراض المخ والأعصاب للأطفال', nameEn: 'Pediatric Neurology Unit', doctorIds: [10, 46] },
+    { nameAr: 'وحدة أمراض المخ والأعصاب للأطفال', nameEn: 'Pediatric Neurology Unit', doctorIds: [10, 46, 17] },
   ]},
   { id: 15, nameAr: 'مركز طب الأسنان المتخصص (دنت سمايل)', nameEn: 'Specialized Dental Center (Dent Smile)', clinics: [
     { nameAr: 'عيادة تقويم الأسنان وعظام الوجه والفكين', nameEn: 'Orthodontics, Jaw & Facial Bones Clinic', doctorIds: [31, 34, 47] },
@@ -642,7 +604,7 @@ const departmentsData = [
     { nameAr: 'وحدة استبدال المفاصل الصناعية للركبة والحوض', nameEn: 'Artificial Joint Replacement (Knee & Hip) Unit', doctorIds: [7, 29, 44] },
     { nameAr: 'وحدة الطب الرياضي ومناظير الكتف والركبة', nameEn: 'Sports Medicine & Arthroscopy (Shoulder & Knee) Unit', doctorIds: [7, 29, 44] },
     { nameAr: 'وحدة جراحات اليد الميكروسكوبية', nameEn: 'Microscopic Hand Surgery Unit', doctorIds: [44] },
-    { nameAr: 'وحدة جراحة العظام للأطفال', nameEn: 'Pediatric Orthopedic Surgery Unit', doctorIds: [25] },
+    { nameAr: 'وحدة جراحة العظام للأطفال', nameEn: 'Pediatric Orthopedic Surgery Unit', doctorIds: [] },
   ]},
 ];
 

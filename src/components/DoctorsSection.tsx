@@ -32,13 +32,11 @@ import img12 from '../assets/doctors/12.png';
 // @ts-ignore
 import img13 from '../assets/doctors/13.png';
 // @ts-ignore
-import img14 from '../assets/doctors/14.png';
-// @ts-ignore
 import img15 from '../assets/doctors/15.png';
 // @ts-ignore
 import img16 from '../assets/doctors/16.PNG';
 // @ts-ignore
-import img17 from '../assets/doctors/17.PNG';
+import img17 from '../assets/doctors/17.jpeg';
 // @ts-ignore
 import img18 from '../assets/doctors/18.png';
 // @ts-ignore
@@ -53,8 +51,6 @@ import img22 from '../assets/doctors/22.png';
 import img23 from '../assets/doctors/23.png';
 // @ts-ignore
 import img24 from '../assets/doctors/24.png';
-// @ts-ignore
-import img25 from '../assets/doctors/25.png';
 // @ts-ignore
 import img26 from '../assets/doctors/26.png';
 // @ts-ignore
@@ -114,7 +110,6 @@ const doctorImages = [
   { id: 11, src: img11 },
   { id: 12, src: img12 },
   { id: 13, src: img13 },
-  { id: 14, src: img14 },
   { id: 15, src: img15 },
   { id: 16, src: img16 },
   { id: 17, src: img17 },
@@ -125,7 +120,6 @@ const doctorImages = [
   { id: 22, src: img22 },
   { id: 23, src: img23 },
   { id: 24, src: img24 },
-  { id: 25, src: img25 },
   { id: 26, src: img26 },
   { id: 27, src: img27 },
   { id: 28, src: img28 },
@@ -434,7 +428,7 @@ const Doctors: React.FC<DoctorsProps> = ({ currentLang }) => {
 {/* Info */}
 <div style={{
   padding: '16px',
-  textAlign: isAr ? 'right' : 'left',
+  textAlign: isAr ? 'center' : 'center',
   direction: isAr ? 'rtl' : 'ltr',
 }}>
   {(() => {
@@ -443,7 +437,7 @@ const Doctors: React.FC<DoctorsProps> = ({ currentLang }) => {
       <>
         <p style={{
           color: '#ffffff',
-          fontSize: '14px',
+          fontSize: '19px',
           fontWeight: '700',
           margin: '0 0 4px 0',
           lineHeight: 1.3,
@@ -453,8 +447,8 @@ const Doctors: React.FC<DoctorsProps> = ({ currentLang }) => {
             : `Dr. ${data.nameEn}`}
         </p>
         <p style={{
-          color: '#1787b6',
-          fontSize: '12px',
+          color: '#dddddd',
+          fontSize: '15px',
           margin: 0,
           lineHeight: 1.4,
         }}>

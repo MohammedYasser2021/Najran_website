@@ -5,6 +5,7 @@ import MainNavbar from './components/MainNavbar';
 import CustomLoading from './components/CustomLoading';
 import ReservationSection from './components/ReservationSection';
 import AboutUsSection from './components/AboutUsSection';
+import CeoSection from './components/CeoSection';
 import OurGoal from './components/OurGoal';
 import Doctors from './components/DoctorsSection';
 import OurSec from './components/OurSec';
@@ -36,6 +37,7 @@ const HomePage = ({ currentLang, changeLanguage }) => (
     <main>
       <ReservationSection currentLang={currentLang} />
       <AboutUsSection currentLang={currentLang} />
+      <CeoSection currentLang={currentLang} />
       <OurGoal currentLang={currentLang} />
       <Doctors currentLang={currentLang} />
       <OurSec currentLang={currentLang} />

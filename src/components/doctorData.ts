@@ -166,7 +166,7 @@ export const doctors: Doctor[] = [
 },
 {
   id: 20, imgFile: '20.png',
-  nameAr: 'مجاهد الوعلاني', nameEn: "Mujahid Al-Wa'lani",
+  nameAr: 'مجاهد الوعلاني', nameEn: "Mujahid Al-Waalani",
   specialtyAr: 'استشاري أمراض الجهاز الهضمي والكبد والمناظير', specialtyEn: 'Consultant Gastroenterologist, Hepatologist & Endoscopist',
   detailsAr: ['تنظير الجهاز الهضمي العلوي والسفلي','تشخيص وعلاج أمراض الكبد والتليف الكبدي','علاج جرثومة المعدة والقرحة الهضمية','تشخيص وعلاج الارتجاع المريئي واضطرابات الهضم','متابعة أمراض القولون والأمعاء الالتهابية','تشخيص وعلاج أمراض البنكرياس والقنوات الصفراوية','الكشف المبكر عن أورام الجهاز الهضمي بالمنظار'],
   detailsEn: ['Upper & Lower Gastrointestinal Endoscopy','Liver Diseases & Hepatic Fibrosis Management','H. Pylori & Peptic Ulcer Treatment','GERD & Digestive Disorders Care','Inflammatory Bowel Diseases Follow-up','Pancreatic & Biliary Tract Diseases Treatment','Early Detection of GI Tumours via Endoscopy'],
@@ -180,7 +180,7 @@ export const doctors: Doctor[] = [
 },
 {
   id: 22, imgFile: '22.png',
-  nameAr: 'محمد السباعي', nameEn: "Mohammed Al-Suba'i",
+  nameAr: 'محمد السباعي', nameEn: "Mohammed Al-Subaie",
   specialtyAr: 'استشاري طب الاطفال حديثي الولادة', specialtyEn: 'Pediatric and Neonatal Medicine Consultant',
   detailsAr: ['جميع حالات حديثي الولادة والخدج','حالات المواليد ناقصي النمو','مواليد الحمل عالي الخطورة'],
   detailsEn: ['All Neonatal & Premature Cases','Growth-Restricted Newborns','High-Risk Pregnancy Newborns'],
@@ -222,14 +222,14 @@ export const doctors: Doctor[] = [
 },
 {
   id: 29, imgFile: '29.png',
-  nameAr: 'راشد آل قضيع', nameEn: "Rashed Al-Qudai'e",
+  nameAr: 'راشد آل قضيع', nameEn: "Rashed Al-Quadie",
   specialtyAr: 'استشاري ﺟﺮاﺣﺔ اﻟﻌﻈﺎم واﻟﻤﻔﺎﺻﻞ', specialtyEn: 'Consultant in Orthopedic Surgery and Joint Surgery',
   detailsAr: ['علاج خشونة المفاصل والاحتكاك','زراعة وتبديل المفاصل','جراحات الحوض والإصابات والكسور المعقدة','مناظير الركبة والكتف والإصابات الرياضية'],
   detailsEn: ['Osteoarthritis & Joint Wear Treatment','Joint Replacement & Arthroplasty','Pelvic Surgery & Complex Fractures','Knee & Shoulder Arthroscopy & Sports Injuries'],
 },
 {
   id: 30, imgFile: '30.png',
-  nameAr: 'سعيد السريعي', nameEn: "Saeed Al-Surai'i",
+  nameAr: 'سعيد السريعي', nameEn: "Saeed Al-Suraie",
   specialtyAr: 'ﺳﺘﺸﺎري اﻟﺠﺮاﺣﺔ اﻟﻌﺎﻣﺔ وﺟﺮاﺣﺔ اﻟﺴﻤﻨﺔ واﻟﻤﻨﺎﺿﻴﺮ', specialtyEn: 'Consultant General, Bariatric, and Laparoscopic Surgeon',
   detailsAr: ['جراحات تكميم المعدة بالمنظار','جراحات تحويل المسار','عمليات الكبسولة العادية والكبسولة الذكية','عمليات الجراحة العامة بالمنظار'],
   detailsEn: ['Laparoscopic Sleeve Gastrectomy','Gastric Bypass Surgery','Standard & Smart Capsule Procedures','Laparoscopic General Surgery'],

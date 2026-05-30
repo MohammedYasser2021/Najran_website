@@ -5,8 +5,6 @@ import MainNavbar from './MainNavbar';
 // @ts-ignore
 import img1 from '../assets/doctors/1.png';
 // @ts-ignore
-import img2 from '../assets/doctors/2.png';
-// @ts-ignore
 import img3 from '../assets/doctors/3.png';
 // @ts-ignore
 import img4 from '../assets/doctors/4.png';
@@ -135,7 +133,6 @@ const doctors: Doctor[] = [
     'Obsessive-Compulsive & Personality Disorders Treatment'
   ],
 },
-  { id: 2, src: img2, nameAr: 'عبدالعزيز الشهراني', nameEn: 'Abdulaziz Al-Shahrani', specialtyAr: 'استشاري الجهاز الهضمي والمناظير', specialtyEn: 'Gastroenterology & Endoscopy Consultant', detailsAr: ['تنظير الجهاز الهضمي العلوي (المريء والمعدة والاثني عشر)','تنظير القولون والأمعاء الغليظة','تشخيص وعلاج جرثومة المعدة (الهيليكوباكتر)','تشخيص وعلاج القرحات الهضمية والارتجاع المريئي','تشخيص وعلاج أمراض الكبد والتليف الكبدي','تشخيص وعلاج أمراض البنكرياس والقنوات الصفراوية','تشخيص وعلاج الأمراض الالتهابية للأمعاء (كرون والتهاب القولون)'], detailsEn: ['Upper GI Endoscopy (Oesophagus, Stomach & Duodenum)','Colonoscopy & Large Intestine Examination','Diagnosis & Treatment of H. Pylori (Stomach Bacteria)','Peptic Ulcers & Gastro-Oesophageal Reflux Disease','Liver Diseases & Hepatic Fibrosis','Pancreatic & Biliary Tract Diseases','Inflammatory Bowel Disease (Crohn\'s & Colitis)'] },
     {
   id: 3, src: img3,
 
@@ -231,7 +228,7 @@ const doctors: Doctor[] = [
 },
   { id: 12, src: img12, nameAr: 'علي قناص', nameEn: 'Ali Qannas', specialtyAr: 'اﺳﺘﺸﺎري اﻧﻒ وأذن وﺣﻨﺠﺮة وﺟﺮاﺣﺎت اﻟﺮأس واﻟﻌﻨﻖ', specialtyEn: 'Consultant in Ear, Nose & Throat and Head & Neck Surgery', detailsAr: ['أورام الغدة الدرقية وجار الدرقية','أورام الغدة النكافية والغدة اللعابية','أورام الرأس والرقبة المجهرية المتقدمة','تعديل الحاجز الأنفي والقرنيات'], detailsEn: ['Thyroid & Parathyroid Tumours','Parotid & Salivary Gland Tumours','Advanced Microscopic Head & Neck Tumours','Nasal Septum & Turbinate Correction'] },
   { id: 13, src: img13, nameAr: 'علي ظافر آل سويدان', nameEn: 'Ali Zafer Al-Suwaidan', specialtyAr: 'اﺳﺘﺸﺎري ﺑﺎﻃﻨﺔ وأﻣﺮاض ﻣﻌﺪﻳﺔ ﻟﺪى اﻟﻜﺒﺎر', specialtyEn: 'Consultant Internist and Adult Infectious Disease Specialist', detailsAr: ['الحمى المالطية والحمى مجهولة السبب','الالتهابات التنفسية العلوية والسفلية','التهابات المسالك البولية'], detailsEn: ['Brucellosis & Fever of Unknown Origin','Upper & Lower Respiratory Infections','Urinary Tract Infections'] },
-  { id: 15, src: img15, nameAr: 'دينا حسين', nameEn: 'Dina Hussein', specialtyAr: 'إستشاري طب الأسرة', specialtyEn: 'Consultant in Family Medicine', detailsAr: ['علاج الأمراض الشائعة الحادة والمزمنة','المتابعة الدورية للأمراض المزمنة (ضغط الدم، السكري)','رعاية المسنين والرعاية الصحية المنزلية'], detailsEn: ['Acute & Chronic Common Diseases','Periodic Follow-Up for Chronic Conditions (Hypertension, Diabetes)','Elderly Care & Home Healthcare'] },
+  { id: 15, src: img15, nameAr: 'دينا حسين', nameEn: 'Dina Hussein', specialtyAr: 'اخصائي أول طب الأسرة', specialtyEn: 'Senior Family Medicine Specialist', detailsAr: ['علاج الأمراض الشائعة الحادة والمزمنة','المتابعة الدورية للأمراض المزمنة (ضغط الدم، السكري)','رعاية المسنين والرعاية الصحية المنزلية'], detailsEn: ['Acute & Chronic Common Diseases','Periodic Follow-Up for Chronic Conditions (Hypertension, Diabetes)','Elderly Care & Home Healthcare'] },
   {
   id: 16, src: img16,
 
@@ -397,7 +394,7 @@ const doctors: Doctor[] = [
   { id: 37, src: img37, nameAr: 'وليد مغراوي', nameEn: 'Walid Maghrawi', specialtyAr: 'إستشاري أمراض القلب', specialtyEn: 'Consultant in Cardiology', detailsAr: ['تصوير الشريان التاجي','اختلال ضربات القلب','رسم القلب بالمجهود','الفحص الدوري الشامل للقلب والأوعية الدموية'], detailsEn: ['Coronary Angiography','Cardiac Arrhythmia','Stress ECG','Comprehensive Cardiovascular Check-Up'] },
   { id: 38, src: img38, nameAr: 'ظافر الشهري', nameEn: 'Zafer Al-Shehri', specialtyAr: 'إستشاري ﻃﺐ اﻷﻃﻔﺎل وﻣﻨﺎﻇﻴﺮ اﻟﺠﻬﺎز اﻟﻬﻀﻤﻲ', specialtyEn: 'إستشاري ﻃﺐ اﻷﻃﻔﺎل وﻣﻨﺎﻇﻴﺮ اﻟﺠﻬﺎز اﻟﻬﻀﻤﻲ', detailsAr: ['علاج مشاكل الجهاز الهضمي','علاج ضعف النمو والتغذية','تشخيص وعلاج آلام البطن المزمنة والدورية','علاج تقرحات الأمعاء الالتهابية'], detailsEn: ['Gastrointestinal Disorders','Growth Failure & Nutritional Issues','Chronic & Recurrent Abdominal Pain','Inflammatory Bowel Disease'] },
   { id: 39, src: img39, nameAr: 'محمد فتحي', nameEn: 'Mohammed Fathi', specialtyAr: 'استشاري أمراض وجراحات المسالك البولية', specialtyEn: 'Urology & Urological Surgery Consultant', detailsAr: ['علاج التهاب وتضخم البروستاتا','علاج البروستاتا بالتبخير (Rezum)','تشخيص واستئصال أورام المثانة بالمنظار','تشخيص وعلاج حصوات الكلى والمسالك البولية بالليزر','علاج سلس البول وضعف الوظيفة البولية'], detailsEn: ['Prostatitis & Benign Prostatic Hyperplasia (BPH) Treatment','Prostate Steam Therapy (Rezum)','Endoscopic Diagnosis & Resection of Bladder Tumours','Laser Treatment of Kidney & Urinary Tract Stones','Urinary Incontinence & Bladder Dysfunction'] },
-  { id: 40, src: img40, nameAr: 'احمد العزب', nameEn: 'Ahmed Al-Azzab', specialtyAr: 'استشاري الجهاز الهضمي والمناظير', specialtyEn: 'Gastroenterology & Endoscopy Consultant', detailsAr: ['تشخيص أمراض الكبد (تليف الكبد والفيروسات الكبدية)','تشخيص وعلاج أمراض البنكرياس','تنظير الجهاز الهضمي العلوي (المريء والمعدة وجرثومة المعدة)','تنظير القولون وتشخيص أمراض الأمعاء','علاج الارتجاع المريئي والقرحات الهضمية'], detailsEn: ['Liver Disease Diagnosis (Cirrhosis & Hepatitis Viruses)','Pancreatic Disease Diagnosis & Treatment','Upper GI Endoscopy (Oesophagus, Stomach & H. Pylori)','Colonoscopy & Intestinal Disease Diagnosis','Gastro-Oesophageal Reflux & Peptic Ulcer Treatment'] },
+  { id: 40, src: img40, nameAr: 'احمد العزب', nameEn: 'Ahmed Al-Azzab', specialtyAr: 'اخصائي أول الجهاز الهضمي والمناظير', specialtyEn: 'Senior Gastroenterology & Endoscopy Specialist', detailsAr: ['تشخيص أمراض الكبد (تليف الكبد والفيروسات الكبدية)','تشخيص وعلاج أمراض البنكرياس','تنظير الجهاز الهضمي العلوي (المريء والمعدة وجرثومة المعدة)','تنظير القولون وتشخيص أمراض الأمعاء','علاج الارتجاع المريئي والقرحات الهضمية'], detailsEn: ['Liver Disease Diagnosis (Cirrhosis & Hepatitis Viruses)','Pancreatic Disease Diagnosis & Treatment','Upper GI Endoscopy (Oesophagus, Stomach & H. Pylori)','Colonoscopy & Intestinal Disease Diagnosis','Gastro-Oesophageal Reflux & Peptic Ulcer Treatment'] },
   {
   id: 41, src: img41,
   nameAr: 'محمد مهدي آل سليمان', nameEn: 'Mohammed Mahdi Al-Sulaiman',

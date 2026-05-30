@@ -46,13 +46,6 @@ export const doctors: Doctor[] = [
   detailsEn: ['Diagnosis & Treatment of Depression & Mood Disorders','Diagnosis & Treatment of Anxiety & Panic Disorders','Cognitive Behavioural Therapy (CBT)','Mental Health Care for Adults & Adolescents','Sleep Disorders & Stress Management','Psychological Trauma & Emotional Support','Obsessive-Compulsive & Personality Disorders Treatment'],
 },
 {
-  id: 2, imgFile: '2.png',
-  nameAr: 'عبدالعزيز الشهراني', nameEn: 'Abdulaziz Al-Shahrani',
-  specialtyAr: 'استشاري الجهاز الهضمي والمناظير', specialtyEn: 'Gastroenterology & Endoscopy Consultant',
-  detailsAr: ['تنظير الجهاز الهضمي العلوي (المريء والمعدة والاثني عشر)','تنظير القولون والأمعاء الغليظة','تشخيص وعلاج جرثومة المعدة (الهيليكوباكتر)','تشخيص وعلاج القرحات الهضمية والارتجاع المريئي','تشخيص وعلاج أمراض الكبد والتليف الكبدي','تشخيص وعلاج أمراض البنكرياس والقنوات الصفراوية','تشخيص وعلاج الأمراض الالتهابية للأمعاء (كرون والتهاب القولون)'],
-  detailsEn: ['Upper GI Endoscopy (Oesophagus, Stomach & Duodenum)','Colonoscopy & Large Intestine Examination','Diagnosis & Treatment of H. Pylori (Stomach Bacteria)','Peptic Ulcers & Gastro-Oesophageal Reflux Disease','Liver Diseases & Hepatic Fibrosis','Pancreatic & Biliary Tract Diseases','Inflammatory Bowel Disease (Crohn\'s & Colitis)'],
-},
-{
   id: 3, imgFile: '3.png',
   nameAr: 'محمد المغربي', nameEn: 'Mohammed Al-Maghribi',
   specialtyAr: 'استشاري أنف وأذن وحنجرة', specialtyEn: 'ENT Consultant',
@@ -132,7 +125,7 @@ export const doctors: Doctor[] = [
 {
   id: 15, imgFile: '15.png',
   nameAr: 'دينا حسين', nameEn: 'Dina Hussein',
-  specialtyAr: 'إستشاري طب الأسرة', specialtyEn: 'Consultant in Family Medicine',
+  specialtyAr: 'اخصائي أول طب الأسرة', specialtyEn: 'Senior Family Medicine Specialist',
   detailsAr: ['علاج الأمراض الشائعة الحادة والمزمنة','المتابعة الدورية للأمراض المزمنة (ضغط الدم، السكري)','رعاية المسنين والرعاية الصحية المنزلية'],
   detailsEn: ['Acute & Chronic Common Diseases','Periodic Follow-Up for Chronic Conditions (Hypertension, Diabetes)','Elderly Care & Home Healthcare'],
 },
@@ -300,7 +293,7 @@ export const doctors: Doctor[] = [
 {
   id: 40, imgFile: '40.png',
   nameAr: 'احمد العزب', nameEn: 'Ahmed Al-Azzab',
-  specialtyAr: 'استشاري الجهاز الهضمي والمناظير', specialtyEn: 'Gastroenterology & Endoscopy Consultant',
+  specialtyAr: 'اخصائي أول الجهاز الهضمي والمناظير', specialtyEn: 'Senior Gastroenterology & Endoscopy Specialist',
   detailsAr: ['تشخيص أمراض الكبد (تليف الكبد والفيروسات الكبدية)','تشخيص وعلاج أمراض البنكرياس','تنظير الجهاز الهضمي العلوي (المريء والمعدة وجرثومة المعدة)','تنظير القولون وتشخيص أمراض الأمعاء','علاج الارتجاع المريئي والقرحات الهضمية'],
   detailsEn: ['Liver Disease Diagnosis (Cirrhosis & Hepatitis Viruses)','Pancreatic Disease Diagnosis & Treatment','Upper GI Endoscopy (Oesophagus, Stomach & H. Pylori)','Colonoscopy & Intestinal Disease Diagnosis','Gastro-Oesophageal Reflux & Peptic Ulcer Treatment'],
 },
@@ -382,8 +375,8 @@ export const departments: Department[] = [
     id: 5,
     nameAr: 'مركز الجهاز الهضمي والكبد والمناظير', nameEn: 'Gastroenterology, Hepatology & Endoscopy Center',
     clinics: [
-      { idAr: 'وحدة المناظير العلوية والسفلية', idEn: 'Upper & Lower Endoscopy Unit', nameAr: 'وحدة المناظير العلوية والسفلية', nameEn: 'Upper & Lower Endoscopy Unit', doctorIds: [2, 40] },
-      { idAr: 'وحدة مناظير القنوات المرارية ERCP', idEn: 'ERCP Unit', nameAr: 'وحدة مناظير القنوات المرارية ERCP', nameEn: 'ERCP Unit', doctorIds: [2, 40] },
+      { idAr: 'وحدة المناظير العلوية والسفلية', idEn: 'Upper & Lower Endoscopy Unit', nameAr: 'وحدة المناظير العلوية والسفلية', nameEn: 'Upper & Lower Endoscopy Unit', doctorIds: [ 40] },
+      { idAr: 'وحدة مناظير القنوات المرارية ERCP', idEn: 'ERCP Unit', nameAr: 'وحدة مناظير القنوات المرارية ERCP', nameEn: 'ERCP Unit', doctorIds: [ 40] },
     ],
   },
   {

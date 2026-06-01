@@ -9,7 +9,7 @@ interface OurSecProps {
 const content = {
   ar: {
     sectionLabel: 'مميزاتنا',
-    title: 'لماذا مستشفى نجران؟',
+    title: 'لماذا مستشفى تخصصي نجران؟',
     description: 'المستشفى مرخص من وزارة الصحة بسعة 100 سرير، ويشمل أكثر من 25 تخصصًا طبيًا ويعمل به أكثر من 60 مستشارًا وأخصائيًا في جميع التخصصات الطبية العامة والدقيقة مما يلبي كافة التخصصات الطبية التي يحتاجها أهل نجران وتغنيهم عن السفر للعلاج خارج المنطقة.',
     stats: [
       { value: '100', label: 'سرير', suffix: '+' },
@@ -29,7 +29,7 @@ const content = {
   },
   en: {
     sectionLabel: 'Our Features',
-    title: 'Why Najran Hospital?',
+    title: 'Why Najran Specialty Hospital',
     description: 'The hospital is licensed by the Ministry of Health with a capacity of 100 beds, covering more than 25 medical specialties with over 60 consultants and specialists across all general and subspecialty fields — meeting all medical needs of Najran residents and sparing them from traveling outside the region.',
     stats: [
       { value: '100', label: 'Beds', suffix: '+' },

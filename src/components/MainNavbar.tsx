@@ -51,6 +51,7 @@ const MainNavbar = ({ currentLang, changeLanguage }: MainNavbarProps) => {
   const menuItems = [
     { key: 'home',     label: isArabic ? 'الصفحة الرئيسية' : 'Home',          href: '/' },
     { key: 'about',    label: isArabic ? 'من نحن'           : 'About Us',      href: '/about' },
+    { key: 'marengo', label: isArabic ? 'مارينجو أسيا' : 'Marengo Asia', href: 'https://www.marengoasiahospitals.com/', external: true },
     { key: 'depts',    label: isArabic ? 'الأقسام'          : 'Departments',   href: null, hasDeptDropdown: true },
     { key: 'doctors',  label: isArabic ? 'الأطباء'          : 'Doctors',       href: '/doctors' },
     { key: 'blog',     label: isArabic ? 'المركز الإعلامي' : 'Media Center',   href: '/news' },
@@ -272,6 +273,8 @@ const MainNavbar = ({ currentLang, changeLanguage }: MainNavbarProps) => {
                     ) : (
                       <a
                         href={item.href!}
+                        target={item.external ? '_blank' : undefined}
+                        rel={item.external ? 'noopener noreferrer' : undefined}
                         className="py-3 px-2.5 text-[#1786b5] hover:text-[#bf131c] transition-colors block whitespace-nowrap"
                       >
                         {item.label}
@@ -346,6 +349,8 @@ const MainNavbar = ({ currentLang, changeLanguage }: MainNavbarProps) => {
               <li key={item.key}>
                 <a
                   href={item.href!}
+                  target={item.external ? '_blank' : undefined}
+                  rel={item.external ? 'noopener noreferrer' : undefined}
                   className={`block py-2.5 px-4 hover:bg-gray-800 rounded-lg font-medium text-sm ${isArabic ? 'text-right' : 'text-left'}`}
                   onClick={() => setIsSidebarOpen(false)}
                 >

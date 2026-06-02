@@ -29,7 +29,7 @@ const content = {
   },
   en: {
     sectionLabel: 'Our Features',
-    title: 'Why Najran Specialty Hospital',
+    title: 'Why Specialized Najran Hospital?',
     description: 'The hospital is licensed by the Ministry of Health with a capacity of 100 beds, covering more than 25 medical specialties with over 60 consultants and specialists across all general and subspecialty fields — meeting all medical needs of Najran residents and sparing them from traveling outside the region.',
     stats: [
       { value: '100', label: 'Beds', suffix: '+' },

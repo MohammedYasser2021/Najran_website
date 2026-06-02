@@ -59,7 +59,7 @@ const Footer: React.FC<FooterProps> = ({ currentLang }) => {
   const year = new Date().getFullYear();
 
   const fullNameAr = 'مستشفى تخصصي نجران';
-  const fullNameEn = 'Najran Specialized Hospital';
+  const fullNameEn = 'Specialized Najran Hospital';
 
  const copyrightText = isAr
   ? `جميع الحقوق محفوظة © ${year} ${fullNameAr}`

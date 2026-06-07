@@ -32,33 +32,31 @@ const CeoSection: React.FC<CeoSectionProps> = ({ currentLang }) => {
   const content = {
     ar: {
       title: 'رعاية متكاملة في مكان واحد',
-      text: `في مستشفى نجران التخصصي، نحن لا نؤمن بالعمل الروتيني… بل نؤمن بصناعة الأثر.
-فكل قسم، وكل موظف، وكل لحظة جهد تُبذل داخل هذه المؤسسة، هي جزء من رسالة إنسانية عظيمة تنقذ الأرواح وتمنح الأمل.
+      text: `في مستشفى نجران التخصصي، نحن لا نحضر إلى العمل لمجرد أداء وظيفة، بل نحضر من أجل الناس. فكل مريض يعبر أبوابنا يحمل معه قصة، وأسرة، وأملاً. وهذا الأمل هو الأمانة التي أوكلت إلينا حمايتها. إن عملنا ليس عملاً روتينياً، ولم يكن كذلك يوماً. إنه رسالة سامية ومهمة إنسانية للشفاء، تسري في كل ممر، وكل استشارة، وكل عمل رعاية هادئ يُؤدّى خلف الكواليس. ما بنيناه معاً لم يكن وليد الصدفة، بل تشكّل من خلال الانضباط، والتعاطف، والإيمان الجماعي بأننا عندما نعمل كفريق واحد، عبر جميع الأقسام والتخصصات والأدوار، فإننا قادرون على تحقيق إنجازات استثنائية.
 
-ما حققناه اليوم لم يأتِ بمحض الصدفة، بل كان نتيجة الالتزام والانضباط والعمل بروح الفريق الواحد.
+الزملاء الأعزاء، إن الطريق أمامنا يتطلب منا المزيد من الشجاعة والالتزام. فنحن لا نسعى فقط إلى أن نكون مستشفى ناجحاً، بل نبني شيئاً أكثر عمقاً وأهمية، نموذجاً حياً للتميّز المرتكز على المريض، حيث تلتقي الابتكارات الرقمية مع الرحمة الإنسانية، وحيث تعكس كل نقطة تواصل في رحلة المريض أسمى قيمنا. إن رؤيتنا تقوم على ثقافة تعاون شاملة بزاوية 360 درجة؛ ثقافة لا يعمل فيها أي قسم بمعزل عن الآخر، وتتدفق فيها المعلومات بسلاسة، وتُتخذ فيها القرارات مع وضع المريض في قلب الاهتمام، ويشعر فيها كل فرد من الفريق بحجم الأثر الذي يصنعه وشرف المساهمة فيه.
 
-زملائي الأعزاء،
-إن المرحلة القادمة تتطلب منا المزيد من الشغف، والابتكار، والتميّز. فهدفنا ليس فقط أن نكون مستشفى ناجحًا… بل أن نصبح نموذجًا رائدًا في الرعاية الصحية، والخدمة الإنسانية، وجودة التشغيل.
+لقد رأيت ما يستطيع هذا الفريق تحقيقه، وشهدت صمودكم، وتفانيكم، واستعدادكم لتقديم ما هو أكثر مما يُطلب منكم، ليس لأن ذلك واجب، بل لأنكم تهتمون حقاً. وهذا أمر نادر، وقوة حقيقية، وهو ما يميزنا عن غيرنا. إن التميّز الحقيقي لا يُقاس بالأرقام والمؤشرات وحدها، بل يُقاس بالأم التي تغادر مستشفانا مطمئنة، وبالمريض الذي يعود إلى منزله بقوة متجددة، وبالأسرة التي تشعر بأنها مرئية ومسموعة ومدعومة خلال أكثر لحظاتها ضعفاً واحتياجاً.
 
-أنا على ثقة بقدراتكم، وأؤمن حقًا بأن لدينا فريقًا قادرًا على تجاوز التحديات وتحقيق إنجازات نفتخر بها جميعًا.
+إلى كل زميل يعمل بإخلاص في صمت، وجعل من التعاطف منهجاً، ومن الإنسانية مهنة، أنتم روح هذه المؤسسة. أنتم أعظم نقاط قوتها، وأغلى ما تفخر به. فلنمضِ قدماً معاً بعزيمة، وبقلب نابض بالعطاء، وبإيمان راسخ بأننا معاً لا نعالج المرض فحسب، بل نعيد الحياة إلى النفوس.
 
-فالنجاح الحقيقي لا يُقاس بالكلمات، بل بالأثر الذي نتركه في حياة المرضى وعائلاتهم.
-
-شكرًا لكل من يعمل بإخلاص خلف الكواليس، ولكل من جعل الرحمة مهنة، والإنسانية رسالة.
-أنتم القوة الحقيقية ومصدر فخر هذه المؤسسة.
-معًا… نصنع الفرق.`,
+`,
       signature: 'المدير التنفيذي',
       name: 'د. رجيف ميسرا'
     },
     en: {
       title: 'Complete Care in One Place',
-      text: `At Specialized Najran Hospital, we do not believe in routine work… we believe in creating impact. Every department, every employee, and every moment of effort dedicated within this institution is part of a great humanitarian mission that saves lives and gives hope. What we have achieved today did not happen by chance; it is the result of commitment, discipline, and working together as one team. Dear colleagues, the coming phase requires even more passion, innovation, and excellence from all of us. Our goal is not only to be a successful hospital… but to become a leading model in healthcare, humanitarian service, and operational quality. I trust in your abilities, and I truly believe we have a team capable of overcoming challenges and achieving 
-accomplishments we can all be proud of. True success is not measured by words, 
-but by the impact we leave on the lives of patients and their families. Thank you to
-everyone who works sincerely behind the scenes, and to everyone who has made 
-compassion aprofession and humanity a mission. You are the true strength and 
-pride of this organization.
-Together…we make a difference.`,
+      text: `At Specialized Najran Hospital, we don’t simply show up to work — we show up for people.
+Every patient who walks through our doors carries with them a story, a family, and a hope. And it is that hope we are entrusted to protect. Our work is not routine — it never has been. It is a calling. A mission of healing that flows through every corridor, every consultation, and every quiet act of care performed behind the scenes.
+What we have built together did not emerge from chance. It was forged through discipline, through empathy, and through a collective belief that when we function as one — across every department, every discipline, every role — we are capable of extraordinary things.
+Dear colleagues,
+The road ahead calls for even greater courage and commitment from each of us. We are not simply striving to be a successful hospital. We are building something far more meaningful — a living model of patient-centered excellence, where digital innovation meets human compassion, and where every touchpoint in a patient’s journey reflects our deepest values.
+Our vision is a 360° culture of collaboration — one where no department operates in isolation, where information flows freely, decisions are made with the patient at the center, and every team member feels the weight and the honor of the impact they create.
+I have seen what this team is capable of. I have witnessed your resilience, your dedication, and your willingness to go beyond what is asked — not because it is required, but because you genuinely care. That is rare. That is powerful. And that is what sets us apart.
+True excellence is not measured in metrics alone — it is measured in the mother who leaves our hospital reassured, in the patient who returns home with renewed strength, and in the family that feels seen, heard, and supported throughout their most vulnerable moments.
+To every colleague who works with quiet dedication, who has made compassion a discipline and humanity a profession — you are the soul of this institution. You are its greatest strength, and its most enduring pride.
+Let us continue forward — with purpose, with heart, and with the unwavering belief that together, we don’t just treat illness.
+Together, we restore lives.`,
       signature: 'CEO',
       name: 'Dr. rajiv misra'
     }
@@ -214,7 +212,7 @@ Together…we make a difference.`,
               <img
                 src={CeoImg}
                 alt="Hospital"
-                className="w-full h-[660px] object-cover"
+                className="w-full h-[900px] object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#1787b6]/20 to-transparent" />
             </div>

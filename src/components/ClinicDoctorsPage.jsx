@@ -89,6 +89,10 @@ import img45 from '../assets/doctors/45.png';
 import img46 from '../assets/doctors/46.png';
 // @ts-ignore
 import img47 from '../assets/doctors/47.png';
+// @ts-ignore
+import img48 from '../assets/doctors/48.png';
+// @ts-ignore
+import img49 from '../assets/doctors/49.png';
 
 // ─── Inline doctor data (مرتبطة بـ doctorData.ts) ───────────────────────────
 const WHATSAPP_NUMBER = '920002159';
@@ -517,6 +521,50 @@ const doctorsData = [
     'Oral Health Checkups & Preventive Dental Care'
   ],
 },
+{
+  id: 48,
+  src: img48,
+  nameAr: 'عمرو موسى',
+  nameEn: 'Amr Mousa',
+  specialtyAr: 'أخصائي طب العيون',
+  specialtyEn: 'Ophthalmology Specialist',
+  detailsAr: [
+    'تشخيص وعلاج أمراض العيون المختلفة',
+    'فحص النظر وتقييم حدة الإبصار',
+    'متابعة وعلاج التهابات وجفاف العين',
+    'تشخيص ومتابعة المياه البيضاء والزرقاء',
+    'الفحص الدوري لصحة العين والوقاية من المضاعفات'
+  ],
+  detailsEn: [
+    'Diagnosis & Treatment of Various Eye Diseases',
+    'Vision Testing & Visual Acuity Assessment',
+    'Management of Eye Infections & Dry Eye Syndrome',
+    'Diagnosis & Follow-up of Cataracts & Glaucoma',
+    'Routine Eye Examinations & Preventive Eye Care'
+  ],
+},
+{
+  id: 49,
+  src: img49,
+  nameAr: 'سامية حكمي',
+  nameEn: 'Samia Hakami',
+  specialtyAr: 'أخصائية التغذية العلاجية',
+  specialtyEn: 'Clinical Dietitian',
+  detailsAr: [
+    'تقييم الحالة الغذائية ووضع الخطط العلاجية المناسبة',
+    'إعداد برامج غذائية لمرضى السكري وارتفاع ضغط الدم',
+    'متابعة التغذية العلاجية للحالات المزمنة',
+    'وضع خطط غذائية لإنقاص أو زيادة الوزن بطريقة صحية',
+    'التثقيف الغذائي وتعزيز العادات الصحية السليمة'
+  ],
+  detailsEn: [
+    'Nutritional Assessment & Personalized Diet Planning',
+    'Diet Programs for Diabetes & Hypertension Patients',
+    'Clinical Nutrition Follow-up for Chronic Conditions',
+    'Healthy Weight Loss & Weight Gain Nutrition Plans',
+    'Nutrition Education & Healthy Lifestyle Counseling'
+  ],
+},
 ];
 
 // ─── Department → Clinic → DoctorIds map ────────────────────────────────────
@@ -539,8 +587,8 @@ const departmentsData = [
     { nameAr: 'وحدة مناظير القنوات المرارية ERCP (إزالة حصوات المرارة وتركيب الدعامات المرارية)', nameEn: 'ERCP Unit (Gallstone Removal & Biliary Stenting)', doctorIds: [40] },
   ]},
   { id: 6, nameAr: 'مركز علاج وجراحات السمنة', nameEn: 'Obesity Treatment & Surgery Center', clinics: [
-    { nameAr: 'وحدة جراحات السمنة', nameEn: 'Bariatric Surgery Unit', doctorIds: [5, 30] },
-    { nameAr: 'وحدة التغذية العلاجية', nameEn: 'Therapeutic Nutrition Unit', doctorIds: [5, 30] },
+    { nameAr: 'وحدة جراحات السمنة', nameEn: 'Bariatric Surgery Unit', doctorIds: [5, 30,49] },
+    { nameAr: 'وحدة التغذية العلاجية', nameEn: 'Therapeutic Nutrition Unit', doctorIds: [5, 30,49] },
     { nameAr: 'وحدة الدعم النفسي والسلوكي', nameEn: 'Psychological & Behavioral Support Unit', doctorIds: [1] },
   ]},
   { id: 7, nameAr: 'مركز الجراحة العامة وجراحة المناظير', nameEn: 'General Surgery & Laparoscopy Center', clinics: [
@@ -566,8 +614,8 @@ const departmentsData = [
     { nameAr: 'وحدة علاج وجراحات مشاكل النوم', nameEn: 'Sleep Disorders Treatment & Surgery Unit', doctorIds: [3] },
   ]},
   { id: 11, nameAr: 'مركز طب وجراحة العيون', nameEn: 'Ophthalmology & Eye Surgery Center', clinics: [
-    { nameAr: 'وحدة تشخيص وعلاج أمراض العيون', nameEn: 'Eye Diseases Diagnosis & Treatment Unit', doctorIds: [8] },
-    { nameAr: 'وحدة جراحات العيون', nameEn: 'Eye Surgery Unit', doctorIds: [8] },
+    { nameAr: 'وحدة تشخيص وعلاج أمراض العيون', nameEn: 'Eye Diseases Diagnosis & Treatment Unit', doctorIds: [8,48] },
+    { nameAr: 'وحدة جراحات العيون', nameEn: 'Eye Surgery Unit', doctorIds: [8,48] },
   ]},
   { id: 12, nameAr: 'مركز الأشعة التداخلية', nameEn: 'Interventional Radiology Center', clinics: [
     { nameAr: 'وحدة علاج الأوردة والدوالي والأوعية الدموية بدون جراحة', nameEn: 'Varicose Veins & Vascular Treatment without Surgery', doctorIds: [21] },

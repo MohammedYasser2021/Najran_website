@@ -94,6 +94,10 @@ import img45 from '../assets/doctors/45.png';
 import img46 from '../assets/doctors/46.png';
 // @ts-ignore
 import img47 from '../assets/doctors/47.png';
+// @ts-ignore
+import img48 from '../assets/doctors/48.png';
+// @ts-ignore
+import img49 from '../assets/doctors/49.png';
 
 interface DoctorsProps {
   currentLang: string;
@@ -144,6 +148,8 @@ const doctorImages = [
   { id: 45, src: img45 },
   { id: 46, src: img46 },
   { id: 47, src: img47 },
+  { id: 48, src: img48 },
+  { id: 49, src: img49 },
 ];
 
 // Map doctor id → video src (only doctors that HAVE a video)

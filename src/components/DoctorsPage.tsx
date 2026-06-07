@@ -90,6 +90,10 @@ import img45 from '../assets/doctors/45.png';
 import img46 from '../assets/doctors/46.png';
 // @ts-ignore
 import img47 from '../assets/doctors/47.png';
+// @ts-ignore
+import img48 from '../assets/doctors/48.png';
+// @ts-ignore
+import img49 from '../assets/doctors/49.png';
 
 interface Doctor {
   id: number;
@@ -526,6 +530,50 @@ const doctors: Doctor[] = [
     'Treatment of Gum Pain & Inflammation',
     'Simple Tooth Extractions When Needed',
     'Oral Health Checkups & Preventive Dental Care'
+  ],
+},
+{
+  id: 48,
+  src: img48,
+  nameAr: 'عمرو موسى',
+  nameEn: 'Amr Mousa',
+  specialtyAr: 'أخصائي طب العيون',
+  specialtyEn: 'Ophthalmology Specialist',
+  detailsAr: [
+    'تشخيص وعلاج أمراض العيون المختلفة',
+    'فحص النظر وتقييم حدة الإبصار',
+    'متابعة وعلاج التهابات وجفاف العين',
+    'تشخيص ومتابعة المياه البيضاء والزرقاء',
+    'الفحص الدوري لصحة العين والوقاية من المضاعفات'
+  ],
+  detailsEn: [
+    'Diagnosis & Treatment of Various Eye Diseases',
+    'Vision Testing & Visual Acuity Assessment',
+    'Management of Eye Infections & Dry Eye Syndrome',
+    'Diagnosis & Follow-up of Cataracts & Glaucoma',
+    'Routine Eye Examinations & Preventive Eye Care'
+  ],
+},
+{
+  id: 49,
+  src: img49,
+  nameAr: 'سامية حكمي',
+  nameEn: 'Samia Hakami',
+  specialtyAr: 'أخصائية التغذية العلاجية',
+  specialtyEn: 'Clinical Dietitian',
+  detailsAr: [
+    'تقييم الحالة الغذائية ووضع الخطط العلاجية المناسبة',
+    'إعداد برامج غذائية لمرضى السكري وارتفاع ضغط الدم',
+    'متابعة التغذية العلاجية للحالات المزمنة',
+    'وضع خطط غذائية لإنقاص أو زيادة الوزن بطريقة صحية',
+    'التثقيف الغذائي وتعزيز العادات الصحية السليمة'
+  ],
+  detailsEn: [
+    'Nutritional Assessment & Personalized Diet Planning',
+    'Diet Programs for Diabetes & Hypertension Patients',
+    'Clinical Nutrition Follow-up for Chronic Conditions',
+    'Healthy Weight Loss & Weight Gain Nutrition Plans',
+    'Nutrition Education & Healthy Lifestyle Counseling'
   ],
 },
 ];

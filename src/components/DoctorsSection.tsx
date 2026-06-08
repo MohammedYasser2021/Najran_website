@@ -7,6 +7,17 @@ import vid5 from '../assets/doctors/vid5.mp4';
 import vid43 from '../assets/doctors/vid43.mp4';
 
 // @ts-ignore
+import vid20 from '../assets/doctors/vid20.mp4';
+// @ts-ignore
+import vid36 from '../assets/doctors/vid36.mp4';
+// @ts-ignore
+import vid39 from '../assets/doctors/vid39.mp4';
+// @ts-ignore
+import vid48 from '../assets/doctors/vid48.mp4';
+// @ts-ignore
+import vid50 from '../assets/doctors/vid50.mp4';
+
+// @ts-ignore
 import img1 from '../assets/doctors/1.png';
 // @ts-ignore
 import img3 from '../assets/doctors/3.png';
@@ -98,6 +109,8 @@ import img47 from '../assets/doctors/47.png';
 import img48 from '../assets/doctors/48.png';
 // @ts-ignore
 import img49 from '../assets/doctors/49.png';
+// @ts-ignore
+import img50 from '../assets/doctors/50.png';
 
 interface DoctorsProps {
   currentLang: string;
@@ -150,12 +163,18 @@ const doctorImages = [
   { id: 47, src: img47 },
   { id: 48, src: img48 },
   { id: 49, src: img49 },
+  { id: 50, src: img50 },
 ];
 
 // Map doctor id → video src (only doctors that HAVE a video)
 const doctorVideos: Record<number, string> = {
   5: vid5,
+  20: vid20, 
+  36: vid36,
+  39: vid39, 
   43: vid43,
+  48: vid48,
+  50: vid50,
 };
 
 const content = {

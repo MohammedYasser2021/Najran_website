@@ -93,6 +93,8 @@ import img47 from '../assets/doctors/47.png';
 import img48 from '../assets/doctors/48.png';
 // @ts-ignore
 import img49 from '../assets/doctors/49.png';
+// @ts-ignore
+import img50 from '../assets/doctors/50.png';
 
 // ─── Inline doctor data (مرتبطة بـ doctorData.ts) ───────────────────────────
 const WHATSAPP_NUMBER = '920002159';
@@ -565,14 +567,36 @@ const doctorsData = [
     'Nutrition Education & Healthy Lifestyle Counseling'
   ],
 },
+{
+  id: 50,
+  src: img50,
+  nameAr: 'سالي سمير',
+  nameEn: 'Sally Samir',
+  specialtyAr: 'استشاري تأهيل الأطفال',
+  specialtyEn: 'Pediatric Rehabilitation Consultant',
+  detailsAr: [
+    'تقييم وعلاج مشكلات النمو والتطور الحركي لدى الأطفال',
+    'إعداد برامج تأهيل فردية لتحسين المهارات الحركية والوظيفية',
+    'متابعة حالات الشلل الدماغي والتأخر الحركي واضطرابات النمو',
+    'تدريب الأطفال على تحسين التوازن والتناسق الحركي والاستقلالية',
+    'تقديم الإرشاد والدعم للأسرة لتعزيز تطور الطفل وجودة حياته'
+  ],
+  detailsEn: [
+    'Assessment and Treatment of Developmental & Motor Delays in Children',
+    'Individualized Rehabilitation Programs to Improve Functional Skills',
+    'Management of Cerebral Palsy, Motor Delays & Developmental Disorders',
+    'Training to Enhance Balance, Coordination & Independence',
+    'Family Guidance and Support to Promote Child Development & Quality of Life'
+  ],
+},
 ];
 
 // ─── Department → Clinic → DoctorIds map ────────────────────────────────────
 const departmentsData = [
   { id: 1, nameAr: 'مركز العناية المركزة', nameEn: 'Intensive Care Center', clinics: [
     { nameAr: 'وحدة العناية المركزة للكبار', nameEn: 'Adult Intensive Care Unit', doctorIds: [9, 35] },
-    { nameAr: 'وحدة العناية المركزة للأطفال', nameEn: 'Pediatric Intensive Care Unit', doctorIds: [ 28, 46] },
-    { nameAr: 'وحدة العناية المركزة لحديثي الولادة', nameEn: 'Neonatal Intensive Care Unit', doctorIds: [ 22, 46] },
+    { nameAr: 'وحدة العناية المركزة للأطفال', nameEn: 'Pediatric Intensive Care Unit', doctorIds: [ 28, 46, 50] },
+    { nameAr: 'وحدة العناية المركزة لحديثي الولادة', nameEn: 'Neonatal Intensive Care Unit', doctorIds: [ 22, 46, 50] },
   ]},
   { id: 4, nameAr: 'مركز الطب الباطني', nameEn: 'Internal Medicine Center', clinics: [
     { nameAr: 'وحدة أمراض القلب', nameEn: 'Cardiology Unit', doctorIds: [37, 42, 45] },
@@ -627,11 +651,11 @@ const departmentsData = [
     { nameAr: 'وحدة العلاج السلوكي المعرفي', nameEn: 'Cognitive Behavioral Therapy Unit', doctorIds: [1] },
   ]},
   { id: 14, nameAr: 'مركز طب الأطفال المتخصص', nameEn: 'Specialized Pediatric Center', clinics: [
-    { nameAr: 'وحدة العناية المركزة للأطفال حديثي الولادة', nameEn: 'Neonatal Pediatric Intensive Care Unit', doctorIds: [22, 28, 34, 46] },
-    { nameAr: 'وحدة الأمراض الصدرية للأطفال', nameEn: 'Pediatric Chest Diseases Unit', doctorIds: [24, 34, 46] },
-    { nameAr: 'وحدة مناظير الجهاز الهضمي للأطفال', nameEn: 'Pediatric Gastrointestinal Endoscopy Unit', doctorIds: [20, 38, 46] },
-    { nameAr: 'وحدة السكري والغدد الصماء ونمو الأطفال', nameEn: 'Pediatric Diabetes, Endocrinology & Growth Unit', doctorIds: [26, 46] },
-    { nameAr: 'وحدة أمراض المخ والأعصاب للأطفال', nameEn: 'Pediatric Neurology Unit', doctorIds: [10, 46, 17] },
+    { nameAr: 'وحدة العناية المركزة للأطفال حديثي الولادة', nameEn: 'Neonatal Pediatric Intensive Care Unit', doctorIds: [22, 28, 34, 46, 50] },
+    { nameAr: 'وحدة الأمراض الصدرية للأطفال', nameEn: 'Pediatric Chest Diseases Unit', doctorIds: [24, 34, 46, 50] },
+    { nameAr: 'وحدة مناظير الجهاز الهضمي للأطفال', nameEn: 'Pediatric Gastrointestinal Endoscopy Unit', doctorIds: [20, 38, 46, 50] },
+    { nameAr: 'وحدة السكري والغدد الصماء ونمو الأطفال', nameEn: 'Pediatric Diabetes, Endocrinology & Growth Unit', doctorIds: [26, 46, 50] },
+    { nameAr: 'وحدة أمراض المخ والأعصاب للأطفال', nameEn: 'Pediatric Neurology Unit', doctorIds: [10, 46, 17, 50] },
   ]},
   { id: 15, nameAr: 'مركز طب الأسنان المتخصص (دنت سمايل)', nameEn: 'Specialized Dental Center (Dent Smile)', clinics: [
     { nameAr: 'عيادة تقويم الأسنان وعظام الوجه والفكين', nameEn: 'Orthodontics, Jaw & Facial Bones Clinic', doctorIds: [31, 34, 47] },
@@ -639,7 +663,7 @@ const departmentsData = [
     { nameAr: 'عيادة زراعة الأسنان', nameEn: 'Dental Implants Clinic', doctorIds: [34, 47] },
     { nameAr: 'عيادة جراحة الوجه والفكين', nameEn: 'Oral & Maxillofacial Surgery Clinic', doctorIds: [34, 47] },
     { nameAr: 'عيادة أمراض اللثة', nameEn: 'Periodontal Diseases Clinic', doctorIds: [4, 31, 34, 47] },
-    { nameAr: 'عيادة أسنان الأطفال', nameEn: 'Pediatric Dentistry Clinic', doctorIds: [4, 34, 47] },
+    { nameAr: 'عيادة أسنان الأطفال', nameEn: 'Pediatric Dentistry Clinic', doctorIds: [4, 34, 47, 50] },
   ]},
   { id: 16, nameAr: 'مركز الجلدية والجراحات التجميلية والليزر', nameEn: 'Dermatology, Cosmetic Surgery & Laser Center', clinics: [
     { nameAr: 'وحدة الجلدية والتجميل والليزر', nameEn: 'Dermatology, Cosmetics & Laser Unit', doctorIds: [23] },
@@ -650,7 +674,7 @@ const departmentsData = [
     { nameAr: 'وحدة استبدال المفاصل الصناعية للركبة والحوض', nameEn: 'Artificial Joint Replacement (Knee & Hip) Unit', doctorIds: [7, 29, 44] },
     { nameAr: 'وحدة الطب الرياضي ومناظير الكتف والركبة', nameEn: 'Sports Medicine & Arthroscopy (Shoulder & Knee) Unit', doctorIds: [7, 29, 44] },
     { nameAr: 'وحدة جراحات اليد الميكروسكوبية', nameEn: 'Microscopic Hand Surgery Unit', doctorIds: [44] },
-    { nameAr: 'وحدة جراحة العظام للأطفال', nameEn: 'Pediatric Orthopedic Surgery Unit', doctorIds: [] },
+    { nameAr: 'وحدة جراحة العظام للأطفال', nameEn: 'Pediatric Orthopedic Surgery Unit', doctorIds: [46,50] },
   ]},
 ];
 

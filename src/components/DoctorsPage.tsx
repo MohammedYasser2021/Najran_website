@@ -94,6 +94,8 @@ import img47 from '../assets/doctors/47.png';
 import img48 from '../assets/doctors/48.png';
 // @ts-ignore
 import img49 from '../assets/doctors/49.png';
+// @ts-ignore
+import img50 from '../assets/doctors/50.png';
 
 interface Doctor {
   id: number;
@@ -574,6 +576,28 @@ const doctors: Doctor[] = [
     'Clinical Nutrition Follow-up for Chronic Conditions',
     'Healthy Weight Loss & Weight Gain Nutrition Plans',
     'Nutrition Education & Healthy Lifestyle Counseling'
+  ],
+},
+{
+  id: 50,
+  src: img50,
+  nameAr: 'سالي سمير',
+  nameEn: 'Sally Samir',
+  specialtyAr: 'استشاري تأهيل الأطفال',
+  specialtyEn: 'Pediatric Rehabilitation Consultant',
+  detailsAr: [
+    'تقييم وعلاج مشكلات النمو والتطور الحركي لدى الأطفال',
+    'إعداد برامج تأهيل فردية لتحسين المهارات الحركية والوظيفية',
+    'متابعة حالات الشلل الدماغي والتأخر الحركي واضطرابات النمو',
+    'تدريب الأطفال على تحسين التوازن والتناسق الحركي والاستقلالية',
+    'تقديم الإرشاد والدعم للأسرة لتعزيز تطور الطفل وجودة حياته'
+  ],
+  detailsEn: [
+    'Assessment and Treatment of Developmental & Motor Delays in Children',
+    'Individualized Rehabilitation Programs to Improve Functional Skills',
+    'Management of Cerebral Palsy, Motor Delays & Developmental Disorders',
+    'Training to Enhance Balance, Coordination & Independence',
+    'Family Guidance and Support to Promote Child Development & Quality of Life'
   ],
 },
 ];

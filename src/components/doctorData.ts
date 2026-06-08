@@ -390,6 +390,28 @@ export const doctors: Doctor[] = [
     'Nutrition Education & Healthy Lifestyle Counseling'
   ],
 },
+{
+  id: 50,
+  imgFile: "50.png",
+  nameAr: 'سالي سمير',
+  nameEn: 'Sally Samir',
+  specialtyAr: 'استشاري تأهيل الأطفال',
+  specialtyEn: 'Pediatric Rehabilitation Consultant',
+  detailsAr: [
+    'تقييم وعلاج مشكلات النمو والتطور الحركي لدى الأطفال',
+    'إعداد برامج تأهيل فردية لتحسين المهارات الحركية والوظيفية',
+    'متابعة حالات الشلل الدماغي والتأخر الحركي واضطرابات النمو',
+    'تدريب الأطفال على تحسين التوازن والتناسق الحركي والاستقلالية',
+    'تقديم الإرشاد والدعم للأسرة لتعزيز تطور الطفل وجودة حياته'
+  ],
+  detailsEn: [
+    'Assessment and Treatment of Developmental & Motor Delays in Children',
+    'Individualized Rehabilitation Programs to Improve Functional Skills',
+    'Management of Cerebral Palsy, Motor Delays & Developmental Disorders',
+    'Training to Enhance Balance, Coordination & Independence',
+    'Family Guidance and Support to Promote Child Development & Quality of Life'
+  ],
+},
 ];
 
 // ── Departments with clinics mapped to doctor IDs ─────────────────────────────
@@ -399,7 +421,7 @@ export const departments: Department[] = [
     nameAr: 'مركز العناية المركزة', nameEn: 'Intensive Care Center',
     clinics: [
       { idAr: 'وحدة العناية المركزة للكبار', idEn: 'Adult Intensive Care Unit', nameAr: 'وحدة العناية المركزة للكبار', nameEn: 'Adult Intensive Care Unit', doctorIds: [9, 35] },
-      { idAr: 'وحدة العناية المركزة للأطفال', idEn: 'Pediatric Intensive Care Unit', nameAr: 'وحدة العناية المركزة للأطفال', nameEn: 'Pediatric Intensive Care Unit', doctorIds: [28, 46] },
+      { idAr: 'وحدة العناية المركزة للأطفال', idEn: 'Pediatric Intensive Care Unit', nameAr: 'وحدة العناية المركزة للأطفال', nameEn: 'Pediatric Intensive Care Unit', doctorIds: [28, 46, 50] },
       { idAr: 'وحدة العناية المركزة لحديثي الولادة', idEn: 'Neonatal Intensive Care Unit', nameAr: 'وحدة العناية المركزة لحديثي الولادة', nameEn: 'Neonatal Intensive Care Unit', doctorIds: [22, 46] },
     ],
   },
@@ -499,11 +521,11 @@ export const departments: Department[] = [
     id: 14,
     nameAr: 'مركز طب الأطفال المتخصص', nameEn: 'Specialized Pediatric Center',
     clinics: [
-      { idAr: 'وحدة العناية المركزة للأطفال حديثي الولادة', idEn: 'Neonatal Pediatric Intensive Care Unit', nameAr: 'وحدة العناية المركزة للأطفال حديثي الولادة', nameEn: 'Neonatal Pediatric Intensive Care Unit', doctorIds: [22, 28, 34, 46] },
-      { idAr: 'وحدة الأمراض الصدرية للأطفال', idEn: 'Pediatric Chest Diseases Unit', nameAr: 'وحدة الأمراض الصدرية للأطفال', nameEn: 'Pediatric Chest Diseases Unit', doctorIds: [24, 34, 46] },
-      { idAr: 'وحدة مناظير الجهاز الهضمي للأطفال', idEn: 'Pediatric Gastrointestinal Endoscopy Unit', nameAr: 'وحدة مناظير الجهاز الهضمي للأطفال', nameEn: 'Pediatric Gastrointestinal Endoscopy Unit', doctorIds: [20, 38, 46] },
-      { idAr: 'وحدة السكري والغدد الصماء ونمو الأطفال', idEn: 'Pediatric Diabetes, Endocrinology & Growth Unit', nameAr: 'وحدة السكري والغدد الصماء ونمو الأطفال', nameEn: 'Pediatric Diabetes, Endocrinology & Growth Unit', doctorIds: [26, 46] },
-      { idAr: 'وحدة أمراض المخ والأعصاب للأطفال', idEn: 'Pediatric Neurology Unit', nameAr: 'وحدة أمراض المخ والأعصاب للأطفال', nameEn: 'Pediatric Neurology Unit', doctorIds: [10, 46, 17] },
+      { idAr: 'وحدة العناية المركزة للأطفال حديثي الولادة', idEn: 'Neonatal Pediatric Intensive Care Unit', nameAr: 'وحدة العناية المركزة للأطفال حديثي الولادة', nameEn: 'Neonatal Pediatric Intensive Care Unit', doctorIds: [22, 28, 34, 46, 50] },
+      { idAr: 'وحدة الأمراض الصدرية للأطفال', idEn: 'Pediatric Chest Diseases Unit', nameAr: 'وحدة الأمراض الصدرية للأطفال', nameEn: 'Pediatric Chest Diseases Unit', doctorIds: [24, 34, 46, 50] },
+      { idAr: 'وحدة مناظير الجهاز الهضمي للأطفال', idEn: 'Pediatric Gastrointestinal Endoscopy Unit', nameAr: 'وحدة مناظير الجهاز الهضمي للأطفال', nameEn: 'Pediatric Gastrointestinal Endoscopy Unit', doctorIds: [20, 38, 46, 50] },
+      { idAr: 'وحدة السكري والغدد الصماء ونمو الأطفال', idEn: 'Pediatric Diabetes, Endocrinology & Growth Unit', nameAr: 'وحدة السكري والغدد الصماء ونمو الأطفال', nameEn: 'Pediatric Diabetes, Endocrinology & Growth Unit', doctorIds: [26, 46, 50] },
+      { idAr: 'وحدة أمراض المخ والأعصاب للأطفال', idEn: 'Pediatric Neurology Unit', nameAr: 'وحدة أمراض المخ والأعصاب للأطفال', nameEn: 'Pediatric Neurology Unit', doctorIds: [10, 46, 17, 50] },
     ],
   },
   {
@@ -515,7 +537,7 @@ export const departments: Department[] = [
       { idAr: 'عيادة زراعة الأسنان', idEn: 'Dental Implants Clinic', nameAr: 'عيادة زراعة الأسنان', nameEn: 'Dental Implants Clinic', doctorIds: [34,47] },
       { idAr: 'عيادة جراحة الوجه والفكين', idEn: 'Oral & Maxillofacial Surgery Clinic', nameAr: 'عيادة جراحة الوجه والفكين', nameEn: 'Oral & Maxillofacial Surgery Clinic', doctorIds: [34,47] },
       { idAr: 'عيادة أمراض اللثة', idEn: 'Periodontal Diseases Clinic', nameAr: 'عيادة أمراض اللثة', nameEn: 'Periodontal Diseases Clinic', doctorIds: [4, 31, 34,47] },
-      { idAr: 'عيادة أسنان الأطفال', idEn: 'Pediatric Dentistry Clinic', nameAr: 'عيادة أسنان الأطفال', nameEn: 'Pediatric Dentistry Clinic', doctorIds: [4, 34,47] },
+      { idAr: 'عيادة أسنان الأطفال', idEn: 'Pediatric Dentistry Clinic', nameAr: 'عيادة أسنان الأطفال', nameEn: 'Pediatric Dentistry Clinic', doctorIds: [4, 34,47, 50] },
     ],
   },
   {
@@ -534,7 +556,7 @@ export const departments: Department[] = [
       { idAr: 'وحدة استبدال المفاصل الصناعية للركبة والحوض', idEn: 'Artificial Joint Replacement (Knee & Hip) Unit', nameAr: 'وحدة استبدال المفاصل الصناعية للركبة والحوض', nameEn: 'Artificial Joint Replacement (Knee & Hip) Unit', doctorIds: [7, 29, 44] },
       { idAr: 'وحدة الطب الرياضي ومناظير الكتف والركبة', idEn: 'Sports Medicine & Arthroscopy (Shoulder & Knee) Unit', nameAr: 'وحدة الطب الرياضي ومناظير الكتف والركبة', nameEn: 'Sports Medicine & Arthroscopy (Shoulder & Knee) Unit', doctorIds: [7, 29, 44] },
       { idAr: 'وحدة جراحات اليد الميكروسكوبية', idEn: 'Microscopic Hand Surgery Unit', nameAr: 'وحدة جراحات اليد الميكروسكوبية', nameEn: 'Microscopic Hand Surgery Unit', doctorIds: [44] },
-      { idAr: 'وحدة جراحة العظام للأطفال', idEn: 'Pediatric Orthopedic Surgery Unit', nameAr: 'وحدة جراحة العظام للأطفال', nameEn: 'Pediatric Orthopedic Surgery Unit', doctorIds: [] },
+      { idAr: 'وحدة جراحة العظام للأطفال', idEn: 'Pediatric Orthopedic Surgery Unit', nameAr: 'وحدة جراحة العظام للأطفال', nameEn: 'Pediatric Orthopedic Surgery Unit', doctorIds: [46, 50] },
     ],
   },
 ];

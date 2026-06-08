@@ -16,6 +16,8 @@ import vid39 from '../assets/doctors/vid39.mp4';
 import vid48 from '../assets/doctors/vid48.mp4';
 // @ts-ignore
 import vid50 from '../assets/doctors/vid50.mp4';
+// @ts-ignore
+import vid46 from '../assets/doctors/vid46.mp4';
 
 // @ts-ignore
 import img1 from '../assets/doctors/1.png';
@@ -173,6 +175,7 @@ const doctorVideos: Record<number, string> = {
   36: vid36,
   39: vid39, 
   43: vid43,
+  46: vid46,
   48: vid48,
   50: vid50,
 };

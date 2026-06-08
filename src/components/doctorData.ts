@@ -223,7 +223,7 @@ export const doctors: Doctor[] = [
 {
   id: 30, imgFile: '30.png',
   nameAr: 'سعيد السريعي', nameEn: "Saeed Al-Suraie",
-  specialtyAr: 'ﺳﺘﺸﺎري اﻟﺠﺮاﺣﺔ اﻟﻌﺎﻣﺔ وﺟﺮاﺣﺔ اﻟﺴﻤﻨﺔ واﻟﻤﻨﺎﺿﻴﺮ', specialtyEn: 'Consultant General, Bariatric, and Laparoscopic Surgeon',
+  specialtyAr: 'استشاري اﻟﺠﺮاﺣﺔ اﻟﻌﺎﻣﺔ وﺟﺮاﺣﺔ اﻟﺴﻤﻨﺔ واﻟﻤﻨﺎﺿﻴﺮ', specialtyEn: 'Consultant General, Bariatric, and Laparoscopic Surgeon',
   detailsAr: ['جراحات تكميم المعدة بالمنظار','جراحات تحويل المسار','عمليات الكبسولة العادية والكبسولة الذكية','عمليات الجراحة العامة بالمنظار'],
   detailsEn: ['Laparoscopic Sleeve Gastrectomy','Gastric Bypass Surgery','Standard & Smart Capsule Procedures','Laparoscopic General Surgery'],
 },

@@ -24,7 +24,7 @@ import ClinicDoctorsPage from './components/ClinicDoctorsPage';
 import ArticlesPage from './components/ArticlesPagee';
 import ContactPage from './components/ContactPage';
 import NewsPage from './components/NewsPage';
-import AcademyPage from './components/AcademyPage';
+import AcademyPage from './components/Academypage';
 import EmployeeOfMonthPage from './components/EmployeeOfMonthPage';
 
 const CYCLE_DURATION = 2.4;

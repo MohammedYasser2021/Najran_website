@@ -137,7 +137,7 @@ export const doctors: Doctor[] = [
   detailsEn: ['Diagnosis & Treatment of Acute & Chronic Internal Diseases','Diabetes & Hypertension Follow-up','Digestive System Disorders Management','Endocrine & Metabolic Diseases Care','Respiratory Diseases & Infections Treatment','Preventive Check-ups & Chronic Disease Screening','Comprehensive Elderly Healthcare'],
 },
 {
-  id: 17, imgFile: '17.jpeg',
+  id: 17, imgFile: '17.png',
   nameAr: 'أمل عبدالسلام', nameEn: 'Aml Abd-Elsalam',
   specialtyAr: 'أخصائي أول المخ والأعصاب', specialtyEn: 'Senior Neurology Specialist',
   detailsAr: ['تشخيص وعلاج أمراض المخ والأعصاب','متابعة حالات الصداع والصداع النصفي','تشخيص وعلاج التشنجات والصرع','متابعة حالات ضعف وتنميل الأعصاب','تشخيص وعلاج اضطرابات الحركة والاتزان','متابعة حالات الجلطات العصبية ومضاعفاتها','علاج آلام الأعصاب الطرفية والعضلات'],

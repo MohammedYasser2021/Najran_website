@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-import { Search, ChevronDown, Menu, X, Phone, Mail, MapPin, Smartphone, Share2, Globe, Grid } from 'lucide-react';
+import { Search, ChevronDown, Menu, X, Phone, Mail, MapPin, Smartphone, Share2, Globe, Grid, Newspaper, GraduationCap, Award } from 'lucide-react';
 import SaudiFlag from 'country-flag-icons/react/3x2/SA';
 import UKFlag    from 'country-flag-icons/react/3x2/GB';
 import { departments } from './departmentsData';
@@ -15,8 +15,11 @@ const MainNavbar = ({ currentLang, changeLanguage }: MainNavbarProps) => {
   const [openDropdown, setOpenDropdown]   = useState<string | null>(null);
   const [isShareOpen, setIsShareOpen]     = useState(false);
   const [deptMenuOpen, setDeptMenuOpen]   = useState(false);
+  const [mediaMenuOpen, setMediaMenuOpen] = useState(false);
   const deptRef  = useRef<HTMLLIElement>(null);
+  const mediaRef = useRef<HTMLLIElement>(null);
   const hideTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const mediaHideTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const isArabic = currentLang === 'ar';
 
@@ -31,16 +34,31 @@ const MainNavbar = ({ currentLang, changeLanguage }: MainNavbarProps) => {
 
   const handleDeptClick = () => setDeptMenuOpen(prev => !prev);
 
+  const handleMediaEnter = () => {
+    if (mediaHideTimer.current) clearTimeout(mediaHideTimer.current);
+    setMediaMenuOpen(true);
+  };
+
+  const handleMediaLeave = () => {
+    mediaHideTimer.current = setTimeout(() => setMediaMenuOpen(false), 200);
+  };
+
+  const handleMediaClick = () => setMediaMenuOpen(prev => !prev);
+
   useEffect(() => {
     const handleOutside = (e: MouseEvent) => {
       if (deptRef.current && !deptRef.current.contains(e.target as Node)) {
         setDeptMenuOpen(false);
+      }
+      if (mediaRef.current && !mediaRef.current.contains(e.target as Node)) {
+        setMediaMenuOpen(false);
       }
     };
     document.addEventListener('mousedown', handleOutside);
     return () => {
       document.removeEventListener('mousedown', handleOutside);
       if (hideTimer.current) clearTimeout(hideTimer.current);
+      if (mediaHideTimer.current) clearTimeout(mediaHideTimer.current);
     };
   }, []);
 
@@ -48,13 +66,44 @@ const MainNavbar = ({ currentLang, changeLanguage }: MainNavbarProps) => {
     setIsSidebarOpen(false);
   }, [currentLang]);
 
+  /* ── Media Center sub-items ─────────────────────────────────── */
+  const mediaItems = [
+    {
+      key: 'academy',
+      icon: GraduationCap,
+      labelAr: 'أكاديمية تخصصي نجران',
+      labelEn: 'Najran Specialist Academy',
+      descAr: 'برامج التدريب والتعليم المستمر',
+      descEn: 'Training & continuing education programs',
+      href: '/academy',
+    },
+    {
+      key: 'news',
+      icon: Newspaper,
+      labelAr: 'قسم الأخبار',
+      labelEn: 'News Section',
+      descAr: 'آخر أخبار ومستجدات المستشفى',
+      descEn: 'Latest hospital news & updates',
+      href: '/news',
+    },
+    {
+      key: 'employee',
+      icon: Award,
+      labelAr: 'الموظف المثالي',
+      labelEn: 'Employee of the Month',
+      descAr: 'تكريم المتميزين من فريق العمل',
+      descEn: 'Honoring our outstanding staff',
+      href: '/employee-of-the-month',
+    },
+  ];
+
   const menuItems = [
     { key: 'home',     label: isArabic ? 'الصفحة الرئيسية' : 'Home',          href: '/' },
     { key: 'about',    label: isArabic ? 'من نحن'           : 'About Us',      href: '/about' },
     { key: 'marengo', label: isArabic ? 'مارينجو أسيا' : 'Marengo Asia', href: 'https://www.marengoasiahospitals.com/', external: true },
     { key: 'depts',    label: isArabic ? 'الأقسام'          : 'Departments',   href: null, hasDeptDropdown: true },
     { key: 'doctors',  label: isArabic ? 'الأطباء'          : 'Doctors',       href: '/doctors' },
-    { key: 'blog',     label: isArabic ? 'المركز الإعلامي' : 'Media Center',   href: '/news' },
+    { key: 'blog',     label: isArabic ? 'المركز الإعلامي' : 'Media Center',   href: null, hasMediaDropdown: true },
     { key: 'articles', label: isArabic ? 'المقالات'         : 'Articles',      href: '/articles' },
     { key: 'contact',  label: isArabic ? 'اتصل بنا'         : 'Contact Us',    href: '/contact' },
   ];
@@ -65,59 +114,55 @@ const MainNavbar = ({ currentLang, changeLanguage }: MainNavbarProps) => {
     : 'Care with Renewed Horizons - Discover with us';
 
   /* ── Flag switcher (flags only, no text) ─────────────────────── */
-  const LangSwitcher = () => (
-    <div style={{
+const LangSwitcher = () => (
+  <div
+    style={{
       display: 'flex',
       alignItems: 'center',
-      background: 'rgba(255,255,255,0.15)',
-      borderRadius: '50px',
-      padding: '3px',
-      gap: '2px',
-      border: '1px solid rgba(255,255,255,0.25)',
-    }}>
-      {/* Arabic / Saudi flag */}
-      <button
-        onClick={() => currentLang !== 'ar' && changeLanguage('ar')}
-        title="العربية"
-        style={{
-          width: '32px', height: '32px',
-          borderRadius: '50%',
-          border: 'none',
-          cursor: 'pointer',
-          padding: '0',
-          overflow: 'hidden',
-          display: 'flex', alignItems: 'center', justifyContent: 'center',
-          background: currentLang === 'ar' ? 'rgba(255,255,255,0.9)' : 'transparent',
-          boxShadow: currentLang === 'ar' ? '0 2px 8px rgba(0,0,0,0.15)' : 'none',
-          transition: 'all 0.2s ease',
-          flexShrink: 0,
-        }}
-      >
-        <SaudiFlag style={{ width: '22px', borderRadius: '2px' }} />
-      </button>
+      background: '#ffffff',
+      border: '2px solid #269dcc',
+      borderRadius: '999px',
+      overflow: 'hidden',
+      boxShadow: '0 4px 12px rgba(38,157,204,0.12)',
+      height: '40px',
+    }}
+  >
+    <button
+      onClick={() => currentLang !== 'ar' && changeLanguage('ar')}
+      style={{
+        border: 'none',
+        padding: '0 18px',
+        height: '100%',
+        cursor: 'pointer',
+        fontSize: '13px',
+        fontWeight: 700,
+        transition: 'all .25s ease',
+        background: currentLang === 'ar' ? '#269dcc' : '#fff',
+        color: currentLang === 'ar' ? '#fff' : '#269dcc',
+      }}
+    >
+      عربي
+    </button>
 
-      {/* English / UK flag */}
-      <button
-        onClick={() => currentLang !== 'en' && changeLanguage('en')}
-        title="English"
-        style={{
-          width: '32px', height: '32px',
-          borderRadius: '50%',
-          border: 'none',
-          cursor: 'pointer',
-          padding: '0',
-          overflow: 'hidden',
-          display: 'flex', alignItems: 'center', justifyContent: 'center',
-          background: currentLang === 'en' ? 'rgba(255,255,255,0.9)' : 'transparent',
-          boxShadow: currentLang === 'en' ? '0 2px 8px rgba(0,0,0,0.15)' : 'none',
-          transition: 'all 0.2s ease',
-          flexShrink: 0,
-        }}
-      >
-        <UKFlag style={{ width: '22px', borderRadius: '2px' }} />
-      </button>
-    </div>
-  );
+    <button
+      onClick={() => currentLang !== 'en' && changeLanguage('en')}
+      style={{
+        border: 'none',
+        borderLeft: '1px solid #d9edf7',
+        padding: '0 18px',
+        height: '100%',
+        cursor: 'pointer',
+        fontSize: '13px',
+        fontWeight: 700,
+        transition: 'all .25s ease',
+        background: currentLang === 'en' ? '#269dcc' : '#fff',
+        color: currentLang === 'en' ? '#fff' : '#269dcc',
+      }}
+    >
+      EN
+    </button>
+  </div>
+);
 
   return (
     <>
@@ -152,10 +197,10 @@ const MainNavbar = ({ currentLang, changeLanguage }: MainNavbarProps) => {
                 {menuItems.map(item => (
                   <li
                     key={item.key}
-                    ref={item.hasDeptDropdown ? deptRef : undefined}
+                    ref={item.hasDeptDropdown ? deptRef : item.hasMediaDropdown ? mediaRef : undefined}
                     className="relative"
-                    onMouseEnter={item.hasDeptDropdown ? handleDeptEnter : undefined}
-                    onMouseLeave={item.hasDeptDropdown ? handleDeptLeave : undefined}
+                    onMouseEnter={item.hasDeptDropdown ? handleDeptEnter : item.hasMediaDropdown ? handleMediaEnter : undefined}
+                    onMouseLeave={item.hasDeptDropdown ? handleDeptLeave : item.hasMediaDropdown ? handleMediaLeave : undefined}
                   >
                     {item.hasDeptDropdown ? (
                       <>
@@ -270,6 +315,105 @@ const MainNavbar = ({ currentLang, changeLanguage }: MainNavbarProps) => {
                           </div>
                         )}
                       </>
+                    ) : item.hasMediaDropdown ? (
+                      <>
+                        <button
+                          onClick={handleMediaClick}
+                          className="flex items-center gap-1 py-3 px-2.5 text-[#1786b5] hover:text-[#bf131c] transition-colors whitespace-nowrap"
+                        >
+                          {item.label}
+                          <ChevronDown
+                            size={13}
+                            className={`transition-transform duration-300 ${mediaMenuOpen ? 'rotate-180' : ''}`}
+                          />
+                        </button>
+
+                        {mediaMenuOpen && (
+                          <div
+                            style={{
+                              position: 'absolute',
+                              top: 'calc(100% + 8px)',
+                              [isArabic ? 'right' : 'left']: isArabic ? '-40px' : '0',
+                              width: '300px',
+                              background: '#fff',
+                              borderRadius: '16px',
+                              boxShadow: '0 12px 40px rgba(38,157,204,0.15), 0 2px 12px rgba(0,0,0,0.06)',
+                              border: '1px solid #d6edf7',
+                              zIndex: 50,
+                              overflow: 'hidden',
+                              animation: 'dropFade 0.18s ease',
+                            }}
+                          >
+                            <div style={{
+                              background: '#269dcc',
+                              padding: '12px 16px',
+                              display: 'flex',
+                              alignItems: 'center',
+                              gap: '10px',
+                            }}>
+                              <div style={{
+                                width: '28px', height: '28px', borderRadius: '8px',
+                                background: 'rgba(255,255,255,0.18)',
+                                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                                flexShrink: 0,
+                              }}>
+                                <Newspaper size={14} color="#fff" />
+                              </div>
+                              <span style={{ fontWeight: '700', fontSize: '13px', color: '#fff', flex: 1 }}>
+                                {isArabic ? 'المركز الإعلامي' : 'Media Center'}
+                              </span>
+                            </div>
+
+                            <div style={{ padding: '8px', display: 'flex', flexDirection: 'column', gap: '2px' }}>
+                              {mediaItems.map((mi) => {
+                                const Icon = mi.icon;
+                                return (
+                                  <a
+                                    key={mi.key}
+                                    href={mi.href}
+                                    onClick={() => setMediaMenuOpen(false)}
+                                    style={{
+                                      display: 'flex',
+                                      alignItems: 'flex-start',
+                                      gap: '10px',
+                                      padding: '10px 12px',
+                                      borderRadius: '10px',
+                                      textDecoration: 'none',
+                                      color: '#2d3748',
+                                      transition: 'all 0.13s',
+                                    }}
+                                    onMouseEnter={e => {
+                                      (e.currentTarget as HTMLElement).style.background = '#e8f6fc';
+                                    }}
+                                    onMouseLeave={e => {
+                                      (e.currentTarget as HTMLElement).style.background = 'transparent';
+                                    }}
+                                  >
+                                    <span style={{
+                                      minWidth: '32px', height: '32px',
+                                      borderRadius: '9px',
+                                      background: '#e0f2fb',
+                                      color: '#1787b6',
+                                      display: 'flex', alignItems: 'center', justifyContent: 'center',
+                                      flexShrink: 0,
+                                    }}>
+                                      <Icon size={16} />
+                                    </span>
+                                    <span style={{ flex: 1 }}>
+                                      <span style={{ display: 'block', fontSize: '13px', fontWeight: '700', color: '#2d3748', marginBottom: '2px' }}>
+                                        {isArabic ? mi.labelAr : mi.labelEn}
+                                      </span>
+                                      <span style={{ display: 'block', fontSize: '11px', color: '#94a3b8', fontWeight: '500' }}>
+                                        {isArabic ? mi.descAr : mi.descEn}
+                                      </span>
+                                    </span>
+                                  </a>
+                                );
+                              })}
+                            </div>
+                          </div>
+                        )}
+                      </>
                     ) : (
                       <a
                         href={item.href!}
@@ -345,7 +489,7 @@ const MainNavbar = ({ currentLang, changeLanguage }: MainNavbarProps) => {
           </div>
 
           <ul className="space-y-0.5 mb-2">
-            {menuItems.filter(i => !i.hasDeptDropdown).map(item => (
+            {menuItems.filter(i => !i.hasDeptDropdown && !i.hasMediaDropdown).map(item => (
               <li key={item.key}>
                 <a
                   href={item.href!}
@@ -360,6 +504,7 @@ const MainNavbar = ({ currentLang, changeLanguage }: MainNavbarProps) => {
             ))}
           </ul>
 
+          {/* Departments accordion */}
           <div className="mb-2">
             <button
               onClick={() => setOpenDropdown(openDropdown === 'depts' ? null : 'depts')}
@@ -385,6 +530,39 @@ const MainNavbar = ({ currentLang, changeLanguage }: MainNavbarProps) => {
                     </a>
                   </li>
                 ))}
+              </ul>
+            </div>
+          </div>
+
+          {/* Media Center accordion */}
+          <div className="mb-2">
+            <button
+              onClick={() => setOpenDropdown(openDropdown === 'media' ? null : 'media')}
+              className={`w-full flex items-center justify-between py-2.5 px-4 hover:bg-gray-800 rounded-lg font-medium text-sm ${isArabic ? 'text-right' : 'text-left'}`}
+            >
+              <span>{isArabic ? 'المركز الإعلامي' : 'Media Center'}</span>
+              <ChevronDown
+                size={15}
+                className={`transition-transform duration-300 ${openDropdown === 'media' ? 'rotate-180' : ''}`}
+              />
+            </button>
+            <div className={`overflow-hidden transition-all duration-300 ${openDropdown === 'media' ? 'max-h-[400px] opacity-100' : 'max-h-0 opacity-0'}`}>
+              <ul className={`py-1 ${isArabic ? 'pr-4' : 'pl-4'} space-y-0.5`}>
+                {mediaItems.map((mi) => {
+                  const Icon = mi.icon;
+                  return (
+                    <li key={mi.key}>
+                      <a
+                        href={mi.href}
+                        className="flex items-center gap-2 py-2 px-3 hover:bg-gray-800 rounded-lg text-xs text-gray-300 hover:text-white"
+                        onClick={() => setIsSidebarOpen(false)}
+                      >
+                        <Icon size={14} className="text-[#269dcc] flex-shrink-0" />
+                        {isArabic ? mi.labelAr : mi.labelEn}
+                      </a>
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           </div>

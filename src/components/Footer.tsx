@@ -1,6 +1,6 @@
 import React from 'react';
 // @ts-ignore
-import SNH from '../assets/snh.jpg';
+import SNH from '../assets/snh.png';
 
 interface FooterProps {
   currentLang: string;
@@ -54,6 +54,38 @@ const WhatsAppIcon = () => (
   </svg>
 );
 
+const ApplePayIcon = () => (
+  <svg viewBox="0 0 120 50" className="h-8 w-auto">
+    <text x="10" y="32" fontSize="24" fontWeight="bold" fill="currentColor">
+       Pay
+    </text>
+  </svg>
+);
+
+const TabbyIcon = () => (
+  <svg viewBox="0 0 120 50" className="h-8 w-auto">
+    <text x="10" y="32" fontSize="24" fontWeight="bold" fill="currentColor">
+      tabby
+    </text>
+  </svg>
+);
+
+const TamaraIcon = () => (
+  <svg viewBox="0 0 120 50" className="h-8 w-auto">
+    <text x="10" y="32" fontSize="24" fontWeight="bold" fill="currentColor">
+      tamara
+    </text>
+  </svg>
+);
+
+const TasaheelIcon = () => (
+  <svg viewBox="0 0 120 50" className="h-8 w-auto">
+    <text x="10" y="32" fontSize="22" fontWeight="bold" fill="currentColor">
+      تساهيل
+    </text>
+  </svg>
+);
+
 const Footer: React.FC<FooterProps> = ({ currentLang }) => {
   const isAr = currentLang === 'ar';
   const year = new Date().getFullYear();
@@ -89,6 +121,45 @@ const Footer: React.FC<FooterProps> = ({ currentLang }) => {
   style={{ minWidth: '280px' }}
 />
         </div>
+
+        {/* Payment Methods */}
+<div className="mb-8 text-center">
+  <p className="text-sm text-gray-600 mb-4">
+    {isAr ? 'وسائل الدفع المتاحة' : 'Payment Methods'}
+  </p>
+  <div className="flex flex-wrap justify-center items-center gap-2 sm:gap-3">
+
+{/* Tabby */}
+<div className="flex items-center gap-1.5 bg-white border border-gray-200 rounded-lg px-5 h-11">
+  <span style={{ fontFamily: "'Helvetica Neue', Arial, sans-serif", fontSize: 22, fontWeight: 800, color: '#3DBFA0', letterSpacing: -0.5, lineHeight: 1 }}>tabby</span>
+  <span className="w-2.5 h-2.5 rounded-full bg-[#3DBFA0] shrink-0" />
+</div>
+
+{/* Tamara */}
+<div className="flex items-center gap-1.5 bg-white border border-gray-200 rounded-lg px-5 h-11">
+  <span style={{ fontFamily: "'Helvetica Neue', Arial, sans-serif", fontSize: 21, fontWeight: 700, color: '#2D0A5F', letterSpacing: -0.3, lineHeight: 1 }}>tamara</span>
+  <span className="w-3 h-3 rounded-full bg-[#FF6B6B] shrink-0" />
+</div>
+
+    {/* Apple Pay */}
+    <div className="flex items-center justify-center gap-2 bg-white border border-gray-200 rounded-lg px-5 py-2 h-11">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.54 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701z" fill="#000"/>
+      </svg>
+      <span className="text-[15px] font-medium text-gray-900 tracking-tight">Pay</span>
+    </div>
+
+    {/* تساهيل */}
+    <div className="flex items-center justify-center bg-white border border-gray-200 rounded-lg px-5 py-2 h-11">
+      <svg viewBox="0 0 110 36" width="100" height="32" xmlns="http://www.w3.org/2000/svg" aria-label="تساهيل">
+        <text x="55" y="25" textAnchor="middle" fontFamily="'Segoe UI', Tahoma, Arial, sans-serif" fontSize="20" fontWeight="700" fill="#1787b6">تساهيل</text>
+        <line x1="8" y1="28" x2="102" y2="28" stroke="#1787b6" strokeWidth="2.5" strokeLinecap="round"/>
+      </svg>
+    </div>
+
+  </div>
+</div>
+
 
         {/* الصف التحتاني: اسم - copyright - سوشيال */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 flex-wrap">

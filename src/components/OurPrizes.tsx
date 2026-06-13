@@ -8,19 +8,19 @@ const content = {
   ar: {
     sectionLabel: 'إنجازاتنا',
     stats: [
-      { value: 150, suffix: 'K+', label: 'عميل راضٍ', icon: '😊' },
-      { value: 66, suffix: '+', label: 'اختصاص طبي', icon: '🩺' },
-      { value: 30, suffix: 'K+', label: 'خدمة طبية', icon: '💊' },
-      { value: 150, suffix: 'K', label: 'مشكلة تم حلّها', icon: '✅' },
+      { value: 150, suffix: '+', label: 'مريض راضٍ', icon: '😊' },
+      { value: 18, suffix: '+', label: 'اختصاص طبي', icon: '🩺' },
+      { value: 80, suffix: '+', label: 'عدد الأطباء', icon: '👨‍⚕️' },
+      { value: 60, suffix: '+', label: 'متواجدون في دول مختلفة', icon: '🌍' },
     ],
   },
   en: {
     sectionLabel: 'Our Achievements',
     stats: [
-      { value: 150, suffix: 'K+', label: 'Satisfied Clients', icon: '😊' },
+      { value: 150, suffix: '+', label: 'Satisfied Clients', icon: '😊' },
       { value: 66, suffix: '+', label: 'Medical Specialties', icon: '🩺' },
-      { value: 30, suffix: 'K+', label: 'Medical Services', icon: '💊' },
-      { value: 150, suffix: 'K', label: 'Problems Solved', icon: '✅' },
+      { value: 80, suffix: '+', label: 'Doctors', icon: '👨‍⚕️' },
+      { value: 60, suffix: '+', label: 'Present in Different Countries', icon: '🌍' },
     ],
   },
 };

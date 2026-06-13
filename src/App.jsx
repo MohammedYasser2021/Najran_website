@@ -24,6 +24,8 @@ import ClinicDoctorsPage from './components/ClinicDoctorsPage';
 import ArticlesPage from './components/ArticlesPagee';
 import ContactPage from './components/ContactPage';
 import NewsPage from './components/NewsPage';
+import AcademyPage from './components/AcademyPage';
+import EmployeeOfMonthPage from './components/EmployeeOfMonthPage';
 
 const CYCLE_DURATION = 2.4;
 const CYCLES = 2;
@@ -162,6 +164,26 @@ const App = () => {
       <NewsPage currentLang={currentLang} />
     </>
   } 
+/>
+  <Route
+  path="/academy"
+  element={
+    <>
+      <Navbar currentLang={currentLang} changeLanguage={changeLanguage} />
+      <MainNavbar currentLang={currentLang} changeLanguage={changeLanguage} />
+      <AcademyPage currentLang={currentLang} />
+    </>
+  }
+/>
+  <Route
+  path="/employee-of-the-month"
+  element={
+    <>
+      <Navbar currentLang={currentLang} changeLanguage={changeLanguage} />
+      <MainNavbar currentLang={currentLang} changeLanguage={changeLanguage} />
+      <EmployeeOfMonthPage currentLang={currentLang} />
+    </>
+  }
 />
             </Routes>
           </div>

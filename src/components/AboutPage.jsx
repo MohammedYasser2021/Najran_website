@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import Navbar from './Navbar';
 import MainNavbar from './MainNavbar';
 import CoverBg from "../assets/cover.jpeg";
-import SNH from "../assets/snh.jpg";
+import SNH from "../assets/snh.png";
 
 const achievements = {
   ar: [

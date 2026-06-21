@@ -1,5 +1,23 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { GraduationCap, BookOpen, Award, Users, Stethoscope, ClipboardCheck, ArrowLeft, ArrowRight, CheckCircle2 } from 'lucide-react';
+import React from 'react';
+import { Award, Phone, MessageCircle } from 'lucide-react';
+// @ts-ignore
+import academyLogo from '../assets/academy_logo.png';
+// @ts-ignore
+import academyCover from '../assets/cover.jpeg';
+// @ts-ignore
+import snhStrip from '../assets/snh.png';
+// @ts-ignore
+import academy_1 from '../assets/academy_1.png';
+// @ts-ignore
+import academy_2 from '../assets/academy_2.png';
+// @ts-ignore
+import One from '../assets/one.jpg';
+// @ts-ignore
+import Two from '../assets/two.jpg';
+// @ts-ignore
+import Three from '../assets/three.jpg';
+// @ts-ignore
+import academyVideo from '../assets/academy_video.mp4';
 
 interface AcademyPageProps {
   currentLang: string;
@@ -7,299 +25,320 @@ interface AcademyPageProps {
 
 const AcademyPage: React.FC<AcademyPageProps> = ({ currentLang }) => {
   const isAr = currentLang === 'ar';
-  const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) setIsVisible(true); },
-      { threshold: 0.2 }
-    );
-    if (sectionRef.current) observer.observe(sectionRef.current);
-    return () => { if (sectionRef.current) observer.unobserve(sectionRef.current); };
-  }, []);
-
-  const ArrowIcon = isAr ? ArrowLeft : ArrowRight;
-
-  const programs = [
-    {
-      icon: Stethoscope,
-      titleAr: 'برنامج التدريب الإكلينيكي',
-      titleEn: 'Clinical Training Program',
-      descAr: 'تدريب عملي مكثف داخل الأقسام الطبية المختلفة تحت إشراف استشاريين معتمدين.',
-      descEn: 'Intensive hands-on training across medical departments under the supervision of certified consultants.',
-    },
-    {
-      icon: BookOpen,
-      titleAr: 'برامج التعليم المستمر',
-      titleEn: 'Continuing Medical Education',
-      descAr: 'محاضرات وورش عمل دورية لتحديث المعارف الطبية وفق آخر المستجدات العالمية.',
-      descEn: 'Regular lectures and workshops to keep medical knowledge aligned with the latest global standards.',
-    },
-    {
-      icon: Award,
-      titleAr: 'برنامج الزمالة التخصصية',
-      titleEn: 'Specialty Fellowship Program',
-      descAr: 'مسارات تأهيل متقدمة للأطباء الراغبين في التخصص الدقيق بالتعاون مع شركاء أكاديميين.',
-      descEn: 'Advanced qualification tracks for physicians pursuing subspecialty training, in partnership with academic institutions.',
-    },
-    {
-      icon: ClipboardCheck,
-      titleAr: 'برنامج التمريض والتأهيل الصحي',
-      titleEn: 'Nursing & Allied Health Program',
-      descAr: 'برامج تأهيل وتطوير لكوادر التمريض والفنيين الصحيين لرفع جودة الرعاية المقدمة.',
-      descEn: 'Development programs for nursing staff and health technicians to elevate the quality of care delivered.',
-    },
+  // ── Page 3: Academy Educational Programs ──
+  const eduPrograms = [
+    { ar: 'برامج دعم الحياة', en: 'Life Support Training' },
+    { ar: 'برامج ساعات التعليم الطبي المستمر', en: 'CME Hours Programs' },
+    { ar: 'برامج الأكاديمية الصحية', en: 'Academy Health Programs' },
+    { ar: 'توعية المرضى', en: 'Patient Education' },
+    { ar: 'المؤتمرات وورش العمل', en: 'Conferences & Workshop' },
+    { ar: 'تدريب الموظفين', en: 'Staff Training' },
+    { ar: 'برنامج التفتيش', en: 'INSP PROG' },
+    { ar: 'مركز التدريب الدولي', en: 'International Training Center' },
   ];
 
-  const stats = [
-    { value: '+1200', labelAr: 'متدرب سنوياً', labelEn: 'Trainees per year' },
-    { value: '+40', labelAr: 'برنامج تدريبي', labelEn: 'Training programs' },
-    { value: '+60', labelAr: 'مدرّب ومحاضر', labelEn: 'Trainers & lecturers' },
-    { value: '+15', labelAr: 'شريك أكاديمي', labelEn: 'Academic partners' },
-  ];
+  // ── Page 4: Accreditations ──
 
-  const tracks = [
-    { titleAr: 'الطلاب والمتدربون', titleEn: 'Students & Interns', descAr: 'برامج تدريب ميداني لطلاب كليات الطب والتمريض والعلوم الصحية.', descEn: 'Field training programs for medical, nursing and allied health students.' },
-    { titleAr: 'الأطباء الممارسون', titleEn: 'Practicing Physicians', descAr: 'برامج تطوير مهني مستمر واعتماد ساعات تعليم طبي.', descEn: 'Continuous professional development and accredited CME hours.' },
-    { titleAr: 'الكوادر التمريضية', titleEn: 'Nursing Staff', descAr: 'تأهيل تخصصي ودورات سلامة المرضى ومهارات الرعاية الحرجة.', descEn: 'Specialized qualification, patient safety and critical-care skill courses.' },
-    { titleAr: 'الكوادر الإدارية والفنية', titleEn: 'Admin & Technical Staff', descAr: 'برامج تطوير الكفاءات الإدارية ونظم الجودة وسلامة المنشآت الصحية.', descEn: 'Programs to develop administrative competencies, quality systems and facility safety.' },
-  ];
 
   return (
-    <div dir={isAr ? 'rtl' : 'ltr'} style={{ fontFamily: "'Cairo','Tajawal',sans-serif" }} className="min-h-screen bg-gray-50">
+    <div dir={isAr ? 'rtl' : 'ltr'} className="bg-white">
 
-      {/* ── Hero ── */}
-      <div style={{ position: 'relative', overflow: 'hidden', background: 'linear-gradient(135deg, #0d2137 0%, #123a55 55%, #1787b6 100%)' }}>
-        {/* decorative dot grid */}
-        <div style={{
-          position: 'absolute', inset: 0, opacity: 0.08,
-          backgroundImage: 'radial-gradient(circle, #fff 1px, transparent 1px)',
-          backgroundSize: '26px 26px',
-        }} />
-        <div className="max-w-6xl mx-auto px-4 py-20 md:py-28 relative z-10 text-center">
-          <div style={{
-            display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
-            width: '76px', height: '76px', borderRadius: '20px',
-            background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.2)',
-            marginBottom: '24px',
-          }}>
-            <GraduationCap size={36} color="#fff" />
-          </div>
-          <span style={{
-            display: 'block', width: "fit-content", background: 'rgba(255,255,255,0.12)', color: '#fff',
-            fontSize: '13px', fontWeight: '700', padding: '6px 20px',
-            borderRadius: '50px', marginBottom: '18px', letterSpacing: '0.5px',
-            border: '1px solid rgba(255,255,255,0.18)', marginLeft: 'auto', marginRight: 'auto',
-          }}>
-            {isAr ? 'التعليم والتطوير المهني' : 'Education & Professional Development'}
-          </span>
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-5" style={{ lineHeight: 1.4 }}>
-            {isAr ? 'أكاديمية تخصصي نجران' : 'Najran Specialist Academy'}
-          </h1>
-          <p style={{ color: 'rgba(255,255,255,0.78)', fontSize: '17px', maxWidth: '680px', margin: '0 auto', lineHeight: '1.9', fontWeight: '500' }}>
-            {isAr
-              ? 'نبني جيلاً من الكوادر الصحية المؤهلة من خلال برامج تدريبية وتعليمية متكاملة، بمعايير علمية حديثة وشراكات أكاديمية رائدة.'
-              : 'We build a generation of qualified healthcare professionals through integrated training and educational programs, following modern scientific standards and leading academic partnerships.'}
-          </p>
+      {/* ════════════════════════════════════════════════════════════
+          PAGE 1 — Cover
+      ════════════════════════════════════════════════════════════ */}
+<section style={{ background: '#fff' }}>
+        {/* Logo overlapping the maroon divider through its middle */}
+        <div className="flex items-center justify-center" style={{ padding: '0 24px 0', position: 'relative', zIndex: 2 }}>
+          <img src={academyLogo} alt="SNH Health Academy" style={{ width: '300px', objectFit: 'contain', marginBottom: '-22px' }} />
         </div>
-      </div>
 
-      {/* ── Stats ── */}
-      <div className="max-w-6xl mx-auto px-4 -mt-10 relative z-10">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {stats.map((s, i) => (
-            <div key={i} style={{
-              background: '#fff', borderRadius: '18px', padding: '26px 16px',
-              textAlign: 'center', boxShadow: '0 8px 30px rgba(13,33,55,0.08)',
-              border: '1px solid #e8f1f7',
-            }}>
-              <div style={{ fontSize: '30px', fontWeight: '900', color: '#1787b6', marginBottom: '6px' }}>{s.value}</div>
-              <div style={{ fontSize: '13px', color: '#4a6d85', fontWeight: '600' }}>{isAr ? s.labelAr : s.labelEn}</div>
+        {/* Maroon divider — logo sits across its middle */}
+        <div style={{ height: '10px', top: "-100px", background: '#7a1338', width: '100%', position: 'relative', zIndex: 1 }} />
+
+        {/* Hospital cover photo — full natural height, not cropped */}
+        <div style={{ width: '100%', lineHeight: 0, marginTop: '-100px' }}>
+          <img
+            src={academyCover}
+            alt={isAr ? 'مستشفى تخصصي نجران' : 'Specialized Najran Hospital'}
+            style={{ width: '100%', height: 'auto', display: 'block', objectFit: 'contain' }}
+          />
+        </div>
+
+        {/* Maroon divider */}
+        <div style={{ height: '10px', background: '#7a1338', width: '100%' }} />
+
+        {/* Titles */}
+        <div className="text-center" style={{ padding: '64px 24px 24px' }}>
+          <h1
+            className="font-extrabold"
+            style={{ color: '#16335a', fontSize: 'clamp(30px, 5vw, 52px)', lineHeight: 1.35, marginBottom: '14px' }}
+          >
+            {isAr ? 'أكاديمية مستشفى تخصصي نجران الصحية' : 'SPECIALIZED NAJRAN HOSPITAL HEALTH ACADEMY'}
+          </h1>
+        </div>
+
+        <div className="text-center" style={{ padding: '0 24px 64px' }}>
+          <h2
+            className="font-extrabold"
+            style={{ color: '#16335a', fontSize: 'clamp(24px, 4vw, 38px)', lineHeight: 1.4, marginBottom: '12px' }}
+          >
+            {isAr ? 'قوة المعرفة وجودة الحياة' : 'Power of Knowledge & Quality of Life'}
+          </h2>
+        </div>
+
+        {/* Video section */}
+        <div className="flex justify-center" style={{ padding: '0 24px 64px' }}>
+          <div
+            style={{
+              position: 'relative',
+              width: '100%',
+              maxWidth: '900px',
+              borderRadius: '20px',
+              overflow: 'hidden',
+              boxShadow: '0 20px 50px -15px rgba(22, 51, 90, 0.35)',
+              border: '6px solid #fff',
+              outline: '2px solid #16335a',
+              outlineOffset: '-1px',
+            }}
+          >
+            {/* Thin maroon accent bar on top of the frame */}
+            <div style={{ height: '6px', width: '100%', background: '#7a1338' }} />
+            <video
+              src={academyVideo}
+              controls
+              playsInline
+              preload="metadata"
+              style={{
+                width: '100%',
+                display: 'block',
+                background: '#000',
+                aspectRatio: '16 / 9',
+                objectFit: 'cover',
+              }}
+            >
+              {isAr ? 'متصفحك لا يدعم تشغيل الفيديو.' : 'Your browser does not support the video tag.'}
+            </video>
+          </div>
+        </div>
+
+        {/* Bottom strip: booking number fixed left, partner logos fixed right */}
+        <div
+          className="flex flex-col md:flex-row items-center justify-between gap-8"
+          style={{ padding: '32px 40px 56px' }}
+        >
+ <div style={{ display: 'flex', alignItems: 'center', gap: '0px' }}>
+  
+  {/* القسم الأول: واتساب + رقم الحجز */}
+  <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '0 18px' }}>
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="#16335a" style={{ marginBottom: '2px' }}>
+      <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.74.46 3.44 1.32 4.94L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01-1.87-1.87-4.36-2.91-7.02-2.91zm0 18.13c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.18 8.18 0 0 1-1.25-4.36c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.83 2.42a8.19 8.19 0 0 1 2.41 5.83c0 4.55-3.7 8.21-8.25 8.21zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.17.24-.64.81-.78.97-.14.17-.29.19-.53.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.36-.77-1.86-.2-.49-.41-.42-.56-.43-.14-.01-.31-.01-.47-.01-.17 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.57.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.55.1.47-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.1-.23-.16-.48-.28z"/>
+    </svg>
+    <div style={{ fontSize: '11px', fontWeight: '700', color: '#5b7488', textAlign: 'center', lineHeight: '1' }}>
+      {isAr ? 'للحجز والاستفسار' : 'Booking & Inquiries'}
+    </div>
+    <div style={{ fontSize: '20px', fontWeight: '900', color: '#16335a' }}>0502300110</div>
+  </div>
+
+  {/* فاصل */}
+  <div style={{ width: '3px', height: '55px', backgroundColor: '#1e5fa8' }}></div>
+
+  {/* القسم الثاني: الرقم الموحد */}
+  <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '0 18px' }}>
+    <div style={{ fontSize: '13px', fontWeight: '700', color: '#16335a', marginBottom: '4px' }}>
+      {isAr ? 'الرقم الموحد' : 'Unified Number'}
+    </div>
+    <div style={{ fontSize: '20px', fontWeight: '900', color: '#16335a' }}>920002159</div>
+  </div>
+
+  {/* فاصل تاني لو هيكمل عنصر بعده (مثلاً لوجو) */}
+  <div style={{ width: '3px', height: '55px', backgroundColor: '#1e5fa8' }}></div>
+
+</div>
+
+          <img src={snhStrip} alt="SNH Partners" style={{ height: '90px', objectFit: 'contain' }} />
+        </div>
+      </section>
+
+      
+
+      {/* ════════════════════════════════════════════════════════════
+          PAGE 2 — Vision & Mission
+      ════════════════════════════════════════════════════════════ */}
+      <section style={{ background: '#fff', borderTop: '10px solid #7a1338' }}>
+        <div className="flex items-center justify-center flex-wrap" style={{ padding: '48px 40px 0', gap: '24px' }}>
+          <img src={academyLogo} alt="SNH Health Academy" style={{ height: '150px', objectFit: 'contain', flexShrink: 0 }} />
+          <div style={{ textAlign: 'left' }}>
+            <p className="font-extrabold" style={{ color: '#16335a', fontSize: 'clamp(16px, 2vw, 22px)', lineHeight: 1.5, margin: 0 }}>
+              أكاديمية مستشفى تخصصي نجران الصحية
+            </p>
+            <p className="font-extrabold" style={{ color: '#7a1338', fontSize: 'clamp(13px, 1.6vw, 17px)', lineHeight: 1.5, margin: 0, letterSpacing: '0.3px' }}>
+              SPECIALIZED NAJRAN HOSPITAL HEALTH ACADEMY
+            </p>
+          </div>
+        </div>
+
+        <div className="max-w-5xl mx-auto" style={{ padding: '40px 40px 80px' }}>
+          {/* Vision */}
+          <div style={{ marginBottom: '64px', display: 'flex', gap: '20px', flexDirection: isAr ? 'row-reverse' : 'row' }}>
+           <div style={{ 
+  width: '8px', 
+  background: '#7a1338', 
+  flexShrink: 0, 
+  alignSelf: 'stretch',
+  order: isAr ? 999 : 0,
+}} />
+            <div style={{ textAlign: isAr ? 'right' : 'left' }}>
+              <h3 className="font-extrabold" style={{ color: '#16335a', fontSize: 'clamp(30px, 4vw, 44px)', marginBottom: '16px' }}>
+                {isAr ? 'رؤيتنا' : 'Vision'}
+              </h3>
+              <p style={{ color: '#1f2937', fontSize: 'clamp(18px, 2vw, 24px)', lineHeight: '2.1', fontWeight: '600' }}>
+                {isAr
+                  ? 'أن تكون الأكاديمية الصحية بمستشفى تخصصي نجران مركزاً متميزاً للتعليم والتدريب الصحي يواكب المعايير العالمية ويسهم في إعداد كوادر صحية مؤهلة تقود مستقبل الرعاية الصحية في المملكة العربية السعودية.'
+                  : 'SNH Healthcare Academy aims to be a distinguished center for health education and training that meets international standards and contributes to preparing qualified health personnel who will lead the future of healthcare in the Kingdom of Saudi Arabia.'}
+              </p>
+            </div>
+          </div>
+
+          {/* Mission */}
+          <div style={{ display: 'flex', gap: '20px', flexDirection: isAr ? 'row-reverse' : 'row' }}>
+           <div style={{ 
+  width: '8px', 
+  background: '#7a1338', 
+  flexShrink: 0, 
+  alignSelf: 'stretch',
+  order: isAr ? 999 : 0,
+}} />
+            <div style={{ textAlign: isAr ? 'right' : 'left' }}>
+              <h3 className="font-extrabold" style={{ color: '#16335a', fontSize: 'clamp(30px, 4vw, 44px)', marginBottom: '16px' }}>
+                {isAr ? 'رسالتنا' : 'Mission'}
+              </h3>
+              <p style={{ color: '#1f2937', fontSize: 'clamp(18px, 2vw, 24px)', lineHeight: '2.1', fontWeight: '600' }}>
+                {isAr
+                  ? 'نلتزم في الأكاديمية الصحية بمستشفى تخصصي نجران بتمكين المتدربين من اكتساب المعرفة والمهارات الحديثة عبر بيئة تعليمية مبتكرة وشراكات استراتيجية محلية ودولية بما يعزز جودة الرعاية الصحية ويسهم في تحقيق مستهدفات رؤية السعودية 2030م.'
+                  : 'SNH Healthcare Academy is committed to empowering trainees to acquire modern knowledge and skills through an innovative learning environment and strategic local and international partnerships, thereby enhancing the quality of healthcare and contributing to the achievement of the goals of Saudi Vision 2030.'}
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ════════════════════════════════════════════════════════════
+          PAGE 3 — Academy Educational Programs
+      ════════════════════════════════════════════════════════════ */}
+      <section style={{ background: '#fff', borderTop: '10px solid #7a1338' }}>
+        <div className="flex items-center justify-center flex-wrap" style={{ padding: '48px 40px 0', gap: '24px' }}>
+          <img src={academyLogo} alt="SNH Health Academy" style={{ height: '150px', objectFit: 'contain', flexShrink: 0 }} />
+          <div style={{ textAlign: 'left' }}>
+            <p className="font-extrabold" style={{ color: '#16335a', fontSize: 'clamp(16px, 2vw, 22px)', lineHeight: 1.5, margin: 0 }}>
+              أكاديمية مستشفى تخصصي نجران الصحية
+            </p>
+            <p className="font-extrabold" style={{ color: '#7a1338', fontSize: 'clamp(13px, 1.6vw, 17px)', lineHeight: 1.5, margin: 0, letterSpacing: '0.3px' }}>
+              SPECIALIZED NAJRAN HOSPITAL HEALTH ACADEMY
+            </p>
+          </div>
+        </div>
+
+        {/* Hero strip photo */}
+        <div style={{ width: '100%', borderTop: '6px solid #7a1338', borderBottom: '6px solid #7a1338', lineHeight: 0, marginTop: '32px' }}>
+          <img
+            src="https://images.pexels.com/photos/4226140/pexels-photo-4226140.jpeg?auto=compress&cs=tinysrgb&w=1400"
+            alt={isAr ? 'تدريب الإنعاش القلبي' : 'CPR life support training'}
+            style={{ width: '100%', height: 'auto', maxHeight: '440px', objectFit: 'cover', display: 'block' }}
+          />
+        </div>
+
+        {/* Three small feature photos */}
+        <div className="grid grid-cols-3 gap-3" style={{ padding: '24px 40px 0' }}>
+          <div style={{ aspectRatio: '4/3', borderRadius: '8px', overflow: 'hidden', border: '4px solid #c0185a' }}>
+            <img
+              src={One}
+              alt={isAr ? 'محاضرة طبية' : 'Medical lecture'}
+              style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+            />
+          </div>
+          <div style={{ aspectRatio: '4/3', borderRadius: '8px', overflow: 'hidden', border: '4px solid #c0185a' }}>
+            <img
+              src={Two}
+              alt={isAr ? 'تدريب إنعاش الرضع' : 'Infant life support training'}
+              style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+            />
+          </div>
+          <div style={{ aspectRatio: '4/3', borderRadius: '8px', overflow: 'hidden', border: '4px solid #c0185a' }}>
+            <img
+              src={Three}
+              alt={isAr ? 'تدريب طبي' : 'Medical training'}
+              style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+            />
+          </div>
+        </div>
+
+        {/* Title */}
+        <div className="text-center" style={{ padding: '48px 24px 40px' }}>
+          <h3 className="font-extrabold" style={{ color: '#16335a', fontSize: 'clamp(26px, 3.6vw, 40px)' }}>
+            {isAr ? 'برامج الأكاديمية التعليمية' : 'Academy Educational Programs'}
+          </h3>
+        </div>
+
+        {/* Program pills */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 max-w-4xl mx-auto" style={{ padding: '0 40px 72px' }}>
+          {eduPrograms.map((p, i) => (
+            <div
+              key={i}
+              style={{
+                background: '#1f5d8a',
+                borderRadius: '50px',
+                padding: '22px 28px',
+                textAlign: 'center',
+                boxShadow: '0 6px 14px rgba(0,0,0,0.18)',
+              }}
+            >
+              <span style={{ color: '#fff', fontWeight: '800', fontSize: '18px', lineHeight: '1.4' }}>
+                {isAr ? p.ar : p.en}
+              </span>
             </div>
           ))}
         </div>
-      </div>
-
-      {/* ── Intro section ── */}
-      <section ref={sectionRef} className="max-w-6xl mx-auto px-4 py-20">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div style={{ textAlign: isAr ? 'right' : 'left' }}>
-            <span style={{
-              display: 'inline-block', background: '#e8f4fb', color: '#1787b6',
-              fontSize: '13px', fontWeight: '700', padding: '5px 18px',
-              borderRadius: '50px', marginBottom: '14px',
-            }}>
-              {isAr ? 'رؤيتنا التعليمية' : 'Our Educational Vision'}
-            </span>
-            <h2 className="text-3xl md:text-4xl font-bold mb-5" style={{ color: '#0d2137' }}>
-              {isAr ? 'بيئة تعليمية متكاملة لرعاية صحية أفضل' : 'An integrated learning environment for better healthcare'}
-            </h2>
-            <p style={{ color: '#4a6d85', fontSize: '15px', lineHeight: '1.95', fontWeight: '500', marginBottom: '16px' }}>
-              {isAr
-                ? 'تأسست أكاديمية تخصصي نجران لتكون الذراع التعليمي للمستشفى، حيث تجمع بين التدريب العملي على أرض الواقع والمحتوى العلمي المعتمد، بما يضمن مواكبة الكوادر الصحية لأحدث الممارسات الطبية محلياً وعالمياً.'
-                : 'Najran Specialist Academy was established as the educational arm of the hospital, combining hands-on, real-world training with accredited scientific content — ensuring healthcare staff stay aligned with the latest medical practices, locally and globally.'}
-            </p>
-            <p style={{ color: '#4a6d85', fontSize: '15px', lineHeight: '1.95', fontWeight: '500' }}>
-              {isAr
-                ? 'نعمل بالتعاون مع شركاء أكاديميين وجهات صحية متخصصة لتقديم برامج معتمدة تخدم الطلاب، الأطباء، التمريض، والكوادر الفنية والإدارية على حد سواء.'
-                : 'We collaborate with academic partners and specialized health institutions to deliver accredited programs serving students, physicians, nursing staff, and technical and administrative teams alike.'}
-            </p>
-          </div>
-
-          <div className="grid grid-cols-2 gap-4">
-            {programs.map((p, i) => {
-              const Icon = p.icon;
-              return (
-                <div key={i}
-                  className={`transition-all duration-700`}
-                  style={{
-                    background: '#fff', borderRadius: '18px', padding: '22px 18px',
-                    border: '1px solid #e3eff7', boxShadow: '0 4px 18px rgba(23,135,182,0.06)',
-                    opacity: isVisible ? 1 : 0,
-                    transform: isVisible ? 'translateY(0)' : 'translateY(14px)',
-                    transitionDelay: `${i * 100}ms`,
-                  }}
-                >
-                  <div style={{
-                    width: '46px', height: '46px', borderRadius: '12px',
-                    background: '#e8f4fb', display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    marginBottom: '14px',
-                  }}>
-                    <Icon size={22} color="#1787b6" />
-                  </div>
-                  <h4 style={{ fontSize: '14px', fontWeight: '800', color: '#0d2137', marginBottom: '8px', lineHeight: '1.5' }}>
-                    {isAr ? p.titleAr : p.titleEn}
-                  </h4>
-                  <p style={{ fontSize: '12.5px', color: '#4a6d85', lineHeight: '1.75', fontWeight: '500' }}>
-                    {isAr ? p.descAr : p.descEn}
-                  </p>
-                </div>
-              );
-            })}
-          </div>
-        </div>
       </section>
 
-      {/* ── Tracks ── */}
-      <section style={{ background: '#fff', borderTop: '1px solid #e8f1f7', borderBottom: '1px solid #e8f1f7' }}>
-        <div className="max-w-6xl mx-auto px-4 py-20">
-          <div className="text-center mb-14">
-            <span style={{
-              display: 'inline-block', background: '#e8f4fb', color: '#1787b6',
-              fontSize: '13px', fontWeight: '700', padding: '5px 18px',
-              borderRadius: '50px', marginBottom: '14px',
-            }}>
-              {isAr ? 'من نستهدف' : 'Who We Train'}
-            </span>
-            <h2 className="text-3xl md:text-4xl font-bold" style={{ color: '#0d2137' }}>
-              {isAr ? 'مسارات تدريبية لكل فئة' : 'Training tracks for every category'}
-            </h2>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
-            {tracks.map((t, i) => (
-              <div key={i} style={{
-                background: '#f8fbfd', borderRadius: '18px', padding: '26px 20px',
-                border: '1px solid #e3eff7', textAlign: isAr ? 'right' : 'left',
-                transition: 'transform 0.25s, box-shadow 0.25s',
-              }}
-                onMouseEnter={e => {
-                  e.currentTarget.style.transform = 'translateY(-5px)';
-                  e.currentTarget.style.boxShadow = '0 12px 32px rgba(23,135,182,0.12)';
-                }}
-                onMouseLeave={e => {
-                  e.currentTarget.style.transform = 'translateY(0)';
-                  e.currentTarget.style.boxShadow = 'none';
-                }}
-              >
-                <div style={{
-                  width: '40px', height: '40px', borderRadius: '10px',
-                  background: '#1787b6', display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  marginBottom: '16px',
-                }}>
-                  <Users size={20} color="#fff" />
-                </div>
-                <h4 style={{ fontSize: '15px', fontWeight: '800', color: '#0d2137', marginBottom: '8px' }}>
-                  {isAr ? t.titleAr : t.titleEn}
-                </h4>
-                <p style={{ fontSize: '13px', color: '#4a6d85', lineHeight: '1.8', fontWeight: '500' }}>
-                  {isAr ? t.descAr : t.descEn}
-                </p>
-              </div>
-            ))}
+      {/* ════════════════════════════════════════════════════════════
+          PAGE 4 — Accreditations
+      ════════════════════════════════════════════════════════════ */}
+<section style={{ background: '#fff', borderTop: '10px solid #7a1338' }}>
+        <div className="flex items-center justify-center flex-wrap" style={{ padding: '48px 40px 0', gap: '24px' }}>
+          <img src={academyLogo} alt="SNH Health Academy" style={{ height: '150px', objectFit: 'contain', flexShrink: 0 }} />
+          <div style={{ textAlign: 'left' }}>
+            <p className="font-extrabold" style={{ color: '#16335a', fontSize: 'clamp(16px, 2vw, 22px)', lineHeight: 1.5, margin: 0 }}>
+              أكاديمية مستشفى تخصصي نجران الصحية
+            </p>
+            <p className="font-extrabold" style={{ color: '#7a1338', fontSize: 'clamp(13px, 1.6vw, 17px)', lineHeight: 1.5, margin: 0, letterSpacing: '0.3px' }}>
+              SPECIALIZED NAJRAN HOSPITAL HEALTH ACADEMY
+            </p>
           </div>
         </div>
-      </section>
 
-      {/* ── Accreditation / Why join ── */}
-      <section className="max-w-6xl mx-auto px-4 py-20">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="order-2 md:order-1" style={{ textAlign: isAr ? 'right' : 'left' }}>
-            <span style={{
-              display: 'inline-block', background: '#e8f4fb', color: '#1787b6',
-              fontSize: '13px', fontWeight: '700', padding: '5px 18px',
-              borderRadius: '50px', marginBottom: '14px',
-            }}>
-              {isAr ? 'لماذا الأكاديمية' : 'Why the Academy'}
-            </span>
-            <h2 className="text-3xl md:text-4xl font-bold mb-6" style={{ color: '#0d2137' }}>
-              {isAr ? 'تدريب يُحدث فرقاً حقيقياً' : 'Training that makes a real difference'}
-            </h2>
+        <div className="text-center" style={{ padding: '32px 24px 8px' }}>
+          <h3 className="font-extrabold" style={{ color: '#16335a', fontSize: 'clamp(28px, 4vw, 42px)' }}>
+            {isAr ? 'نفخر باعتماداتنا' : 'We are proud of our accreditations'}
+          </h3>
+        </div>
 
-            <div className="space-y-4">
-              {[
-                { ar: 'برامج معتمدة من جهات صحية رسمية', en: 'Programs accredited by official health authorities' },
-                { ar: 'تدريب عملي داخل بيئة استشفائية حقيقية', en: 'Hands-on training within a real hospital environment' },
-                { ar: 'محاضرون من استشاريين بخبرات متخصصة', en: 'Lecturers from specialized consultant physicians' },
-                { ar: 'شهادات تدريب معتمدة لكل المشاركين', en: 'Accredited training certificates for all participants' },
-              ].map((item, i) => (
-                <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '12px', flexDirection: isAr ? 'row-reverse' : 'row' }}>
-                  <CheckCircle2 size={20} color="#1787b6" style={{ flexShrink: 0, marginTop: '2px' }} />
-                  <p style={{ fontSize: '14.5px', color: '#334155', fontWeight: '600', lineHeight: '1.7' }}>
-                    {isAr ? item.ar : item.en}
-                  </p>
-                </div>
-              ))}
-            </div>
+        {/* Healthcare Excellence Award medal */}
+        <div className="flex flex-col items-center" style={{ padding: '48px 24px' }}>
+          <img src={academy_1} alt="Healthcare Excellence Award" style={{ width: '210px', height: '210px', objectFit: 'contain' }} />
+          <p className="font-extrabold" style={{ color: '#16335a', fontSize: '22px', marginTop: '24px' }}>
+            {isAr ? 'جائزة التميز في الرعاية الصحية' : 'Healthcare Excellence Award'}
+          </p>
+        </div>
 
-            <a href="/contact" style={{
-              display: 'inline-flex', alignItems: 'center', gap: '8px',
-              marginTop: '28px', background: 'linear-gradient(135deg, #1787b6, #0d5f85)',
-              color: '#fff', fontWeight: '700', fontSize: '14px',
-              padding: '13px 32px', borderRadius: '50px', textDecoration: 'none',
-              boxShadow: '0 4px 18px rgba(23,135,182,0.3)',
-            }}>
-              {isAr ? 'تواصل معنا للالتحاق' : 'Contact us to enroll'}
-              <ArrowIcon size={16} />
-            </a>
-          </div>
-
-          <div className="order-1 md:order-2" style={{ position: 'relative' }}>
-            <div style={{
-              borderRadius: '24px', overflow: 'hidden', aspectRatio: '4/3',
-              boxShadow: '0 16px 50px rgba(13,33,55,0.15)',
-            }}>
-              <img
-                src="https://images.pexels.com/photos/4226119/pexels-photo-4226119.jpeg?auto=compress&cs=tinysrgb&w=900"
-                alt={isAr ? 'تدريب طبي' : 'Medical training'}
-                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-              />
-            </div>
-            <div style={{
-              position: 'absolute', bottom: '-22px',
-              [isAr ? 'left' : 'right']: '-22px',
-              background: '#1787b6', color: '#fff',
-              borderRadius: '18px', padding: '18px 24px',
-              boxShadow: '0 10px 30px rgba(23,135,182,0.35)',
-              textAlign: 'center',
-            }}>
-              <div style={{ fontSize: '24px', fontWeight: '900' }}>+12</div>
-              <div style={{ fontSize: '11px', fontWeight: '600', opacity: 0.9 }}>
-                {isAr ? 'سنوات خبرة تدريبية' : 'Years of training experience'}
-              </div>
-            </div>
-          </div>
+{/* Accreditation image */}
+        <div className="flex justify-center" style={{ padding: '32px 40px 80px' }}>
+          <img 
+            src={academy_2} 
+            alt="Accreditations" 
+            className="w-full md:w-[70%] lg:w-[55%]" 
+            style={{ objectFit: 'contain' }} 
+          />
         </div>
       </section>
     </div>

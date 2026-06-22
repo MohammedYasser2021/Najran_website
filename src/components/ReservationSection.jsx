@@ -2,80 +2,97 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import CoverBg from "../assets/cover.jpeg"
 
-// ── استيراد صور الأخبار ──────────────────────────────────────────────────────
-import Postn1 from '../assets/news/postn1.png';
-import Postn2 from '../assets/news/postn2.jpg';
-import Postn3 from '../assets/news/postn3.jpeg';
-import Postn4 from '../assets/news/postn4.jpeg';
-import Postn5 from '../assets/news/postn5.jpeg';
-import Postn6 from '../assets/news/postn6.jpeg';
-import MainHospital from '../assets/mainhospital.jpeg';
-// @ts-ignore
-import One from '../assets/news_images/1.png';
+// ── استيراد صور الأخبار - العدد 1، السنة الأولى ──────────────────────────────
+import news1 from '../assets/news_images/news_1.png';
+import news2 from '../assets/news_images/news_2.png';
+import news3 from '../assets/news_images/news_3.png';
+import news4 from '../assets/news_images/news_4.png';
+import news5 from '../assets/news_images/news_5.png';
+import news6 from '../assets/news_images/news_6.png';
+import news7 from '../assets/news_images/news_7.png';
+import news8 from '../assets/news_images/news_8.png';
 
+// ── بيانات أخبار العدد 1 - الأحد 1 مايو 2026 ─────────────────────────────────
 const sliderNews = [
   {
     id: 1,
-    img: Postn1,
-    titleAr: 'توقيع اتفاقية شراكة بين هيئة الهلال الأحمر السعودي ومستشفى تخصصي نجران',
-    titleEn: 'Partnership Agreement Between Saudi Red Crescent Authority and Najran Specialist Hospital',
-    summaryAr: 'بحضور سمو أمير منطقة نجران تم توقيع اتفاقية شراكة بين هيئة الهلال الأحمر السعودي ومستشفى تخصصي نجران نحو تقديم خدمة صحية أفضل لأهالي نجران.',
-    summaryEn: 'A partnership agreement was signed between the Saudi Red Crescent Authority and Najran Specialist Hospital to provide better healthcare for Najran residents.',
-    date: '2025-01-15',
+    img: news1,
+    titleAr: 'رسالة الرئيس التنفيذي - د. راجيف ميسرا',
+    titleEn: 'CEO Message - Dr. Rajeev Misra',
+    summaryAr: 'في مستشفى تخصصي نجران، لا نؤمن بالعمل الروتيني... بل نؤمن بإحداث تغيير ملموس. كل قسم، وكل موظف، وكل لحظة جهد تُبذل في هذه المؤسسة، هي جزء من رسالة إنسانية عظيمة تُنقذ الأرواح وتُعطي الأمل. المرحلة القادمة تتطلب منا جميعًا مزيدًا من الشغف والابتكار والتميز نحو أن نصبح نموذجًا رائدًا في الرعاية الصحية والخدمة الإنسانية والجودة التشغيلية.',
+    summaryEn: 'At Najran Specialist Hospital, we do not believe in routine work… but in making tangible change. Every department, every employee, and every effort exerted in this institution is part of a great humanitarian mission that saves lives and gives hope. The next phase requires all of us to show more passion, innovation, and excellence to become a leading model in healthcare, humanitarian service, and operational quality.',
+    date: '2026-05-01',
+    edition: 'العدد 1 - السنة الأولى',
   },
   {
     id: 2,
-    img: Postn2,
-    titleAr: 'عروض نهاية العام من مستشفى تخصصي نجران',
-    titleEn: 'Year-End Offers from Najran Specialist Hospital',
-    summaryAr: 'يقدم مستشفى تخصصي نجران عروضاً استثنائية على عمليات قسم الجراحة العامة بأسعار مميزة لخدمة المرضى.',
-    summaryEn: 'Najran Specialist Hospital offers exceptional deals on general surgery procedures at special prices to serve patients.',
-    date: '2024-12-26',
+    img: news2,
+    titleAr: 'زيارة شركة لارسن آند تيبرو العربية السعودية (طاقة)',
+    titleEn: 'Visit of Larsen & Toubro Arabia (Energy)',
+    summaryAr: 'تأكيدًا لجودة خدماتنا الطبية، تشرفنا اليوم بزيارة د. خرصان حسين آل سالم من شركة لارسن آند تيبرو العربية السعودية (طاقة) واستقبله أ. علي القاضي رئيس مجلس الإدارة ومعه قيادات المستشفى وذلك لبحث سبل التعاون المشترك وكيفية الاستفادة من خدماتنا الطبية المميزة.',
+    summaryEn: 'Affirming the quality of our medical services, we were honored today by a visit from Dr. Khorsan Hussein Al Salem from Larsen & Toubro Arabia (Energy). He was received by A. Ali Al-Qadi, Chairman of the Board, along with hospital leadership to discuss avenues of mutual cooperation and how to benefit from our distinguished medical services.',
+    date: '2026-05-01',
+    edition: 'العدد 1 - السنة الأولى',
   },
   {
     id: 3,
-    img: Postn3,
-    titleAr: 'وزارة الصحة تتوج مستشفى تخصصي نجران بشهادة اعتماد المستشفى صديق كبار السن',
-    titleEn: 'Ministry of Health Awards Najran Specialist Hospital the Elder-Friendly Hospital Accreditation',
-    summaryAr: 'تميّز مستشفى تخصصي نجران في تطبيق معايير الجودة لرعاية كبار السن على مستوى المملكة.',
-    summaryEn: 'Najran Specialist Hospital excelled in applying quality standards for elderly care across the Kingdom.',
-    date: '2025-10-20',
+    img: news3,
+    titleAr: 'شراكة طبية تعليمية لتعزيز كفاءة الكوادر الصحية في نجران',
+    titleEn: 'Medical Educational Partnership to Enhance Healthcare Competency in Najran',
+    summaryAr: 'تم توقيع اتفاقية تعاون بين مستشفى تخصصي نجران وكلية الغد للعلوم الطبية التطبيقية، بهدف تدريب طلاب الكلية على أحدث البروتوكولات الطبية العالمية داخل المستشفى. حضر التوقيع رئيس مجلس الإدارة أ. علي القاضي، والمدير التنفيذي د. رجيف ميسرا، وعميد الكلية د. حسن علي بن غلفان دغرير.',
+    summaryEn: 'A cooperation agreement was signed between Najran Specialist Hospital and Al-Ghad College of Applied Medical Sciences, with the aim of training college students in the latest international medical protocols within the hospital. The signing was attended by the Chairman A. Ali Al-Qadi, CEO Dr. Rajeev Misra, and Dean Dr. Hassan Ali bin Ghulfan Daghreer.',
+    date: '2026-05-01',
+    edition: 'العدد 1 - السنة الأولى',
   },
   {
     id: 4,
-    img: Postn4,
-    titleAr: 'مستشفى تخصصي نجران يحتفل بتخريج دفعة جديدة من المتدربين الصحيين',
-    titleEn: 'Najran Specialist Hospital Celebrates Graduation of a New Batch of Healthcare Trainees',
-    summaryAr: 'احتفل مستشفى تخصصي نجران بتخريج دفعة جديدة من الكوادر الصحية المؤهلة في إطار برنامج التدريب الميداني المتكامل.',
-    summaryEn: 'Najran Specialist Hospital celebrated the graduation of a new cohort of qualified healthcare professionals as part of its comprehensive field training program.',
-    date: '2024-11-10',
+    img: news4,
+    titleAr: 'تعزيز الوعي بالامتثال الوقائي في المنشآت الصحية',
+    titleEn: 'Raising Awareness of Preventive Compliance in Healthcare Facilities',
+    summaryAr: 'نظم مستشفى تخصصي نجران، بالتعاون مع فرع وزارة الصحة بنجران، فعالية توعوية عن الامتثال الوقائي بالمنشآت الصحية، وذلك في بهو الاستقبال الرئيسي بالمستشفى، بحضور عدد من الزائرين والإداريين.',
+    summaryEn: 'Najran Specialist Hospital organized, in cooperation with the Ministry of Health branch in Najran, an awareness event about preventive compliance in healthcare facilities, held in the main reception lobby of the hospital, attended by a number of visitors and administrators.',
+    date: '2026-05-01',
+    edition: 'العدد 1 - السنة الأولى',
   },
   {
     id: 5,
-    img: Postn5,
-    titleAr: 'مستشفى تخصصي نجران يطلق حملة توعوية شاملة لمكافحة السكري',
-    titleEn: 'Najran Specialist Hospital Launches Comprehensive Diabetes Awareness Campaign',
-    summaryAr: 'انطلقت حملة توعوية واسعة بمناسبة اليوم العالمي للسكري شملت فحوصات مجانية وجلسات تثقيفية للمرضى وذويهم.',
-    summaryEn: 'A wide-scale awareness campaign was launched on World Diabetes Day, featuring free screenings and educational sessions for patients and their families.',
-    date: '2024-10-05',
+    img: news5,
+    titleAr: 'مستشفى تخصصي نجران يشارك مع هيئة الصحة العامة (وقاية) في فعاليات الأسبوع العالمي للتحصينات',
+    titleEn: 'Najran Specialist Hospital Participates with Public Health Authority (Wiqaya) in World Immunization Week',
+    summaryAr: 'شارك مستشفى تخصصي نجران في فعاليات الأسبوع العالمي للتحصينات بالتعاون مع هيئة الصحة العامة (وقاية)، كما احتفل قسم المختبر بمستشفى تخصصي نجران باليوم العالمي للمختبرات الطبية، وحضر الحفل رئيس مجلس الادارة أ. علي القاضي والمدير التنفيذي د. رجيف ميسرا والعديد من منسوبي المختبر وفريق الإدارة.',
+    summaryEn: 'Najran Specialist Hospital participated in the World Immunization Week activities in cooperation with the Public Health Authority (Wiqaya). The hospital laboratory department also celebrated World Medical Laboratory Day, attended by Chairman A. Ali Al-Qadi, CEO Dr. Rajeev Misra, and many laboratory staff and administration team.',
+    date: '2026-05-01',
+    edition: 'العدد 1 - السنة الأولى',
   },
   {
     id: 6,
-    img: Postn6,
-    titleAr: 'المستشفى يستقبل وفداً طبياً دولياً لتبادل الخبرات في مجال الجراحة التخصصية',
-    titleEn: 'Hospital Welcomes International Medical Delegation for Specialized Surgery Knowledge Exchange',
-    summaryAr: 'استقبل مستشفى تخصصي نجران وفداً من الأطباء والمختصين الدوليين في إطار مبادرة التعاون الطبي وتبادل الخبرات.',
-    summaryEn: 'Najran Specialist Hospital welcomed a delegation of international physicians and specialists as part of a medical cooperation and knowledge exchange initiative.',
-    date: '2024-09-01',
+    img: news6,
+    titleAr: 'أكاديمية مستشفى تخصصي نجران الصحية - دورة أساسيات الانعاش القلبي الرئوي',
+    titleEn: 'Najran Specialist Hospital Health Academy - CPR Fundamentals Course',
+    summaryAr: 'أقامت أكاديمية مستشفى تخصصي نجران دورة تدريبية متخصصة في الانعاش القلبي الرئوي بهدف رفع كفاءة الكوادر الطبية وتعزيز سرعة الاستجابة للحالات الطارئة، كما نُظمت دورة أساسيات الانعاش القلبي الرئوي بالتعاون بين مستشفى تخصصي نجران وهيئة الهلال الأحمر فرع نجران.',
+    summaryEn: 'Najran Specialist Hospital Health Academy held a specialized training course in cardiopulmonary resuscitation (CPR) to enhance medical staff competency and improve emergency response speed. A CPR fundamentals course was also organized in cooperation between Najran Specialist Hospital and the Saudi Red Crescent Authority, Najran branch.',
+    date: '2026-05-01',
+    edition: 'العدد 1 - السنة الأولى',
   },
   {
     id: 7,
-    img: MainHospital,
-    titleAr: 'افتتاح الجناح الجديد لطب الطوارئ والعناية المركزة في مستشفى تخصصي نجران',
-    titleEn: 'Grand Opening of the New Emergency & Intensive Care Wing at Najran Specialist Hospital',
-    summaryAr: 'أعلن مستشفى تخصصي نجران عن افتتاح جناح متطور لخدمات الطوارئ والعناية المركزة مزوّد بأحدث التقنيات الطبية.',
-    summaryEn: 'Najran Specialist Hospital announced the opening of a state-of-the-art emergency and intensive care wing equipped with the latest medical technologies.',
-    date: '2026-03-20',
+    img: news7,
+    titleAr: 'إنجاز طبي - د. عبدالرحمن العمري',
+    titleEn: 'Medical Achievement - Dr. Abdulrahman Al-Omari',
+    summaryAr: 'أجرى مستشفى تخصصي نجران عملية تكميم لسيدة تعاني من سمنة مفرطة، حيث اكتشف الفريق المعالج أن أعضاءها الداخلية معكوسة بشكل كامل (الكبد في الجهة اليسرى والمعدة مع الطحال في الجانب الأيمن). تمكن فريق جراحة السمنة بقيادة الدكتور عبد الرحمن العمري من إجراء عملية تكميم المعدة خلال أقل من ساعة وخروج المريضة في اليوم الأول بصحة جيدة. والجدير بالذكر أن مستشفى تخصصي نجران هو المركز الطبي الوحيد المعتمد والأميز على مستوى منطقة نجران في التعامل مع حالات السمنة خاصة.',
+    summaryEn: 'Najran Specialist Hospital performed a sleeve gastrectomy on a woman with morbid obesity, where the medical team discovered that her internal organs were completely reversed (liver on the left side, stomach and spleen on the right). The bariatric surgery team led by Dr. Abdulrahman Al-Omari successfully performed the procedure in less than an hour, and the patient was discharged on the first day in good health. Notably, Najran Specialist Hospital is the only accredited and distinguished medical center in the Najran region for treating obesity cases.',
+    date: '2026-05-01',
+    edition: 'العدد 1 - السنة الأولى',
+  },
+  {
+    id: 8,
+    img: news8,
+    titleAr: 'الموظفيين المثاليين لشهر أبريل',
+    titleEn: 'Employees of the Month - April',
+    summaryAr: 'يُكرم مستشفى تخصصي نجران موظفيه المثاليين لشهر أبريل تقديرًا لجهودهم وتميزهم في العمل من مختلف الأقسام: أحمد النجراني (الإدارة الطبية)، ريم الغامدي (قسم التمريض)، محمد فراز (قسم المالية)، عبدالله عوض (قسم الأمن)، خولين بيجك (قسم التمريض)، م. محمد عبدالله (قسم الصيانة)، محمد خليل (قسم تقنية المعلومات)، ماي سراج (مركز الاتصال)، نور محمد (قسم الصيانة)، مارسي غريس (قسم الجودة)، أكشايا بيجو (قسم التمريض)، د. فاديم (الإدارة الطبية).',
+    summaryEn: 'Najran Specialist Hospital honors its ideal employees for the month of April in recognition of their efforts and excellence from various departments: Ahmed Al-Najrani (Medical Administration), Reem Al-Ghamdi (Nursing), Muhammad Faraz (Finance), Abdullah Awad (Security), Kholeen Bejec (Nursing), Eng. Mohammed Abdullah (Maintenance), Mohammed Khaleel (IT), May Seraj (Call Center), Noor Mohammed (Maintenance), Marcy Grece (Quality), Akshaya Biju (Nursing), Dr. Vadim (Medical Administration).',
+    date: '2026-05-01',
+    edition: 'العدد 1 - السنة الأولى',
   },
 ];
 
@@ -96,7 +113,8 @@ const ReservationSection = ({ currentLang }) => {
       selectDept: "Select Department",
       selectClinic: "Select Clinic",
       bookNow: "Book Now",
-      pleaseSelect: "Please select a department and clinic first"
+      pleaseSelect: "Please select a department and clinic first",
+      editionLabel: "Issue 1 · Year One · Sunday, May 1, 2026",
     },
     ar: {
       title: "احجز موعدك",
@@ -107,7 +125,8 @@ const ReservationSection = ({ currentLang }) => {
       selectDept: "اختر القسم",
       selectClinic: "اختر العيادة",
       bookNow: "احجز الآن",
-      pleaseSelect: "يرجى اختيار القسم والعيادة أولاً"
+      pleaseSelect: "يرجى اختيار القسم والعيادة أولاً",
+      editionLabel: "العدد 1 · السنة الأولى · الأحد 1 مايو 2026",
     }
   };
 
@@ -437,16 +456,16 @@ const ReservationSection = ({ currentLang }) => {
           }
           .red-pulse circle:first-child { animation: pulse-red 2s ease-in-out infinite; }
           @keyframes tickerScrollLTR {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-@keyframes tickerScrollRTL {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(50%); }
-}
-.news-ticker-track-ltr { animation: tickerScrollLTR 38s linear infinite; }
-.news-ticker-track-rtl { animation: tickerScrollRTL 38s linear infinite; }
-.news-ticker-track-ltr:hover, .news-ticker-track-rtl:hover { animation-play-state: paused; }
+            0%   { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+          }
+          @keyframes tickerScrollRTL {
+            0%   { transform: translateX(0); }
+            100% { transform: translateX(50%); }
+          }
+          .news-ticker-track-ltr { animation: tickerScrollLTR 50s linear infinite; }
+          .news-ticker-track-rtl { animation: tickerScrollRTL 50s linear infinite; }
+          .news-ticker-track-ltr:hover, .news-ticker-track-rtl:hover { animation-play-state: paused; }
         `}</style>
 
         {/* ── شريط أخبار مصغر بصور متحركة في نهاية الخلفية ── */}
@@ -455,33 +474,41 @@ const ReservationSection = ({ currentLang }) => {
             style={{
               display: 'flex',
               alignItems: 'center',
-              background: 'rgba(10, 28, 50, 0.65)',
+              background: 'rgba(10, 28, 50, 0.72)',
               backdropFilter: 'blur(10px)',
               borderTop: '1px solid rgba(255,255,255,0.08)',
               overflow: 'hidden',
               height: '72px',
             }}
           >
-            {/* badge */}
+            {/* badge العدد */}
             <div
               style={{
                 flexShrink: 0,
-                background: '#1787b6',
+                background: 'linear-gradient(135deg, #1787b6, #0d5a80)',
                 color: '#fff',
-                fontSize: '11px',
+                fontSize: '10px',
                 fontWeight: '800',
-                padding: '0 16px',
+                padding: '0 14px',
                 height: '100%',
                 display: 'flex',
+                flexDirection: 'column',
                 alignItems: 'center',
-                letterSpacing: '0.6px',
+                justifyContent: 'center',
+                letterSpacing: '0.4px',
                 whiteSpace: 'nowrap',
-                gap: '6px',
+                gap: '2px',
                 fontFamily: "'Cairo','Tajawal',sans-serif",
+                minWidth: '90px',
               }}
             >
-              <span style={{ fontSize: '14px' }}>📰</span>
-              {lang === 'ar' ? 'آخر الأخبار' : 'Latest News'}
+              <span style={{ fontSize: '13px' }}>📰</span>
+              <span style={{ fontSize: '10px', fontWeight: '700' }}>
+                {lang === 'ar' ? 'آخر الأخبار' : 'Latest News'}
+              </span>
+              <span style={{ fontSize: '8px', opacity: 0.75, fontWeight: '500' }}>
+                {lang === 'ar' ? 'العدد 1 · مايو 2026' : 'Issue 1 · May 2026'}
+              </span>
             </div>
 
             <div style={{ width: '1px', height: '100%', background: 'rgba(255,255,255,0.15)', flexShrink: 0 }} />
@@ -507,42 +534,62 @@ const ReservationSection = ({ currentLang }) => {
                       gap: '10px',
                       padding: '0 18px',
                       height: '100%',
-                      borderRight: '1px solid rgba(255,255,255,0.1)',
+                      borderRight: lang === 'ar' ? 'none' : '1px solid rgba(255,255,255,0.1)',
+                      borderLeft: lang === 'ar' ? '1px solid rgba(255,255,255,0.1)' : 'none',
                       cursor: 'pointer',
                       flexShrink: 0,
                       transition: 'background 0.2s',
                     }}
-                    onMouseEnter={e => (e.currentTarget.style.background = 'rgba(255,255,255,0.06)')}
+                    onMouseEnter={e => (e.currentTarget.style.background = 'rgba(255,255,255,0.08)')}
                     onMouseLeave={e => (e.currentTarget.style.background = 'transparent')}
                   >
-                    <img
-                      src={item.img}
-                      alt=""
-                      style={{
-                        width: '46px',
-                        height: '46px',
-                        borderRadius: '8px',
-                        objectFit: 'cover',
-                        objectPosition: 'top',
-                        flexShrink: 0,
-                        border: '1px solid rgba(255,255,255,0.2)',
-                      }}
-                    />
-                    <span
-                      style={{
-                        color: 'rgba(255,255,255,0.9)',
-                        fontSize: '12px',
-                        fontWeight: '600',
+                    {/* thumbnail الخبر */}
+                    <div style={{
+                      width: '50px',
+                      height: '50px',
+                      borderRadius: '10px',
+                      overflow: 'hidden',
+                      flexShrink: 0,
+                      border: '2px solid rgba(23,135,182,0.5)',
+                      boxShadow: '0 2px 8px rgba(0,0,0,0.3)',
+                    }}>
+                      <img
+                        src={item.img}
+                        alt=""
+                        style={{
+                          width: '100%',
+                          height: '100%',
+                          objectFit: 'cover',
+                          objectPosition: 'top',
+                        }}
+                      />
+                    </div>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
+                      <span style={{
+                        color: 'rgba(23,135,182,0.9)',
+                        fontSize: '9px',
+                        fontWeight: '700',
                         fontFamily: "'Cairo','Tajawal',sans-serif",
-                        lineHeight: '1.4',
-                        maxWidth: '230px',
-                        whiteSpace: 'nowrap',
-                        overflow: 'hidden',
-                        textOverflow: 'ellipsis',
-                      }}
-                    >
-                      {lang === 'ar' ? item.titleAr : item.titleEn}
-                    </span>
+                        letterSpacing: '0.3px',
+                      }}>
+                        {lang === 'ar' ? item.edition : `Issue 1 · May 2026`}
+                      </span>
+                      <span
+                        style={{
+                          color: 'rgba(255,255,255,0.92)',
+                          fontSize: '12px',
+                          fontWeight: '600',
+                          fontFamily: "'Cairo','Tajawal',sans-serif",
+                          lineHeight: '1.4',
+                          maxWidth: '240px',
+                          whiteSpace: 'nowrap',
+                          overflow: 'hidden',
+                          textOverflow: 'ellipsis',
+                        }}
+                      >
+                        {lang === 'ar' ? item.titleAr : item.titleEn}
+                      </span>
+                    </div>
                   </div>
                 ))}
               </div>
@@ -559,8 +606,8 @@ const ReservationSection = ({ currentLang }) => {
           style={{
             position: 'fixed',
             inset: 0,
-            background: 'rgba(10, 28, 50, 0.65)',
-            backdropFilter: 'blur(6px)',
+            background: 'rgba(10, 28, 50, 0.72)',
+            backdropFilter: 'blur(8px)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
@@ -574,21 +621,42 @@ const ReservationSection = ({ currentLang }) => {
             style={{
               background: '#fff',
               borderRadius: '20px',
-              maxWidth: '560px',
+              maxWidth: '620px',
               width: '100%',
-              maxHeight: '85vh',
+              maxHeight: '88vh',
               overflowY: 'auto',
-              boxShadow: '0 20px 60px rgba(0,0,0,0.35)',
+              boxShadow: '0 24px 70px rgba(0,0,0,0.4)',
               fontFamily: "'Cairo','Tajawal',sans-serif",
             }}
           >
-            {/* image */}
-            <div style={{ position: 'relative', height: '220px', borderRadius: '20px 20px 0 0', overflow: 'hidden' }}>
+            {/* صورة الخبر الكاملة */}
+            <div style={{ position: 'relative', borderRadius: '20px 20px 0 0', overflow: 'hidden' }}>
               <img
                 src={selectedNews.img}
                 alt=""
-                style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top' }}
+                style={{
+                  width: '100%',
+                  height: 'auto',
+                  display: 'block',
+                  objectFit: 'contain',
+                }}
               />
+              {/* شريط العدد فوق الصورة */}
+              <div style={{
+                position: 'absolute',
+                top: '14px',
+                [lang === 'ar' ? 'right' : 'left']: '14px',
+                background: 'linear-gradient(135deg, #1787b6, #0d5a80)',
+                color: '#fff',
+                fontSize: '10px',
+                fontWeight: '700',
+                padding: '4px 12px',
+                borderRadius: '50px',
+                backdropFilter: 'blur(4px)',
+                fontFamily: "'Cairo','Tajawal',sans-serif",
+              }}>
+                {lang === 'ar' ? selectedNews.edition : `Issue 1 · Year One · May 1, 2026`}
+              </div>
               <button
                 onClick={() => setSelectedNews(null)}
                 style={{
@@ -599,7 +667,7 @@ const ReservationSection = ({ currentLang }) => {
                   height: '34px',
                   borderRadius: '50%',
                   border: 'none',
-                  background: 'rgba(0,0,0,0.45)',
+                  background: 'rgba(0,0,0,0.5)',
                   color: '#fff',
                   fontSize: '18px',
                   cursor: 'pointer',
@@ -613,31 +681,43 @@ const ReservationSection = ({ currentLang }) => {
               </button>
             </div>
 
-            {/* content */}
-            <div style={{ padding: '24px 26px 30px', textAlign: lang === 'ar' ? 'right' : 'left' }}>
-              <p style={{ fontSize: '12px', color: '#94a3b8', fontWeight: '600', marginBottom: '10px' }}>
-                🗓{' '}
-                {new Date(selectedNews.date).toLocaleDateString(lang === 'ar' ? 'ar-SA' : 'en-US', {
-                  year: 'numeric', month: 'long', day: 'numeric',
-                })}
-              </p>
-              <h3 style={{ fontSize: '20px', fontWeight: '800', color: '#0d2137', lineHeight: '1.6', marginBottom: '14px' }}>
+            {/* محتوى الخبر */}
+            <div style={{ padding: '24px 28px 32px', textAlign: lang === 'ar' ? 'right' : 'left' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '12px', flexWrap: 'wrap' }}>
+                <span style={{
+                  fontSize: '11px',
+                  fontWeight: '700',
+                  color: '#1787b6',
+                  background: '#e8f4fb',
+                  borderRadius: '50px',
+                  padding: '3px 12px',
+                }}>
+                  {lang === 'ar' ? 'مستشفى تخصصي نجران' : 'Najran Specialist Hospital'}
+                </span>
+                <p style={{ fontSize: '12px', color: '#94a3b8', fontWeight: '600', margin: 0 }}>
+                  🗓{' '}
+                  {new Date(selectedNews.date).toLocaleDateString(lang === 'ar' ? 'ar-SA' : 'en-US', {
+                    year: 'numeric', month: 'long', day: 'numeric', weekday: 'long',
+                  })}
+                </p>
+              </div>
+              <h3 style={{
+                fontSize: '20px',
+                fontWeight: '800',
+                color: '#0d2137',
+                lineHeight: '1.7',
+                marginBottom: '16px',
+              }}>
                 {lang === 'ar' ? selectedNews.titleAr : selectedNews.titleEn}
               </h3>
-              <p style={{ fontSize: '14.5px', color: '#4a6d85', lineHeight: '1.9', fontWeight: '500' }}>
+              <p style={{
+                fontSize: '14.5px',
+                color: '#4a6d85',
+                lineHeight: '2',
+                fontWeight: '500',
+              }}>
                 {lang === 'ar' ? selectedNews.summaryAr : selectedNews.summaryEn}
               </p>
-
-              {selectedNews.tags && (
-                <div style={{ display: 'flex', gap: '8px', marginTop: '18px', flexWrap: 'wrap' }}>
-                  {selectedNews.tags.map(tag => (
-                    <span key={tag} style={{
-                      fontSize: '10px', fontWeight: '700', color: '#1787b6',
-                      background: '#e8f4fb', borderRadius: '50px', padding: '4px 12px', letterSpacing: '0.5px',
-                    }}>{tag}</span>
-                  ))}
-                </div>
-              )}
             </div>
           </div>
         </div>

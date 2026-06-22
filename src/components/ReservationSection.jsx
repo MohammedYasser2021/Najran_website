@@ -22,7 +22,7 @@ const sliderNews = [
     summaryAr: 'في مستشفى تخصصي نجران، لا نؤمن بالعمل الروتيني... بل نؤمن بإحداث تغيير ملموس. كل قسم، وكل موظف، وكل لحظة جهد تُبذل في هذه المؤسسة، هي جزء من رسالة إنسانية عظيمة تُنقذ الأرواح وتُعطي الأمل. المرحلة القادمة تتطلب منا جميعًا مزيدًا من الشغف والابتكار والتميز نحو أن نصبح نموذجًا رائدًا في الرعاية الصحية والخدمة الإنسانية والجودة التشغيلية.',
     summaryEn: 'At Najran Specialist Hospital, we do not believe in routine work… but in making tangible change. Every department, every employee, and every effort exerted in this institution is part of a great humanitarian mission that saves lives and gives hope. The next phase requires all of us to show more passion, innovation, and excellence to become a leading model in healthcare, humanitarian service, and operational quality.',
     date: '2026-05-01',
-    edition: 'العدد 1 - السنة الأولى',
+    edition: 'العدد 1 - السنة الأولى / الأحد 1 مايو 2026',
   },
   {
     id: 2,
@@ -32,7 +32,7 @@ const sliderNews = [
     summaryAr: 'تأكيدًا لجودة خدماتنا الطبية، تشرفنا اليوم بزيارة د. خرصان حسين آل سالم من شركة لارسن آند تيبرو العربية السعودية (طاقة) واستقبله أ. علي القاضي رئيس مجلس الإدارة ومعه قيادات المستشفى وذلك لبحث سبل التعاون المشترك وكيفية الاستفادة من خدماتنا الطبية المميزة.',
     summaryEn: 'Affirming the quality of our medical services, we were honored today by a visit from Dr. Khorsan Hussein Al Salem from Larsen & Toubro Arabia (Energy). He was received by A. Ali Al-Qadi, Chairman of the Board, along with hospital leadership to discuss avenues of mutual cooperation and how to benefit from our distinguished medical services.',
     date: '2026-05-01',
-    edition: 'العدد 1 - السنة الأولى',
+    edition: 'العدد 1 - السنة الأولى / الأحد 1 مايو 2026',
   },
   {
     id: 3,
@@ -42,7 +42,7 @@ const sliderNews = [
     summaryAr: 'تم توقيع اتفاقية تعاون بين مستشفى تخصصي نجران وكلية الغد للعلوم الطبية التطبيقية، بهدف تدريب طلاب الكلية على أحدث البروتوكولات الطبية العالمية داخل المستشفى. حضر التوقيع رئيس مجلس الإدارة أ. علي القاضي، والمدير التنفيذي د. رجيف ميسرا، وعميد الكلية د. حسن علي بن غلفان دغرير.',
     summaryEn: 'A cooperation agreement was signed between Najran Specialist Hospital and Al-Ghad College of Applied Medical Sciences, with the aim of training college students in the latest international medical protocols within the hospital. The signing was attended by the Chairman A. Ali Al-Qadi, CEO Dr. Rajeev Misra, and Dean Dr. Hassan Ali bin Ghulfan Daghreer.',
     date: '2026-05-01',
-    edition: 'العدد 1 - السنة الأولى',
+    edition: 'العدد 1 - السنة الأولى / الأحد 1 مايو 2026',
   },
   {
     id: 4,
@@ -52,7 +52,7 @@ const sliderNews = [
     summaryAr: 'نظم مستشفى تخصصي نجران، بالتعاون مع فرع وزارة الصحة بنجران، فعالية توعوية عن الامتثال الوقائي بالمنشآت الصحية، وذلك في بهو الاستقبال الرئيسي بالمستشفى، بحضور عدد من الزائرين والإداريين.',
     summaryEn: 'Najran Specialist Hospital organized, in cooperation with the Ministry of Health branch in Najran, an awareness event about preventive compliance in healthcare facilities, held in the main reception lobby of the hospital, attended by a number of visitors and administrators.',
     date: '2026-05-01',
-    edition: 'العدد 1 - السنة الأولى',
+    edition: 'العدد 1 - السنة الأولى / الأحد 1 مايو 2026',
   },
   {
     id: 5,
@@ -62,7 +62,7 @@ const sliderNews = [
     summaryAr: 'شارك مستشفى تخصصي نجران في فعاليات الأسبوع العالمي للتحصينات بالتعاون مع هيئة الصحة العامة (وقاية)، كما احتفل قسم المختبر بمستشفى تخصصي نجران باليوم العالمي للمختبرات الطبية، وحضر الحفل رئيس مجلس الادارة أ. علي القاضي والمدير التنفيذي د. رجيف ميسرا والعديد من منسوبي المختبر وفريق الإدارة.',
     summaryEn: 'Najran Specialist Hospital participated in the World Immunization Week activities in cooperation with the Public Health Authority (Wiqaya). The hospital laboratory department also celebrated World Medical Laboratory Day, attended by Chairman A. Ali Al-Qadi, CEO Dr. Rajeev Misra, and many laboratory staff and administration team.',
     date: '2026-05-01',
-    edition: 'العدد 1 - السنة الأولى',
+    edition: 'العدد 1 - السنة الأولى / الأحد 1 مايو 2026',
   },
   {
     id: 6,
@@ -72,7 +72,7 @@ const sliderNews = [
     summaryAr: 'أقامت أكاديمية مستشفى تخصصي نجران دورة تدريبية متخصصة في الانعاش القلبي الرئوي بهدف رفع كفاءة الكوادر الطبية وتعزيز سرعة الاستجابة للحالات الطارئة، كما نُظمت دورة أساسيات الانعاش القلبي الرئوي بالتعاون بين مستشفى تخصصي نجران وهيئة الهلال الأحمر فرع نجران.',
     summaryEn: 'Najran Specialist Hospital Health Academy held a specialized training course in cardiopulmonary resuscitation (CPR) to enhance medical staff competency and improve emergency response speed. A CPR fundamentals course was also organized in cooperation between Najran Specialist Hospital and the Saudi Red Crescent Authority, Najran branch.',
     date: '2026-05-01',
-    edition: 'العدد 1 - السنة الأولى',
+    edition: 'العدد 1 - السنة الأولى / الأحد 1 مايو 2026',
   },
   {
     id: 7,
@@ -82,7 +82,7 @@ const sliderNews = [
     summaryAr: 'أجرى مستشفى تخصصي نجران عملية تكميم لسيدة تعاني من سمنة مفرطة، حيث اكتشف الفريق المعالج أن أعضاءها الداخلية معكوسة بشكل كامل (الكبد في الجهة اليسرى والمعدة مع الطحال في الجانب الأيمن). تمكن فريق جراحة السمنة بقيادة الدكتور عبد الرحمن العمري من إجراء عملية تكميم المعدة خلال أقل من ساعة وخروج المريضة في اليوم الأول بصحة جيدة. والجدير بالذكر أن مستشفى تخصصي نجران هو المركز الطبي الوحيد المعتمد والأميز على مستوى منطقة نجران في التعامل مع حالات السمنة خاصة.',
     summaryEn: 'Najran Specialist Hospital performed a sleeve gastrectomy on a woman with morbid obesity, where the medical team discovered that her internal organs were completely reversed (liver on the left side, stomach and spleen on the right). The bariatric surgery team led by Dr. Abdulrahman Al-Omari successfully performed the procedure in less than an hour, and the patient was discharged on the first day in good health. Notably, Najran Specialist Hospital is the only accredited and distinguished medical center in the Najran region for treating obesity cases.',
     date: '2026-05-01',
-    edition: 'العدد 1 - السنة الأولى',
+    edition: 'العدد 1 - السنة الأولى / الأحد 1 مايو 2026',
   },
   {
     id: 8,
@@ -92,7 +92,7 @@ const sliderNews = [
     summaryAr: 'يُكرم مستشفى تخصصي نجران موظفيه المثاليين لشهر أبريل تقديرًا لجهودهم وتميزهم في العمل من مختلف الأقسام: أحمد النجراني (الإدارة الطبية)، ريم الغامدي (قسم التمريض)، محمد فراز (قسم المالية)، عبدالله عوض (قسم الأمن)، خولين بيجك (قسم التمريض)، م. محمد عبدالله (قسم الصيانة)، محمد خليل (قسم تقنية المعلومات)، ماي سراج (مركز الاتصال)، نور محمد (قسم الصيانة)، مارسي غريس (قسم الجودة)، أكشايا بيجو (قسم التمريض)، د. فاديم (الإدارة الطبية).',
     summaryEn: 'Najran Specialist Hospital honors its ideal employees for the month of April in recognition of their efforts and excellence from various departments: Ahmed Al-Najrani (Medical Administration), Reem Al-Ghamdi (Nursing), Muhammad Faraz (Finance), Abdullah Awad (Security), Kholeen Bejec (Nursing), Eng. Mohammed Abdullah (Maintenance), Mohammed Khaleel (IT), May Seraj (Call Center), Noor Mohammed (Maintenance), Marcy Grece (Quality), Akshaya Biju (Nursing), Dr. Vadim (Medical Administration).',
     date: '2026-05-01',
-    edition: 'العدد 1 - السنة الأولى',
+    edition: 'العدد 1 - السنة الأولى / الأحد 1 مايو 2026',
   },
 ];
 

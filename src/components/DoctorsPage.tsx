@@ -97,6 +97,11 @@ import img49 from '../assets/doctors/49.png';
 // @ts-ignore
 import img50 from '../assets/doctors/50.png';
 
+// @ts-ignore
+import doctorsImg from '../assets/doctors_imgg.jpeg';
+
+
+
 interface Doctor {
   id: number;
   src: string;
@@ -797,7 +802,7 @@ const DoctorsPage = ({ currentLang, changeLanguage }: DoctorsPageProps) => {
 
       {/* ── Hero ── */}
       <div style={{ position: 'relative', width: '100%', height: 'clamp(260px,38vw,460px)', overflow: 'hidden' }}>
-        <img src="https://static.vecteezy.com/system/resources/previews/065/703/890/large_2x/four-doctors-standing-together-in-white-lab-coats-free-photo.jpeg"
+        <img src={doctorsImg}
   style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top' }} />
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(135deg,rgba(10,22,40,0.88) 0%,rgba(13,33,55,0.82) 50%,rgba(7,35,60,0.90) 100%)' }} />
         <div style={{ position: 'absolute', inset: 0, backgroundImage: 'linear-gradient(rgba(38,157,204,0.06) 1px,transparent 1px),linear-gradient(90deg,rgba(38,157,204,0.06) 1px,transparent 1px)', backgroundSize: '48px 48px' }} />

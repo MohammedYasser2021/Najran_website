@@ -10,6 +10,8 @@ import Postn4 from '../assets/news/postn4.jpeg';
 import Postn5 from '../assets/news/postn5.jpeg';
 import Postn6 from '../assets/news/postn6.jpeg';
 import MainHospital from '../assets/mainhospital.jpeg';
+// @ts-ignore
+import One from '../assets/news_images/1.png';
 
 const sliderNews = [
   {

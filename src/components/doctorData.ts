@@ -62,7 +62,7 @@ export const doctors: Doctor[] = [
 {
   id: 5, imgFile: '5.png',
   nameAr: 'عبد الرحمن العمري', nameEn: 'Abdulrahman Al-Omari',
-  specialtyAr: 'اﺳﺘﺸﺎري اﻟﺠﺮاﺣﺔ اﻟﻌﺎﻣﺔ وﺟﺮاﺣﺔ اﻟﻐﺪد واﻟﺜﺪي واﻟﺴﻤﻨﺔ', specialtyEn: '"Consultant General, Endocrine, Breast, and Bariatric Surgeon',
+  specialtyAr: 'اﺳﺘﺸﺎري اﻟﺠﺮاﺣﺔ اﻟﻌﺎﻣﺔ وﺟﺮاﺣﺔ اﻟﻐﺪد واﻟﺜﺪي واﻟﺴﻤﻨﺔ', specialtyEn: 'Consultant General, Endocrine, Breast, and Bariatric Surgeon',
   detailsAr: ['تحويل المسار المصغر والكلاسيكي','إعادة وترميم عمليات السمنة السابقة','عمليات الكبسولة العادية والكبسولة الذكية للمعدة'],
   detailsEn: ['Mini & Classic Gastric Bypass','Revision & Repair of Previous Bariatric Surgery','Standard & Smart Gastric Capsule Procedures'],
 },
@@ -99,7 +99,7 @@ export const doctors: Doctor[] = [
   nameAr: 'شيماء سيد', nameEn: 'Shaimaa Sayed',
   specialtyAr: 'أخصائي أول المخ والأعصاب', specialtyEn: 'Senior Neurologist',
   detailsAr: ['تشخيص وعلاج الصداع النصفي والصداع المزمن','متابعة وعلاج مرضى الصرع والتشنجات','تشخيص وعلاج الجلطات الدماغية والسكتات','علاج اضطرابات الأعصاب الطرفية والتنميل','متابعة أمراض الذاكرة والزهايمر','تشخيص وعلاج اضطرابات الحركة والرعشة','متابعة حالات التصلب المتعدد وأمراض الجهاز العصبي'],
-  detailsEn: ['Diagnosis & Treatment of Migraine & Chronic Headaches','Epilepsy & Seizure Disorders Management','Stroke & Cerebrovascular Disease Treatment','Peripheral Neuropathy & Numbness Management',"Memory Disorders & Alzheimer's Disease Follow-up','Movement Disorders & Tremor Treatment','Multiple Sclerosis & Neurological Diseases Care"],
+  detailsEn: ['Diagnosis & Treatment of Migraine & Chronic Headaches','Epilepsy & Seizure Disorders Management','Stroke & Cerebrovascular Disease Treatment','Peripheral Neuropathy & Numbness Management',"Memory Disorders & Alzheimer's Disease Follow-up",'Movement Disorders & Tremor Treatment','Multiple Sclerosis & Neurological Diseases Care'],
 },
 {
   id: 11, imgFile: '11.png',
@@ -174,7 +174,7 @@ export const doctors: Doctor[] = [
 {
   id: 22, imgFile: '22.png',
   nameAr: 'محمد السباعي', nameEn: "Mohammed Al-Subaie",
-  specialtyAr: 'استشاري طب الاطفال حديثي الولادة', specialtyEn: 'Pediatric and Neonatal Medicine Consultant',
+  specialtyAr: 'استشاري طب الأطفال حديثي الولادة', specialtyEn: 'Pediatric and Neonatal Medicine Consultant',
   detailsAr: ['جميع حالات حديثي الولادة والخدج','حالات المواليد ناقصي النمو','مواليد الحمل عالي الخطورة'],
   detailsEn: ['All Neonatal & Premature Cases','Growth-Restricted Newborns','High-Risk Pregnancy Newborns'],
 },
@@ -279,7 +279,7 @@ export const doctors: Doctor[] = [
 {
   id: 38, imgFile: '38.png',
   nameAr: 'ظافر الشهري', nameEn: 'Zafer Al-Shehri',
-  specialtyAr: 'إستشاري ﻃﺐ اﻷﻃﻔﺎل وﻣﻨﺎﻇﻴﺮ اﻟﺠﻬﺎز اﻟﻬﻀﻤﻲ', specialtyEn: 'إستشاري ﻃﺐ اﻷﻃﻔﺎل وﻣﻨﺎﻇﻴﺮ اﻟﺠﻬﺎز اﻟﻬﻀﻤﻲ',
+  specialtyAr: 'إستشاري طب الأطفال ومناظير الجهاز الهضمي', specialtyEn: 'Consultant Paediatric Gastroenterologist & Endoscopist',
   detailsAr: ['علاج مشاكل الجهاز الهضمي','علاج ضعف النمو والتغذية','تشخيص وعلاج آلام البطن المزمنة والدورية','علاج تقرحات الأمعاء الالتهابية'],
   detailsEn: ['Gastrointestinal Disorders','Growth Failure & Nutritional Issues','Chronic & Recurrent Abdominal Pain','Inflammatory Bowel Disease'],
 },
@@ -298,14 +298,14 @@ export const doctors: Doctor[] = [
   detailsEn: ['Liver Disease Diagnosis (Cirrhosis & Hepatitis Viruses)','Pancreatic Disease Diagnosis & Treatment','Upper GI Endoscopy (Oesophagus, Stomach & H. Pylori)','Colonoscopy & Intestinal Disease Diagnosis','Gastro-Oesophageal Reflux & Peptic Ulcer Treatment'],
 },
 {
-  id: 41, imgFile: '41.png',
+  id: 41, imgFile: '41.PNG',
   nameAr: 'محمد مهدي آل سليمان', nameEn: 'Mohammed Mahdi Al-Sulaiman',
   specialtyAr: 'استشاري أمراض الصدر', specialtyEn: 'Consultant Pulmonologist',
   detailsAr: ['تشخيص وعلاج أمراض الجهاز التنفسي المزمنة','علاج الربو الشعبي والحساسية الصدرية','تشخيص وعلاج الالتهاب الرئوي والتهابات الشعب الهوائية','متابعة حالات الانسداد الرئوي المزمن واضطرابات التنفس','تشخيص أمراض الصدر باستخدام وظائف الرئة والأشعة'],
   detailsEn: ['Diagnosis & Treatment of Chronic Respiratory Diseases','Asthma & Chest Allergy Management','Diagnosis & Treatment of Pneumonia & Bronchitis','Management of COPD & Breathing Disorders','Chest Disease Diagnosis Using Pulmonary Function Tests & Imaging'],
 },
 {
-  id: 42, imgFile: '42.png',
+  id: 42, imgFile: '42.PNG',
   nameAr: 'على الهاجري', nameEn: 'Ali Al-Hajri',
   specialtyAr: 'استشاري الطب الباطني والغدد الصماء', specialtyEn: 'Consultant Internist & Endocrinologist',
   detailsAr: ['تشخيص وعلاج مرض السكري ومضاعفاته','متابعة اضطرابات الغدة الدرقية والغدد الصماء','علاج ارتفاع ضغط الدم والكوليسترول','تشخيص وعلاج أمراض الباطنية المزمنة','متابعة اضطرابات الهرمونات والسمنة الأيضية'],
@@ -416,147 +416,453 @@ export const doctors: Doctor[] = [
 
 // ── Departments with clinics mapped to doctor IDs ─────────────────────────────
 export const departments: Department[] = [
+
+  // ── 1. مركز العناية المركزة ───────────────────────────────────────────────
+  // FIX: removed د.سالي سمير(50) من وحدة العناية المركزة للأطفال والكبار — تأهيل ≠ عناية مركزة
   {
     id: 1,
     nameAr: 'مركز العناية المركزة', nameEn: 'Intensive Care Center',
     clinics: [
-      { idAr: 'وحدة العناية المركزة للكبار', idEn: 'Adult Intensive Care Unit', nameAr: 'وحدة العناية المركزة للكبار', nameEn: 'Adult Intensive Care Unit', doctorIds: [9, 35] },
-      { idAr: 'وحدة العناية المركزة للأطفال', idEn: 'Pediatric Intensive Care Unit', nameAr: 'وحدة العناية المركزة للأطفال', nameEn: 'Pediatric Intensive Care Unit', doctorIds: [28, 46, 50] },
-      { idAr: 'وحدة العناية المركزة لحديثي الولادة', idEn: 'Neonatal Intensive Care Unit', nameAr: 'وحدة العناية المركزة لحديثي الولادة', nameEn: 'Neonatal Intensive Care Unit', doctorIds: [22, 46] },
+      {
+        idAr: 'وحدة العناية المركزة للكبار', idEn: 'Adult Intensive Care Unit',
+        nameAr: 'وحدة العناية المركزة للكبار', nameEn: 'Adult Intensive Care Unit',
+        doctorIds: [9, 35],
+      },
+      {
+        idAr: 'وحدة العناية المركزة للأطفال', idEn: 'Pediatric Intensive Care Unit',
+        nameAr: 'وحدة العناية المركزة للأطفال', nameEn: 'Pediatric Intensive Care Unit',
+        doctorIds: [28, 46],
+      },
+      {
+        idAr: 'وحدة العناية المركزة لحديثي الولادة', idEn: 'Neonatal Intensive Care Unit',
+        nameAr: 'وحدة العناية المركزة لحديثي الولادة', nameEn: 'Neonatal Intensive Care Unit',
+        doctorIds: [22, 46],
+      },
     ],
   },
+
+  // ── 2. مركز الرعاية الشاملة ──────────────────────────────────────────────
+  {
+    id: 2,
+    nameAr: 'مركز الرعاية الشاملة', nameEn: 'Comprehensive Care Center',
+    clinics: [
+      {
+        idAr: 'وحدة طب الأسرة والرعاية الأولية', idEn: 'Family Medicine & Primary Care Unit',
+        nameAr: 'وحدة طب الأسرة والرعاية الأولية', nameEn: 'Family Medicine & Primary Care Unit',
+        doctorIds: [15, 16, 19],
+      },
+      {
+        idAr: 'وحدة التغذية العلاجية والصحة العامة', idEn: 'Clinical Nutrition & General Health Unit',
+        nameAr: 'وحدة التغذية العلاجية والصحة العامة', nameEn: 'Clinical Nutrition & General Health Unit',
+        doctorIds: [49],
+      },
+      {
+        idAr: 'وحدة الدعم النفسي والصحة النفسية', idEn: 'Mental Health & Psychological Support Unit',
+        nameAr: 'وحدة الدعم النفسي والصحة النفسية', nameEn: 'Mental Health & Psychological Support Unit',
+        doctorIds: [1],
+      },
+      {
+        idAr: 'وحدة إعادة التأهيل والعلاج الطبيعي', idEn: 'Rehabilitation & Physiotherapy Unit',
+        nameAr: 'وحدة إعادة التأهيل والعلاج الطبيعي', nameEn: 'Rehabilitation & Physiotherapy Unit',
+        doctorIds: [50],
+      },
+    ],
+  },
+
+  // ── 4. مركز الطب الباطني ─────────────────────────────────────────────────
+  // FIX: أضفنا وحدة المخ والأعصاب للبالغين لاستيعاب د.شيماء(10) ود.أمل(17)
+  // FIX: أزلنا د.علي الهاجري(42) من وحدة أمراض الدم — باطنة وغدد ≠ أمراض دم
+  // FIX: أزلنا وحدة أمراض الدم من د.42 وأبقيناها فارغة أو أزلناها
   {
     id: 4,
     nameAr: 'مركز الطب الباطني', nameEn: 'Internal Medicine Center',
     clinics: [
-      { idAr: 'وحدة أمراض القلب', idEn: 'Cardiology Unit', nameAr: 'وحدة أمراض القلب', nameEn: 'Cardiology Unit', doctorIds: [37, 42, 45] },
-      { idAr: 'وحدة الأمراض الصدرية', idEn: 'Chest Diseases Unit', nameAr: 'وحدة الأمراض الصدرية', nameEn: 'Chest Diseases Unit', doctorIds: [33, 41] },
-      { idAr: 'وحدة أمراض الدم', idEn: 'Hematology Unit', nameAr: 'وحدة أمراض الدم', nameEn: 'Hematology Unit', doctorIds: [42] },
-      { idAr: 'وحدة طب الأسرة', idEn: 'Family Medicine Unit', nameAr: 'وحدة طب الأسرة', nameEn: 'Family Medicine Unit', doctorIds: [15,] },
-      { idAr: 'وحدة الباطنة العامة والغدد الصماء والسكري', idEn: 'General Internal Medicine, Endocrinology & Diabetes Unit', nameAr: 'وحدة الباطنة العامة والغدد الصماء والسكري', nameEn: 'General Internal Medicine, Endocrinology & Diabetes Unit', doctorIds: [16,19,32, 42] },
-      { idAr: 'وحدة الأمراض المعدية', idEn: 'Infectious Diseases Unit', nameAr: 'وحدة الأمراض المعدية', nameEn: 'Infectious Diseases Unit', doctorIds: [13,16] },
+      {
+        idAr: 'وحدة أمراض القلب', idEn: 'Cardiology Unit',
+        nameAr: 'وحدة أمراض القلب', nameEn: 'Cardiology Unit',
+        doctorIds: [37, 45],
+      },
+      {
+        idAr: 'وحدة الأمراض الصدرية', idEn: 'Chest Diseases Unit',
+        nameAr: 'وحدة الأمراض الصدرية', nameEn: 'Chest Diseases Unit',
+        doctorIds: [33, 41],
+      },
+      {
+        idAr: 'وحدة المخ والأعصاب للبالغين', idEn: 'Adult Neurology Unit',
+        nameAr: 'وحدة المخ والأعصاب للبالغين', nameEn: 'Adult Neurology Unit',
+        doctorIds: [10, 17],
+      },
+      {
+        idAr: 'وحدة طب الأسرة', idEn: 'Family Medicine Unit',
+        nameAr: 'وحدة طب الأسرة', nameEn: 'Family Medicine Unit',
+        doctorIds: [15],
+      },
+      {
+        idAr: 'وحدة الباطنة العامة والغدد الصماء والسكري', idEn: 'General Internal Medicine, Endocrinology & Diabetes Unit',
+        nameAr: 'وحدة الباطنة العامة والغدد الصماء والسكري', nameEn: 'General Internal Medicine, Endocrinology & Diabetes Unit',
+        doctorIds: [16, 19, 42],
+      },
+      {
+        idAr: 'وحدة الأمراض المعدية', idEn: 'Infectious Diseases Unit',
+        nameAr: 'وحدة الأمراض المعدية', nameEn: 'Infectious Diseases Unit',
+        doctorIds: [13, 16],
+      },
     ],
   },
+
+  // ── 5. مركز الجهاز الهضمي والكبد والمناظير ───────────────────────────────
+  // FIX: أزلنا د.احمد العزب(40) من وحدة ERCP — هو أخصائي أول وليس استشارياً
   {
     id: 5,
     nameAr: 'مركز الجهاز الهضمي والكبد والمناظير', nameEn: 'Gastroenterology, Hepatology & Endoscopy Center',
     clinics: [
-      { idAr: 'وحدة المناظير العلوية والسفلية', idEn: 'Upper & Lower Endoscopy Unit', nameAr: 'وحدة المناظير العلوية والسفلية', nameEn: 'Upper & Lower Endoscopy Unit', doctorIds: [ 40] },
-      { idAr: 'وحدة مناظير القنوات المرارية ERCP', idEn: 'ERCP Unit', nameAr: 'وحدة مناظير القنوات المرارية ERCP', nameEn: 'ERCP Unit', doctorIds: [ 40] },
+      {
+        idAr: 'وحدة أمراض الجهاز الهضمي والكبد', idEn: 'Gastroenterology & Hepatology Unit',
+        nameAr: 'وحدة أمراض الجهاز الهضمي والكبد', nameEn: 'Gastroenterology & Hepatology Unit',
+        doctorIds: [20, 32, 40],
+      },
+      {
+        idAr: 'وحدة المناظير العلوية والسفلية', idEn: 'Upper & Lower Endoscopy Unit',
+        nameAr: 'وحدة المناظير العلوية والسفلية', nameEn: 'Upper & Lower Endoscopy Unit',
+        doctorIds: [20, 32, 40],
+      },
+      {
+        idAr: 'وحدة مناظير القنوات المرارية ERCP', idEn: 'ERCP Unit',
+        nameAr: 'وحدة مناظير القنوات المرارية ERCP', nameEn: 'ERCP Unit',
+        doctorIds: [20, 32],
+      },
     ],
   },
+
+  // ── 6. مركز علاج وجراحات السمنة ──────────────────────────────────────────
   {
     id: 6,
     nameAr: 'مركز علاج وجراحات السمنة', nameEn: 'Obesity Treatment & Surgery Center',
     clinics: [
-      { idAr: 'وحدة جراحات السمنة', idEn: 'Bariatric Surgery Unit', nameAr: 'وحدة جراحات السمنة', nameEn: 'Bariatric Surgery Unit', doctorIds: [5, 30,49] },
-      { idAr: 'وحدة التغذية العلاجية', idEn: 'Therapeutic Nutrition Unit', nameAr: 'وحدة التغذية العلاجية', nameEn: 'Therapeutic Nutrition Unit', doctorIds: [5, 30,49] },
-      { idAr: 'وحدة الدعم النفسي والسلوكي', idEn: 'Psychological & Behavioral Support Unit', nameAr: 'وحدة الدعم النفسي والسلوكي', nameEn: 'Psychological & Behavioral Support Unit', doctorIds: [1] },
+      {
+        idAr: 'وحدة التغذية العلاجية', idEn: 'Therapeutic Nutrition Unit',
+        nameAr: 'وحدة التغذية العلاجية', nameEn: 'Therapeutic Nutrition Unit',
+        doctorIds: [49],
+      },
+      {
+        idAr: 'وحدة الدعم النفسي والسلوكي', idEn: 'Psychological & Behavioral Support Unit',
+        nameAr: 'وحدة الدعم النفسي والسلوكي', nameEn: 'Psychological & Behavioral Support Unit',
+        doctorIds: [1],
+      },
+      {
+        idAr: 'وحدة جراحات السمنة', idEn: 'Bariatric Surgery Unit',
+        nameAr: 'وحدة جراحات السمنة', nameEn: 'Bariatric Surgery Unit',
+        doctorIds: [5, 30],
+      },
     ],
   },
+
+  // ── 7. مركز الجراحة العامة وجراحة المناظير ───────────────────────────────
+  // FIX: أزلنا د.محمد آل سوار(23) من مركز الجلدية وأبقيناه هنا فقط
   {
     id: 7,
     nameAr: 'مركز الجراحة العامة وجراحة المناظير', nameEn: 'General Surgery & Laparoscopy Center',
     clinics: [
-      { idAr: 'وحدة الجراحات الطارئة', idEn: 'Emergency Surgery Unit', nameAr: 'وحدة الجراحات الطارئة', nameEn: 'Emergency Surgery Unit', doctorIds: [23, 43] },
-      { idAr: 'وحدة جراحات المناظير', idEn: 'Laparoscopic Surgery Unit', nameAr: 'وحدة جراحات المناظير', nameEn: 'Laparoscopic Surgery Unit', doctorIds: [23, 30, 43] },
-      { idAr: 'وحدة جراحات الشرج والمستقيم', idEn: 'Colorectal Surgery Unit', nameAr: 'وحدة جراحات الشرج والمستقيم', nameEn: 'Colorectal Surgery Unit', doctorIds: [23, 43] },
-      { idAr: 'وحدة جراحات الثدي والغدد الصماء', idEn: 'Breast & Endocrine Surgery Unit', nameAr: 'وحدة جراحات الثدي والغدد الصماء', nameEn: 'Breast & Endocrine Surgery Unit', doctorIds: [23, 43] },
+      {
+        idAr: 'وحدة الجراحات الطارئة', idEn: 'Emergency Surgery Unit',
+        nameAr: 'وحدة الجراحات الطارئة', nameEn: 'Emergency Surgery Unit',
+        doctorIds: [23, 43],
+      },
+      {
+        idAr: 'وحدة جراحات المناظير', idEn: 'Laparoscopic Surgery Unit',
+        nameAr: 'وحدة جراحات المناظير', nameEn: 'Laparoscopic Surgery Unit',
+        doctorIds: [23, 30, 43],
+      },
+      {
+        idAr: 'وحدة جراحات الشرج والمستقيم', idEn: 'Colorectal Surgery Unit',
+        nameAr: 'وحدة جراحات الشرج والمستقيم', nameEn: 'Colorectal Surgery Unit',
+        doctorIds: [23, 43],
+      },
+      {
+        idAr: 'وحدة جراحات الثدي والغدد الصماء', idEn: 'Breast & Endocrine Surgery Unit',
+        nameAr: 'وحدة جراحات الثدي والغدد الصماء', nameEn: 'Breast & Endocrine Surgery Unit',
+        doctorIds: [5, 23],
+      },
     ],
   },
+
+  // ── 8. مركز صحة المرأة ───────────────────────────────────────────────────
   {
     id: 8,
     nameAr: 'مركز صحة المرأة', nameEn: "Women's Health Center",
     clinics: [
-      { idAr: 'وحدة أمراض وجراحات النساء والولادة', idEn: 'Obstetrics & Gynecology Unit', nameAr: 'وحدة أمراض وجراحات النساء والولادة', nameEn: 'Obstetrics & Gynecology Unit', doctorIds: [18, 36] },
-      { idAr: 'وحدة رعاية الأمومة والجراحات التجميلية بعد الولادة', idEn: 'Maternity Care & Postpartum Cosmetic Surgery Unit', nameAr: 'وحدة رعاية الأمومة والجراحات التجميلية بعد الولادة', nameEn: 'Maternity Care & Postpartum Cosmetic Surgery Unit', doctorIds: [18, 36] },
-      { idAr: 'وحدة الخدمات التجميلية النسائية', idEn: "Women's Cosmetic Services Unit", nameAr: 'وحدة الخدمات التجميلية النسائية', nameEn: "Women's Cosmetic Services Unit", doctorIds: [] },
+      {
+        idAr: 'وحدة أمراض وجراحات النساء والولادة', idEn: 'Obstetrics & Gynecology Unit',
+        nameAr: 'وحدة أمراض وجراحات النساء والولادة', nameEn: 'Obstetrics & Gynecology Unit',
+        doctorIds: [18, 36],
+      },
+      {
+        idAr: 'وحدة رعاية الأمومة والجراحات التجميلية بعد الولادة', idEn: 'Maternity Care & Postpartum Cosmetic Surgery Unit',
+        nameAr: 'وحدة رعاية الأمومة والجراحات التجميلية بعد الولادة', nameEn: 'Maternity Care & Postpartum Cosmetic Surgery Unit',
+        doctorIds: [18, 36],
+      },
+      {
+        idAr: 'وحدة الخدمات التجميلية النسائية', idEn: "Women's Cosmetic Services Unit",
+        nameAr: 'وحدة الخدمات التجميلية النسائية', nameEn: "Women's Cosmetic Services Unit",
+        doctorIds: [],
+      },
     ],
   },
+
+  // ── 9. مركز أمراض وجراحات المسالك البولية ────────────────────────────────
   {
     id: 9,
     nameAr: 'مركز أمراض وجراحات المسالك البولية', nameEn: 'Urology Diseases & Surgery Center',
     clinics: [
-      { idAr: 'وحدة صحة الرجل', idEn: "Men's Health Unit", nameAr: 'وحدة صحة الرجل (أمراض وجراحات الذكورة والعقم)', nameEn: "Men's Health Unit (Andrology & Infertility)", doctorIds: [6,11, 39] },
-      { idAr: 'وحدة علاج وجراحات حصوات المسالك البولية', idEn: 'Urinary Stones Treatment & Surgery Unit', nameAr: 'وحدة علاج وجراحات حصوات المسالك البولية', nameEn: 'Urinary Stones Treatment & Surgery Unit', doctorIds: [6, 11, 39] },
-      { idAr: 'وحدة علاج وجراحات البروستات', idEn: 'Prostate Treatment & Surgery Unit', nameAr: 'وحدة علاج وجراحات البروستات', nameEn: 'Prostate Treatment & Surgery Unit', doctorIds: [11, 39] },
+      {
+        idAr: 'وحدة صحة الرجل', idEn: "Men's Health Unit",
+        nameAr: 'وحدة صحة الرجل (أمراض وجراحات الذكورة والعقم)', nameEn: "Men's Health Unit (Andrology & Infertility)",
+        doctorIds: [6, 11, 39],
+      },
+      {
+        idAr: 'وحدة علاج وجراحات حصوات المسالك البولية', idEn: 'Urinary Stones Treatment & Surgery Unit',
+        nameAr: 'وحدة علاج وجراحات حصوات المسالك البولية', nameEn: 'Urinary Stones Treatment & Surgery Unit',
+        doctorIds: [6, 11, 39],
+      },
+      {
+        idAr: 'وحدة علاج وجراحات البروستات', idEn: 'Prostate Treatment & Surgery Unit',
+        nameAr: 'وحدة علاج وجراحات البروستات', nameEn: 'Prostate Treatment & Surgery Unit',
+        doctorIds: [11, 39],
+      },
     ],
   },
+
+  // ── 10. مركز الأنف والأذن والحنجرة ──────────────────────────────────────
   {
     id: 10,
     nameAr: 'مركز الأنف والأذن والحنجرة', nameEn: 'Ear, Nose & Throat (ENT) Center',
     clinics: [
-      { idAr: 'وحدة جراحات ومناظير الأنف والأذن والحنجرة', idEn: 'ENT Endoscopy & Surgery Unit', nameAr: 'وحدة جراحات ومناظير الأنف والأذن والحنجرة', nameEn: 'ENT Endoscopy & Surgery Unit', doctorIds: [3, 12] },
-      { idAr: 'وحدة جراحات الرأس والعنق', idEn: 'Head & Neck Surgery Unit', nameAr: 'وحدة جراحات الرأس والعنق', nameEn: 'Head & Neck Surgery Unit', doctorIds: [3, 12] },
-      { idAr: 'وحدة السمعيات', idEn: 'Audiology Unit', nameAr: 'وحدة السمعيات', nameEn: 'Audiology Unit', doctorIds: [3] },
-      { idAr: 'وحدة علاج وجراحات مشاكل النوم', idEn: 'Sleep Disorders Treatment & Surgery Unit', nameAr: 'وحدة علاج وجراحات مشاكل النوم', nameEn: 'Sleep Disorders Treatment & Surgery Unit', doctorIds: [3] },
+      {
+        idAr: 'وحدة جراحات ومناظير الأنف والأذن والحنجرة', idEn: 'ENT Endoscopy & Surgery Unit',
+        nameAr: 'وحدة جراحات ومناظير الأنف والأذن والحنجرة', nameEn: 'ENT Endoscopy & Surgery Unit',
+        doctorIds: [3, 12],
+      },
+      {
+        idAr: 'وحدة جراحات الرأس والعنق', idEn: 'Head & Neck Surgery Unit',
+        nameAr: 'وحدة جراحات الرأس والعنق', nameEn: 'Head & Neck Surgery Unit',
+        doctorIds: [3, 12],
+      },
+      {
+        idAr: 'وحدة السمعيات', idEn: 'Audiology Unit',
+        nameAr: 'وحدة السمعيات', nameEn: 'Audiology Unit',
+        doctorIds: [3],
+      },
+      {
+        idAr: 'وحدة علاج وجراحات مشاكل النوم', idEn: 'Sleep Disorders Treatment & Surgery Unit',
+        nameAr: 'وحدة علاج وجراحات مشاكل النوم', nameEn: 'Sleep Disorders Treatment & Surgery Unit',
+        doctorIds: [3],
+      },
     ],
   },
+
+  // ── 11. مركز طب وجراحة العيون ────────────────────────────────────────────
   {
     id: 11,
     nameAr: 'مركز طب وجراحة العيون', nameEn: 'Ophthalmology & Eye Surgery Center',
     clinics: [
-      { idAr: 'وحدة تشخيص وعلاج أمراض العيون', idEn: 'Eye Diseases Diagnosis & Treatment Unit', nameAr: 'وحدة تشخيص وعلاج أمراض العيون', nameEn: 'Eye Diseases Diagnosis & Treatment Unit', doctorIds: [8,48] },
-      { idAr: 'وحدة جراحات العيون', idEn: 'Eye Surgery Unit', nameAr: 'وحدة جراحات العيون', nameEn: 'Eye Surgery Unit', doctorIds: [8,48] },
+      {
+        idAr: 'وحدة تشخيص وعلاج أمراض العيون', idEn: 'Eye Diseases Diagnosis & Treatment Unit',
+        nameAr: 'وحدة تشخيص وعلاج أمراض العيون', nameEn: 'Eye Diseases Diagnosis & Treatment Unit',
+        doctorIds: [8, 48],
+      },
+      {
+        // FIX: أزلنا د.عمرو موسى(48) من وحدة الجراحات — هو أخصائي وليس جراحاً استشارياً
+        idAr: 'وحدة جراحات العيون', idEn: 'Eye Surgery Unit',
+        nameAr: 'وحدة جراحات العيون', nameEn: 'Eye Surgery Unit',
+        doctorIds: [8],
+      },
     ],
   },
+
+  // ── 12. مركز الأشعة التداخلية ────────────────────────────────────────────
   {
     id: 12,
     nameAr: 'مركز الأشعة التداخلية', nameEn: 'Interventional Radiology Center',
     clinics: [
-      { idAr: 'وحدة علاج الأوردة والدوالي', idEn: 'Varicose Veins & Vascular Treatment Unit', nameAr: 'وحدة علاج الأوردة والدوالي والأوعية الدموية بدون جراحة', nameEn: 'Varicose Veins & Vascular Treatment without Surgery', doctorIds: [21] },
-      { idAr: 'وحدة تركيب الدعامات بالأشعة التداخلية', idEn: 'Stent Placement Unit', nameAr: 'وحدة تركيب الدعامات بالأشعة التداخلية بدون جراحة', nameEn: 'Stent Placement by Interventional Radiology without Surgery', doctorIds: [21, 27] },
-      { idAr: 'وحدة علاج المفاصل والعمود الفقري', idEn: 'Joints, Spine & Bones Unit', nameAr: 'وحدة علاج المفاصل والعمود الفقري والعظام بدون جراحة', nameEn: 'Joints, Spine & Bones Treatment without Surgery', doctorIds: [27] },
+      {
+        idAr: 'وحدة علاج الأوردة والدوالي', idEn: 'Varicose Veins & Vascular Treatment Unit',
+        nameAr: 'وحدة علاج الأوردة والدوالي والأوعية الدموية بدون جراحة', nameEn: 'Varicose Veins & Vascular Treatment without Surgery',
+        doctorIds: [21],
+      },
+      {
+        idAr: 'وحدة تركيب الدعامات بالأشعة التداخلية', idEn: 'Stent Placement Unit',
+        nameAr: 'وحدة تركيب الدعامات بالأشعة التداخلية بدون جراحة', nameEn: 'Stent Placement by Interventional Radiology without Surgery',
+        doctorIds: [21, 27],
+      },
+      {
+        idAr: 'وحدة علاج المفاصل والعمود الفقري', idEn: 'Joints, Spine & Bones Unit',
+        nameAr: 'وحدة علاج المفاصل والعمود الفقري والعظام بدون جراحة', nameEn: 'Joints, Spine & Bones Treatment without Surgery',
+        doctorIds: [27],
+      },
     ],
   },
+
+  // ── 13. مركز الطب النفسي ─────────────────────────────────────────────────
   {
     id: 13,
     nameAr: 'مركز الطب النفسي', nameEn: 'Psychiatry Center',
     clinics: [
-      { idAr: 'وحدة علاج إدمان المخدرات', idEn: 'Drug Addiction Treatment Unit', nameAr: 'وحدة علاج إدمان المخدرات', nameEn: 'Drug Addiction Treatment Unit', doctorIds: [1] },
-      { idAr: 'وحدة العلاج السلوكي المعرفي', idEn: 'Cognitive Behavioral Therapy Unit', nameAr: 'وحدة العلاج السلوكي المعرفي', nameEn: 'Cognitive Behavioral Therapy Unit', doctorIds: [1] },
+      {
+        idAr: 'وحدة علاج إدمان المخدرات', idEn: 'Drug Addiction Treatment Unit',
+        nameAr: 'وحدة علاج إدمان المخدرات', nameEn: 'Drug Addiction Treatment Unit',
+        doctorIds: [1],
+      },
+      {
+        idAr: 'وحدة العلاج السلوكي المعرفي', idEn: 'Cognitive Behavioral Therapy Unit',
+        nameAr: 'وحدة العلاج السلوكي المعرفي', nameEn: 'Cognitive Behavioral Therapy Unit',
+        doctorIds: [1],
+      },
     ],
   },
+
+  // ── 14. مركز طب الأطفال المتخصص ──────────────────────────────────────────
+  // FIX: أزلنا د.سالي سمير(50) من وحدة العناية المركزة ووحدة الصدرية ووحدة المناظير
+  //      وأبقيناها فقط في الوحدات المناسبة: نمو الأطفال وأعصاب الأطفال
+  // FIX: أزلنا د.مروة مصطفى(34) من وحدة العناية المركزة — أخصائية عامة وليست متخصصة عناية مركزة
+  // FIX: أضفنا د.محمد الزهراني(24) لوحدة رعاية الأطفال العامة
   {
     id: 14,
     nameAr: 'مركز طب الأطفال المتخصص', nameEn: 'Specialized Pediatric Center',
     clinics: [
-      { idAr: 'وحدة العناية المركزة للأطفال حديثي الولادة', idEn: 'Neonatal Pediatric Intensive Care Unit', nameAr: 'وحدة العناية المركزة للأطفال حديثي الولادة', nameEn: 'Neonatal Pediatric Intensive Care Unit', doctorIds: [22, 28, 34, 46, 50] },
-      { idAr: 'وحدة الأمراض الصدرية للأطفال', idEn: 'Pediatric Chest Diseases Unit', nameAr: 'وحدة الأمراض الصدرية للأطفال', nameEn: 'Pediatric Chest Diseases Unit', doctorIds: [24, 34, 46, 50] },
-      { idAr: 'وحدة مناظير الجهاز الهضمي للأطفال', idEn: 'Pediatric Gastrointestinal Endoscopy Unit', nameAr: 'وحدة مناظير الجهاز الهضمي للأطفال', nameEn: 'Pediatric Gastrointestinal Endoscopy Unit', doctorIds: [20, 38, 46, 50] },
-      { idAr: 'وحدة السكري والغدد الصماء ونمو الأطفال', idEn: 'Pediatric Diabetes, Endocrinology & Growth Unit', nameAr: 'وحدة السكري والغدد الصماء ونمو الأطفال', nameEn: 'Pediatric Diabetes, Endocrinology & Growth Unit', doctorIds: [26, 46, 50] },
-      { idAr: 'وحدة أمراض المخ والأعصاب للأطفال', idEn: 'Pediatric Neurology Unit', nameAr: 'وحدة أمراض المخ والأعصاب للأطفال', nameEn: 'Pediatric Neurology Unit', doctorIds: [10, 46, 17, 50] },
+      {
+        idAr: 'وحدة العناية المركزة للأطفال حديثي الولادة', idEn: 'Neonatal Pediatric Intensive Care Unit',
+        nameAr: 'وحدة العناية المركزة للأطفال حديثي الولادة', nameEn: 'Neonatal Pediatric Intensive Care Unit',
+        doctorIds: [22, 28, 46],
+      },
+      {
+        idAr: 'وحدة الأمراض الصدرية للأطفال', idEn: 'Pediatric Chest Diseases Unit',
+        nameAr: 'وحدة الأمراض الصدرية للأطفال', nameEn: 'Pediatric Chest Diseases Unit',
+        doctorIds: [24, 34, 46],
+      },
+      {
+        idAr: 'وحدة مناظير الجهاز الهضمي للأطفال', idEn: 'Pediatric Gastrointestinal Endoscopy Unit',
+        nameAr: 'وحدة مناظير الجهاز الهضمي للأطفال', nameEn: 'Pediatric Gastrointestinal Endoscopy Unit',
+        doctorIds: [38, 46],
+      },
+      {
+        idAr: 'وحدة السكري والغدد الصماء ونمو الأطفال', idEn: 'Pediatric Diabetes, Endocrinology & Growth Unit',
+        nameAr: 'وحدة السكري والغدد الصماء ونمو الأطفال', nameEn: 'Pediatric Diabetes, Endocrinology & Growth Unit',
+        doctorIds: [26, 46, 50],
+      },
+      {
+        idAr: 'وحدة أمراض المخ والأعصاب للأطفال', idEn: 'Pediatric Neurology Unit',
+        nameAr: 'وحدة أمراض المخ والأعصاب للأطفال', nameEn: 'Pediatric Neurology Unit',
+        doctorIds: [46, 50],
+      },
+      {
+        idAr: 'وحدة رعاية الأطفال العامة', idEn: 'General Pediatric Care Unit',
+        nameAr: 'وحدة رعاية الأطفال العامة', nameEn: 'General Pediatric Care Unit',
+        doctorIds: [24, 34, 46],
+      },
     ],
   },
+
+  // ── 15. مركز طب الأسنان المتخصص (دنت سمايل) ─────────────────────────────
+  // FIX: أزلنا د.فاريما مالك(47) من عيادة التقويم وعيادة جراحة الوجه والفكين
+  //      — طبيبة عامة لا تُدرج في تخصصات جراحية أو تقويم متخصص
+  // FIX: أزلنا د.صالح آل مطلق(31) من عيادة أمراض اللثة — تقويم ≠ لثة
+  // FIX: أزلنا د.عبدالله آل قدرة(4) من عيادة أمراض اللثة وأسنان الأطفال — تخصصه جذور فقط
   {
     id: 15,
     nameAr: 'مركز طب الأسنان المتخصص (دنت سمايل)', nameEn: 'Specialized Dental Center (Dent Smile)',
     clinics: [
-      { idAr: 'عيادة تقويم الأسنان وعظام الوجه والفكين', idEn: 'Orthodontics, Jaw & Facial Bones Clinic', nameAr: 'عيادة تقويم الأسنان وعظام الوجه والفكين', nameEn: 'Orthodontics, Jaw & Facial Bones Clinic', doctorIds: [31, 34,47] },
-      { idAr: 'عيادة التركيبات والحشوات التجميلية للأسنان', idEn: 'Cosmetic Fillings & Prosthetics Clinic', nameAr: 'عيادة التركيبات والحشوات التجميلية للأسنان', nameEn: 'Cosmetic Fillings & Prosthetics Clinic', doctorIds: [34,47] },
-      { idAr: 'عيادة زراعة الأسنان', idEn: 'Dental Implants Clinic', nameAr: 'عيادة زراعة الأسنان', nameEn: 'Dental Implants Clinic', doctorIds: [34,47] },
-      { idAr: 'عيادة جراحة الوجه والفكين', idEn: 'Oral & Maxillofacial Surgery Clinic', nameAr: 'عيادة جراحة الوجه والفكين', nameEn: 'Oral & Maxillofacial Surgery Clinic', doctorIds: [34,47] },
-      { idAr: 'عيادة أمراض اللثة', idEn: 'Periodontal Diseases Clinic', nameAr: 'عيادة أمراض اللثة', nameEn: 'Periodontal Diseases Clinic', doctorIds: [4, 31, 34,47] },
-      { idAr: 'عيادة أسنان الأطفال', idEn: 'Pediatric Dentistry Clinic', nameAr: 'عيادة أسنان الأطفال', nameEn: 'Pediatric Dentistry Clinic', doctorIds: [4, 34,47, 50] },
+      {
+        idAr: 'عيادة تقويم الأسنان وعظام الوجه والفكين', idEn: 'Orthodontics, Jaw & Facial Bones Clinic',
+        nameAr: 'عيادة تقويم الأسنان وعظام الوجه والفكين', nameEn: 'Orthodontics, Jaw & Facial Bones Clinic',
+        doctorIds: [31],
+      },
+      {
+        idAr: 'عيادة التركيبات والحشوات التجميلية للأسنان', idEn: 'Cosmetic Fillings & Prosthetics Clinic',
+        nameAr: 'عيادة التركيبات والحشوات التجميلية للأسنان', nameEn: 'Cosmetic Fillings & Prosthetics Clinic',
+        doctorIds: [47],
+      },
+      {
+        idAr: 'عيادة زراعة الأسنان', idEn: 'Dental Implants Clinic',
+        nameAr: 'عيادة زراعة الأسنان', nameEn: 'Dental Implants Clinic',
+        doctorIds: [47],
+      },
+      {
+        idAr: 'عيادة جراحة الوجه والفكين', idEn: 'Oral & Maxillofacial Surgery Clinic',
+        nameAr: 'عيادة جراحة الوجه والفكين', nameEn: 'Oral & Maxillofacial Surgery Clinic',
+        // FIX: فارغة — لا يوجد جراح وجه وفكين مُدرج في البيانات حالياً
+        doctorIds: [],
+      },
+      {
+        idAr: 'عيادة أمراض اللثة', idEn: 'Periodontal Diseases Clinic',
+        nameAr: 'عيادة أمراض اللثة', nameEn: 'Periodontal Diseases Clinic',
+        doctorIds: [47],
+      },
+      {
+        idAr: 'عيادة أسنان الأطفال', idEn: 'Pediatric Dentistry Clinic',
+        nameAr: 'عيادة أسنان الأطفال', nameEn: 'Pediatric Dentistry Clinic',
+        doctorIds: [47],
+      },
+      {
+        idAr: 'عيادة علاج جذور الأسنان', idEn: 'Endodontics (Root Canal) Clinic',
+        nameAr: 'عيادة علاج جذور الأسنان', nameEn: 'Endodontics (Root Canal) Clinic',
+        doctorIds: [4, 47],
+      },
     ],
   },
+
+  // ── 16. مركز الجلدية والجراحات التجميلية والليزر ─────────────────────────
+  // FIX: أزلنا د.محمد آل سوار(23) كلياً من هذا المركز — جراح عام/أورام ≠ جلدية أو تجميل
   {
     id: 16,
     nameAr: 'مركز الجلدية والجراحات التجميلية والليزر', nameEn: 'Dermatology, Cosmetic Surgery & Laser Center',
     clinics: [
-      { idAr: 'وحدة الجلدية والتجميل والليزر', idEn: 'Dermatology, Cosmetics & Laser Unit', nameAr: 'وحدة الجلدية والتجميل والليزر', nameEn: 'Dermatology, Cosmetics & Laser Unit', doctorIds: [23] },
-      { idAr: 'وحدة الجراحات التجميلية', idEn: 'Cosmetic Surgery Unit', nameAr: 'وحدة الجراحات التجميلية', nameEn: 'Cosmetic Surgery Unit', doctorIds: [23] },
+      {
+        idAr: 'وحدة الجلدية والتجميل والليزر', idEn: 'Dermatology, Cosmetics & Laser Unit',
+        nameAr: 'وحدة الجلدية والتجميل والليزر', nameEn: 'Dermatology, Cosmetics & Laser Unit',
+        // FIX: فارغة — لا يوجد طبيب جلدية مُدرج في البيانات حالياً
+        doctorIds: [],
+      },
+      {
+        idAr: 'وحدة الجراحات التجميلية', idEn: 'Cosmetic Surgery Unit',
+        nameAr: 'وحدة الجراحات التجميلية', nameEn: 'Cosmetic Surgery Unit',
+        doctorIds: [],
+      },
     ],
   },
+
+  // ── 17. مركز أمراض وجراحات العظام ───────────────────────────────────────
+  // FIX: أزلنا د.محمد طربوش(46) من وحدة جراحة العظام للأطفال — طبيب أطفال عام ≠ جراح عظام
+  // FIX: أزلنا د.سالي سمير(50) من وحدة جراحة العظام للأطفال وأبقيناها في التأهيل فقط
   {
     id: 17,
     nameAr: 'مركز أمراض وجراحات العظام', nameEn: 'Orthopedics & Orthopedic Surgery Center',
     clinics: [
-      { idAr: 'وحدة الإصابات والكسور المعقدة للعظام والمفاصل', idEn: 'Complex Fractures & Joint Injuries Unit', nameAr: 'وحدة الإصابات والكسور المعقدة للعظام والمفاصل', nameEn: 'Complex Fractures & Joint Injuries Unit', doctorIds: [7, 29, 44] },
-      { idAr: 'وحدة استبدال المفاصل الصناعية للركبة والحوض', idEn: 'Artificial Joint Replacement (Knee & Hip) Unit', nameAr: 'وحدة استبدال المفاصل الصناعية للركبة والحوض', nameEn: 'Artificial Joint Replacement (Knee & Hip) Unit', doctorIds: [7, 29, 44] },
-      { idAr: 'وحدة الطب الرياضي ومناظير الكتف والركبة', idEn: 'Sports Medicine & Arthroscopy (Shoulder & Knee) Unit', nameAr: 'وحدة الطب الرياضي ومناظير الكتف والركبة', nameEn: 'Sports Medicine & Arthroscopy (Shoulder & Knee) Unit', doctorIds: [7, 29, 44] },
-      { idAr: 'وحدة جراحات اليد الميكروسكوبية', idEn: 'Microscopic Hand Surgery Unit', nameAr: 'وحدة جراحات اليد الميكروسكوبية', nameEn: 'Microscopic Hand Surgery Unit', doctorIds: [44] },
-      { idAr: 'وحدة جراحة العظام للأطفال', idEn: 'Pediatric Orthopedic Surgery Unit', nameAr: 'وحدة جراحة العظام للأطفال', nameEn: 'Pediatric Orthopedic Surgery Unit', doctorIds: [46, 50] },
+      {
+        idAr: 'وحدة الإصابات والكسور المعقدة للعظام والمفاصل', idEn: 'Complex Fractures & Joint Injuries Unit',
+        nameAr: 'وحدة الإصابات والكسور المعقدة للعظام والمفاصل', nameEn: 'Complex Fractures & Joint Injuries Unit',
+        doctorIds: [7, 29, 44],
+      },
+      {
+        idAr: 'وحدة استبدال المفاصل الصناعية للركبة والحوض', idEn: 'Artificial Joint Replacement (Knee & Hip) Unit',
+        nameAr: 'وحدة استبدال المفاصل الصناعية للركبة والحوض', nameEn: 'Artificial Joint Replacement (Knee & Hip) Unit',
+        doctorIds: [7, 29, 44],
+      },
+      {
+        idAr: 'وحدة الطب الرياضي ومناظير الكتف والركبة', idEn: 'Sports Medicine & Arthroscopy (Shoulder & Knee) Unit',
+        nameAr: 'وحدة الطب الرياضي ومناظير الكتف والركبة', nameEn: 'Sports Medicine & Arthroscopy (Shoulder & Knee) Unit',
+        doctorIds: [7, 29, 44],
+      },
+      {
+        idAr: 'وحدة جراحات اليد الميكروسكوبية', idEn: 'Microscopic Hand Surgery Unit',
+        nameAr: 'وحدة جراحات اليد الميكروسكوبية', nameEn: 'Microscopic Hand Surgery Unit',
+        doctorIds: [44],
+      },
+      {
+        idAr: 'وحدة جراحة العظام للأطفال', idEn: 'Pediatric Orthopedic Surgery Unit',
+        nameAr: 'وحدة جراحة العظام للأطفال', nameEn: 'Pediatric Orthopedic Surgery Unit',
+        // FIX: تأهيل الأطفال بعد الجراحة يبقى مع د.سالي سمير في مركز الرعاية الشاملة
+        doctorIds: [],
+      },
     ],
   },
 ];

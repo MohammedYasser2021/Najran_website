@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Phone, Mail, MapPin, Clock, UserCheck, ExternalLink } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, UserCheck, ExternalLink, Briefcase } from 'lucide-react';
 // @ts-ignore
 import CoverBg from '../assets/cover.jpeg';
 
@@ -33,6 +33,8 @@ const ContactUsSection: React.FC<ContactUsSectionProps> = ({ currentLang }) => {
       phone: '920002159',
       emailTitle: 'البريد الإلكتروني',
       email: 'info@najransh.sa',
+      careersTitle: 'الوظائف',
+      careersNote: 'لإرسال السيرة الذاتية والتقديم على الوظائف الشاغرة',
       workingHours: 'بوابة المريض والمواعيد',
       hours: 'السبت - الخميس: 9:00 ص - 9:00 م',
       emergency: 'الطوارئ: 24 ساعة / 7 أيام',
@@ -48,6 +50,8 @@ const ContactUsSection: React.FC<ContactUsSectionProps> = ({ currentLang }) => {
       phone: '+966 920002159',
       emailTitle: 'Email',
       email: 'info@najransh.sa',
+      careersTitle: 'Careers',
+      careersNote: 'Send your CV and apply for open positions',
       workingHours: 'Patient Gate & Appointments',
       hours: 'Saturday - Thursday: 9:00 AM - 9:00 PM',
       emergency: 'Emergency: 24/7',
@@ -58,6 +62,7 @@ const ContactUsSection: React.FC<ContactUsSectionProps> = ({ currentLang }) => {
 
   const t = content[isAr ? 'ar' : 'en'];
   const whatsappNumber = '966920002159';
+  const careersEmail = 'HR.Rec@najransh.sa';
 
   return (
     <section
@@ -169,6 +174,23 @@ const ContactUsSection: React.FC<ContactUsSectionProps> = ({ currentLang }) => {
                 >
                   {t.email}
                 </a>
+              </div>
+            </div>
+
+            {/* الوظائف */}
+            <div className="flex gap-5">
+              <div className="w-14 h-14 bg-[#1787b6]/10 rounded-2xl flex items-center justify-center flex-shrink-0">
+                <Briefcase className="w-8 h-8 text-[#1787b6]" />
+              </div>
+              <div>
+                <h3 className="font-semibold text-lg text-gray-800 mb-1">{t.careersTitle}</h3>
+                <a
+                  href={`mailto:${careersEmail}`}
+                  className="text-xl font-medium text-[#1787b6] hover:text-[#146a94] transition-colors break-words"
+                >
+                  {careersEmail}
+                </a>
+                <p className="text-sm text-gray-500 mt-1">{t.careersNote}</p>
               </div>
             </div>
 

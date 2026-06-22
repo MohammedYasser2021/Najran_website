@@ -1,8 +1,6 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, useMemo } from 'react';
 import { Search, ChevronDown, Menu, X, Phone, Mail, MapPin, Smartphone, Share2, Globe, Grid, Newspaper, GraduationCap, Award } from 'lucide-react';
-import SaudiFlag from 'country-flag-icons/react/3x2/SA';
-import UKFlag    from 'country-flag-icons/react/3x2/GB';
-import { departments } from './departmentsData';
+import { departments as departmentsData } from './departmentsData';
 
 interface MainNavbarProps {
   currentLang: string;
@@ -22,6 +20,15 @@ const MainNavbar = ({ currentLang, changeLanguage }: MainNavbarProps) => {
   const mediaHideTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const isArabic = currentLang === 'ar';
+
+  // Departments sorted alphabetically by the name shown in the current language.
+  const departments = useMemo(() => {
+    return [...departmentsData].sort((a, b) => {
+      const nameA = isArabic ? a.nameAr : a.nameEn;
+      const nameB = isArabic ? b.nameAr : b.nameEn;
+      return nameA.localeCompare(nameB, isArabic ? 'ar' : 'en');
+    });
+  }, [isArabic]);
 
   const handleDeptEnter = () => {
     if (hideTimer.current) clearTimeout(hideTimer.current);

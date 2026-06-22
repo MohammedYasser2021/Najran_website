@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Phone, Mail, MapPin, Clock, ExternalLink } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, ExternalLink, Briefcase } from 'lucide-react';
 
 // Icons from your Footer
  const YoutubeIcon = () => (
@@ -66,6 +66,7 @@ const ContactPage: React.FC<ContactPageProps> = ({ currentLang }) => {
   }, []);
 
   const whatsappNumber = '966920002159';
+  const careersEmail = 'HR.Rec@najransh.sa';
 
   return (
     <div ref={sectionRef} className="min-h-screen bg-gray-50">
@@ -190,6 +191,27 @@ const ContactPage: React.FC<ContactPageProps> = ({ currentLang }) => {
                   <p><span className="font-medium">العيادات:</span> السبت - الخميس | 09:00 ص - 09:00 م</p>
                   <p className="text-[#1787b6] font-semibold">الطوارئ: 24 ساعة / 7 أيام</p>
                 </div>
+              </div>
+            </div>
+
+            {/* Careers */}
+            <div className="flex gap-6">
+              <div className="w-14 h-14 bg-[#1787b6]/10 rounded-2xl flex items-center justify-center flex-shrink-0">
+                <Briefcase className="w-8 h-8 text-[#1787b6]" />
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold text-gray-800">
+                  {isAr ? 'الوظائف' : 'Careers'}
+                </h3>
+                <a
+                  href={`mailto:${careersEmail}`}
+                  className="text-xl font-bold text-[#1787b6] hover:text-[#146a94] transition-colors block mt-1 break-words"
+                >
+                  {careersEmail}
+                </a>
+                <p className="text-sm text-gray-500 mt-1">
+                  {isAr ? 'لإرسال السيرة الذاتية والتقديم على الوظائف الشاغرة' : 'Send your CV and apply for open positions'}
+                </p>
               </div>
             </div>
 

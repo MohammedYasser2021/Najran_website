@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, useCallback } from 'react';
 // @ts-ignore
 import MainHospital from '../assets/mainhospital.jpeg';
 // @ts-ignore
@@ -13,6 +13,8 @@ import Postn4 from '../assets/news/postn4.jpeg';
 import Postn5 from '../assets/news/postn5.jpeg';
 // @ts-ignore
 import Postn6 from '../assets/news/postn6.jpeg';
+// @ts-ignore
+import One from '../assets/news_images/1.png';
 
 interface NewsPageProps {
   currentLang: string;
@@ -91,6 +93,245 @@ const sliderNews = [
   },
 ];
 
+// News feed images — each displays full-width as a standalone post
+// To activate a post, uncomment its line
+const newsFeedImages = [
+  One,
+  // Postn1,
+  // Postn2,
+  // Postn3,
+  // Postn4,
+  // Postn5,
+  // Postn6,
+];
+
+// ── Zoomable Image Component ──
+interface ZoomableImageProps {
+  src: string;
+  alt?: string;
+}
+
+const ZoomableImage: React.FC<ZoomableImageProps> = ({ src, alt = '' }) => {
+  const [scale, setScale] = useState(1);
+  const [pos, setPos] = useState({ x: 0, y: 0 });
+  const [dragging, setDragging] = useState(false);
+  const dragStart = useRef<{ mx: number; my: number; px: number; py: number } | null>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  const MIN_SCALE = 1;
+  const MAX_SCALE = 5;
+
+  // Clamp position so image never leaves container
+  const clamp = useCallback((newScale: number, newX: number, newY: number) => {
+    if (!containerRef.current) return { x: newX, y: newY };
+    const { width, height } = containerRef.current.getBoundingClientRect();
+    const maxX = (width * (newScale - 1)) / 2;
+    const maxY = (height * (newScale - 1)) / 2;
+    return {
+      x: Math.min(maxX, Math.max(-maxX, newX)),
+      y: Math.min(maxY, Math.max(-maxY, newY)),
+    };
+  }, []);
+
+  // Mouse wheel zoom
+  const onWheel = useCallback((e: React.WheelEvent) => {
+    e.preventDefault();
+    setScale(prev => {
+      const next = Math.min(MAX_SCALE, Math.max(MIN_SCALE, prev - e.deltaY * 0.001));
+      setPos(p => clamp(next, p.x, p.y));
+      return next;
+    });
+  }, [clamp]);
+
+  // Mouse drag
+  const onMouseDown = useCallback((e: React.MouseEvent) => {
+    if (scale === 1) return;
+    setDragging(true);
+    dragStart.current = { mx: e.clientX, my: e.clientY, px: pos.x, py: pos.y };
+  }, [scale, pos]);
+
+  const onMouseMove = useCallback((e: React.MouseEvent) => {
+    if (!dragging || !dragStart.current) return;
+    const dx = e.clientX - dragStart.current.mx;
+    const dy = e.clientY - dragStart.current.my;
+    const clamped = clamp(scale, dragStart.current.px + dx, dragStart.current.py + dy);
+    setPos(clamped);
+  }, [dragging, scale, clamp]);
+
+  const onMouseUp = useCallback(() => {
+    setDragging(false);
+    dragStart.current = null;
+  }, []);
+
+  // Touch pinch zoom + drag
+  const lastTouchDist = useRef<number | null>(null);
+  const lastTouchMid = useRef<{ x: number; y: number } | null>(null);
+
+  const getTouchDist = (touches: React.TouchList) => {
+    const dx = touches[0].clientX - touches[1].clientX;
+    const dy = touches[0].clientY - touches[1].clientY;
+    return Math.sqrt(dx * dx + dy * dy);
+  };
+
+  const onTouchStart = useCallback((e: React.TouchEvent) => {
+    if (e.touches.length === 2) {
+      lastTouchDist.current = getTouchDist(e.touches);
+      lastTouchMid.current = {
+        x: (e.touches[0].clientX + e.touches[1].clientX) / 2,
+        y: (e.touches[0].clientY + e.touches[1].clientY) / 2,
+      };
+    } else if (e.touches.length === 1 && scale > 1) {
+      dragStart.current = { mx: e.touches[0].clientX, my: e.touches[0].clientY, px: pos.x, py: pos.y };
+    }
+  }, [scale, pos]);
+
+  const onTouchMove = useCallback((e: React.TouchEvent) => {
+    e.preventDefault();
+    if (e.touches.length === 2 && lastTouchDist.current !== null) {
+      const newDist = getTouchDist(e.touches);
+      const ratio = newDist / lastTouchDist.current;
+      setScale(prev => {
+        const next = Math.min(MAX_SCALE, Math.max(MIN_SCALE, prev * ratio));
+        setPos(p => clamp(next, p.x, p.y));
+        return next;
+      });
+      lastTouchDist.current = newDist;
+    } else if (e.touches.length === 1 && dragStart.current) {
+      const dx = e.touches[0].clientX - dragStart.current.mx;
+      const dy = e.touches[0].clientY - dragStart.current.my;
+      const clamped = clamp(scale, dragStart.current.px + dx, dragStart.current.py + dy);
+      setPos(clamped);
+    }
+  }, [scale, clamp]);
+
+  const onTouchEnd = useCallback(() => {
+    lastTouchDist.current = null;
+    lastTouchMid.current = null;
+    dragStart.current = null;
+  }, []);
+
+  const resetZoom = () => {
+    setScale(1);
+    setPos({ x: 0, y: 0 });
+  };
+
+  const zoomIn = () => {
+    setScale(prev => {
+      const next = Math.min(MAX_SCALE, prev + 0.5);
+      setPos(p => clamp(next, p.x, p.y));
+      return next;
+    });
+  };
+
+  const zoomOut = () => {
+    setScale(prev => {
+      const next = Math.max(MIN_SCALE, prev - 0.5);
+      if (next === MIN_SCALE) setPos({ x: 0, y: 0 });
+      else setPos(p => clamp(next, p.x, p.y));
+      return next;
+    });
+  };
+
+  return (
+    <div style={{ position: 'relative', width: '100%', background: '#fff' }}>
+
+      {/* Zoom Controls */}
+      <div style={{
+        position: 'absolute', top: '12px', right: '12px', zIndex: 10,
+        display: 'flex', flexDirection: 'column', gap: '6px',
+      }}>
+        {/* Zoom In */}
+        <button onClick={zoomIn} title="Zoom In" style={{
+          width: '36px', height: '36px', borderRadius: '50%', border: 'none',
+          background: 'rgba(23,135,182,0.88)', color: '#fff', fontSize: '20px',
+          cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center',
+          boxShadow: '0 2px 8px rgba(0,0,0,0.18)', backdropFilter: 'blur(4px)',
+          fontWeight: '700', lineHeight: 1,
+        }}>+</button>
+
+        {/* Zoom Out */}
+        <button onClick={zoomOut} title="Zoom Out" style={{
+          width: '36px', height: '36px', borderRadius: '50%', border: 'none',
+          background: 'rgba(23,135,182,0.88)', color: '#fff', fontSize: '22px',
+          cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center',
+          boxShadow: '0 2px 8px rgba(0,0,0,0.18)', backdropFilter: 'blur(4px)',
+          fontWeight: '700', lineHeight: 1,
+        }}>−</button>
+
+        {/* Reset */}
+        {scale !== 1 && (
+          <button onClick={resetZoom} title="Reset" style={{
+            width: '36px', height: '36px', borderRadius: '50%', border: 'none',
+            background: 'rgba(255,255,255,0.92)', color: '#1787b6', fontSize: '14px',
+            cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center',
+            boxShadow: '0 2px 8px rgba(0,0,0,0.18)', backdropFilter: 'blur(4px)',
+            fontWeight: '700',
+          }}>↺</button>
+        )}
+      </div>
+
+      {/* Scale Indicator */}
+      {scale !== 1 && (
+        <div style={{
+          position: 'absolute', bottom: '12px', right: '12px', zIndex: 10,
+          background: 'rgba(13,33,55,0.75)', color: '#fff',
+          fontSize: '11px', fontWeight: '700', padding: '4px 10px',
+          borderRadius: '20px', backdropFilter: 'blur(4px)',
+        }}>
+          {Math.round(scale * 100)}%
+        </div>
+      )}
+
+      {/* Hint */}
+      {scale === 1 && (
+        <div style={{
+          position: 'absolute', bottom: '12px', left: '50%', transform: 'translateX(-50%)',
+          zIndex: 10, background: 'rgba(23,135,182,0.75)', color: '#fff',
+          fontSize: '11px', fontWeight: '600', padding: '4px 14px',
+          borderRadius: '20px', backdropFilter: 'blur(4px)', whiteSpace: 'nowrap',
+          pointerEvents: 'none',
+        }}>
+          🔍 Scroll to zoom · Drag to pan
+        </div>
+      )}
+
+      {/* Image Container */}
+      <div
+        ref={containerRef}
+        onWheel={onWheel}
+        onMouseDown={onMouseDown}
+        onMouseMove={onMouseMove}
+        onMouseUp={onMouseUp}
+        onMouseLeave={onMouseUp}
+        onTouchStart={onTouchStart}
+        onTouchMove={onTouchMove}
+        onTouchEnd={onTouchEnd}
+        style={{
+          overflow: 'hidden',
+          cursor: scale > 1 ? (dragging ? 'grabbing' : 'grab') : 'zoom-in',
+          userSelect: 'none',
+          width: '100%',
+        }}
+      >
+        <img
+          src={src}
+          alt={alt}
+          draggable={false}
+          style={{
+            width: '100%',
+            height: 'auto',
+            display: 'block',
+            transform: `scale(${scale}) translate(${pos.x / scale}px, ${pos.y / scale}px)`,
+            transformOrigin: 'center center',
+            transition: dragging ? 'none' : 'transform 0.15s ease',
+            willChange: 'transform',
+          }}
+        />
+      </div>
+    </div>
+  );
+};
+
 const NewsPage: React.FC<NewsPageProps> = ({ currentLang }) => {
   const isAr = currentLang === 'ar';
   const [isVisible, setIsVisible] = useState(false);
@@ -107,7 +348,6 @@ const NewsPage: React.FC<NewsPageProps> = ({ currentLang }) => {
     return () => { if (sectionRef.current) observer.unobserve(sectionRef.current); };
   }, []);
 
-  // Auto-play slider
   useEffect(() => {
     timerRef.current = setInterval(() => {
       setCurrentSlide(prev => (prev + 1) % sliderNews.length);
@@ -125,17 +365,14 @@ const NewsPage: React.FC<NewsPageProps> = ({ currentLang }) => {
 
   const prev = () => goTo((currentSlide - 1 + sliderNews.length) % sliderNews.length);
   const next = () => goTo((currentSlide + 1) % sliderNews.length);
-
   const slide = sliderNews[currentSlide];
 
   return (
     <div ref={sectionRef} className="min-h-screen bg-gray-50" dir={isAr ? 'rtl' : 'ltr'}
       style={{ fontFamily: "'Cairo','Tajawal',sans-serif" }}>
 
-      {/* ── Slider ── force LTR so absolute positions are never flipped by RTL dir */}
+      {/* ── Slider ── */}
       <div dir="ltr" style={{ position: 'relative', width: '100%', height: 'clamp(340px, 55vw, 580px)', overflow: 'hidden', background: '#0d2137' }}>
-
-        {/* Slide Image */}
         <img
           key={slide.id}
           src={slide.img}
@@ -143,31 +380,24 @@ const NewsPage: React.FC<NewsPageProps> = ({ currentLang }) => {
           style={{
             position: 'absolute', inset: 0, width: '100%', height: '100%',
             objectFit: 'cover', objectPosition: 'top',
-            transition: 'opacity 0.6s ease',
-            opacity: 1,
+            transition: 'opacity 0.6s ease', opacity: 1,
           }}
         />
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to right, rgba(0,0,0,0.75) 40%, rgba(0,0,0,0.2) 100%)' }} />
 
-        {/* Tags */}
         <div style={{ position: 'absolute', top: '28px', [isAr ? 'left' : 'right']: '28px', display: 'flex', gap: '8px' }}>
           {slide.tags.map(tag => (
             <span key={tag} style={{ color: '#fff', fontSize: '11px', fontWeight: '700', letterSpacing: '1px', opacity: 0.85 }}>{tag}</span>
           ))}
         </div>
 
-        {/* Text Content */}
         <div style={{
           position: 'absolute', bottom: '80px',
           [isAr ? 'right' : 'left']: 'clamp(20px, 5vw, 60px)',
           maxWidth: 'clamp(280px, 55%, 620px)',
           textAlign: isAr ? 'right' : 'left',
         }}>
-          <h2 style={{
-            color: '#fff', fontSize: 'clamp(18px, 2.8vw, 32px)',
-            fontWeight: '800', lineHeight: '1.45', marginBottom: '14px',
-            textShadow: '0 2px 12px rgba(0,0,0,0.5)',
-          }}>
+          <h2 style={{ color: '#fff', fontSize: 'clamp(18px, 2.8vw, 32px)', fontWeight: '800', lineHeight: '1.45', marginBottom: '14px', textShadow: '0 2px 12px rgba(0,0,0,0.5)' }}>
             {isAr ? slide.titleAr : slide.titleEn}
           </h2>
           <p style={{ color: 'rgba(255,255,255,0.8)', fontSize: 'clamp(12px, 1.5vw, 15px)', lineHeight: '1.7', fontWeight: '500' }}>
@@ -178,18 +408,13 @@ const NewsPage: React.FC<NewsPageProps> = ({ currentLang }) => {
           </p>
         </div>
 
-        {/* Arrows — always LTR direction, hidden on mobile */}
         <style>{`
-          @media (max-width: 640px) {
-            .slider-arrow { display: none !important; }
-          }
+          @media (max-width: 640px) { .slider-arrow { display: none !important; } }
+          @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(1.4); } }
         `}</style>
 
         {(['prev', 'next'] as const).map(dir => (
-          <button
-            key={dir}
-            className="slider-arrow"
-            onClick={dir === 'prev' ? prev : next}
+          <button key={dir} className="slider-arrow" onClick={dir === 'prev' ? prev : next}
             style={{
               position: 'absolute', top: '50%', transform: 'translateY(-50%)',
               [dir === 'prev' ? 'left' : 'right']: '16px',
@@ -206,28 +431,23 @@ const NewsPage: React.FC<NewsPageProps> = ({ currentLang }) => {
           </button>
         ))}
 
-        {/* Dots */}
         <div style={{ position: 'absolute', bottom: '24px', left: '50%', transform: 'translateX(-50%)', display: 'flex', gap: '8px' }}>
           {sliderNews.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => goTo(i)}
-              style={{
-                width: i === currentSlide ? '24px' : '8px', height: '8px',
-                borderRadius: '4px', border: 'none', cursor: 'pointer',
-                background: i === currentSlide ? '#1787b6' : 'rgba(255,255,255,0.4)',
-                transition: 'all 0.3s ease', padding: 0,
-              }}
-            />
+            <button key={i} onClick={() => goTo(i)} style={{
+              width: i === currentSlide ? '24px' : '8px', height: '8px',
+              borderRadius: '4px', border: 'none', cursor: 'pointer',
+              background: i === currentSlide ? '#1787b6' : 'rgba(255,255,255,0.4)',
+              transition: 'all 0.3s ease', padding: 0,
+            }} />
           ))}
         </div>
       </div>
 
-      {/* ── News Cards Grid ── */}
-      <section style={{ padding: 'clamp(48px, 7vw, 96px) 0', background: '#f8fbfd' }}>
-        <div className="max-w-6xl mx-auto px-4">
+      {/* ── News Feed ── */}
+      <section style={{ padding: 'clamp(48px, 7vw, 96px) 0', background: '#f0f6fa' }}>
+        <div style={{ maxWidth: '860px', margin: '0 auto', padding: '0 16px' }}>
 
-          {/* Section Header with title + ECG pulse */}
+          {/* Section Header */}
           <div style={{ textAlign: 'center', marginBottom: '52px' }}>
             <span style={{
               display: 'inline-block', background: '#e8f4fb', color: '#1787b6',
@@ -236,16 +456,12 @@ const NewsPage: React.FC<NewsPageProps> = ({ currentLang }) => {
             }}>
               {isAr ? 'أحدث الأخبار' : 'Latest News'}
             </span>
-
             <h1 className="text-5xl md:text-6xl font-bold mb-4 tracking-tight" style={{ color: '#0d2137' }}>
               {isAr ? 'المدونة والأخبار' : 'Blog & News'}
             </h1>
-
             <p style={{ fontSize: '18px', color: '#4a6d85', marginBottom: '20px', fontWeight: '500' }}>
               {isAr ? 'آخر أخبار ومستجدات مستشفى تخصصي نجران' : 'Latest news and updates from Najran Specialist Hospital'}
             </p>
-
-            {/* ECG Pulse Animation */}
             <div style={{ display: 'flex', justifyContent: 'center' }}>
               <svg viewBox="0 0 300 60" width="320" height="60" xmlns="http://www.w3.org/2000/svg"
                 className={`transition-opacity duration-700 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
@@ -263,60 +479,40 @@ const NewsPage: React.FC<NewsPageProps> = ({ currentLang }) => {
             </div>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '24px' }}>
-            {sliderNews.map((item) => (
+          {/* News Posts */}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '40px' }}>
+            {newsFeedImages.map((img, index) => (
               <div
-                key={item.id}
+                key={index}
                 style={{
-                  background: '#fff', borderRadius: '20px',
-                  border: '1px solid #e3eff7',
-                  boxShadow: '0 2px 16px rgba(23,135,182,0.07)',
-                  overflow: 'hidden', cursor: 'pointer',
-                  transition: 'transform 0.25s, box-shadow 0.25s',
-                }}
-                onMouseEnter={e => {
-                  (e.currentTarget as HTMLElement).style.transform = 'translateY(-6px)';
-                  (e.currentTarget as HTMLElement).style.boxShadow = '0 12px 36px rgba(23,135,182,0.15)';
-                }}
-                onMouseLeave={e => {
-                  (e.currentTarget as HTMLElement).style.transform = 'translateY(0)';
-                  (e.currentTarget as HTMLElement).style.boxShadow = '0 2px 16px rgba(23,135,182,0.07)';
+                  width: '100%',
+                  borderRadius: '20px',
+                  overflow: 'hidden',
+                  border: '3px solid #1787b6',
+                  boxShadow: '0 4px 32px rgba(23,135,182,0.13), 0 0 0 6px rgba(23,135,182,0.07)',
+                  background: '#fff',
                 }}
               >
-                {/* Image */}
-                <div style={{ width: '100%', height: '200px', overflow: 'hidden' }}>
-                  <img src={item.img} alt={isAr ? item.titleAr : item.titleEn}
-                    style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top', transition: 'transform 0.4s ease' }}
-                    onMouseEnter={e => (e.currentTarget.style.transform = 'scale(1.05)')}
-                    onMouseLeave={e => (e.currentTarget.style.transform = 'scale(1)')}
-                  />
+                {/* News label strip */}
+                <div style={{
+                  background: 'linear-gradient(90deg, #1787b6, #0d5c82)',
+                  padding: '8px 20px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                }}>
+                  <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#fff', display: 'inline-block', animation: 'pulse 1.5s infinite' }} />
+                  <span style={{ color: '#fff', fontSize: '12px', fontWeight: '700', letterSpacing: '1.5px' }}>
+                    {isAr ? 'خبر' : 'NEWS'}
+                  </span>
                 </div>
 
-                {/* Tags */}
-                <div style={{ padding: '12px 20px 0', display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
-                  {item.tags.map(tag => (
-                    <span key={tag} style={{
-                      fontSize: '10px', fontWeight: '700', color: '#1787b6',
-                      background: '#e8f4fb', borderRadius: '50px', padding: '2px 10px', letterSpacing: '0.5px',
-                    }}>{tag}</span>
-                  ))}
-                </div>
-
-                {/* Body */}
-                <div style={{ padding: '12px 20px 20px' }}>
-                  <p style={{ fontSize: '11px', color: '#94a3b8', fontWeight: '600', marginBottom: '8px' }}>
-                    {new Date(item.date).toLocaleDateString(isAr ? 'ar-SA' : 'en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
-                  </p>
-                  <h3 style={{ fontSize: 'clamp(14px, 1.6vw, 16px)', fontWeight: '800', color: '#0d2137', lineHeight: '1.5', marginBottom: '10px' }}>
-                    {isAr ? item.titleAr : item.titleEn}
-                  </h3>
-                  <p style={{ fontSize: '13px', color: '#4a6d85', lineHeight: '1.75', fontWeight: '500' }}>
-                    {isAr ? item.summaryAr : item.summaryEn}
-                  </p>
-                </div>
+                {/* Zoomable Image */}
+                <ZoomableImage src={img} alt={`news-${index + 1}`} />
               </div>
             ))}
           </div>
+
         </div>
       </section>
     </div>

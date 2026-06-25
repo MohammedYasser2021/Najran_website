@@ -294,8 +294,8 @@ const ReservationSection = ({ currentLang }) => {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-slate-900/50 via-slate-800/40 to-slate-900/50" />
 
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-4">
-          <div className="text-center mb-12">
+        <div className="relative z-10 w-full px-6 md:px-10 xl:px-16 2xl:px-20">
+          <div className="text-center mb-12 w-full">
             <p className="inline-block text-white text-xl md:text-2xl font-medium px-8 py-3 rounded-full"
               style={{
                 background: 'linear-gradient(135deg, rgba(23,135,182,0.35), rgba(13,33,55,0.5))',

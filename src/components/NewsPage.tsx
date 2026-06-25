@@ -15,6 +15,8 @@ import Postn5 from '../assets/news/postn5.jpeg';
 import Postn6 from '../assets/news/postn6.jpeg';
 // @ts-ignore
 import One from '../assets/news_images/1.png';
+// @ts-ignore
+import Two from '../assets/news_images/2.png';
 
 interface NewsPageProps {
   currentLang: string;
@@ -94,16 +96,7 @@ const sliderNews = [
 ];
 
 // News feed images — each displays full-width as a standalone post
-// To activate a post, uncomment its line
-const newsFeedImages = [
-  One,
-  // Postn1,
-  // Postn2,
-  // Postn3,
-  // Postn4,
-  // Postn5,
-  // Postn6,
-];
+
 
 // ── Zoomable Image Component ──
 interface ZoomableImageProps {
@@ -334,6 +327,7 @@ const ZoomableImage: React.FC<ZoomableImageProps> = ({ src, alt = '' }) => {
 
 const NewsPage: React.FC<NewsPageProps> = ({ currentLang }) => {
   const isAr = currentLang === 'ar';
+  const newsFeedImages = [isAr ? One : Two];
   const [isVisible, setIsVisible] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
   const sectionRef = useRef<HTMLDivElement>(null);

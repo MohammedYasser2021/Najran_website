@@ -15,9 +15,22 @@ import vid39 from '../assets/doctors/vid39.mp4';
 // @ts-ignore
 import vid48 from '../assets/doctors/vid48.mp4';
 // @ts-ignore
+import vid49 from '../assets/doctors/vid49.mp4';
+// @ts-ignore
 import vid50 from '../assets/doctors/vid50.mp4';
 // @ts-ignore
 import vid46 from '../assets/doctors/vid46.mp4';
+// @ts-ignore
+import vid27 from '../assets/doctors/vid27.mp4';
+// @ts-ignore
+import vid18 from '../assets/doctors/vid18.mp4';
+// @ts-ignore
+import vid7 from '../assets/doctors/vid7.mp4';
+// @ts-ignore
+import vid19 from '../assets/doctors/vid19.mp4';
+// @ts-ignore
+import vid17 from '../assets/doctors/vid17.mp4';
+
 
 // @ts-ignore
 import img1 from '../assets/doctors/1.png';
@@ -171,12 +184,18 @@ const doctorImages = [
 // Map doctor id → video src (only doctors that HAVE a video)
 const doctorVideos: Record<number, string> = {
   5: vid5,
+  7: vid7,
+  17: vid17,
+  18: vid18,
+  19: vid19,
   20: vid20, 
+  27: vid27, 
   36: vid36,
   39: vid39, 
   43: vid43,
   46: vid46,
   48: vid48,
+  49: vid49,
   50: vid50,
 };
 

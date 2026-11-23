@@ -209,11 +209,11 @@ Together, we restore lives.`,
                     {/* Image block */}
           <div className="lg:w-1/2">
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-              <img
-                src={CeoImg}
-                alt="Hospital"
-                className="w-full h-[900px] object-cover"
-              />
+             <img
+  src={CeoImg}
+  alt="Hospital"
+  className="w-full h-[900px] object-cover object-[55%_center] lg:object-center"
+/>
               <div className="absolute inset-0 bg-gradient-to-t from-[#1787b6]/20 to-transparent" />
             </div>
           </div>

@@ -7,14 +7,14 @@ interface VideosSectionProps {
 
 const content = {
   ar: {
-    sectionLabel: 'عدسة مستشفى تخصصي نجران',
+    sectionLabel: 'عدسة تخصصي نجران',
     subtitle: 'لقاءات وحملات توعوية ومبادرات من قلب المستشفى',
     nowPlaying: 'يعرض الآن',
     playlist: 'قائمة الفيديوهات',
     of: 'من',
   },
   en: {
-    sectionLabel: 'Specialized Najran Hospital Lens',
+    sectionLabel: 'Najran Lens',
     subtitle: 'Interviews, awareness campaigns and initiatives from inside the hospital',
     nowPlaying: 'Now playing',
     playlist: 'Playlist',
@@ -46,18 +46,29 @@ const PlayIcon = ({ size = 30 }: { size?: number }) => (
 
 const Thumb: React.FC<{
   src: string;
+  poster?: string;
   onDuration?: (d: number) => void;
-  style?: React.CSSProperties;
-}> = ({ src, onDuration, style }) => {
+  fit?: 'cover' | 'contain';
+}> = ({ src, poster, onDuration, fit = 'cover' }) => {
   const yt = getYouTubeId(src);
-  if (yt) {
+  const base: React.CSSProperties = { width: '100%', height: '100%', objectFit: fit, objectPosition: 'center 20%' };
+
+  // لو فيه صورة غلاف (poster) بنستخدمها — أخف وأسرع بكتير من تحميل الفيديو نفسه
+  if (poster || yt) {
     return (
-      <img
-        src={`https://i.ytimg.com/vi/${yt}/hqdefault.jpg`}
-        alt=""
-        loading="lazy"
-        style={{ width: '100%', height: '100%', objectFit: 'cover', ...style }}
-      />
+      <>
+        <img src={poster || `https://i.ytimg.com/vi/${yt}/hqdefault.jpg`} alt="" loading="lazy" style={base} />
+        {/* المدة: بنجيبها من الميتاداتا بدون ما نحمّل الفيديو كله */}
+        {!yt && onDuration && (
+          <video
+            src={src}
+            preload="metadata"
+            muted
+            onLoadedMetadata={(e) => onDuration(e.currentTarget.duration)}
+            style={{ display: 'none' }}
+          />
+        )}
+      </>
     );
   }
   return (
@@ -67,7 +78,7 @@ const Thumb: React.FC<{
       muted
       playsInline
       onLoadedMetadata={(e) => onDuration && onDuration(e.currentTarget.duration)}
-      style={{ width: '100%', height: '100%', objectFit: 'cover', pointerEvents: 'none', ...style }}
+      style={{ ...base, pointerEvents: 'none' }}
     />
   );
 };
@@ -214,7 +225,7 @@ const VideosSection: React.FC<VideosSectionProps> = ({ currentLang }) => {
                   aria-label="Play"
                   style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', border: 'none', padding: 0, cursor: 'pointer', background: '#000' }}
                 >
-                  <Thumb src={cur.video} />
+                  <Thumb src={cur.video} poster={cur.poster} fit="contain" />
                   <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(13,33,55,0.65), rgba(13,33,55,0.1) 60%)' }} />
                   <span
                     style={{
@@ -288,7 +299,7 @@ const VideosSection: React.FC<VideosSectionProps> = ({ currentLang }) => {
                     }}
                   >
                     <div style={{ position: 'relative', flex: '0 0 128px', aspectRatio: '16 / 9', borderRadius: 10, overflow: 'hidden', background: '#000' }}>
-                      <Thumb src={v.video} onDuration={(d) => setDurations((p) => ({ ...p, [String(v.id)]: d }))} />
+                      <Thumb src={v.video} poster={v.poster} onDuration={(d) => setDurations((p) => ({ ...p, [String(v.id)]: d }))} />
                       <span style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'rgba(0,0,0,0.25)', color: '#fff' }}>
                         <PlayIcon size={22} />
                       </span>

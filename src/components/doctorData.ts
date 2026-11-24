@@ -454,7 +454,7 @@ export const doctors: Doctor[] = [
   ],
 },
 {
-  id: 56, imgFile: '56.png',
+  id: 56, imgFile: '56.PNG',
   nameAr: 'عفيص دكام آل صليع', nameEn: 'Afees Dakam Al-Sulei',
   specialtyAr: 'استشاري جراحة الأوعية الدموية والقسطرة المتقدمة وجراحة عامة ومناظير',
   specialtyEn: 'Consultant Vascular Surgery & Advanced Catheterization, and General & Laparoscopic Surgery',

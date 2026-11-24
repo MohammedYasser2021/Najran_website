@@ -131,7 +131,7 @@ import img51 from '../assets/doctors/51.jpeg';
 // @ts-ignore
 import img52 from '../assets/doctors/52.jpeg';
 // @ts-ignore
-import img56 from '../assets/doctors/56.png';
+import img56 from '../assets/doctors/56.PNG';
 
 interface DoctorsProps {
   currentLang: string;

@@ -2,11 +2,10 @@
 
 import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { PLACEHOLDER_IMG } from './doctorData';
 
 // @ts-ignore
 import img1 from '../assets/doctors/1.png';
-// @ts-ignore
-import img3 from '../assets/doctors/3.png';
 // @ts-ignore
 import img4 from '../assets/doctors/4.png';
 // @ts-ignore
@@ -21,8 +20,6 @@ import img8 from '../assets/doctors/8.png';
 import img9 from '../assets/doctors/9.png';
 // @ts-ignore
 import img10 from '../assets/doctors/10.png';
-// @ts-ignore
-import img11 from '../assets/doctors/11.png';
 // @ts-ignore
 import img12 from '../assets/doctors/12.png';
 // @ts-ignore
@@ -60,8 +57,6 @@ import img30 from '../assets/doctors/30.png';
 // @ts-ignore
 import img31 from '../assets/doctors/31.png';
 // @ts-ignore
-import img32 from '../assets/doctors/32.png';
-// @ts-ignore
 import img33 from '../assets/doctors/33.png';
 // @ts-ignore
 import img34 from '../assets/doctors/34.png';
@@ -75,12 +70,6 @@ import img37 from '../assets/doctors/37.png';
 import img38 from '../assets/doctors/38.png';
 // @ts-ignore
 import img39 from '../assets/doctors/39.png';
-// @ts-ignore
-import img40 from '../assets/doctors/40.png';
-// @ts-ignore
-import img41 from '../assets/doctors/41.PNG';
-// @ts-ignore
-import img42 from '../assets/doctors/42.PNG';
 // @ts-ignore
 import img43 from '../assets/doctors/43.PNG';
 // @ts-ignore
@@ -97,6 +86,12 @@ import img48 from '../assets/doctors/48.png';
 import img49 from '../assets/doctors/49.png';
 // @ts-ignore
 import img50 from '../assets/doctors/50.png';
+// @ts-ignore
+import img51 from '../assets/doctors/51.jpeg';
+// @ts-ignore
+import img52 from '../assets/doctors/52.jpeg';
+// @ts-ignore
+import img56 from '../assets/doctors/56.png';
 
 // ─── Inline doctor data ───────────────────────────────────────────────────────
 const WHATSAPP_NUMBER = '920002159';
@@ -110,15 +105,6 @@ const doctorsData = [
     specialtyEn: 'Psychiatry Senior Registrar',
     detailsAr: ['تشخيص وعلاج الاكتئاب واضطرابات المزاج','تشخيص وعلاج القلق ونوبات الهلع','العلاج النفسي السلوكي والمعرفي','متابعة الاضطرابات النفسية لدى البالغين والمراهقين','علاج اضطرابات النوم والتوتر النفسي','التعامل مع الضغوط النفسية والصدمات','تشخيص وعلاج الوسواس القهري واضطرابات الشخصية'],
     detailsEn: ['Diagnosis & Treatment of Depression & Mood Disorders','Diagnosis & Treatment of Anxiety & Panic Disorders','Cognitive Behavioural Therapy (CBT)','Mental Health Care for Adults & Adolescents','Sleep Disorders & Stress Management','Psychological Trauma & Emotional Support','Obsessive-Compulsive & Personality Disorders Treatment'],
-  },
-  {
-    id: 3, src: img3,
-    nameAr: 'محمد المغربي',
-    nameEn: 'Mohammed Al-Maghribi',
-    specialtyAr: 'استشاري أنف وأذن وحنجرة',
-    specialtyEn: 'ENT Consultant',
-    detailsAr: ['تشخيص وعلاج التهابات الأنف والأذن والحنجرة','علاج حساسية الأنف والجيوب الأنفية','تشخيص وعلاج مشاكل السمع وطنين الأذن','علاج التهابات اللوزتين والحنجرة','تنظير الأنف والحنجرة وتشخيص الحالات المزمنة','علاج اضطرابات التوازن والدوخة','متابعة حالات الشخير وانقطاع التنفس أثناء النوم'],
-    detailsEn: ['Diagnosis & Treatment of Ear, Nose & Throat Infections','Allergic Rhinitis & Sinusitis Management','Hearing Problems & Tinnitus Treatment','Tonsillitis & Throat Disorders Treatment','Nasal & Laryngeal Endoscopy for Chronic Conditions','Balance Disorders & Vertigo Management','Snoring & Sleep Apnoea Follow-up'],
   },
   {
     id: 4, src: img4,
@@ -168,13 +154,6 @@ const doctorsData = [
     specialtyAr: 'أخصائي أول المخ والأعصاب', specialtyEn: 'Senior Neurologist',
     detailsAr: ['تشخيص وعلاج الصداع النصفي والصداع المزمن','متابعة وعلاج مرضى الصرع والتشنجات','تشخيص وعلاج الجلطات الدماغية والسكتات','علاج اضطرابات الأعصاب الطرفية والتنميل','متابعة أمراض الذاكرة والزهايمر','تشخيص وعلاج اضطرابات الحركة والرعشة','متابعة حالات التصلب المتعدد وأمراض الجهاز العصبي'],
     detailsEn: ['Diagnosis & Treatment of Migraine & Chronic Headaches','Epilepsy & Seizure Disorders Management','Stroke & Cerebrovascular Disease Treatment','Peripheral Neuropathy & Numbness Management',"Memory Disorders & Alzheimer's Disease Follow-up",'Movement Disorders & Tremor Treatment','Multiple Sclerosis & Neurological Diseases Care'],
-  },
-  {
-    id: 11, src: img11,
-    nameAr: 'محمد حبوس', nameEn: 'Muhammad Habous',
-    specialtyAr: 'إستشاني جراحات المسالك البولية', specialtyEn: 'Urology Consultant',
-    detailsAr: ['تشخيص وعلاج حصوات الكلى والمسالك البولية','علاج التهابات المسالك البولية المتكررة','متابعة وعلاج تضخم البروستاتا','علاج مشاكل السلس البولي واضطرابات التبول','تشخيص وعلاج العقم وضعف الخصوبة لدى الرجال','جراحات المسالك البولية بالمنظار','متابعة أمراض الكلى والمثانة والجهاز البولي'],
-    detailsEn: ['Kidney Stones & Urinary Tract Diseases Treatment','Recurrent Urinary Tract Infections Management','Benign Prostatic Enlargement Treatment','Urinary Incontinence & Voiding Disorders Care','Male Infertility & Reproductive Health Management','Minimally Invasive Urological Endoscopic Surgery','Kidney, Bladder & Urinary System Follow-up'],
   },
   {
     id: 12, src: img12,
@@ -303,13 +282,6 @@ const doctorsData = [
     detailsEn: ['Treatment of Simple & Complex Cases','Early Treatment of Jaw Deformities','Pre-Implant Orthodontics for Seniors','Surgical Orthodontics at All Levels','Clear Aligners (Invisalign)'],
   },
   {
-    id: 32, src: img32,
-    nameAr: 'علي آل مسعد', nameEn: 'Ali Al Massad',
-    specialtyAr: 'استشاري الطب الباطني وأمراض الجهاز الهضمي والكبد', specialtyEn: 'Consultant Gastroenterology & Hepatology',
-    detailsAr: ['تشخيص وعلاج أمراض الجهاز الهضمي المزمنة','علاج أمراض الكبد والتهاب الكبد الفيروسي','تشخيص وعلاج القولون العصبي واضطرابات الهضم','متابعة حالات التليف الكبدي وأمراض المرارة','تنظير الجهاز الهضمي العلوي والسفلي','علاج قرحة المعدة وجرثومة المعدة','متابعة أمراض البنكرياس والقنوات الصفراوية'],
-    detailsEn: ['Diagnosis & Treatment of Chronic Gastrointestinal Diseases','Liver Diseases & Viral Hepatitis Management','Irritable Bowel Syndrome & Digestive Disorders Care','Liver Fibrosis & Gallbladder Diseases Follow-up','Upper & Lower Gastrointestinal Endoscopy','Peptic Ulcer & H. Pylori Treatment','Pancreatic & Biliary Tract Diseases Management'],
-  },
-  {
     id: 33, src: img33,
     nameAr: 'سالي سليمان', nameEn: 'Sally Suleiman',
     specialtyAr: 'أخصائي أول الأمراض الصدرية والحساسية', specialtyEn: 'Senior Pulmonology and Allergy Specialist',
@@ -357,27 +329,6 @@ const doctorsData = [
     specialtyAr: 'استشاري أمراض وجراحات المسالك البولية', specialtyEn: 'Urology & Urological Surgery Consultant',
     detailsAr: ['علاج التهاب وتضخم البروستاتا','علاج البروستاتا بالتبخير (Rezum)','تشخيص واستئصال أورام المثانة بالمنظار','تشخيص وعلاج حصوات الكلى والمسالك البولية بالليزر','علاج سلس البول وضعف الوظيفة البولية'],
     detailsEn: ['Prostatitis & Benign Prostatic Hyperplasia (BPH) Treatment','Prostate Steam Therapy (Rezum)','Endoscopic Diagnosis & Resection of Bladder Tumours','Laser Treatment of Kidney & Urinary Tract Stones','Urinary Incontinence & Bladder Dysfunction'],
-  },
-  {
-    id: 40, src: img40,
-    nameAr: 'احمد العزب', nameEn: 'Ahmed Al-Azzab',
-    specialtyAr: 'اخصائي أول الجهاز الهضمي والمناظير', specialtyEn: 'Senior Gastroenterology & Endoscopy Specialist',
-    detailsAr: ['تشخيص أمراض الكبد (تليف الكبد والفيروسات الكبدية)','تشخيص وعلاج أمراض البنكرياس','تنظير الجهاز الهضمي العلوي','تنظير القولون وتشخيص أمراض الأمعاء','علاج الارتجاع المريئي والقرحات الهضمية'],
-    detailsEn: ['Liver Disease Diagnosis (Cirrhosis & Hepatitis Viruses)','Pancreatic Disease Diagnosis & Treatment','Upper GI Endoscopy (Oesophagus, Stomach & H. Pylori)','Colonoscopy & Intestinal Disease Diagnosis','Gastro-Oesophageal Reflux & Peptic Ulcer Treatment'],
-  },
-  {
-    id: 41, src: img41,
-    nameAr: 'محمد مهدي آل سليمان', nameEn: 'Mohammed Mahdi Al-Sulaiman',
-    specialtyAr: 'استشاري أمراض الصدر', specialtyEn: 'Consultant Pulmonologist',
-    detailsAr: ['تشخيص وعلاج أمراض الجهاز التنفسي المزمنة','علاج الربو الشعبي والحساسية الصدرية','تشخيص وعلاج الالتهاب الرئوي والتهابات الشعب الهوائية','متابعة حالات الانسداد الرئوي المزمن واضطرابات التنفس','تشخيص أمراض الصدر باستخدام وظائف الرئة والأشعة'],
-    detailsEn: ['Diagnosis & Treatment of Chronic Respiratory Diseases','Asthma & Chest Allergy Management','Diagnosis & Treatment of Pneumonia & Bronchitis','Management of COPD & Breathing Disorders','Chest Disease Diagnosis Using Pulmonary Function Tests & Imaging'],
-  },
-  {
-    id: 42, src: img42,
-    nameAr: 'على الهاجري', nameEn: 'Ali Al-Hajri',
-    specialtyAr: 'استشاري الطب الباطني والغدد الصماء', specialtyEn: 'Consultant Internist & Endocrinologist',
-    detailsAr: ['تشخيص وعلاج مرض السكري ومضاعفاته','متابعة اضطرابات الغدة الدرقية والغدد الصماء','علاج ارتفاع ضغط الدم والكوليسترول','تشخيص وعلاج أمراض الباطنية المزمنة','متابعة اضطرابات الهرمونات والسمنة الأيضية'],
-    detailsEn: ['Diagnosis & Management of Diabetes & Its Complications','Thyroid & Endocrine Disorder Management','Treatment of Hypertension & High Cholesterol','Diagnosis & Treatment of Chronic Internal Medicine Diseases','Management of Hormonal Disorders & Metabolic Obesity'],
   },
   {
     id: 43, src: img43,
@@ -435,6 +386,58 @@ const doctorsData = [
     detailsAr: ['تقييم وعلاج مشكلات النمو والتطور الحركي لدى الأطفال','إعداد برامج تأهيل فردية لتحسين المهارات الحركية والوظيفية','متابعة حالات الشلل الدماغي والتأخر الحركي واضطرابات النمو','تدريب الأطفال على تحسين التوازن والتناسق الحركي والاستقلالية','تقديم الإرشاد والدعم للأسرة لتعزيز تطور الطفل وجودة حياته'],
     detailsEn: ['Assessment and Treatment of Developmental & Motor Delays in Children','Individualized Rehabilitation Programs to Improve Functional Skills','Management of Cerebral Palsy, Motor Delays & Developmental Disorders','Training to Enhance Balance, Coordination & Independence','Family Guidance and Support to Promote Child Development & Quality of Life'],
   },
+  {
+    id: 51, src: img51,
+    nameAr: 'سها بهاء', nameEn: 'Soha Bahaa',
+    specialtyAr: 'أخصائي طب وجراحة العيون', specialtyEn: 'Ophthalmology & Eye Surgery Specialist',
+    detailsAr: ['تشخيص وعلاج أمراض العيون المختلفة','فحص النظر وتقييم حدة الإبصار','متابعة وعلاج التهابات وجفاف العين','تشخيص ومتابعة المياه البيضاء والزرقاء','إجراء جراحات العيون البسيطة والمتوسطة'],
+    detailsEn: ['Diagnosis & Treatment of Various Eye Diseases','Vision Testing & Visual Acuity Assessment','Management of Eye Infections & Dry Eye Syndrome','Diagnosis & Follow-up of Cataracts & Glaucoma','Minor & Intermediate Eye Surgical Procedures'],
+  },
+  {
+    id: 52, src: img52,
+    nameAr: 'ياسمين عمر', nameEn: 'Yasmin Omar',
+    specialtyAr: 'أخصائي الجلدية والتجميل', specialtyEn: 'Dermatology & Cosmetology Specialist',
+    detailsAr: ['تشخيص وعلاج الأمراض الجلدية المختلفة','علاج حب الشباب والندبات','علاج التصبغات وتفتيح البشرة','علاج تساقط الشعر وأمراض فروة الرأس','إجراءات التجميل غير الجراحية (بوتوكس وفيلر)'],
+    detailsEn: ['Diagnosis & Treatment of Skin Diseases','Acne & Acne Scars Treatment','Pigmentation Treatment & Skin Brightening','Hair Loss & Scalp Disorders Treatment','Non-Surgical Aesthetic Procedures (Botox & Fillers)'],
+  },
+  {
+    id: 53, src: PLACEHOLDER_IMG,
+    nameAr: 'ياسمين ابراهيم', nameEn: 'Yasmin Ibrahim',
+    specialtyAr: 'أخصائي أول المخ والأعصاب', specialtyEn: 'Senior Neurology Specialist',
+    detailsAr: ['تشخيص وعلاج أمراض المخ والأعصاب','متابعة حالات الصداع والصداع النصفي','تشخيص وعلاج التشنجات والصرع','متابعة حالات ضعف وتنميل الأعصاب','متابعة الجلطات الدماغية ومضاعفاتها'],
+    detailsEn: ['Diagnosis & Treatment of Neurological Disorders','Migraine & Headache Management','Epilepsy & Seizure Disorders Treatment','Peripheral Neuropathy & Nerve Weakness Follow-up','Stroke & Neurological Complications Follow-up'],
+  },
+  {
+    id: 54, src: PLACEHOLDER_IMG,
+    nameAr: 'أميرة حسن', nameEn: 'Amira Hassan',
+    specialtyAr: 'أخصائي أول الجلدية والتجميل', specialtyEn: 'Senior Dermatology & Cosmetology Specialist',
+    detailsAr: ['تشخيص وعلاج الأمراض الجلدية المزمنة والحادة','علاج الأكزيما والصدفية والحساسية الجلدية','علاج حب الشباب والتصبغات','جلسات الليزر والتقشير وتجديد البشرة','إجراءات التجميل غير الجراحية'],
+    detailsEn: ['Diagnosis & Treatment of Acute & Chronic Skin Diseases','Eczema, Psoriasis & Skin Allergy Treatment','Acne & Pigmentation Treatment','Laser, Peeling & Skin Rejuvenation Sessions','Non-Surgical Aesthetic Procedures'],
+  },
+  {
+    id: 56,
+    src: img56,
+    nameAr: 'عفيص دكام آل صليع',
+    nameEn: 'Afees Dakam Al-Sulei',
+    specialtyAr: 'استشاري جراحة الأوعية الدموية والقسطرة المتقدمة وجراحة عامة ومناظير',
+    specialtyEn: 'Consultant Vascular Surgery & Advanced Catheterization, and General & Laparoscopic Surgery',
+    detailsAr: [
+      'جراحات الأوعية الدموية وعلاج دوالي الساقين',
+      'القسطرة المتقدمة وعلاج انسداد الشرايين الطرفية',
+      'علاج القدم السكري وإنقاذ الأطراف',
+      'تركيب الدعامات وعلاج تمدد الأوعية الدموية',
+      'جراحات المرارة والفتق والزائدة الدودية بالمنظار',
+      'عمليات الجراحة العامة بالمناظير المتقدمة',
+    ],
+    detailsEn: [
+      'Vascular Surgery & Varicose Veins Treatment',
+      'Advanced Catheterization & Peripheral Arterial Occlusion Treatment',
+      'Diabetic Foot Management & Limb Salvage',
+      'Stent Placement & Aneurysm Treatment',
+      'Laparoscopic Gallbladder, Hernia & Appendix Surgery',
+      'Advanced Laparoscopic General Surgery',
+    ],
+  },
 ];
 
 // ─── Department → Clinic → DoctorIds map ─────────────────────────────────────
@@ -459,18 +462,18 @@ const departmentsData = [
   // ── 4. مركز الطب الباطني ────────────────────────────────────────────────
   { id: 4, nameAr: 'مركز الطب الباطني', nameEn: 'Internal Medicine Center', clinics: [
     { nameAr: 'وحدة أمراض القلب', nameEn: 'Cardiology Unit', doctorIds: [37, 45] },
-    { nameAr: 'وحدة الأمراض الصدرية', nameEn: 'Chest Diseases Unit', doctorIds: [33, 41] },
-    { nameAr: 'وحدة المخ والأعصاب للبالغين', nameEn: 'Adult Neurology Unit', doctorIds: [10, 17] },
+    { nameAr: 'وحدة الأمراض الصدرية', nameEn: 'Chest Diseases Unit', doctorIds: [33] },
+    { nameAr: 'وحدة المخ والأعصاب للبالغين', nameEn: 'Adult Neurology Unit', doctorIds: [10, 17, 53] },
     { nameAr: 'وحدة طب الأسرة', nameEn: 'Family Medicine Unit', doctorIds: [15] },
-    { nameAr: 'وحدة الباطنة العامة والغدد الصماء والسكري', nameEn: 'General Internal Medicine, Endocrinology & Diabetes Unit', doctorIds: [16, 19, 42] },
+    { nameAr: 'وحدة الباطنة العامة والغدد الصماء والسكري', nameEn: 'General Internal Medicine, Endocrinology & Diabetes Unit', doctorIds: [16, 19] },
     { nameAr: 'وحدة الأمراض المعدية', nameEn: 'Infectious Diseases Unit', doctorIds: [13, 16] },
   ]},
 
   // ── 5. مركز الجهاز الهضمي والكبد والمناظير ──────────────────────────────
   { id: 5, nameAr: 'مركز الجهاز الهضمي والكبد والمناظير', nameEn: 'Gastroenterology, Hepatology & Endoscopy Center', clinics: [
-    { nameAr: 'وحدة أمراض الجهاز الهضمي والكبد', nameEn: 'Gastroenterology & Hepatology Unit', doctorIds: [20, 32, 40] },
-    { nameAr: 'وحدة المناظير العلوية والسفلية', nameEn: 'Upper & Lower Endoscopy Unit', doctorIds: [20, 32, 40] },
-    { nameAr: 'وحدة مناظير القنوات المرارية ERCP', nameEn: 'ERCP Unit', doctorIds: [20, 32] },
+    { nameAr: 'وحدة أمراض الجهاز الهضمي والكبد', nameEn: 'Gastroenterology & Hepatology Unit', doctorIds: [20] },
+    { nameAr: 'وحدة المناظير العلوية والسفلية', nameEn: 'Upper & Lower Endoscopy Unit', doctorIds: [20] },
+    { nameAr: 'وحدة مناظير القنوات المرارية ERCP', nameEn: 'ERCP Unit', doctorIds: [20] },
   ]},
 
   // ── 6. مركز علاج وجراحات السمنة ─────────────────────────────────────────
@@ -483,7 +486,7 @@ const departmentsData = [
   // ── 7. مركز الجراحة العامة وجراحة المناظير ──────────────────────────────
   { id: 7, nameAr: 'مركز الجراحة العامة وجراحة المناظير', nameEn: 'General Surgery & Laparoscopy Center', clinics: [
     { nameAr: 'وحدة الجراحات الطارئة', nameEn: 'Emergency Surgery Unit', doctorIds: [23, 43] },
-    { nameAr: 'وحدة جراحات المناظير', nameEn: 'Laparoscopic Surgery Unit', doctorIds: [23, 30, 43] },
+    { nameAr: 'وحدة جراحات المناظير', nameEn: 'Laparoscopic Surgery Unit', doctorIds: [23, 30, 43,56] },
     { nameAr: 'وحدة جراحات الشرج والمستقيم', nameEn: 'Colorectal Surgery Unit', doctorIds: [23, 43] },
     { nameAr: 'وحدة جراحات الثدي والغدد الصماء', nameEn: 'Breast & Endocrine Surgery Unit', doctorIds: [5, 23] },
   ]},
@@ -497,30 +500,30 @@ const departmentsData = [
 
   // ── 9. مركز أمراض وجراحات المسالك البولية ───────────────────────────────
   { id: 9, nameAr: 'مركز أمراض وجراحات المسالك البولية', nameEn: 'Urology Diseases & Surgery Center', clinics: [
-    { nameAr: 'وحدة صحة الرجل (أمراض وجراحات الذكورة والعقم)', nameEn: "Men's Health Unit (Andrology & Infertility)", doctorIds: [6, 11, 39] },
-    { nameAr: 'وحدة علاج وجراحات حصوات المسالك البولية', nameEn: 'Urinary Stones Treatment & Surgery Unit', doctorIds: [6, 11, 39] },
-    { nameAr: 'وحدة علاج وجراحات البروستات', nameEn: 'Prostate Treatment & Surgery Unit', doctorIds: [11, 39] },
+    { nameAr: 'وحدة صحة الرجل (أمراض وجراحات الذكورة والعقم)', nameEn: "Men's Health Unit (Andrology & Infertility)", doctorIds: [6, 39] },
+    { nameAr: 'وحدة علاج وجراحات حصوات المسالك البولية', nameEn: 'Urinary Stones Treatment & Surgery Unit', doctorIds: [6, 39] },
+    { nameAr: 'وحدة علاج وجراحات البروستات', nameEn: 'Prostate Treatment & Surgery Unit', doctorIds: [39] },
   ]},
 
   // ── 10. مركز الأنف والأذن والحنجرة ─────────────────────────────────────
   { id: 10, nameAr: 'مركز الأنف والأذن والحنجرة', nameEn: 'Ear, Nose & Throat (ENT) Center', clinics: [
-    { nameAr: 'وحدة جراحات ومناظير الأنف والأذن والحنجرة', nameEn: 'ENT Endoscopy & Surgery Unit', doctorIds: [3, 12] },
-    { nameAr: 'وحدة جراحات الرأس والعنق', nameEn: 'Head & Neck Surgery Unit', doctorIds: [3, 12] },
-    { nameAr: 'وحدة السمعيات', nameEn: 'Audiology Unit', doctorIds: [3] },
-    { nameAr: 'وحدة علاج وجراحات مشاكل النوم', nameEn: 'Sleep Disorders Treatment & Surgery Unit', doctorIds: [3] },
+    { nameAr: 'وحدة جراحات ومناظير الأنف والأذن والحنجرة', nameEn: 'ENT Endoscopy & Surgery Unit', doctorIds: [12] },
+    { nameAr: 'وحدة جراحات الرأس والعنق', nameEn: 'Head & Neck Surgery Unit', doctorIds: [12] },
+    { nameAr: 'وحدة السمعيات', nameEn: 'Audiology Unit', doctorIds: [] },
+    { nameAr: 'وحدة علاج وجراحات مشاكل النوم', nameEn: 'Sleep Disorders Treatment & Surgery Unit', doctorIds: [] },
   ]},
 
   // ── 11. مركز طب وجراحة العيون ───────────────────────────────────────────
   { id: 11, nameAr: 'مركز طب وجراحة العيون', nameEn: 'Ophthalmology & Eye Surgery Center', clinics: [
-    { nameAr: 'وحدة تشخيص وعلاج أمراض العيون', nameEn: 'Eye Diseases Diagnosis & Treatment Unit', doctorIds: [8, 48] },
+    { nameAr: 'وحدة تشخيص وعلاج أمراض العيون', nameEn: 'Eye Diseases Diagnosis & Treatment Unit', doctorIds: [8, 48, 51] },
     { nameAr: 'وحدة جراحات العيون', nameEn: 'Eye Surgery Unit', doctorIds: [8] },
   ]},
 
   // ── 12. مركز الأشعة التداخلية ───────────────────────────────────────────
   { id: 12, nameAr: 'مركز الأشعة التداخلية', nameEn: 'Interventional Radiology Center', clinics: [
-    { nameAr: 'وحدة علاج الأوردة والدوالي والأوعية الدموية بدون جراحة', nameEn: 'Varicose Veins & Vascular Treatment without Surgery', doctorIds: [21] },
-    { nameAr: 'وحدة تركيب الدعامات بالأشعة التداخلية بدون جراحة', nameEn: 'Stent Placement by Interventional Radiology without Surgery', doctorIds: [21, 27] },
-    { nameAr: 'وحدة علاج المفاصل والعمود الفقري والعظام بدون جراحة', nameEn: 'Joints, Spine & Bones Treatment without Surgery', doctorIds: [27] },
+    { nameAr: 'وحدة علاج الأوردة والدوالي والأوعية الدموية بدون جراحة', nameEn: 'Varicose Veins & Vascular Treatment without Surgery', doctorIds: [21,56] },
+    { nameAr: 'وحدة تركيب الدعامات بالأشعة التداخلية بدون جراحة', nameEn: 'Stent Placement by Interventional Radiology without Surgery', doctorIds: [21, 27,56] },
+    { nameAr: 'وحدة علاج المفاصل والعمود الفقري والعظام بدون جراحة', nameEn: 'Joints, Spine & Bones Treatment without Surgery', doctorIds: [27,56] },
   ]},
 
   // ── 13. مركز الطب النفسي ────────────────────────────────────────────────
@@ -552,7 +555,7 @@ const departmentsData = [
 
   // ── 16. مركز الجلدية والجراحات التجميلية والليزر ────────────────────────
   { id: 16, nameAr: 'مركز الجلدية والجراحات التجميلية والليزر', nameEn: 'Dermatology, Cosmetic Surgery & Laser Center', clinics: [
-    { nameAr: 'وحدة الجلدية والتجميل والليزر', nameEn: 'Dermatology, Cosmetics & Laser Unit', doctorIds: [] },
+    { nameAr: 'وحدة الجلدية والتجميل والليزر', nameEn: 'Dermatology, Cosmetics & Laser Unit', doctorIds: [52, 54] },
     { nameAr: 'وحدة الجراحات التجميلية', nameEn: 'Cosmetic Surgery Unit', doctorIds: [] },
   ]},
 

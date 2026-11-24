@@ -1,6 +1,8 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
-import { doctors } from './doctorData';
+import { doctors, PLACEHOLDER_IMG } from './doctorData';
 
+// @ts-ignore
+import vid4 from '../assets/doctors/vid4.mp4';
 // @ts-ignore
 import vid5 from '../assets/doctors/vid5.mp4';
 // @ts-ignore
@@ -19,6 +21,14 @@ import vid49 from '../assets/doctors/vid49.mp4';
 // @ts-ignore
 import vid50 from '../assets/doctors/vid50.mp4';
 // @ts-ignore
+import vid52 from '../assets/doctors/vid52.mp4';
+// @ts-ignore
+import vid53 from '../assets/doctors/vid53.mp4';
+// @ts-ignore
+import vid54 from '../assets/doctors/vid54.mp4';
+// @ts-ignore
+import vid55 from '../assets/doctors/vid55.mp4';
+// @ts-ignore
 import vid46 from '../assets/doctors/vid46.mp4';
 // @ts-ignore
 import vid27 from '../assets/doctors/vid27.mp4';
@@ -30,12 +40,12 @@ import vid7 from '../assets/doctors/vid7.mp4';
 import vid19 from '../assets/doctors/vid19.mp4';
 // @ts-ignore
 import vid17 from '../assets/doctors/vid17.mp4';
+// @ts-ignore
+import vid56 from '../assets/doctors/vid56.mp4';
 
 
 // @ts-ignore
 import img1 from '../assets/doctors/1.png';
-// @ts-ignore
-import img3 from '../assets/doctors/3.png';
 // @ts-ignore
 import img4 from '../assets/doctors/4.png';
 // @ts-ignore
@@ -50,8 +60,6 @@ import img8 from '../assets/doctors/8.png';
 import img9 from '../assets/doctors/9.png';
 // @ts-ignore
 import img10 from '../assets/doctors/10.png';
-// @ts-ignore
-import img11 from '../assets/doctors/11.png';
 // @ts-ignore
 import img12 from '../assets/doctors/12.png';
 // @ts-ignore
@@ -89,8 +97,6 @@ import img30 from '../assets/doctors/30.png';
 // @ts-ignore
 import img31 from '../assets/doctors/31.png';
 // @ts-ignore
-import img32 from '../assets/doctors/32.png';
-// @ts-ignore
 import img33 from '../assets/doctors/33.png';
 // @ts-ignore
 import img34 from '../assets/doctors/34.png';
@@ -104,12 +110,6 @@ import img37 from '../assets/doctors/37.png';
 import img38 from '../assets/doctors/38.png';
 // @ts-ignore
 import img39 from '../assets/doctors/39.png';
-// @ts-ignore
-import img40 from '../assets/doctors/40.png';
-// @ts-ignore
-import img41 from '../assets/doctors/41.PNG';
-// @ts-ignore
-import img42 from '../assets/doctors/42.PNG';
 // @ts-ignore
 import img43 from '../assets/doctors/43.PNG';
 // @ts-ignore
@@ -126,6 +126,12 @@ import img48 from '../assets/doctors/48.png';
 import img49 from '../assets/doctors/49.png';
 // @ts-ignore
 import img50 from '../assets/doctors/50.png';
+// @ts-ignore
+import img51 from '../assets/doctors/51.jpeg';
+// @ts-ignore
+import img52 from '../assets/doctors/52.jpeg';
+// @ts-ignore
+import img56 from '../assets/doctors/56.png';
 
 interface DoctorsProps {
   currentLang: string;
@@ -133,7 +139,6 @@ interface DoctorsProps {
 
 const doctorImages = [
   { id: 1, src: img1 },
-  { id: 3, src: img3 },
   { id: 4, src: img4 },
   { id: 5, src: img5 },
   { id: 6, src: img6 },
@@ -141,7 +146,6 @@ const doctorImages = [
   { id: 8, src: img8 },
   { id: 9, src: img9 },
   { id: 10, src: img10 },
-  { id: 11, src: img11 },
   { id: 12, src: img12 },
   { id: 13, src: img13 },
   { id: 15, src: img15 },
@@ -160,7 +164,6 @@ const doctorImages = [
   { id: 29, src: img29 },
   { id: 30, src: img30 },
   { id: 31, src: img31 },
-  { id: 32, src: img32 },
   { id: 33, src: img33 },
   { id: 34, src: img34 },
   { id: 35, src: img35 },
@@ -168,9 +171,6 @@ const doctorImages = [
   { id: 37, src: img37 },
   { id: 38, src: img38 },
   { id: 39, src: img39 },
-  { id: 40, src: img40 },
-  { id: 41, src: img41 },
-  { id: 42, src: img42 },
   { id: 43, src: img43 },
   { id: 44, src: img44 },
   { id: 45, src: img45 },
@@ -179,12 +179,18 @@ const doctorImages = [
   { id: 48, src: img48 },
   { id: 49, src: img49 },
   { id: 50, src: img50 },
+  { id: 51, src: img51 },
+  { id: 52, src: img52 },
+  { id: 53, src: PLACEHOLDER_IMG },
+  { id: 54, src: PLACEHOLDER_IMG },
+    { id: 56, src: img56 },
 ];
 
 // Map doctor id → video src (only doctors that HAVE a video)
 const doctorVideos: Record<number, string> = {
   5: vid5,
   7: vid7,
+  15: vid4,   // د. دينا حسين (الملف اسمه vid4)
   17: vid17,
   18: vid18,
   19: vid19,
@@ -197,6 +203,11 @@ const doctorVideos: Record<number, string> = {
   48: vid48,
   49: vid49,
   50: vid50,
+  51: vid53,  // د. سها بهاء (الملف اسمه vid53)
+  52: vid52,  // د. ياسمين عمر
+  53: vid55,  // د. ياسمين ابراهيم (الملف اسمه vid55)
+  54: vid54,  // د. أميرة حسن
+    56: vid56,  // د. عفيص دكام آل صليع
 };
 
 const content = {

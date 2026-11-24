@@ -1,11 +1,10 @@
 import React, { useState, useCallback } from 'react';
 import Navbar from './Navbar';
 import MainNavbar from './MainNavbar';
+import { PLACEHOLDER_IMG } from './doctorData';
 
 // @ts-ignore
 import img1 from '../assets/doctors/1.png';
-// @ts-ignore
-import img3 from '../assets/doctors/3.png';
 // @ts-ignore
 import img4 from '../assets/doctors/4.png';
 // @ts-ignore
@@ -20,8 +19,6 @@ import img8 from '../assets/doctors/8.png';
 import img9 from '../assets/doctors/9.png';
 // @ts-ignore
 import img10 from '../assets/doctors/10.png';
-// @ts-ignore
-import img11 from '../assets/doctors/11.png';
 // @ts-ignore
 import img12 from '../assets/doctors/12.png';
 // @ts-ignore
@@ -59,8 +56,6 @@ import img30 from '../assets/doctors/30.png';
 // @ts-ignore
 import img31 from '../assets/doctors/31.png';
 // @ts-ignore
-import img32 from '../assets/doctors/32.png';
-// @ts-ignore
 import img33 from '../assets/doctors/33.png';
 // @ts-ignore
 import img34 from '../assets/doctors/34.png';
@@ -74,12 +69,6 @@ import img37 from '../assets/doctors/37.png';
 import img38 from '../assets/doctors/38.png';
 // @ts-ignore
 import img39 from '../assets/doctors/39.png';
-// @ts-ignore
-import img40 from '../assets/doctors/40.png';
-// @ts-ignore
-import img41 from '../assets/doctors/41.PNG';
-// @ts-ignore
-import img42 from '../assets/doctors/42.PNG';
 // @ts-ignore
 import img43 from '../assets/doctors/43.PNG';
 // @ts-ignore
@@ -96,6 +85,12 @@ import img48 from '../assets/doctors/48.png';
 import img49 from '../assets/doctors/49.png';
 // @ts-ignore
 import img50 from '../assets/doctors/50.png';
+// @ts-ignore
+import img51 from '../assets/doctors/51.jpeg';
+// @ts-ignore
+import img52 from '../assets/doctors/52.jpeg';
+// @ts-ignore
+import img56 from '../assets/doctors/56.png';
 
 // @ts-ignore
 import doctorsImg from '../assets/doctors_imgg.jpeg';
@@ -144,35 +139,6 @@ const doctors: Doctor[] = [
     'Obsessive-Compulsive & Personality Disorders Treatment'
   ],
 },
-    {
-  id: 3, src: img3,
-
-  nameAr: 'محمد المغربي',
-  nameEn: 'Mohammed Al-Maghribi',
-
-  specialtyAr: 'استشاري أنف وأذن وحنجرة',
-  specialtyEn: 'ENT Consultant',
-
-  detailsAr: [
-    'تشخيص وعلاج التهابات الأنف والأذن والحنجرة',
-    'علاج حساسية الأنف والجيوب الأنفية',
-    'تشخيص وعلاج مشاكل السمع وطنين الأذن',
-    'علاج التهابات اللوزتين والحنجرة',
-    'تنظير الأنف والحنجرة وتشخيص الحالات المزمنة',
-    'علاج اضطرابات التوازن والدوخة',
-    'متابعة حالات الشخير وانقطاع التنفس أثناء النوم'
-  ],
-
-  detailsEn: [
-    'Diagnosis & Treatment of Ear, Nose & Throat Infections',
-    'Allergic Rhinitis & Sinusitis Management',
-    'Hearing Problems & Tinnitus Treatment',
-    'Tonsillitis & Throat Disorders Treatment',
-    'Nasal & Laryngeal Endoscopy for Chronic Conditions',
-    'Balance Disorders & Vertigo Management',
-    'Snoring & Sleep Apnoea Follow-up'
-  ],
-},
   { id: 4, src: img4, nameAr: 'عبدالله آل قدرة', nameEn: 'Abdullah Al-Qudra', specialtyAr: 'إستشاري علاج جذور الأسنان', specialtyEn: 'Consultant in Endodontics', detailsAr: ['علاج حالات التهابات عصب الأسنان','علاج حالات التهابات الجذور','إعادة علاج الجذور في حال فشل العلاج السابق','علاج حالات جذور الأسنان الطارئة المتعلقة بالسقوط أو الحوادث'], detailsEn: ['Dental Nerve Inflammation Treatment','Root Canal Infections','Root Canal Re-treatment','Emergency Dental Root Cases (Trauma/Accidents)'] },
   { id: 5, src: img5, nameAr: 'عبد الرحمن العمري', nameEn: 'Abdulrahman Al-Omari', specialtyAr: 'اﺳﺘﺸﺎري اﻟﺠﺮاﺣﺔ اﻟﻌﺎﻣﺔ وﺟﺮاﺣﺔ اﻟﻐﺪد واﻟﺜﺪي واﻟﺴﻤﻨﺔ', specialtyEn: '“Consultant General, Endocrine, Breast, and Bariatric Surgeon', detailsAr: ['تحويل المسار المصغر والكلاسيكي','إعادة وترميم عمليات السمنة السابقة','عمليات الكبسولة العادية والكبسولة الذكية للمعدة'], detailsEn: ['Mini & Classic Gastric Bypass','Revision & Repair of Previous Bariatric Surgery','Standard & Smart Gastric Capsule Procedures'] },
   { id: 6, src: img6, nameAr: 'عادل معلوي', nameEn: 'Adel Maalawi', specialtyAr: 'استشاري جراحات المسالك البولية', specialtyEn: 'Consultant in Urological Surgery', detailsAr: ['معالجة الحصوات والمغص الكلوي بالمناظير المرنة والليزر','جراحات علاج أمراض الذكورة والضعف الجنسي (زرع الدعامات)','عمليات الدوالي والقيلة المائية','علاج تضخم البروستاتا بالتبخير'], detailsEn: ['Kidney Stones & Renal Colic via Flexible Ureteroscopy & Laser','Male Sexual Dysfunction Surgery (Penile Implants)','Varicocele & Hydrocele Surgery','Prostate Enlargement Steam Therapy (Rezum)'] },
@@ -206,35 +172,6 @@ const doctors: Doctor[] = [
     'Memory Disorders & Alzheimer’s Disease Follow-up',
     'Movement Disorders & Tremor Treatment',
     'Multiple Sclerosis & Neurological Diseases Care'
-  ],
-},
-{
-  id: 11, src: img11,
-
-  nameAr: 'محمد حبوس',
-  nameEn: 'Muhammad Habous',
-
-  specialtyAr: 'إستشاري جراحات المسالك البولية',
-  specialtyEn: 'Urology Consultant',
-
-  detailsAr: [
-    'تشخيص وعلاج حصوات الكلى والمسالك البولية',
-    'علاج التهابات المسالك البولية المتكررة',
-    'متابعة وعلاج تضخم البروستاتا',
-    'علاج مشاكل السلس البولي واضطرابات التبول',
-    'تشخيص وعلاج العقم وضعف الخصوبة لدى الرجال',
-    'جراحات المسالك البولية بالمنظار',
-    'متابعة أمراض الكلى والمثانة والجهاز البولي'
-  ],
-
-  detailsEn: [
-    'Kidney Stones & Urinary Tract Diseases Treatment',
-    'Recurrent Urinary Tract Infections Management',
-    'Benign Prostatic Enlargement Treatment',
-    'Urinary Incontinence & Voiding Disorders Care',
-    'Male Infertility & Reproductive Health Management',
-    'Minimally Invasive Urological Endoscopic Surgery',
-    'Kidney, Bladder & Urinary System Follow-up'
   ],
 },
   { id: 12, src: img12, nameAr: 'علي قناص', nameEn: 'Ali Qannas', specialtyAr: 'اﺳﺘﺸﺎري اﻧﻒ وأذن وﺣﻨﺠﺮة وﺟﺮاﺣﺎت اﻟﺮأس واﻟﻌﻨﻖ', specialtyEn: 'Consultant in Ear, Nose & Throat and Head & Neck Surgery', detailsAr: ['أورام الغدة الدرقية وجار الدرقية','أورام الغدة النكافية والغدة اللعابية','أورام الرأس والرقبة المجهرية المتقدمة','تعديل الحاجز الأنفي والقرنيات'], detailsEn: ['Thyroid & Parathyroid Tumours','Parotid & Salivary Gland Tumours','Advanced Microscopic Head & Neck Tumours','Nasal Septum & Turbinate Correction'] },
@@ -340,35 +277,6 @@ const doctors: Doctor[] = [
   { id: 29, src: img29, nameAr: 'راشد آل قضيع', nameEn: "Rashed Al-Quadie", specialtyAr: 'استشاري ﺟﺮاﺣﺔ اﻟﻌﻈﺎم واﻟﻤﻔﺎﺻﻞ', specialtyEn: 'Consultant in Orthopedic Surgery and Joint Surgery', detailsAr: ['علاج خشونة المفاصل والاحتكاك','زراعة وتبديل المفاصل','جراحات الحوض والإصابات والكسور المعقدة','مناظير الركبة والكتف والإصابات الرياضية'], detailsEn: ['Osteoarthritis & Joint Wear Treatment','Joint Replacement & Arthroplasty','Pelvic Surgery & Complex Fractures','Knee & Shoulder Arthroscopy & Sports Injuries'] },
   { id: 30, src: img30, nameAr: 'سعيد السريعي', nameEn: "Saeed Al-Suraie", specialtyAr: 'استشاري اﻟﺠﺮاﺣﺔ اﻟﻌﺎﻣﺔ وﺟﺮاﺣﺔ اﻟﺴﻤﻨﺔ واﻟﻤﻨﺎﺿﻴﺮ', specialtyEn: 'Consultant General, Bariatric, and Laparoscopic Surgeon', detailsAr: ['جراحات تكميم المعدة بالمنظار','جراحات تحويل المسار','عمليات الكبسولة العادية والكبسولة الذكية','عمليات الجراحة العامة بالمنظار'], detailsEn: ['Laparoscopic Sleeve Gastrectomy','Gastric Bypass Surgery','Standard & Smart Capsule Procedures','Laparoscopic General Surgery'] },
   { id: 31, src: img31, nameAr: 'صالح آل مطلق', nameEn: 'Saleh Al-Mutlaq', specialtyAr: 'استشاري ﺗﻘﻮﻳﻢ اﻷﺳﻨﺎن وﻋﻈﺎم اﻟﻮﺟﻪ واﻟﻔﻜﻴﻦ ', specialtyEn: 'Consultant Orthodontist and Craniofacial Orthopedics Specialist', detailsAr: ['علاج الحالات العادية والمعقدة','العلاج المبكر لتشوهات الفكين','علاج كبار السن لتعديل الأسنان المائلة قبل الزراعة','التقويم الجراحي بكل درجاته','التقويم الشفاف (إنفيزلاين)'], detailsEn: ['Treatment of Simple & Complex Cases','Early Treatment of Jaw Deformities','Pre-Implant Orthodontics for Seniors','Surgical Orthodontics at All Levels','Clear Aligners (Invisalign)'] },
-  {
-  id: 32, src: img32,
-
-  nameAr: 'علي آل مسعد',
-  nameEn: 'Ali Al Massad',
-
-  specialtyAr: 'استشاري الطب الباطني وأمراض الجهاز الهضمي والكبد',
-  specialtyEn: 'Consultant Gastroenterology & Hepatology',
-
-  detailsAr: [
-    'تشخيص وعلاج أمراض الجهاز الهضمي المزمنة',
-    'علاج أمراض الكبد والتهاب الكبد الفيروسي',
-    'تشخيص وعلاج القولون العصبي واضطرابات الهضم',
-    'متابعة حالات التليف الكبدي وأمراض المرارة',
-    'تنظير الجهاز الهضمي العلوي والسفلي',
-    'علاج قرحة المعدة وجرثومة المعدة',
-    'متابعة أمراض البنكرياس والقنوات الصفراوية'
-  ],
-
-  detailsEn: [
-    'Diagnosis & Treatment of Chronic Gastrointestinal Diseases',
-    'Liver Diseases & Viral Hepatitis Management',
-    'Irritable Bowel Syndrome & Digestive Disorders Care',
-    'Liver Fibrosis & Gallbladder Diseases Follow-up',
-    'Upper & Lower Gastrointestinal Endoscopy',
-    'Peptic Ulcer & H. Pylori Treatment',
-    'Pancreatic & Biliary Tract Diseases Management'
-  ],
-},
   { id: 33, src: img33, nameAr: 'سالي سليمان', nameEn: 'Sally Suleiman', specialtyAr: 'أخصائي أول الأمراض الصدرية والحساسية', specialtyEn: 'Senior Pulmonology and Allergy Specialist', detailsAr: ['علاج الجلطات الرئوية الحادة','علاج ارتفاع ضغط الشريان الرئوي','علاج وتشخيص أمراض التليف الرئوي','قياس وظائف التنفس'], detailsEn: ['Treatment of Acute Pulmonary Embolism','Pulmonary Arterial Hypertension','Diagnosis & Treatment of Pulmonary Fibrosis','Pulmonary Function Testing'] },
 {
   id: 34,
@@ -405,45 +313,6 @@ const doctors: Doctor[] = [
   { id: 37, src: img37, nameAr: 'وليد مغراوي', nameEn: 'Walid Maghrawi', specialtyAr: 'إستشاري أمراض القلب', specialtyEn: 'Consultant in Cardiology', detailsAr: ['تصوير الشريان التاجي','اختلال ضربات القلب','رسم القلب بالمجهود','الفحص الدوري الشامل للقلب والأوعية الدموية'], detailsEn: ['Coronary Angiography','Cardiac Arrhythmia','Stress ECG','Comprehensive Cardiovascular Check-Up'] },
   { id: 38, src: img38, nameAr: 'ظافر الشهري', nameEn: 'Zafer Al-Shehri', specialtyAr: 'إستشاري ﻃﺐ اﻷﻃﻔﺎل وﻣﻨﺎﻇﻴﺮ اﻟﺠﻬﺎز اﻟﻬﻀﻤﻲ', specialtyEn: 'إستشاري ﻃﺐ اﻷﻃﻔﺎل وﻣﻨﺎﻇﻴﺮ اﻟﺠﻬﺎز اﻟﻬﻀﻤﻲ', detailsAr: ['علاج مشاكل الجهاز الهضمي','علاج ضعف النمو والتغذية','تشخيص وعلاج آلام البطن المزمنة والدورية','علاج تقرحات الأمعاء الالتهابية'], detailsEn: ['Gastrointestinal Disorders','Growth Failure & Nutritional Issues','Chronic & Recurrent Abdominal Pain','Inflammatory Bowel Disease'] },
   { id: 39, src: img39, nameAr: 'محمد فتحي', nameEn: 'Mohammed Fathi', specialtyAr: 'استشاري أمراض وجراحات المسالك البولية', specialtyEn: 'Urology & Urological Surgery Consultant', detailsAr: ['علاج التهاب وتضخم البروستاتا','علاج البروستاتا بالتبخير (Rezum)','تشخيص واستئصال أورام المثانة بالمنظار','تشخيص وعلاج حصوات الكلى والمسالك البولية بالليزر','علاج سلس البول وضعف الوظيفة البولية'], detailsEn: ['Prostatitis & Benign Prostatic Hyperplasia (BPH) Treatment','Prostate Steam Therapy (Rezum)','Endoscopic Diagnosis & Resection of Bladder Tumours','Laser Treatment of Kidney & Urinary Tract Stones','Urinary Incontinence & Bladder Dysfunction'] },
-  { id: 40, src: img40, nameAr: 'احمد العزب', nameEn: 'Ahmed Al-Azzab', specialtyAr: 'اخصائي أول الجهاز الهضمي والمناظير', specialtyEn: 'Senior Gastroenterology & Endoscopy Specialist', detailsAr: ['تشخيص أمراض الكبد (تليف الكبد والفيروسات الكبدية)','تشخيص وعلاج أمراض البنكرياس','تنظير الجهاز الهضمي العلوي (المريء والمعدة وجرثومة المعدة)','تنظير القولون وتشخيص أمراض الأمعاء','علاج الارتجاع المريئي والقرحات الهضمية'], detailsEn: ['Liver Disease Diagnosis (Cirrhosis & Hepatitis Viruses)','Pancreatic Disease Diagnosis & Treatment','Upper GI Endoscopy (Oesophagus, Stomach & H. Pylori)','Colonoscopy & Intestinal Disease Diagnosis','Gastro-Oesophageal Reflux & Peptic Ulcer Treatment'] },
-  {
-  id: 41, src: img41,
-  nameAr: 'محمد مهدي آل سليمان', nameEn: 'Mohammed Mahdi Al-Sulaiman',
-  specialtyAr: 'استشاري أمراض الصدر', specialtyEn: 'Consultant Pulmonologist',
-  detailsAr: [
-    'تشخيص وعلاج أمراض الجهاز التنفسي المزمنة',
-    'علاج الربو الشعبي والحساسية الصدرية',
-    'تشخيص وعلاج الالتهاب الرئوي والتهابات الشعب الهوائية',
-    'متابعة حالات الانسداد الرئوي المزمن واضطرابات التنفس',
-    'تشخيص أمراض الصدر باستخدام وظائف الرئة والأشعة'
-  ],
-  detailsEn: [
-    'Diagnosis & Treatment of Chronic Respiratory Diseases',
-    'Asthma & Chest Allergy Management',
-    'Diagnosis & Treatment of Pneumonia & Bronchitis',
-    'Management of COPD & Breathing Disorders',
-    'Chest Disease Diagnosis Using Pulmonary Function Tests & Imaging'
-  ],
-},
-{
-  id: 42, src: img42,
-  nameAr: 'على الهاجري', nameEn: 'Ali Al-Hajri',
-  specialtyAr: 'استشاري الطب الباطني والغدد الصماء', specialtyEn: 'Consultant Internist & Endocrinologist',
-  detailsAr: [
-    'تشخيص وعلاج مرض السكري ومضاعفاته',
-    'متابعة اضطرابات الغدة الدرقية والغدد الصماء',
-    'علاج ارتفاع ضغط الدم والكوليسترول',
-    'تشخيص وعلاج أمراض الباطنية المزمنة',
-    'متابعة اضطرابات الهرمونات والسمنة الأيضية'
-  ],
-  detailsEn: [
-    'Diagnosis & Management of Diabetes & Its Complications',
-    'Thyroid & Endocrine Disorder Management',
-    'Treatment of Hypertension & High Cholesterol',
-    'Diagnosis & Treatment of Chronic Internal Medicine Diseases',
-    'Management of Hormonal Disorders & Metabolic Obesity'
-  ],
-},
 {
   id: 43, src: img43,
   nameAr: 'رشا العطعوط', nameEn: 'Rasha Al-Atout',
@@ -603,6 +472,118 @@ const doctors: Doctor[] = [
     'Management of Cerebral Palsy, Motor Delays & Developmental Disorders',
     'Training to Enhance Balance, Coordination & Independence',
     'Family Guidance and Support to Promote Child Development & Quality of Life'
+  ],
+},
+{
+  id: 51,
+  src: img51,
+  nameAr: 'سها بهاء',
+  nameEn: 'Soha Bahaa',
+  specialtyAr: 'أخصائي طب وجراحة العيون',
+  specialtyEn: 'Ophthalmology & Eye Surgery Specialist',
+  detailsAr: [
+    'تشخيص وعلاج أمراض العيون المختلفة',
+    'فحص النظر وتقييم حدة الإبصار',
+    'متابعة وعلاج التهابات وجفاف العين',
+    'تشخيص ومتابعة المياه البيضاء والزرقاء',
+    'إجراء جراحات العيون البسيطة والمتوسطة'
+  ],
+  detailsEn: [
+    'Diagnosis & Treatment of Various Eye Diseases',
+    'Vision Testing & Visual Acuity Assessment',
+    'Management of Eye Infections & Dry Eye Syndrome',
+    'Diagnosis & Follow-up of Cataracts & Glaucoma',
+    'Minor & Intermediate Eye Surgical Procedures'
+  ],
+},
+{
+  id: 52,
+  src: img52,
+  nameAr: 'ياسمين عمر',
+  nameEn: 'Yasmin Omar',
+  specialtyAr: 'أخصائي الجلدية والتجميل',
+  specialtyEn: 'Dermatology & Cosmetology Specialist',
+  detailsAr: [
+    'تشخيص وعلاج الأمراض الجلدية المختلفة',
+    'علاج حب الشباب والندبات',
+    'علاج التصبغات وتفتيح البشرة',
+    'علاج تساقط الشعر وأمراض فروة الرأس',
+    'إجراءات التجميل غير الجراحية (بوتوكس وفيلر)'
+  ],
+  detailsEn: [
+    'Diagnosis & Treatment of Skin Diseases',
+    'Acne & Acne Scars Treatment',
+    'Pigmentation Treatment & Skin Brightening',
+    'Hair Loss & Scalp Disorders Treatment',
+    'Non-Surgical Aesthetic Procedures (Botox & Fillers)'
+  ],
+},
+{
+  id: 53,
+  src: PLACEHOLDER_IMG,
+  nameAr: 'ياسمين ابراهيم',
+  nameEn: 'Yasmin Ibrahim',
+  specialtyAr: 'أخصائي أول المخ والأعصاب',
+  specialtyEn: 'Senior Neurology Specialist',
+  detailsAr: [
+    'تشخيص وعلاج أمراض المخ والأعصاب',
+    'متابعة حالات الصداع والصداع النصفي',
+    'تشخيص وعلاج التشنجات والصرع',
+    'متابعة حالات ضعف وتنميل الأعصاب',
+    'متابعة الجلطات الدماغية ومضاعفاتها'
+  ],
+  detailsEn: [
+    'Diagnosis & Treatment of Neurological Disorders',
+    'Migraine & Headache Management',
+    'Epilepsy & Seizure Disorders Treatment',
+    'Peripheral Neuropathy & Nerve Weakness Follow-up',
+    'Stroke & Neurological Complications Follow-up'
+  ],
+},
+{
+  id: 54,
+  src: PLACEHOLDER_IMG,
+  nameAr: 'أميرة حسن',
+  nameEn: 'Amira Hassan',
+  specialtyAr: 'أخصائي أول الجلدية والتجميل',
+  specialtyEn: 'Senior Dermatology & Cosmetology Specialist',
+  detailsAr: [
+    'تشخيص وعلاج الأمراض الجلدية المزمنة والحادة',
+    'علاج الأكزيما والصدفية والحساسية الجلدية',
+    'علاج حب الشباب والتصبغات',
+    'جلسات الليزر والتقشير وتجديد البشرة',
+    'إجراءات التجميل غير الجراحية'
+  ],
+  detailsEn: [
+    'Diagnosis & Treatment of Acute & Chronic Skin Diseases',
+    'Eczema, Psoriasis & Skin Allergy Treatment',
+    'Acne & Pigmentation Treatment',
+    'Laser, Peeling & Skin Rejuvenation Sessions',
+    'Non-Surgical Aesthetic Procedures'
+  ],
+},
+{
+  id: 56,
+  src: img56,
+  nameAr: 'عفيص دكام آل صليع',
+  nameEn: 'Afees Dakam Al-Sulei',
+  specialtyAr: 'استشاري جراحة الأوعية الدموية والقسطرة المتقدمة وجراحة عامة ومناظير',
+  specialtyEn: 'Consultant Vascular Surgery & Advanced Catheterization, and General & Laparoscopic Surgery',
+  detailsAr: [
+    'جراحات الأوعية الدموية وعلاج دوالي الساقين',
+    'القسطرة المتقدمة وعلاج انسداد الشرايين الطرفية',
+    'علاج القدم السكري وإنقاذ الأطراف',
+    'تركيب الدعامات وعلاج تمدد الأوعية الدموية',
+    'جراحات المرارة والفتق والزائدة الدودية بالمنظار',
+    'عمليات الجراحة العامة بالمناظير المتقدمة',
+  ],
+  detailsEn: [
+    'Vascular Surgery & Varicose Veins Treatment',
+    'Advanced Catheterization & Peripheral Arterial Occlusion Treatment',
+    'Diabetic Foot Management & Limb Salvage',
+    'Stent Placement & Aneurysm Treatment',
+    'Laparoscopic Gallbladder, Hernia & Appendix Surgery',
+    'Advanced Laparoscopic General Surgery',
   ],
 },
 ];

@@ -33,10 +33,6 @@ import vid3 from '../assets/videos/vid3.mp4';
 // @ts-ignore
 import poster3 from '../assets/videos/posters/vid3.jpg';
 // @ts-ignore
-import vid4 from '../assets/videos/vid4.mp4';
-// @ts-ignore
-import poster4 from '../assets/videos/posters/vid4.jpg';
-// @ts-ignore
 import vid5 from '../assets/videos/vid5.mp4';
 // @ts-ignore
 import poster5 from '../assets/videos/posters/vid5.jpg';
@@ -114,16 +110,7 @@ export const videos: VideoItem[] = [
     video: vid10,
     poster: poster10,
   },
-  {
-    id: 4,
-    title: { ar: 'د. دينا حسين', en: 'Dr. Dina Hussein' },
-    desc: {
-      ar: 'أخصائي أول طب الأسرة.',
-      en: 'Senior Family Medicine Specialist.',
-    },
-    video: vid4,
-    poster: poster4,
-  },
+
   {
     id: 3,
     title: { ar: 'اسأل أجاوب: آلام الرقبة', en: 'Ask & Answer: Neck Pain' },

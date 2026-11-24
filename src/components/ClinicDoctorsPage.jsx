@@ -92,6 +92,10 @@ import img51 from '../assets/doctors/51.jpeg';
 import img52 from '../assets/doctors/52.jpeg';
 // @ts-ignore
 import img56 from '../assets/doctors/56.PNG';
+// @ts-ignore
+import img57 from '../assets/doctors/57.PNG';
+// @ts-ignore
+import img58 from '../assets/doctors/58.PNG';
 
 // ─── Inline doctor data ───────────────────────────────────────────────────────
 const WHATSAPP_NUMBER = '920002159';
@@ -401,14 +405,14 @@ const doctorsData = [
     detailsEn: ['Diagnosis & Treatment of Skin Diseases','Acne & Acne Scars Treatment','Pigmentation Treatment & Skin Brightening','Hair Loss & Scalp Disorders Treatment','Non-Surgical Aesthetic Procedures (Botox & Fillers)'],
   },
   {
-    id: 53, src: PLACEHOLDER_IMG,
+    id: 53, src: img58,
     nameAr: 'ياسمين ابراهيم', nameEn: 'Yasmin Ibrahim',
     specialtyAr: 'أخصائي أول المخ والأعصاب', specialtyEn: 'Senior Neurology Specialist',
     detailsAr: ['تشخيص وعلاج أمراض المخ والأعصاب','متابعة حالات الصداع والصداع النصفي','تشخيص وعلاج التشنجات والصرع','متابعة حالات ضعف وتنميل الأعصاب','متابعة الجلطات الدماغية ومضاعفاتها'],
     detailsEn: ['Diagnosis & Treatment of Neurological Disorders','Migraine & Headache Management','Epilepsy & Seizure Disorders Treatment','Peripheral Neuropathy & Nerve Weakness Follow-up','Stroke & Neurological Complications Follow-up'],
   },
   {
-    id: 54, src: PLACEHOLDER_IMG,
+    id: 54, src: img57,
     nameAr: 'أميرة حسن', nameEn: 'Amira Hassan',
     specialtyAr: 'أخصائي أول الجلدية والتجميل', specialtyEn: 'Senior Dermatology & Cosmetology Specialist',
     detailsAr: ['تشخيص وعلاج الأمراض الجلدية المزمنة والحادة','علاج الأكزيما والصدفية والحساسية الجلدية','علاج حب الشباب والتصبغات','جلسات الليزر والتقشير وتجديد البشرة','إجراءات التجميل غير الجراحية'],

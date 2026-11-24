@@ -91,6 +91,10 @@ import img51 from '../assets/doctors/51.jpeg';
 import img52 from '../assets/doctors/52.jpeg';
 // @ts-ignore
 import img56 from '../assets/doctors/56.PNG';
+// @ts-ignore
+import img57 from '../assets/doctors/57.PNG';
+// @ts-ignore
+import img58 from '../assets/doctors/58.PNG';
 
 // @ts-ignore
 import doctorsImg from '../assets/doctors_imgg.jpeg';
@@ -520,7 +524,7 @@ const doctors: Doctor[] = [
 },
 {
   id: 53,
-  src: PLACEHOLDER_IMG,
+  src: img58,
   nameAr: 'ياسمين ابراهيم',
   nameEn: 'Yasmin Ibrahim',
   specialtyAr: 'أخصائي أول المخ والأعصاب',
@@ -542,7 +546,7 @@ const doctors: Doctor[] = [
 },
 {
   id: 54,
-  src: PLACEHOLDER_IMG,
+  src: img57,
   nameAr: 'أميرة حسن',
   nameEn: 'Amira Hassan',
   specialtyAr: 'أخصائي أول الجلدية والتجميل',

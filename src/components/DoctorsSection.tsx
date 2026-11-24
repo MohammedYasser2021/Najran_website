@@ -132,6 +132,10 @@ import img51 from '../assets/doctors/51.jpeg';
 import img52 from '../assets/doctors/52.jpeg';
 // @ts-ignore
 import img56 from '../assets/doctors/56.PNG';
+// @ts-ignore
+import img57 from '../assets/doctors/57.PNG';
+// @ts-ignore
+import img58 from '../assets/doctors/58.PNG';
 
 interface DoctorsProps {
   currentLang: string;
@@ -181,8 +185,8 @@ const doctorImages = [
   { id: 50, src: img50 },
   { id: 51, src: img51 },
   { id: 52, src: img52 },
-  { id: 53, src: PLACEHOLDER_IMG },
-  { id: 54, src: PLACEHOLDER_IMG },
+  { id: 53, src: img58 },
+  { id: 54, src: img57 },
     { id: 56, src: img56 },
 ];
 

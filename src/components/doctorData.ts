@@ -416,7 +416,7 @@ export const doctors: Doctor[] = [
   ],
 },
 {
-  id: 53, imgFile: '',
+  id: 53, imgFile: '58.PNG',
   nameAr: 'ياسمين ابراهيم', nameEn: 'Yasmin Ibrahim',
   specialtyAr: 'أخصائي أول المخ والأعصاب', specialtyEn: 'Senior Neurology Specialist',
   detailsAr: [
@@ -435,7 +435,7 @@ export const doctors: Doctor[] = [
   ],
 },
 {
-  id: 54, imgFile: '',
+  id: 54, imgFile: '57.PNG',
   nameAr: 'أميرة حسن', nameEn: 'Amira Hassan',
   specialtyAr: 'أخصائي أول الجلدية والتجميل', specialtyEn: 'Senior Dermatology & Cosmetology Specialist',
   detailsAr: [

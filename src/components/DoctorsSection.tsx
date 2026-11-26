@@ -831,7 +831,7 @@ const Doctors: React.FC<DoctorsProps> = ({ currentLang }) => {
                               margin: '0 0 4px 0',
                               lineHeight: 1.3,
                             }}>
-                              {isAr ? `د. ${data.nameAr}` : `Dr. ${data.nameEn}`}
+                              {data.noTitle ? (isAr ? data.nameAr : data.nameEn) : (isAr ? `د. ${data.nameAr}` : `Dr. ${data.nameEn}`)}
                             </p>
                             <p style={{
                               color: '#dddddd',
@@ -884,7 +884,7 @@ const Doctors: React.FC<DoctorsProps> = ({ currentLang }) => {
       {modalDoctor !== null && modalData && (
         <VideoModal
           videoSrc={doctorVideos[modalDoctor]}
-          doctorName={isAr ? `د. ${modalData.data.nameAr}` : `Dr. ${modalData.data.nameEn}`}
+          doctorName={modalData.data.noTitle ? (isAr ? modalData.data.nameAr : modalData.data.nameEn) : (isAr ? `د. ${modalData.data.nameAr}` : `Dr. ${modalData.data.nameEn}`)}
           doctorSpecialty={isAr ? modalData.data.specialtyAr : modalData.data.specialtyEn}
           onClose={() => setModalDoctor(null)}
           isAr={isAr}

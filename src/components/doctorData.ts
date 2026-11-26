@@ -13,6 +13,7 @@ export const PLACEHOLDER_IMG =
 
 // ── Doctor interface ──────────────────────────────────────────────────────────
 export interface Doctor {
+  noTitle?: boolean;
   id: number;
   nameAr: string;
   nameEn: string;
@@ -352,6 +353,7 @@ export const doctors: Doctor[] = [
   imgFile: "49.png",
   nameAr: 'سامية حكمي',
   nameEn: 'Samia Hakami',
+  noTitle: true,
   specialtyAr: 'أخصائية التغذية العلاجية',
   specialtyEn: 'Clinical Dietitian',
   detailsAr: [

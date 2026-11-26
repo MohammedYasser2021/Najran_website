@@ -106,6 +106,7 @@ import doctorsImg from '../assets/doctors_imgg.jpeg';
 
 
 interface Doctor {
+  noTitle?: boolean;
   id: number;
   src: string;
   nameAr: string;
@@ -481,6 +482,7 @@ const doctors: Doctor[] = [
   src: img49,
   nameAr: 'سامية حكمي',
   nameEn: 'Samia Hakami',
+  noTitle: true,
   specialtyAr: 'أخصائية التغذية العلاجية',
   specialtyEn: 'Clinical Dietitian',
   detailsAr: [
@@ -703,7 +705,7 @@ const DoctorRow = React.memo(({ doc, isAr, isExpanded, onToggle, onWhatsApp }: D
         <div style={{ flex: 1, minWidth: 0 }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
             <span style={{ fontSize: '15px', fontWeight: '800', color: '#0d2137' }}>
-              {isAr ? `د. ${name}` : `Dr. ${name}`}
+              {doc.noTitle ? name : (isAr ? `د. ${name}` : `Dr. ${name}`)}
             </span>
 
           </div>
@@ -784,7 +786,7 @@ const DoctorRow = React.memo(({ doc, isAr, isExpanded, onToggle, onWhatsApp }: D
               >
                 <WhatsAppIcon />
                 <span className="wa-btn-text">
-                  {isAr ? `تواصل مع د. ${doc.nameAr} عبر واتساب` : `Book with Dr. ${doc.nameEn} via WhatsApp`}
+                  {isAr ? `تواصل مع ${doc.noTitle ? '' : 'د. '}${doc.nameAr} عبر واتساب` : `Book with ${doc.noTitle ? '' : 'Dr. '}${doc.nameEn} via WhatsApp`}
                 </span>
               </button>
             </div>
@@ -819,8 +821,8 @@ const DoctorsPage = ({ currentLang, changeLanguage }: DoctorsPageProps) => {
     const name = isAr ? doc.nameAr : doc.nameEn;
     const specialty = isAr ? doc.specialtyAr : doc.specialtyEn;
     const message = isAr
-      ? `مرحباً، أود حجز موعد مع الدكتور ${name} - تخصص: ${specialty}`
-      : `Hello, I would like to book an appointment with Dr. ${name} - Specialty: ${specialty}`;
+      ? `مرحباً، أود حجز موعد مع ${doc.noTitle ? '' : 'الدكتور '}${name} - تخصص: ${specialty}`
+      : `Hello, I would like to book an appointment with ${doc.noTitle ? '' : 'Dr. '}${name} - Specialty: ${specialty}`;
     window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`, '_blank');
   }, [isAr]);
 

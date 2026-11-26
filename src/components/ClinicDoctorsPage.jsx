@@ -396,7 +396,7 @@ const doctorsData = [
   },
   {
     id: 49, src: img49,
-    nameAr: 'سامية حكمي', nameEn: 'Samia Hakami',
+    nameAr: 'سامية حكمي', nameEn: 'Samia Hakami', noTitle: true,
     specialtyAr: 'أخصائية التغذية العلاجية', specialtyEn: 'Clinical Dietitian',
     detailsAr: ['تقييم الحالة الغذائية ووضع الخطط العلاجية المناسبة','إعداد برامج غذائية لمرضى السكري وارتفاع ضغط الدم','متابعة التغذية العلاجية للحالات المزمنة','وضع خطط غذائية لإنقاص أو زيادة الوزن بطريقة صحية','التثقيف الغذائي وتعزيز العادات الصحية السليمة'],
     detailsEn: ['Nutritional Assessment & Personalized Diet Planning','Diet Programs for Diabetes & Hypertension Patients','Clinical Nutrition Follow-up for Chronic Conditions','Healthy Weight Loss & Weight Gain Nutrition Plans','Nutrition Education & Healthy Lifestyle Counseling'],
@@ -612,8 +612,8 @@ const DoctorCard = ({ doc, isAr, index }) => {
   const openWhatsApp = (e) => {
     e.stopPropagation();
     const msg = isAr
-      ? `مرحباً، أود حجز موعد مع الدكتور ${doc.nameAr} — تخصص: ${doc.specialtyAr}`
-      : `Hello, I'd like to book an appointment with Dr. ${doc.nameEn} — Specialty: ${doc.specialtyEn}`;
+      ? `مرحباً، أود حجز موعد مع ${doc.noTitle ? '' : 'الدكتور '}${doc.nameAr} — تخصص: ${doc.specialtyAr}`
+      : `Hello, I'd like to book an appointment with ${doc.noTitle ? '' : 'Dr. '}${doc.nameEn} — Specialty: ${doc.specialtyEn}`;
     window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
   };
 
@@ -639,7 +639,7 @@ const DoctorCard = ({ doc, isAr, index }) => {
 
         <div className="card-info">
           <div className="doc-name-row">
-            <span className="doc-name">{isAr ? `د. ${name}` : `Dr. ${name}`}</span>
+            <span className="doc-name">{doc.noTitle ? name : (isAr ? `د. ${name}` : `Dr. ${name}`)}</span>
             <span className="doc-badge">#{doc.id}</span>
           </div>
           <p className="doc-specialty">{specialty}</p>
@@ -676,7 +676,7 @@ const DoctorCard = ({ doc, isAr, index }) => {
           </div>
           <button className="wa-btn-full" onClick={openWhatsApp}>
             <WAIcon />
-            <span>{isAr ? `احجز الآن مع د. ${doc.nameAr}` : `Book Now with Dr. ${doc.nameEn}`}</span>
+            <span>{isAr ? `احجز الآن مع ${doc.noTitle ? '' : 'د. '}${doc.nameAr}` : `Book Now with ${doc.noTitle ? '' : 'Dr. '}${doc.nameEn}`}</span>
           </button>
         </div>
       )}

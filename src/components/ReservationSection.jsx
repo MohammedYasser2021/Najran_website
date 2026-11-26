@@ -289,10 +289,11 @@ const ReservationSection = ({ currentLang }) => {
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
             backgroundImage: `url(${CoverBg})`,
-            backgroundAttachment: 'fixed'
+            backgroundSize: 'cover',
+            backgroundPosition: 'center top',
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-slate-900/50 via-slate-800/40 to-slate-900/50" />
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-900/30 via-slate-800/20 to-slate-900/40" />
 
         <div className="relative z-10 w-full px-6 md:px-10 xl:px-16 2xl:px-20">
           <div className="text-center mb-12 w-full">

@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
-import { doctors, PLACEHOLDER_IMG } from './doctorData';
+import { doctors, departments, PLACEHOLDER_IMG } from './doctorData';
 
 // @ts-ignore
 import vid4 from '../assets/doctors/vid4.mp4';
@@ -141,7 +141,7 @@ interface DoctorsProps {
   currentLang: string;
 }
 
-const doctorImages = [
+const rawDoctorImages = [
   { id: 1, src: img1 },
   { id: 4, src: img4 },
   { id: 5, src: img5 },
@@ -189,6 +189,46 @@ const doctorImages = [
   { id: 54, src: img57 },
     { id: 56, src: img56 },
 ];
+
+// ── ترتيب الفريق الطبي: أطباء كل قسم/مركز بجانب بعض ──────────────────────
+// الترتيب بيتبع ترتيب الأقسام في doctorData.ts (departments)، وكل طبيب
+// بيتحط في أول قسم بيظهر فيه، إلا الأطباء اللي في doctorGroupOverride
+// (عشان تخصصهم الفعلي يتجمع مع زمايلهم). أي طبيب مش مربوط بقسم بيروح في الآخر.
+// القيمة = رقم القسم (department id) في doctorData.ts
+const doctorGroupOverride: Record<number, number> = {
+  46: 14, // د. تربوش (أطفال وحديثي الولادة)  → مركز الأطفال
+  28: 14, // د. أميمة محجوب (عناية أطفال)       → مركز الأطفال
+  22: 7,  // د. محمد الصوار (جراحة عامة)        → مركز الجراحة العامة
+  16: 4,  // د. عبدالله اليامي (باطنة)          → مركز الطب الباطني
+  19: 4,  // د. محمود أسامة (باطنة)             → مركز الطب الباطني
+  20: 12, // د. محمد المطلق (أشعة تداخلية)      → مركز الأشعة التداخلية
+};
+
+const doctorOrder: number[] = (() => {
+  const groupOf = new Map<number, number>(); // doctorId -> department index
+  const appearance = new Map<number, number>(); // doctorId -> first appearance
+  let n = 0;
+  departments.forEach((dept, di) =>
+    dept.clinics.forEach(clinic =>
+      clinic.doctorIds.forEach(id => {
+        if (!groupOf.has(id)) { groupOf.set(id, di); appearance.set(id, n++); }
+      })
+    )
+  );
+  Object.entries(doctorGroupOverride).forEach(([id, deptId]) => {
+    const di = departments.findIndex(d => d.id === deptId);
+    if (di !== -1) groupOf.set(Number(id), di);
+  });
+  return [...groupOf.keys()].sort((a, b) =>
+    (groupOf.get(a)! - groupOf.get(b)!) || (appearance.get(a)! - appearance.get(b)!)
+  );
+})();
+
+const doctorImages = [...rawDoctorImages].sort((a, b) => {
+  const ia = doctorOrder.indexOf(a.id);
+  const ib = doctorOrder.indexOf(b.id);
+  return (ia === -1 ? Infinity : ia) - (ib === -1 ? Infinity : ib);
+});
 
 // Map doctor id → video src (only doctors that HAVE a video)
 const doctorVideos: Record<number, string> = {

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Award, Phone, MessageCircle } from 'lucide-react';
 // @ts-ignore
 import academyLogo from '../assets/academy_logo.png';
@@ -24,6 +24,16 @@ interface AcademyPageProps {
 }
 
 const AcademyPage: React.FC<AcademyPageProps> = ({ currentLang }) => {
+  // لو اللينك فيه #accreditations (من المنيو) ننزل لقسم الاعتمادات
+  useEffect(() => {
+    if (window.location.hash === '#accreditations') {
+      const t = setTimeout(() => {
+        document.getElementById('accreditations')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 700);
+      return () => clearTimeout(t);
+    }
+  }, []);
+
   const isAr = currentLang === 'ar';
 
   // ── Page 3: Academy Educational Programs ──
@@ -304,7 +314,7 @@ const AcademyPage: React.FC<AcademyPageProps> = ({ currentLang }) => {
       {/* ════════════════════════════════════════════════════════════
           PAGE 4 — Accreditations
       ════════════════════════════════════════════════════════════ */}
-<section style={{ background: '#fff', borderTop: '10px solid #7a1338' }}>
+<section id="accreditations" style={{ background: '#fff', borderTop: '10px solid #7a1338', scrollMarginTop: '90px' }}>
         <div className="flex items-center justify-center flex-wrap" style={{ padding: '48px 40px 0', gap: '24px' }}>
           <img src={academyLogo} alt="SNH Health Academy" style={{ height: '150px', objectFit: 'contain', flexShrink: 0 }} />
           <div style={{ textAlign: 'left' }}>

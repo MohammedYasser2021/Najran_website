@@ -80,6 +80,10 @@ import img46 from '../assets/doctors/46.png';
 // @ts-ignore
 import img47 from '../assets/doctors/47.png';
 // @ts-ignore
+import img59 from '../assets/doctors/59.jpeg';
+// @ts-ignore
+import img60 from '../assets/doctors/60.jpeg';
+// @ts-ignore
 import img48 from '../assets/doctors/48.png';
 // @ts-ignore
 import img49 from '../assets/doctors/49.png';
@@ -397,6 +401,44 @@ const doctors: Doctor[] = [
   id: 47, src: img47,
   nameAr: 'فاريما مالك', nameEn: 'Farima Malik',
   specialtyAr: 'طبيبة أسنان عام', specialtyEn: 'General Dentist',
+  detailsAr: [
+    'تشخيص وعلاج تسوس الأسنان وحشوات الأسنان',
+    'تنظيف الأسنان وإزالة الجير والتصبغات',
+    'علاج آلام والتهابات اللثة',
+    'خلع الأسنان البسيط عند الحاجة',
+    'متابعة صحة الفم والأسنان والوقاية الدورية'
+  ],
+  detailsEn: [
+    'Diagnosis & Treatment of Dental Caries & Fillings',
+    'Teeth Cleaning, Scaling & Stain Removal',
+    'Treatment of Gum Pain & Inflammation',
+    'Simple Tooth Extractions When Needed',
+    'Oral Health Checkups & Preventive Dental Care'
+  ],
+},
+{
+  id: 59, src: img59,
+  nameAr: 'عبد الله المصعبي', nameEn: 'Abdullah Al-Musabi',
+  specialtyAr: 'طبيب أسنان عام', specialtyEn: 'General Dentist',
+  detailsAr: [
+    'تشخيص وعلاج تسوس الأسنان وحشوات الأسنان',
+    'تنظيف الأسنان وإزالة الجير والتصبغات',
+    'علاج آلام والتهابات اللثة',
+    'خلع الأسنان البسيط عند الحاجة',
+    'متابعة صحة الفم والأسنان والوقاية الدورية'
+  ],
+  detailsEn: [
+    'Diagnosis & Treatment of Dental Caries & Fillings',
+    'Teeth Cleaning, Scaling & Stain Removal',
+    'Treatment of Gum Pain & Inflammation',
+    'Simple Tooth Extractions When Needed',
+    'Oral Health Checkups & Preventive Dental Care'
+  ],
+},
+{
+  id: 60, src: img60,
+  nameAr: 'سليمان كرحان', nameEn: 'Sulaiman Karhan',
+  specialtyAr: 'طبيب أسنان عام', specialtyEn: 'General Dentist',
   detailsAr: [
     'تشخيص وعلاج تسوس الأسنان وحشوات الأسنان',
     'تنظيف الأسنان وإزالة الجير والتصبغات',

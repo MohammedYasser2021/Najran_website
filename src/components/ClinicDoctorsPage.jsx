@@ -81,6 +81,10 @@ import img46 from '../assets/doctors/46.png';
 // @ts-ignore
 import img47 from '../assets/doctors/47.png';
 // @ts-ignore
+import img59 from '../assets/doctors/59.jpeg';
+// @ts-ignore
+import img60 from '../assets/doctors/60.jpeg';
+// @ts-ignore
 import img48 from '../assets/doctors/48.png';
 // @ts-ignore
 import img49 from '../assets/doctors/49.png';
@@ -370,6 +374,20 @@ const doctorsData = [
     detailsEn: ['Diagnosis & Treatment of Dental Caries & Fillings','Teeth Cleaning, Scaling & Stain Removal','Treatment of Gum Pain & Inflammation','Simple Tooth Extractions When Needed','Oral Health Checkups & Preventive Dental Care'],
   },
   {
+    id: 59, src: img59,
+    nameAr: 'عبد الله المصعبي', nameEn: 'Abdullah Al-Musabi',
+    specialtyAr: 'طبيب أسنان عام', specialtyEn: 'General Dentist',
+    detailsAr: ['تشخيص وعلاج تسوس الأسنان وحشوات الأسنان','تنظيف الأسنان وإزالة الجير والتصبغات','علاج آلام والتهابات اللثة','خلع الأسنان البسيط عند الحاجة','متابعة صحة الفم والأسنان والوقاية الدورية'],
+    detailsEn: ['Diagnosis & Treatment of Dental Caries & Fillings','Teeth Cleaning, Scaling & Stain Removal','Treatment of Gum Pain & Inflammation','Simple Tooth Extractions When Needed','Oral Health Checkups & Preventive Dental Care'],
+  },
+  {
+    id: 60, src: img60,
+    nameAr: 'سليمان كرحان', nameEn: 'Sulaiman Karhan',
+    specialtyAr: 'طبيب أسنان عام', specialtyEn: 'General Dentist',
+    detailsAr: ['تشخيص وعلاج تسوس الأسنان وحشوات الأسنان','تنظيف الأسنان وإزالة الجير والتصبغات','علاج آلام والتهابات اللثة','خلع الأسنان البسيط عند الحاجة','متابعة صحة الفم والأسنان والوقاية الدورية'],
+    detailsEn: ['Diagnosis & Treatment of Dental Caries & Fillings','Teeth Cleaning, Scaling & Stain Removal','Treatment of Gum Pain & Inflammation','Simple Tooth Extractions When Needed','Oral Health Checkups & Preventive Dental Care'],
+  },
+  {
     id: 48, src: img48,
     nameAr: 'عمرو موسى', nameEn: 'Amr Mousa',
     specialtyAr: 'أخصائي طب العيون', specialtyEn: 'Ophthalmology Specialist',
@@ -549,11 +567,11 @@ const departmentsData = [
   // ── 15. مركز طب الأسنان المتخصص (دنت سمايل) ────────────────────────────
   { id: 15, nameAr: 'مركز طب الأسنان المتخصص (دنت سمايل)', nameEn: 'Specialized Dental Center (Dent Smile)', clinics: [
     { nameAr: 'عيادة تقويم الأسنان وعظام الوجه والفكين', nameEn: 'Orthodontics, Jaw & Facial Bones Clinic', doctorIds: [31] },
-    { nameAr: 'عيادة التركيبات والحشوات التجميلية للأسنان', nameEn: 'Cosmetic Fillings & Prosthetics Clinic', doctorIds: [47] },
+    { nameAr: 'عيادة التركيبات والحشوات التجميلية للأسنان', nameEn: 'Cosmetic Fillings & Prosthetics Clinic', doctorIds: [47, 59, 60] },
     { nameAr: 'عيادة زراعة الأسنان', nameEn: 'Dental Implants Clinic', doctorIds: [47] },
     { nameAr: 'عيادة جراحة الوجه والفكين', nameEn: 'Oral & Maxillofacial Surgery Clinic', doctorIds: [] },
-    { nameAr: 'عيادة أمراض اللثة', nameEn: 'Periodontal Diseases Clinic', doctorIds: [47] },
-    { nameAr: 'عيادة أسنان الأطفال', nameEn: 'Pediatric Dentistry Clinic', doctorIds: [47] },
+    { nameAr: 'عيادة أمراض اللثة', nameEn: 'Periodontal Diseases Clinic', doctorIds: [47, 59, 60] },
+    { nameAr: 'عيادة أسنان الأطفال', nameEn: 'Pediatric Dentistry Clinic', doctorIds: [47, 59, 60] },
     { nameAr: 'عيادة علاج جذور الأسنان', nameEn: 'Endodontics (Root Canal) Clinic', doctorIds: [4, 47] },
   ]},
 

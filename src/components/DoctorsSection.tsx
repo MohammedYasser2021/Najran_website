@@ -121,6 +121,10 @@ import img46 from '../assets/doctors/46.png';
 // @ts-ignore
 import img47 from '../assets/doctors/47.png';
 // @ts-ignore
+import img59 from '../assets/doctors/59.jpeg';
+// @ts-ignore
+import img60 from '../assets/doctors/60.jpeg';
+// @ts-ignore
 import img48 from '../assets/doctors/48.png';
 // @ts-ignore
 import img49 from '../assets/doctors/49.png';
@@ -180,6 +184,8 @@ const rawDoctorImages = [
   { id: 45, src: img45 },
   { id: 46, src: img46 },
   { id: 47, src: img47 },
+  { id: 59, src: img59 },
+  { id: 60, src: img60 },
   { id: 48, src: img48 },
   { id: 49, src: img49 },
   { id: 50, src: img50 },

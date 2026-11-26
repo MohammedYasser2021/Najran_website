@@ -312,6 +312,20 @@ export const doctors: Doctor[] = [
   detailsEn: ['Diagnosis & Treatment of Dental Caries & Fillings','Teeth Cleaning, Scaling & Stain Removal','Treatment of Gum Pain & Inflammation','Simple Tooth Extractions When Needed','Oral Health Checkups & Preventive Dental Care'],
 },
 {
+  id: 59, imgFile: '59.jpeg',
+  nameAr: 'عبد الله المصعبي', nameEn: 'Abdullah Al-Musabi',
+  specialtyAr: 'طبيب أسنان عام', specialtyEn: 'General Dentist',
+  detailsAr: ['تشخيص وعلاج تسوس الأسنان وحشوات الأسنان','تنظيف الأسنان وإزالة الجير والتصبغات','علاج آلام والتهابات اللثة','خلع الأسنان البسيط عند الحاجة','متابعة صحة الفم والأسنان والوقاية الدورية'],
+  detailsEn: ['Diagnosis & Treatment of Dental Caries & Fillings','Teeth Cleaning, Scaling & Stain Removal','Treatment of Gum Pain & Inflammation','Simple Tooth Extractions When Needed','Oral Health Checkups & Preventive Dental Care'],
+},
+{
+  id: 60, imgFile: '60.jpeg',
+  nameAr: 'سليمان كرحان', nameEn: 'Sulaiman Karhan',
+  specialtyAr: 'طبيب أسنان عام', specialtyEn: 'General Dentist',
+  detailsAr: ['تشخيص وعلاج تسوس الأسنان وحشوات الأسنان','تنظيف الأسنان وإزالة الجير والتصبغات','علاج آلام والتهابات اللثة','خلع الأسنان البسيط عند الحاجة','متابعة صحة الفم والأسنان والوقاية الدورية'],
+  detailsEn: ['Diagnosis & Treatment of Dental Caries & Fillings','Teeth Cleaning, Scaling & Stain Removal','Treatment of Gum Pain & Inflammation','Simple Tooth Extractions When Needed','Oral Health Checkups & Preventive Dental Care'],
+},
+{
   id: 48,
   imgFile: '48.png',
   nameAr: 'عمرو موسى',
@@ -828,7 +842,7 @@ export const departments: Department[] = [
       {
         idAr: 'عيادة التركيبات والحشوات التجميلية للأسنان', idEn: 'Cosmetic Fillings & Prosthetics Clinic',
         nameAr: 'عيادة التركيبات والحشوات التجميلية للأسنان', nameEn: 'Cosmetic Fillings & Prosthetics Clinic',
-        doctorIds: [47],
+        doctorIds: [47, 59, 60],
       },
       {
         idAr: 'عيادة زراعة الأسنان', idEn: 'Dental Implants Clinic',
@@ -843,12 +857,12 @@ export const departments: Department[] = [
       {
         idAr: 'عيادة أمراض اللثة', idEn: 'Periodontal Diseases Clinic',
         nameAr: 'عيادة أمراض اللثة', nameEn: 'Periodontal Diseases Clinic',
-        doctorIds: [47],
+        doctorIds: [47, 59, 60],
       },
       {
         idAr: 'عيادة أسنان الأطفال', idEn: 'Pediatric Dentistry Clinic',
         nameAr: 'عيادة أسنان الأطفال', nameEn: 'Pediatric Dentistry Clinic',
-        doctorIds: [47],
+        doctorIds: [47, 59, 60],
       },
       {
         idAr: 'عيادة علاج جذور الأسنان', idEn: 'Endodontics (Root Canal) Clinic',

@@ -110,7 +110,7 @@ const MainNavbar = ({ currentLang, changeLanguage }: MainNavbarProps) => {
     { key: 'marengo', label: isArabic ? 'مارينجو أسيا' : 'Marengo Asia', href: 'https://www.marengoasiahospitals.com/', external: true },
     { key: 'depts',    label: isArabic ? 'الأقسام'          : 'Departments',   href: null, hasDeptDropdown: true },
     { key: 'doctors',  label: isArabic ? 'الأطباء'          : 'Doctors',       href: '/doctors' },
-    { key: 'academy',  label: isArabic ? 'الأكاديمية'       : 'Academy',       href: 'https://snhacademy.net/' },
+    { key: 'academy',  label: isArabic ? 'الأكاديمية'       : 'Academy',       href: '/academy' },
     { key: 'accreditations', label: isArabic ? 'الاعتمادات' : 'Accreditation', href: '/academy#accreditations' },
     { key: 'blog',     label: isArabic ? 'المركز الإعلامي' : 'Media Center',   href: null, hasMediaDropdown: true },
     { key: 'articles', label: isArabic ? 'المقالات'         : 'Articles',      href: '/articles' },
